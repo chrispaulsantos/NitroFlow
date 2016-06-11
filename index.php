@@ -1,8 +1,19 @@
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
+
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="src/js/insert_data.js" type="text/javascript"></script>
+        <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
     </head>
     <body>
+        <div class="ui center aligned container" style="width:1200px">
+            <div id="columnchart_material" style="width: 1200px; height: 700px;"></div>
+        </div>
+        <script>
+            height = window.innerHeight;
+            $('.ui.container').css("margin-top", height/2-(700/2));
+        </script>
     </body>
 </html>
