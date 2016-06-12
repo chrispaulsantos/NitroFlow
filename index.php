@@ -3,13 +3,13 @@
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="src/js/Chart.js"></script>
         <script src="src/js/insert_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="ui center aligned container" style="width:1200px">
-            <div id="columnchart_material" style="width: 1200px; height: 700px;"></div>
+            <canvas id="chart" width="1200" height="700"></div>
         </div>
         <script>
             height = window.innerHeight;
