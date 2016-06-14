@@ -9,10 +9,13 @@
     $locs = [];
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $location = new location();
+
+        error_log(json_encode($row));
+
+        /*$location = new location();
         $location->id = $row["P_Id"];
         $location->location = $row["location"];
         error_log(json_encode($location));
-        $locs[] = $location;
+        $locs[] = $location;*/
     }
     //error_log(json_encode($locs));
