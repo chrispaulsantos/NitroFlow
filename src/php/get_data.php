@@ -3,7 +3,7 @@
     require_once "database_connect.php";
     require "location_object.php";
 
-    $stmt = DBConnection::instance()->prepare("SELECT * FROM Location_Data");
+    $stmt = DBConnection::instance()->prepare("SELECT DISTINCT P_ID FROM Location_Data ORDER BY time_stamp DESC");
     $stmt->execute();
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
