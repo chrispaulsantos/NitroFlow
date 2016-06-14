@@ -2,10 +2,11 @@
 
     require_once "database_connect.php";
     require "location_object.php";
-    error_log("In get data");
 
     $stmt = DBConnection::instance()->prepare("SELECT DISTINCT P_Id FROM Location ORDER BY time_stamp DESC");
     $stmt->execute();
+
+    error_log("After execute");
 
     $locs = [];
 
