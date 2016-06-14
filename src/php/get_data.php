@@ -3,7 +3,7 @@
     require_once "database_connect.php";
     require "location_object.php";
 
-    $stmt = DBConnection::instance()->prepare("SELECT DISTINCT `P_Id` FROM `Location` ORDER BY `time_stamp` DESC");
+    $stmt = DBConnection::instance()->prepare("SELECT DISTINCT `P_Id` FROM `Locations` ORDER BY `time_stamp` DESC");
     error_log($stmt->execute());
 
 
