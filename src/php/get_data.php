@@ -1,6 +1,7 @@
 <?php
 
     require_once "database_connect.php";
+    require "location_object.php";
 
     $stmt = DBConnection::instance()->prepare("SELECT * FROM Location_Data");
     $stmt->execute();
