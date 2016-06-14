@@ -13,4 +13,4 @@
 
         $locs[] = $location;
     }
-    error_log($locs);
+    error_log(json_encode($locs));
