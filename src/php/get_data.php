@@ -11,6 +11,6 @@
         $location->id = $row["P_Id"];
         $location->location = $row["current_capacity"];
 
-        $loc[] = $location;
+        $locs[] = $location;
     }
-    echo json_encode($locs);
+    error_log($locs);
