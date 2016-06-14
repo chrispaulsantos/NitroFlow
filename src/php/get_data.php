@@ -12,4 +12,4 @@
 
         $loc[] = $location;
     }
-    echo json_encode($location);
+    echo json_encode($locs);
