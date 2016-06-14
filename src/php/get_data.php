@@ -6,7 +6,7 @@
     $stmt = DBConnection::instance()->prepare("SELECT DISTINCT P_Id FROM Location ORDER BY time_stamp DESC");
     $stmt->execute();
 
-    $locs = array();
+    $locs = [];
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $location = new location();
