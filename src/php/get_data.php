@@ -12,7 +12,7 @@
         $location = new location();
         $location->id = $row["P_Id"];
         $location->location = $row["location"];
-
+        error_log(json_encode($location));
         $locs[] = $location;
     }
-    error_log(json_encode($locs));
+    //error_log(json_encode($locs));
