@@ -4,15 +4,15 @@
     require "location_object.php";
 
     $stmt = DBConnection::instance()->prepare("SELECT DISTINCT P_Id FROM Location ORDER BY time_stamp DESC");
-    $stmt->execute();
+    error_log($stmt->execute());
 
-    error_log("After execute");
+
 
     $locs = [];
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
-        error_log(json_encode($row));
+        error_log("In the loop");
 
         /*$location = new location();
         $location->id = $row["P_Id"];
