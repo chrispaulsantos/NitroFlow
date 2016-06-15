@@ -38,6 +38,8 @@
         }
         if(count($rows) > 1){
             $row = $rows[count($rows)-1];
+        } else {
+            $row = $row[0];
         }
 
         // Create new location object to be returned to the js for processing
