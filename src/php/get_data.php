@@ -12,20 +12,14 @@
         $args = $_GET['args'];
     }
 
-    error_log(json_encode($args));
-
-    $query = constructQuery($args);
-    error_log($query);
-
     try {
-        $stmt = DBConnection::instance()->prepare($query);
+        $stmt = DBConnection::instance()->prepare(constructQuery($args));
     } catch(Exception $e){
         error_log("Error: " .$e->getMessage());
     }
 
     try {
-        error_log(json_encode($stmt));
-        error_log($stmt->execute());
+        $stmt->execute();
     } catch(Exception $e){
         error_log("Error: " . $e->getMessage());
     }
@@ -33,8 +27,6 @@
     $locations = [];
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        error_log("In the while");
-        error_log(json_encode($row));
         $location = new location();
         $location->id = $row["P_Id"];
         $location->location = $row["location"];
