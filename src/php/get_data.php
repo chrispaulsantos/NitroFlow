@@ -24,8 +24,6 @@
         error_log("Error: " .$e->getMessage());
     }
 
-    error_log(json_encode($stmt));
-
     $stmt->bindParam(":id", $id);
 
     try {
@@ -41,6 +39,7 @@
         $location->id = $row["P_Id"];
         $location->location = $row["location"];
         $location->current_capacity = $row["current_capacity"];
+        $location->time = $row["time_stamp"];
         error_log(json_encode($location));
         $locations[] = $location;
     }

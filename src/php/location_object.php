@@ -6,6 +6,7 @@
         public $id;
         public $location;
         public $current_capacity;
+        public $time;
 
         public function insertLocation() {
             $stmt = DBConnection::instance()->prepare("INSERT INTO Locations('location') VALUES(':loc')");
