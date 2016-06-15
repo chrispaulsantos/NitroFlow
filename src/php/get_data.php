@@ -23,6 +23,7 @@
     }
 
     try {
+        error_log(json_encode($stmt));
         error_log($stmt->execute());
     } catch(Exception $e){
         error_log("Error: " . $e->getMessage());
