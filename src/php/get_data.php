@@ -11,12 +11,20 @@
     if( $_GET != null ) {
         $args = $_GET['args'];
     }
+    $id = 1;
+
+    $query = "SELECT Locations.P_Id, Locations.location, Location_Data.current_capacity, Location_Data.time_stamp".
+             "FROM Locations JOIN Location_Data ON Locations.P_Id = Location_Data.P_Id".
+             "WHERE Location_Data.time_stamp = (SELECT MAX(Location_Data.time_stamp)".
+             "FROM Location_Data WHERE Location_Data.P_Id = :id) AND Locations.P_Id = :id";
 
     try {
-        $stmt = DBConnection::instance()->prepare(constructQuery($args));
+        $stmt = DBConnection::instance()->prepare($query);
     } catch(Exception $e){
         error_log("Error: " .$e->getMessage());
     }
+
+    $stmt->bindParam(":id", $id);
 
     try {
         $stmt->execute();
@@ -30,19 +38,10 @@
         $location = new location();
         $location->id = $row["P_Id"];
         $location->location = $row["location"];
+        $location->current_capacity = $row["current_capacity"];
         $locations[] = $location;
     }
-
-    /*$stmt = DBConnection::instance()->prepare("SELECT * FROM `Location_Data` ORDER BY `time_stamp` DESC");
-    error_log($stmt->execute());
-
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        foreach($locations as $location){
-            if($row["P_Id"] == $location->id){
-                $location->current_capacity = $row["current_capacity"];
-            }
-        }
-    }*/
+    error_log(json_encode($locations));
 
     /**
      * @param $args
@@ -51,10 +50,10 @@
      * will return only one WHERE. If there is more than one object in args, it will construct a query containing
      * multiple WHERE's, and append an AND where it is needed.
      */
-    function constructQuery( $args ) {
+    function constructQuery( $baseQuery, $args, $extendQuery ) {
 
         // Base query (SELECT ALL)
-        $query = "SELECT * FROM Locations ";
+        $query = $baseQuery;
         $ct = 0;
 
         // If only one value, return query with one value, else return multiple WHERE query
@@ -73,5 +72,5 @@
         }
 
         // Return the constructed query
-        return $query;
+        return $query . $extendQuery;
     }
