@@ -17,7 +17,7 @@
     error_log($query);
 
     try {
-        $stmt = DBConnection::instance()->prepare(;
+        $stmt = DBConnection::instance()->prepare($query);
     } catch(Exception $e){
         error_log("Error: " .$e->getMessage());
     }
