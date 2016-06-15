@@ -24,6 +24,8 @@
         error_log("Error: " .$e->getMessage());
     }
 
+    error_log(json_encode($stmt));
+
     $stmt->bindParam(":id", $id);
 
     try {
