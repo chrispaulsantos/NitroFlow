@@ -11,6 +11,8 @@
         $args = $_GET['args'];
     }
 
+    error_log(json_encode($args));
+
     $stmt = DBConnection::instance()->prepare(constructQuery($args));
     error_log($stmt->execute());
 
@@ -24,7 +26,7 @@
         $locations[] = $location;
     }
 
-    $stmt = DBConnection::instance()->prepare("SELECT * FROM `Location_Data` ORDER BY `time_stamp` DESC");
+    /*$stmt = DBConnection::instance()->prepare("SELECT * FROM `Location_Data` ORDER BY `time_stamp` DESC");
     error_log($stmt->execute());
 
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -33,7 +35,7 @@
                 $location->current_capacity = $row["current_capacity"];
             }
         }
-    }
+    }*/
 
     /**
      * @param $args
