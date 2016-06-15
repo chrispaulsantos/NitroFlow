@@ -33,14 +33,15 @@
          * should always be the lowest value, since the query is last timestamp based.
          */
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            error_log(json_encode($row));
             $rows[] = $row;
         }
         if(count($rows) > 1){
             $row = $rows[count($rows)-1];
         } else {
-            $row = $row[0];
+            $row = $rows[0];
         }
+
+
 
         // Create new location object to be returned to the js for processing
         $location = new location();
