@@ -18,7 +18,7 @@
 
     // Loop over the selected id's and execute the query for each id
     foreach($ids as $id){
-        error_log($id);
+        //error_log($id);
         // Prepare the query for execution
         try {
             $stmt = DBConnection::instance()->prepare($query);
@@ -33,6 +33,7 @@
          * should always be the lowest value, since the query is last timestamp based.
          */
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            error_log($row);
             $rows[] = $row;
         }
         if(count($rows) > 1){
@@ -45,7 +46,7 @@
         $location->location = $row["location"];
         $location->current_capacity = $row["current_capacity"];
         $location->time = $row["time_stamp"];
-        error_log(json_encode($location));
+        //error_log(json_encode($location));
         $locations[] = $location;
     }
 
