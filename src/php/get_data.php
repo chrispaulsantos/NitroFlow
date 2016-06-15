@@ -17,7 +17,12 @@
     error_log($query);
 
     $stmt = DBConnection::instance()->prepare($query);
-    error_log($stmt->execute());
+
+    try {
+        $stmt->execute();
+    } catch(Exception $e){
+        error_log("Error" . $e->getMessage());
+    }
 
     $locations = [];
 
