@@ -3,38 +3,43 @@
     require_once "database_connect.php";
     require "location_object.php";
 
-
-
-    $args = [];
-    $args[0] = array('key'=>'`location`','value'=>"'200 Seaport Blvd'");
-    $args[1] = array('key'=>'`location`','value'=>"'245 Summer Street'");
+    // Array of id's gotten from the js responsible for hitting the database
+    $ids = null;
     if( $_GET != null ) {
-        $args = $_GET['args'];
+        $ids = $_GET['ids'];
     }
-    $id = 1;
+    $id = array(1, 2, 3);
 
     $query = "SELECT Locations.P_Id, Locations.location, Location_Data.current_capacity, Location_Data.time_stamp ".
              "FROM Locations JOIN Location_Data ON Locations.P_Id = Location_Data.P_Id ".
              "WHERE Location_Data.time_stamp = (SELECT MAX(Location_Data.time_stamp) ".
              "FROM Location_Data WHERE Location_Data.P_Id = :id) AND Locations.P_Id = :id";
-
-    try {
-        $stmt = DBConnection::instance()->prepare($query);
-    } catch(Exception $e){
-        error_log("Error: " .$e->getMessage());
-    }
-
-    $stmt->bindParam(":id", $id);
-
-    try {
-        $stmt->execute();
-    } catch(Exception $e){
-        error_log("Error: " . $e->getMessage());
-    }
-
     $locations = [];
 
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    // Loop over the selected id's and execute the query for each id
+    foreach ($ids as $id){
+
+        // Prepare the query for execution
+        try {
+            $stmt = DBConnection::instance()->prepare($query);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+        } catch(Exception $e){
+            error_log("Error: " .$e->getMessage());
+        }
+
+        /**
+         * One row should be returned, if more than one, select the last value in the rows returned, this value
+         * should always be the lowest value, since the query is last timestamp based.
+         */
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $rows[] = $row;
+        }
+        if(count($rows) > 1){
+            $row = $rows[count($rows)-1];
+        }
+
+        // Create new location object to be returned to the js for processing
         $location = new location();
         $location->id = $row["P_Id"];
         $location->location = $row["location"];
@@ -43,36 +48,6 @@
         error_log(json_encode($location));
         $locations[] = $location;
     }
+
+    echo json_encode($locations);
     error_log(json_encode($locations));
-
-    /**
-     * @param $args
-     * @return string
-     * This function constructs a SQL query built off of multiple WHERE parameters. If there is one value in args, it
-     * will return only one WHERE. If there is more than one object in args, it will construct a query containing
-     * multiple WHERE's, and append an AND where it is needed.
-     */
-    function constructQuery( $baseQuery, $args, $extendQuery ) {
-
-        // Base query (SELECT ALL)
-        $query = $baseQuery;
-        $ct = 0;
-
-        // If only one value, return query with one value, else return multiple WHERE query
-        if( count( $args) == 1) {
-            $query .= "WHERE " . $args[0]["key"] . " = " . $args[0]["value"];
-        } else if( count( $args) > 1) {
-            $query .= "WHERE ";
-            for($ct = 0; $ct < count($args); $ct++){
-                $query .= $args[$ct]["key"] . " = " . $args[$ct]["value"];
-
-                // Appends an AND up until ct - 1 (Since no AND is needed after the last WHERE
-                if($ct < count( $args) - 1){
-                    $query .= " AND ";
-                }
-            }
-        }
-
-        // Return the constructed query
-        return $query . $extendQuery;
-    }
