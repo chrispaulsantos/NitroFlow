@@ -7,6 +7,7 @@
 
     $args = [];
     $args[0] = array('key'=>'`location`','value'=>"'200 Seaport Blvd'");
+    $args[1] = array('key'=>'`location`','value'=>"'245 Summer Street'");
     if( $_GET != null ) {
         $args = $_GET['args'];
     }
