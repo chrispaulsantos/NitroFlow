@@ -16,7 +16,7 @@
     $query = constructQuery($args);
     error_log($query);
 
-    $stmt = DBConnection::instance()->prepare();
+    $stmt = DBConnection::instance()->prepare($query);
     error_log($stmt->execute());
 
     $locations = [];
