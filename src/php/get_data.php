@@ -33,7 +33,7 @@
          * should always be the lowest value, since the query is last timestamp based.
          */
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            error_log($row);
+            error_log(json_encode($row));
             $rows[] = $row;
         }
         if(count($rows) > 1){
