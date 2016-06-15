@@ -13,7 +13,10 @@
 
     error_log(json_encode($args));
 
-    $stmt = DBConnection::instance()->prepare(constructQuery($args));
+    $query = constructQuery($args);
+    error_log($query);
+
+    $stmt = DBConnection::instance()->prepare();
     error_log($stmt->execute());
 
     $locations = [];
