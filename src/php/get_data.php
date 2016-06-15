@@ -17,7 +17,7 @@
     error_log($query);
 
     try {
-        $stmt = DBConnection::instance()->prepare($query);
+        $stmt = DBConnection::instance()->prepare("SELECT * FROM Locations");
     } catch(Exception $e){
         error_log("Error: " .$e->getMessage());
     }
