@@ -18,7 +18,7 @@
 
     // Loop over the selected id's and execute the query for each id
     foreach($ids as $id){
-
+        error_log($id);
         // Prepare the query for execution
         try {
             $stmt = DBConnection::instance()->prepare($query);
@@ -50,4 +50,4 @@
     }
 
     echo json_encode($locations);
-    error_log(json_encode($locations));
+    //error_log(json_encode($locations));
