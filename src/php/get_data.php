@@ -23,7 +23,7 @@
     }
 
     try {
-        $stmt->execute();
+        error_log($stmt->execute());
     } catch(Exception $e){
         error_log("Error: " . $e->getMessage());
     }
