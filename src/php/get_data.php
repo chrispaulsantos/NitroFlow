@@ -39,6 +39,7 @@
         $location->id = $row["P_Id"];
         $location->location = $row["location"];
         $location->current_capacity = $row["current_capacity"];
+        error_log(json_encode($location));
         $locations[] = $location;
     }
     error_log(json_encode($locations));
