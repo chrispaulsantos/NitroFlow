@@ -6,7 +6,7 @@
 
 
     $args = [];
-    $args[0] = array('key'=>'`location`','value'=>'`200 Seaport Blvd`');
+    $args[0] = array('key'=>'`location`','value'=>'200 Seaport Blvd');
     if( $_GET != null ) {
         $args = $_GET['args'];
     }
@@ -17,7 +17,7 @@
     error_log($query);
 
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT * FROM Locations");
+        $stmt = DBConnection::instance()->prepare($query;
     } catch(Exception $e){
         error_log("Error: " .$e->getMessage());
     }
