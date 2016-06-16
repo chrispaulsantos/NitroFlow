@@ -11,6 +11,7 @@
         <div class="ui center aligned container" style="width:900px">
             <canvas id="chart" width="900" height="600"></div>
         </div>
+        <div id="time">Last Updated: </div>
         <script>
             height = window.innerHeight;
             $('.ui.container').css("margin-top", height/2-(700/2));

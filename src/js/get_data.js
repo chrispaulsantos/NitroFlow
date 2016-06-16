@@ -45,6 +45,8 @@ $(document).ready(function() {
             var obj = JSON.parse(response);
             build_Data(data, obj);
             
+            $("#time").empty().append("Last Updated: " + obj[0]["time_stamp"]);
+            
             if(myBarChart == null){
                 var ctx = document.getElementById("chart");
                 myBarChart = new Chart(ctx, {
