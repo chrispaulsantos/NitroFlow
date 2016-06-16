@@ -40,7 +40,7 @@ $(document).ready(function() {
         dataType: "text"
     }).done(function(response) {
         var obj = JSON.parse(response);
-        build_Data(obj);
+        build_Data(data, obj);
         //myBarChart.update();
 
         var ctx = document.getElementById("chart");
@@ -53,7 +53,7 @@ $(document).ready(function() {
     });
 });
 
-function build_Data(obj){
+function build_Data(data, obj){
 
     for(i = 0; i < obj.length; i++){
         data.datasets[0].data[i] = obj[i]["current_capacity"];
