@@ -12,7 +12,7 @@ $(document).ready(function(){
                 datatype: "text"
             }).done(function(response) {
                 console.log(response);
-                capacity = capacity - 5*Math.abs(Math.sin(Math.random(1,100)));
+                capacity = capacity - 2*Math.abs(Math.sin(Math.random(1,100)));
                 data.datasets[0].data[0] = capacity;
                 data.datasets[0].data[5] = capacity-Math.abs((Math.floor((Math.random() * 15) + 1)));
                 data.datasets[0].data[10] = capacity-Math.abs((Math.floor((Math.random() * 17) + 1)));
