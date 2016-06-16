@@ -4,12 +4,12 @@
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script type="text/javascript" src="src/js/Chart.js"></script>
-        <script src="src/js/insert_data.js" type="text/javascript"></script>
+        <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="ui center aligned container" style="width:1200px">
-            <canvas id="chart" width="1200" height="700"></div>
+            <canvas id="chart" width="900" height="600"></div>
         </div>
         <script>
             height = window.innerHeight;
