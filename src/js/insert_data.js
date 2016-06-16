@@ -12,7 +12,7 @@ $(document).ready(function(){
                 datatype: "text"
             }).done(function(response) {
                 console.log(response);
-                data.datasets[0].data[0] = capacity;
+                data.datasets[0].data[0] = capacity - 5*abs(Math.sin(rand(1,100)));
                 data.datasets[0].data[5] = capacity-Math.abs((Math.floor((Math.random() * 15) + 1)));
                 data.datasets[0].data[10] = capacity-Math.abs((Math.floor((Math.random() * 17) + 1)));
                 myBarChart.update();
@@ -24,7 +24,7 @@ $(document).ready(function(){
         } else {
             clearInterval(inter);
         }
-    }, 10);
+    }, 2000);
 
     var data = {
         labels: ["200 Seaport", "245 Summer", " 1 Congress", "345 State", "2 Quincy Market","200 Seaport", "245 Summer", " 1 Congress", "345 State", "2 Quincy Market",

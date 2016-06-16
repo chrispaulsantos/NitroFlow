@@ -58,7 +58,7 @@ $(document).ready(function() {
                 myBarChart.update();
             }
         });
-    },50);
+    }, 2000);
     
 });
 
