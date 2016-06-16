@@ -12,48 +12,7 @@
             <div class="ui right aligned container">
                 <canvas id="chart"></div>
             </div>
-           <!-- <div class="ui left aligned container">
-                <div class="ui fluid middle aligned card">
-                    <div class="content">
-
-                        <form action="" method='GET' class="ui form" style="" >
-
-                            <div class ="four fields">
-                                <div class="field">
-                                    <select class="ui fluid required dropdown" name="brand">
-                                        <option value="">Select Brand</option>
-                                        <option value="ALL" selected>Select All Brands</option>
-
-                                    </select>
-                                </div>
-                                <div class="field">
-                                    <select class="ui dropdown" name="condition">
-                                        <option value=""> Select Condition</option>
-                                        <option value="ALL" selected>Select All Conditions</option>
-                                    </select>
-                                </div>
-                                <div class="field">
-                                    <select class="ui fluid required dropdown" name="series">
-                                        <option value="">Select Series</option>
-                                        <option value="ALL" selected>Select All Series</option>
-
-                                    </select>
-                                </div>
-                                <div class="field">
-                                    <select class="ui fluid required dropdown" name="issue">
-                                        <option value="">Select Issue</option>
-                                        <option value="ALL" selected>Select All Issues</option>
-                                    </select>
-                                </div>
-                        </form>
-
-                        <div class="ui containter left aligned">
-                            <button class='ui left aligned button' type="button" value="Submit" id="get_button">Submit</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>-->
+           <div id="error" style="color: #ff0000;"><div>
 
         </div>
         <div id="time">Last Updated: </div>
