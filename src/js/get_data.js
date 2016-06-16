@@ -25,6 +25,7 @@ $(document).ready(function() {
             }]
         }
     };
+    var myBarChart = null;
     
     ids = [];
     ids.push(1);
@@ -32,26 +33,31 @@ $(document).ready(function() {
     ids.push(3);
     ids.push(4);
     
-    $.ajax({
-        url: "src/php/get_data.php",
-        type: "GET",
-        data: {
-            ids: ids
-        },
-        dataType: "text"
-    }).done(function(response) {
-        var obj = JSON.parse(response);
-        build_Data(data, obj);
-        //myBarChart.update();
-
-        var ctx = document.getElementById("chart");
-
-        var myBarChart = new Chart(ctx, {
-            type: 'bar',
-            data: data,
-            options: options
+    setInterval(function(){
+        $.ajax({
+            url: "src/php/get_data.php",
+            type: "GET",
+            data: {
+                ids: ids
+            },
+            dataType: "text"
+        }).done(function(response) {
+            var obj = JSON.parse(response);
+            build_Data(data, obj);
+            
+            if(myBarChart == null){
+                var ctx = document.getElementById("chart");
+                myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: options
+                });
+            } else {
+                myBarChart.update();
+            }
         });
-    });
+    },5000);
+    
 });
 
 function build_Data(data, obj){
