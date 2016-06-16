@@ -61,11 +61,8 @@ $(document).ready(function() {
 });
 
 function build_Data(data, obj){
-
     for(i = 0; i < obj.length; i++){
         data.datasets[0].data[i] = obj[i]["current_capacity"];
         data.labels[i] = obj[i]["location"];
     }
-
-    console.log(data);
 }
