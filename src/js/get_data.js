@@ -13,6 +13,6 @@ $(document).ready(function() {
         },
         dataType: "text"
     }).done(function(response) {
-        console.log(response);
+        console.log(var obj = JSON.parse(response));
     });
 });
