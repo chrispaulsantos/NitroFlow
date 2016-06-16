@@ -24,7 +24,7 @@ $(document).ready(function(){
         } else {
             clearInterval(inter);
         }
-    }, 2000);
+    }, 10);
 
     var data = {
         labels: ["200 Seaport", "245 Summer", " 1 Congress", "345 State", "2 Quincy Market","200 Seaport", "245 Summer", " 1 Congress", "345 State", "2 Quincy Market",

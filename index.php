@@ -8,13 +8,61 @@
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="ui center aligned container" style="width:900px">
-            <canvas id="chart" width="900" height="600"></div>
+        <div id="content" class="ui container">
+            <div class="ui right aligned container">
+                <canvas id="chart"></div>
+            </div>
+            <div class="ui left aligned container">
+                <div class="ui fluid middle aligned card">
+                    <div class="content">
+
+                        <form action="" method='GET' class="ui form" style="" >
+
+                            <div class ="four fields">
+                                <div class="field">
+                                    <select class="ui fluid required dropdown" name="brand">
+                                        <option value="">Select Brand</option>
+                                        <option value="ALL" selected>Select All Brands</option>
+
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <select class="ui dropdown" name="condition">
+                                        <option value=""> Select Condition</option>
+                                        <option value="ALL" selected>Select All Conditions</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <select class="ui fluid required dropdown" name="series">
+                                        <option value="">Select Series</option>
+                                        <option value="ALL" selected>Select All Series</option>
+
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <select class="ui fluid required dropdown" name="issue">
+                                        <option value="">Select Issue</option>
+                                        <option value="ALL" selected>Select All Issues</option>
+                                    </select>
+                                </div>
+                        </form>
+
+                        <div class="ui containter left aligned">
+                            <button class='ui left aligned button' type="button" value="Submit" id="get_button">Submit</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div id="time">Last Updated: </div>
         <script>
-            height = window.innerHeight;
-            $('.ui.container').css("margin-top", height/2-(700/2));
+            $('#content').css("width", window.innerWidth, "height", window.innerHeight);
+            //$('#content').css("width", window.innerHeight);
+            //$('.ui.container').css("margin-top", window.innerHeight/2-(600/2));
+            $('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
+            $('.ui.dropdown').dropdown();
         </script>
     </body>
 </html>
