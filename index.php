@@ -13,7 +13,14 @@
                 <canvas id="chart"></div>
             </div>
             <div id="time">Last Updated: </div>
-            <div id="error" style="color: #ff0000;"><div>
+            <div id="error" style="color: #ff0000;">Alert: <div>
+        </div>
+        <div class="ui container">
+            <select class="ui search dropdown">
+                <option value="">Select Region</option>
+                <option value="ALL" selected>Select All Regions</option>
+
+            </select>
         </div>
 
         <script>
@@ -25,3 +32,6 @@
         </script>
     </body>
 </html>
+<!-- <?php foreach($this->regions as $region): ?>
+                    <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
+                <?php endforeach; ?>-->

@@ -27,15 +27,11 @@ $(document).ready(function() {
     };
     var myBarChart = null;
     
-    ids = [];
-    ids.push(1);
-    ids.push(2);
-    ids.push(3);
-    ids.push(4);
+    ids = [1,2,3,4];
     
     setInterval(function(){
         $.ajax({
-            url: "src/php/get_data.php",
+            url: "src/php/getByLocation.php",
             type: "GET",
             data: {
                 ids: ids
