@@ -40,11 +40,11 @@ $(document).ready(function(){
             capacity4 = capacity4 - .5*Math.abs(Math.sin(Math.random(1,100)));
         } else {
             //clearInterval(inter);
-            if(capacity1 < 0){capacity1 = 100;}
-            if(capacity2 < 0){capacity2 = 100;}
-            if(capacity3 < 0){capacity3 = 100;}
-            if(capacity4 < 0){capacity4 = 100;}
         }
+        if(capacity1 < 0){capacity1 = 100;}
+        if(capacity2 < 0){capacity2 = 100;}
+        if(capacity3 < 0){capacity3 = 100;}
+        if(capacity4 < 0){capacity4 = 100;}
 
     }, 2000);
 });
