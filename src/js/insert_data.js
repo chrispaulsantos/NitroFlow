@@ -25,10 +25,10 @@ $(document).ready(function(){
             }).done(function(response) {
                 console.log(response);
 
-                args[0] = {"key":"capacity", "value":capacity1};
-                args[1] = {"key":"capacity", "value":capacity2};
-                args[2] = {"key":"capacity", "value":capacity3};
-                args[3] = {"key":"capacity", "value":capacity4};
+                args[0] = {"capacity":capacity1, "id":1};
+                args[1] = {"capacity":capacity2, "id":2};
+                args[2] = {"capacity":capacity3, "id":3};
+                args[3] = {"capacity":capacity4, "id":4};
 
 
             });
