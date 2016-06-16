@@ -12,7 +12,7 @@
             <div class="ui right aligned container">
                 <canvas id="chart"></div>
             </div>
-            <div class="ui left aligned container">
+           <!-- <div class="ui left aligned container">
                 <div class="ui fluid middle aligned card">
                     <div class="content">
 
@@ -53,7 +53,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
         <div id="time">Last Updated: </div>
