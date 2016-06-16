@@ -12,14 +12,14 @@
             <div class="ui right aligned container">
                 <canvas id="chart"></div>
             </div>
-           <div id="error" style="color: #ff0000;"><div>
-
+            <div id="time">Last Updated: </div>
+            <div id="error" style="color: #ff0000;"><div>
         </div>
-        <div id="time">Last Updated: </div>
+
         <script>
             $('#content').css("width", window.innerWidth, "height", window.innerHeight);
             //$('#content').css("width", window.innerHeight);
-            //$('.ui.container').css("margin-top", window.innerHeight/2-(600/2));
+            $('.ui.container').css("margin-top", window.innerHeight/2-(600/2));
             $('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
             $('.ui.dropdown').dropdown();
         </script>
