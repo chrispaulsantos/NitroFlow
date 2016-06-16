@@ -1,5 +1,15 @@
 $(document).ready(function(){
-    var capacity = 100;
+    var capacity1 = 100;
+    var capacity2 = 100;
+    var capacity3 = 100;
+    var capacity4 = 100;
+
+    args = [];
+
+    args[0] = {"capacity":capacity1, "id":1};
+    args[1] = {"capacity":capacity2, "id":2};
+    args[2] = {"capacity":capacity3, "id":3};
+    args[3] = {"capacity":capacity4, "id":4};
 
     var inter = setInterval(function(){
         if(capacity >= 0){
@@ -7,60 +17,32 @@ $(document).ready(function(){
                 url: "src/php/insert_data.php",
                 type: "GET",
                 data: {
-                    capacity: capacity
+                    args: args
                 },
                 datatype: "text"
             }).done(function(response) {
                 console.log(response);
-                data.datasets[0].data[0] = capacity;
 
-                data.datasets[0].data[5] = capacity-Math.abs((Math.floor((Math.random() * 15) + 1)));
-                data.datasets[0].data[10] = capacity-Math.abs((Math.floor((Math.random() * 17) + 1)));
-                myBarChart.update();
+                args[0] = {"key":"capacity", "value":capacity1};
+                args[1] = {"key":"capacity", "value":capacity2};
+                args[2] = {"key":"capacity", "value":capacity3};
+                args[3] = {"key":"capacity", "value":capacity4};
+
+
             });
-            console.log(capacity);
+            //console.log(capacity);
 
-            capacity = capacity - 4*Math.abs(Math.sin(Math.random(1,100)));
+            capacity1 = capacity1 - 4*Math.abs(Math.sin(Math.random(1,100)));
+            capacity2 = capacity2 - 2*Math.abs(Math.sin(Math.random(1,100)));
+            capacity3 = capacity3 - 3*Math.abs(Math.sin(Math.random(1,100)));
+            capacity4 = capacity4 - .5*Math.abs(Math.sin(Math.random(1,100)));
         } else {
             //clearInterval(inter);
-            if(capacity < 0){capacity = 100;}
+            if(capacity1 < 0){capacity1 = 100;}
+            if(capacity2 < 0){capacity2 = 100;}
+            if(capacity3 < 0){capacity3 = 100;}
+            if(capacity4 < 0){capacity4 = 100;}
         }
 
     }, 2000);
-
-    var data = {
-        labels: ["200 Seaport", "245 Summer", " 1 Congress", "345 State", "2 Quincy Market","200 Seaport", "245 Summer", " 1 Congress", "345 State", "2 Quincy Market",
-            "200 Seaport", "245 Summer", " 1 Congress", "345 State", "2 Quincy Market","200 Seaport", "245 Summer", " 1 Congress", "345 State", "2 Quincy Market"],
-        datasets: [
-            {
-                label: "My First dataset",
-                backgroundColor: "rgba(0,0,0,0.7)",
-                borderColor: "rgba(255,99,132,1)",
-                borderWidth: 1,
-                hoverBackgroundColor: "rgba(255,99,132,0.4)",
-                hoverBorderColor: "rgba(255,99,132,1)",
-                data: [capacity, 50, 33, 74, 55,capacity, 50, 33, 74, 55,capacity, 50, 33, 74, 55,capacity, 50, 33, 74, 55],
-            }
-        ]
-    };
-    var options = {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    max: 100,
-                    min: 0,
-                    stepSize: 10
-                }
-            }]
-        }
-    };
-
-    var ctx = document.getElementById("chart");
-
-    var myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
-    });
-
 });
