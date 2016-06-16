@@ -30,6 +30,7 @@ $(document).ready(function() {
     ids.push(1);
     ids.push(2);
     ids.push(3);
+    ids.push(4);
     
     $.ajax({
         url: "src/php/get_data.php",
