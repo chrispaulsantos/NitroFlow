@@ -14,7 +14,7 @@ $(document).ready(function(){
     console.log(args);
 
     var inter = setInterval(function(){
-        if(capacity >= 0){
+        if(capacity1 >= 0){
             $.ajax({
                 url: "src/php/insert_data.php",
                 type: "GET",
