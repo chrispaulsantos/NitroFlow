@@ -1,10 +1,7 @@
 <?php
     require_once "database_connect.php";
 
-    //$capacity = $_GET["capacity"];
-
     $args = $_GET["args"];
-    //error_log(json_encode($args));
     $ct = 0;
 
     foreach($args as $arg){
