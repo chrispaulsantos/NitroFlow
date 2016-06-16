@@ -8,7 +8,7 @@
     if( $_GET != null ) {
         $ids = $_GET['ids'];
     }
-    $ids = array(1, 2, 3);
+    //$ids = array(1, 2, 3);
 
     $query = "SELECT Locations.P_Id, Locations.location, Location_Data.current_capacity, Location_Data.time_stamp ".
              "FROM Locations JOIN Location_Data ON Locations.P_Id = Location_Data.P_Id ".
@@ -41,17 +41,13 @@
             $row = $rows[0];
         }
 
-
-
         // Create new location object to be returned to the js for processing
         $location = new location();
         $location->id = $row["P_Id"];
         $location->location = $row["location"];
         $location->current_capacity = $row["current_capacity"];
         $location->time = $row["time_stamp"];
-        //error_log(json_encode($location));
         $locations[] = $location;
     }
 
     echo json_encode($locations);
-    //error_log(json_encode($locations));
