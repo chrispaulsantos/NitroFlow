@@ -11,6 +11,8 @@ $(document).ready(function(){
     args[2] = {"capacity":capacity3, "id":3};
     args[3] = {"capacity":capacity4, "id":4};
 
+    console.log(args);
+
     var inter = setInterval(function(){
         if(capacity >= 0){
             $.ajax({
