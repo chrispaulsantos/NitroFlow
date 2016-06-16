@@ -25,14 +25,6 @@ $(document).ready(function() {
             }]
         }
     };
-
-    var ctx = document.getElementById("chart");
-
-    var myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
-    });
     
     ids = [];
     ids.push(1);
@@ -49,7 +41,15 @@ $(document).ready(function() {
     }).done(function(response) {
         var obj = JSON.parse(response);
         build_Data(obj);
-        myBarChart.update();
+        //myBarChart.update();
+
+        var ctx = document.getElementById("chart");
+
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
     });
 });
 
