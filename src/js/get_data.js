@@ -1,4 +1,38 @@
 $(document).ready(function() {
+
+    var data = {
+        labels: [],
+        datasets: [
+            {
+                label: "My First dataset",
+                backgroundColor: "rgba(0,0,0,0.7)",
+                borderColor: "rgba(255,99,132,1)",
+                borderWidth: 1,
+                hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                hoverBorderColor: "rgba(255,99,132,1)",
+                data: [],
+            }
+        ]
+    };
+    var options = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    max: 100,
+                    min: 0,
+                    stepSize: 10
+                }
+            }]
+        }
+    };
+
+    var ctx = document.getElementById("chart");
+
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
     
     ids = [];
     ids.push(1);
@@ -14,8 +48,8 @@ $(document).ready(function() {
         dataType: "text"
     }).done(function(response) {
         var obj = JSON.parse(response);
-        console.log(obj);
         build_Data(obj);
+        myBarChart.update();
     });
 });
 
@@ -28,37 +62,3 @@ function build_Data(obj){
 
     console.log(data);
 }
-
-var data = {
-    labels: [],
-    datasets: [
-        {
-            label: "My First dataset",
-            backgroundColor: "rgba(0,0,0,0.7)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [],
-        }
-    ]
-};
-var options = {
-    scales: {
-        yAxes: [{
-            ticks: {
-                max: 100,
-                min: 0,
-                stepSize: 10
-            }
-        }]
-    }
-};
-
-var ctx = document.getElementById("chart");
-
-var myBarChart = new Chart(ctx, {
-    type: 'bar',
-    data: data,
-    options: options
-});
