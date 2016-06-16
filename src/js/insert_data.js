@@ -19,11 +19,13 @@ $(document).ready(function(){
                 myBarChart.update();
             });
             console.log(capacity);
-            if(capacity < 0){capacity = 100;}
+
             capacity = capacity - 4*Math.abs(Math.sin(Math.random(1,100)));
         } else {
-            clearInterval(inter);
+            //clearInterval(inter);
+            if(capacity < 0){capacity = 100;}
         }
+
     }, 2000);
 
     var data = {
