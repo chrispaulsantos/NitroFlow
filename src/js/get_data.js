@@ -27,7 +27,7 @@ $(document).ready(function() {
     };
     var myBarChart = null;
     
-    ids = [1,2,3,4,];
+    ids = [1,2,3,4,5];
     
     setInterval(function(){
         $.ajax({
