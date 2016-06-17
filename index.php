@@ -50,7 +50,9 @@
                                 <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
                             <?php endforeach; ?>
                         </select>
-
+                    </div>
+                    <div class="ui left aligned segment">
+                        <div id="alert" style="color: rgba(211,47,47 ,1);">Alert: </div>
                     </div>
                 </div>
                 <div class="twelve wide column">
@@ -59,7 +61,6 @@
                             <canvas id="chart" width="400" height="250"></canvas>
                         </div>
                         <div id="time">Last Updated: </div>
-                        <div id="alert" style="color: rgba(211,47,47 ,1);">Alert: </div>
                     </div>
                 </div>
 
