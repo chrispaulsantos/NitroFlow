@@ -63,11 +63,11 @@
                 </div>
 
             </div>
-            
+
         </div>
 
         <script>
-            $('#content').css("margin-top", window.innerHeight/2-(250/2));
+            $('#content').css("margin-top", window.innerHeight/2-(210/2));
             //$('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
             $('.ui.dropdown').dropdown();
         </script>
