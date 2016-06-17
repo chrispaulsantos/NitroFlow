@@ -3,6 +3,7 @@ $(document).ready(function(){
     var capacity2 = 100;
     var capacity3 = 100;
     var capacity4 = 100;
+    var capacity5 = 100;
 
     args = [];
 
@@ -10,6 +11,7 @@ $(document).ready(function(){
     args[1] = {"capacity":capacity2, "id":2};
     args[2] = {"capacity":capacity3, "id":3};
     args[3] = {"capacity":capacity4, "id":4};
+    args[4] = {"capacity":capacity5, "id":5};
 
     console.log(args);
 
@@ -29,6 +31,7 @@ $(document).ready(function(){
                 args[1] = {"capacity":capacity2, "id":2};
                 args[2] = {"capacity":capacity3, "id":3};
                 args[3] = {"capacity":capacity4, "id":4};
+                args[4] = {"capacity":capacity5, "id":5};
 
             });
 
@@ -36,12 +39,14 @@ $(document).ready(function(){
             capacity2 = capacity2 - 2*Math.abs(Math.sin(Math.random(1,100)));
             capacity3 = capacity3 - 3*Math.abs(Math.sin(Math.random(1,100)));
             capacity4 = capacity4 - .5*Math.abs(Math.sin(Math.random(1,100)));
+            capacity5 = capacity5 - 1.5*Math.abs(Math.sin(Math.random(1,100)));
         }
 
         if(capacity1 < 0){capacity1 = 100;}
         if(capacity2 < 0){capacity2 = 100;}
         if(capacity3 < 0){capacity3 = 100;}
         if(capacity4 < 0){capacity4 = 100;}
+        if(capacity5 < 0){capacity5 = 100;}
 
     }, 2000);
 });
