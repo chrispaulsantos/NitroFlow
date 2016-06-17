@@ -29,7 +29,7 @@ $(document).ready(function() {
     
     ids = [1,2,3,4,5];
     
-    getByLocation();
+    getByLocation(data, options, myBarChart);
     
 });
 
@@ -70,7 +70,7 @@ function timeStamp() {
     return date.join("/") + " " + time.join(":") + " " + suffix;
 }
 
-function getByLocation(){
+function getByLocation(data, options, myBarChart){
     setInterval(function(){
         $.ajax({
             url: "src/php/getByLocation.php",
