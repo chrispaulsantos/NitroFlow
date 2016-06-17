@@ -39,6 +39,7 @@ $(document).ready(function() {
             dataType: "text"
         }).done(function(response) {
             var obj = JSON.parse(response);
+            console.log(obj);
             build_Data(data, obj);
 
             $("#time").empty().append("Last Updated: " + timeStamp());
