@@ -8,7 +8,7 @@
     if( $_GET != null ) {
         $ids = $_GET['ids'];
     }
-    //$ids = array(1, 2, 3);
+    $ids = array(1, 2, 3, 4, 5);
 
     $query = "SELECT Locations.P_Id, Locations.location, Location_Data.current_capacity, Location_Data.time_stamp ".
              "FROM Locations JOIN Location_Data ON Locations.P_Id = Location_Data.P_Id ".
