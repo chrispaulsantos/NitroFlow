@@ -5,11 +5,11 @@ $(document).ready(function() {
         datasets: [
             {
                 label: "Keg Capacity",
-                backgroundColor: "rgba(49,249,253,0.7)",
-                borderColor: "rgba(49,249,253,1)",
+                backgroundColor: "rgba(65,105,225,0.7)",
+                borderColor: "rgba(65,105,225,1)",
                 borderWidth: 1,
-                hoverBackgroundColor: "rgba(39,199,202,0.4)",
-                hoverBorderColor: "rgba(39,199,202,1)",
+                hoverBackgroundColor: "rgba(65,105,225,0.4)",
+                hoverBorderColor: "rgba(65,105,225,1)",
                 data: [],
             }
         ]
