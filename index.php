@@ -1,3 +1,21 @@
+<?php
+    require_once "src/php/database_connect.php";
+
+    $regions = array();
+
+    try {
+        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT region FROM Locations");
+        $stmt->execute();
+    } catch (Exception $e){
+        error_log("Error: " .$e->getMessage());
+    }
+
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        $regions = $row["region"];
+    }
+    error_log(json_encode($regions));
+?>
+
 <html>
     <head>
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
@@ -19,7 +37,9 @@
             <select class="ui search dropdown">
                 <option value="">Select Region</option>
                 <option value="ALL" selected>Select All Regions</option>
-
+                <?php foreach($this->regions as $region): ?>
+                    <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
 
@@ -30,6 +50,3 @@
         </script>
     </body>
 </html>
-<!-- <?php foreach($this->regions as $region): ?>
-                    <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
-                <?php endforeach; ?>-->
