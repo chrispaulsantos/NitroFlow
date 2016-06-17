@@ -47,9 +47,9 @@
         $location->location = $row["location"];
 
         if($row["current_capacity"] != null || $row["current_capacity"] != ""){
-            $location->current_capacity = 0;
-        } else {
             $location->current_capacity = $row["current_capacity"];
+        } else {
+            $location->current_capacity = 0;
         }
 
         $location->time = $row["time_stamp"];
