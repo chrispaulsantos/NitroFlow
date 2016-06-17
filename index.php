@@ -33,7 +33,7 @@
             <div id="time">Last Updated: </div>
             <div id="alert" style="color: #ff0000;">Alert: <div>
         </div>
-        <div class="ui container">
+        <div>
             <select class="ui search dropdown">
                 <option value="">Select Region</option>
                 <option value="ALL" selected>Select All Regions</option>
