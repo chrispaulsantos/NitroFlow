@@ -43,33 +43,20 @@
 
                 <div class="four wide column">
                     <div class="ui left aligned segment">
-                        <select class="ui fluid search dropdown">
+                        <select class="ui fluid scrolling search dropdown">
                             <option value="">Select Region</option>
                             <option value="ALL" selected>Select All Regions</option>
                             <?php foreach($regions as $region): ?>
                                 <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <select class="ui fluid search dropdown">
-                            <option value="">Select Region</option>
-                            <option value="ALL" selected>Select All Regions</option>
-                            <?php foreach($regions as $region): ?>
-                                <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <select class="ui fluid search dropdown">
-                            <option value="">Select Region</option>
-                            <option value="ALL" selected>Select All Regions</option>
-                            <?php foreach($regions as $region): ?>
-                                <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
-                            <?php endforeach; ?>
-                        </select>
+
                     </div>
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
                         <div class="ui segment">
-                            <canvas id="chart" width="400" height="150"></canvas>
+                            <canvas id="chart" width="400" height="250"></canvas>
                         </div>
                         <div id="time">Last Updated: </div>
                         <div id="alert" style="color: #ff0000;">Alert: </div>
