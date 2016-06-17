@@ -4,7 +4,7 @@ $(document).ready(function() {
         labels: [],
         datasets: [
             {
-                label: "My First dataset",
+                label: "Keg Capacity",
                 backgroundColor: "rgba(0,0,0,0.7)",
                 borderColor: "rgba(255,99,132,1)",
                 borderWidth: 1,
