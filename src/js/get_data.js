@@ -26,6 +26,7 @@ $(document).ready(function() {
         }
     };
     var myBarChart = null;
+    var timestamp = Date.now();
     
     ids = [1,2,3,4];
     
@@ -40,8 +41,8 @@ $(document).ready(function() {
         }).done(function(response) {
             var obj = JSON.parse(response);
             build_Data(data, obj);
-            
-            $("#time").empty().append("Last Updated: " + Date.now().toDateString());
+            timestamp = Date.now();
+            $("#time").empty().append("Last Updated: " + timestamp.toDateString());
             $('#alert').empty();
 
             for(i = 0; i < obj.length; i++){
