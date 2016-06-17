@@ -44,7 +44,7 @@ $(document).ready(function() {
             $("#time").empty().append("Last Updated: " + obj[0]["time"]);
             $('#alert').empty();
 
-            for(i = 0; i < count(obj); i++){
+            for(i = 0; i < obj.length; i++){
                 if(obj[i]["current_capacity"] < 10){
                     $("#alert").append("Alert: " + obj[0]["location"] + "has less than 10% remaining.");
                 }
