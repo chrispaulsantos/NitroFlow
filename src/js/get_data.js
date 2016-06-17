@@ -85,11 +85,11 @@ function getByLocation(data, options, myBarChart){
             build_Data(data, obj);
 
             $("#time").empty().append("Last Updated: " + timeStamp());
-            $('#alert').empty();
+            $('#alert').empty().append("Alert: ");
 
             for(i = 0; i < obj.length; i++){
                 if(obj[i]["current_capacity"] < 10){
-                    $("#alert").append("Alert: " + obj[i]["location"] + " has less than 10% remaining." + "</br>");
+                    $("#alert").append("</br>" + obj[i]["location"] + "</br>");
                 }
             }
 
