@@ -37,22 +37,27 @@
             </div>
         </div>
 
-        <div id="content" class="ui container" style="height: 500px; width: 900px;">
-            <div class="ui right aligned container">
-                <canvas id="chart"></canvas>
+
+
+        <div class="ui container" style="height: 500px; width: 900px;">
+            <div class="ui left aligned segment">
+                <select class="ui search dropdown">
+                    <option value="">Select Region</option>
+                    <option value="ALL" selected>Select All Regions</option>
+                    <?php foreach($regions as $region): ?>
+                        <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
-            <div id="time">Last Updated: </div>
-            <div id="alert" style="color: #ff0000;">Alert: </div>
+            <div class="ui right aligned segment">
+                <div class="ui segment">
+                    <canvas id="chart"></canvas>
+                </div>
+                <div id="time">Last Updated: </div>
+                <div id="alert" style="color: #ff0000;">Alert: </div>
+            </div>
         </div>
-        <div>
-            <select class="ui search dropdown">
-                <option value="">Select Region</option>
-                <option value="ALL" selected>Select All Regions</option>
-                <?php foreach($regions as $region): ?>
-                    <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
+
 
         <script>
             $('.ui.container').css("margin-top", window.innerHeight/2-(600/2));
