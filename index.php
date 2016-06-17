@@ -59,7 +59,7 @@
                             <canvas id="chart" width="400" height="250"></canvas>
                         </div>
                         <div id="time">Last Updated: </div>
-                        <div id="alert" style="color: #ff0000;">Alert: </div>
+                        <div id="alert" style="color: rgba(211,47,47 ,1);">Alert: </div>
                     </div>
                 </div>
 
