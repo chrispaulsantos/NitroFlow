@@ -41,7 +41,7 @@ $(document).ready(function() {
             var obj = JSON.parse(response);
             build_Data(data, obj);
             
-            $("#time").empty().append("Last Updated: " + Date.now());
+            $("#time").empty().append("Last Updated: " + Date.now().toDateString());
             $('#alert').empty();
 
             for(i = 0; i < obj.length; i++){
