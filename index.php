@@ -28,10 +28,10 @@
     <body>
         <div id="content" class="ui container" style="height: 500px; width: 900px;">
             <div class="ui right aligned container">
-                <canvas id="chart"></div>
+                <canvas id="chart"></canvas>
             </div>
             <div id="time">Last Updated: </div>
-            <div id="alert" style="color: #ff0000;">Alert: <div>
+            <div id="alert" style="color: #ff0000;">Alert: </div>
         </div>
         <div>
             <select class="ui search dropdown">
