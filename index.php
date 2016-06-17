@@ -26,6 +26,17 @@
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
     </head>
     <body>
+
+        <div class="ui menu">
+            <div class="ui category search item">
+                <div class="ui transparent icon input">
+                    <input class="prompt" placeholder="Search Locations" type="text">
+                    <i class="search link icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+        </div>
+
         <div id="content" class="ui container" style="height: 500px; width: 900px;">
             <div class="ui right aligned container">
                 <canvas id="chart"></canvas>
