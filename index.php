@@ -69,7 +69,7 @@
                 <div class="twelve wide column">
                     <div class="ui right left segment">
                         <div class="ui segment">
-                            <canvas id="chart"></canvas>
+                            <canvas id="chart" width="400" height="150"></canvas>
                         </div>
                         <div id="time">Last Updated: </div>
                         <div id="alert" style="color: #ff0000;">Alert: </div>
