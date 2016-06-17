@@ -8,7 +8,7 @@
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <div id="content" class="ui container">
+        <div id="content" class="ui container" style="height: 500px; width: 900px;">
             <div class="ui right aligned container">
                 <canvas id="chart"></div>
             </div>
@@ -24,10 +24,8 @@
         </div>
 
         <script>
-            $('#content').css("width", window.innerWidth, "height", window.innerHeight);
-            //$('#content').css("width", window.innerHeight);
             $('.ui.container').css("margin-top", window.innerHeight/2-(600/2));
-            $('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
+            //$('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
             $('.ui.dropdown').dropdown();
         </script>
     </body>
