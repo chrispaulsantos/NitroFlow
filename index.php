@@ -39,9 +39,9 @@
 
         <div id='content' class="ui container" style="height: 500px; width: 1000px;">
 
-            <div class="ui container" style="width: 200px; height: 500px;">
+            <div class="ui left aligned container" style="width: 200px; height: 500px;">
                 <div class="ui left aligned segment">
-                    <select class="ui search dropdown">
+                    <select class="ui fluid search dropdown">
                         <option value="">Select Region</option>
                         <option value="ALL" selected>Select All Regions</option>
                         <?php foreach($regions as $region): ?>
@@ -50,8 +50,8 @@
                     </select>
                 </div>
             </div>
-            <div class="ui container" style="height: 500px; width: 800px;">
-                <div class="ui right aligned segment">
+            <div class="ui right aligned container" style="height: 500px; width: 800px;">
+                <div class="ui right left segment">
                     <div class="ui segment">
                         <canvas id="chart"></canvas>
                     </div>
@@ -61,7 +61,7 @@
             </div>
 
         </div>
-        
+
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(250/2));
             //$('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
