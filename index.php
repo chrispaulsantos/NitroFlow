@@ -39,27 +39,31 @@
 
         <div id='content' class="ui container" style="height: 500px; width: 1000px;">
 
-            <div class="ui left aligned container" style="width: 200px; height: 500px;">
-                <div class="ui left aligned segment">
-                    <select class="ui fluid search dropdown">
-                        <option value="">Select Region</option>
-                        <option value="ALL" selected>Select All Regions</option>
-                        <?php foreach($regions as $region): ?>
-                            <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-            <div class="ui right aligned container" style="height: 500px; width: 800px;">
-                <div class="ui right left segment">
-                    <div class="ui segment">
-                        <canvas id="chart"></canvas>
-                    </div>
-                    <div id="time">Last Updated: </div>
-                    <div id="alert" style="color: #ff0000;">Alert: </div>
-                </div>
-            </div>
+            <div class="ui grid">
 
+                <div class="four wide column">
+                    <div class="ui left aligned segment">
+                        <select class="ui fluid search dropdown">
+                            <option value="">Select Region</option>
+                            <option value="ALL" selected>Select All Regions</option>
+                            <?php foreach($regions as $region): ?>
+                                <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="twelve wide column">
+                    <div class="ui right left segment">
+                        <div class="ui segment">
+                            <canvas id="chart"></canvas>
+                        </div>
+                        <div id="time">Last Updated: </div>
+                        <div id="alert" style="color: #ff0000;">Alert: </div>
+                    </div>
+                </div>
+
+            </div>
+            
         </div>
 
         <script>
