@@ -26,7 +26,6 @@ $(document).ready(function() {
         }
     };
     var myBarChart = null;
-    var timestamp = Date.now();
     
     ids = [1,2,3,4];
     
@@ -41,8 +40,8 @@ $(document).ready(function() {
         }).done(function(response) {
             var obj = JSON.parse(response);
             build_Data(data, obj);
-            timestamp = Date.now();
-            $("#time").empty().append("Last Updated: " + timestamp.toDateString());
+
+            $("#time").empty().append("Last Updated: " + timeStamp());
             $('#alert').empty();
 
             for(i = 0; i < obj.length; i++){
@@ -71,4 +70,34 @@ function build_Data(data, obj){
         data.datasets[0].data[i] = obj[i]["current_capacity"];
         data.labels[i] = obj[i]["location"];
     }
+}
+
+function timeStamp() {
+// Create a date object with the current time
+    var now = new Date();
+
+// Create an array with the current month, day and time
+    var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+
+// Create an array with the current hour, minute and second
+    var time = [ now.getHours(), now.getMinutes(), now.getSeconds() ];
+
+// Determine AM or PM suffix based on the hour
+    var suffix = ( time[0] < 12 ) ? "AM" : "PM";
+
+// Convert hour from military time
+    time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+
+// If hour is 0, set it to 12
+    time[0] = time[0] || 12;
+
+// If seconds and minutes are less than 10, add a zero
+    for ( var i = 1; i < 3; i++ ) {
+        if ( time[i] < 10 ) {
+            time[i] = "0" + time[i];
+        }
+    }
+
+// Return the formatted string
+    return date.join("/") + " " + time.join(":") + " " + suffix;
 }
