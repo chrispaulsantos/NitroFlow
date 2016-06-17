@@ -42,6 +42,13 @@ $(document).ready(function() {
             build_Data(data, obj);
             
             $("#time").empty().append("Last Updated: " + obj[0]["time"]);
+            $('#alert').empty();
+
+            for(i = 0; i < count(obj); i++){
+                if(obj[i]["current_capacity"] < 10){
+                    $("#alert").append("Alert: " + obj[0]["location"] + "has less than 10% remaining.");
+                }
+            }
             
             if(myBarChart == null){
                 var ctx = document.getElementById("chart");

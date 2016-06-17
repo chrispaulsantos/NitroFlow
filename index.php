@@ -13,7 +13,7 @@
                 <canvas id="chart"></div>
             </div>
             <div id="time">Last Updated: </div>
-            <div id="error" style="color: #ff0000;">Alert: <div>
+            <div id="alert" style="color: #ff0000;">Alert: <div>
         </div>
         <div class="ui container">
             <select class="ui search dropdown">
