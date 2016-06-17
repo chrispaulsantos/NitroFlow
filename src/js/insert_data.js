@@ -13,8 +13,6 @@ $(document).ready(function(){
     args[3] = {"capacity":capacity4, "id":4};
     args[4] = {"capacity":capacity5, "id":5};
 
-    console.log(args);
-
     var inter = setInterval(function(){
 
         if(capacity1 >= 0){

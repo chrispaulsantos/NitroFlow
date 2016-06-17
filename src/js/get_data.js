@@ -29,40 +29,7 @@ $(document).ready(function() {
     
     ids = [1,2,3,4,5];
     
-    setInterval(function(){
-        $.ajax({
-            url: "src/php/getByLocation.php",
-            type: "GET",
-            data: {
-                ids: ids
-            },
-            dataType: "text"
-        }).done(function(response) {
-            var obj = JSON.parse(response);
-            console.log(obj);
-            build_Data(data, obj);
-
-            $("#time").empty().append("Last Updated: " + timeStamp());
-            $('#alert').empty();
-
-            for(i = 0; i < obj.length; i++){
-                if(obj[i]["current_capacity"] < 10){
-                    $("#alert").append("Alert: " + obj[i]["location"] + " has less than 10% remaining." + "</br>");
-                }
-            }
-            
-            if(myBarChart == null){
-                var ctx = document.getElementById("chart");
-                myBarChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: data,
-                    options: options
-                });
-            } else {
-                myBarChart.update();
-            }
-        });
-    }, 2000);
+    getByLocation();
     
 });
 
@@ -101,4 +68,41 @@ function timeStamp() {
 
 // Return the formatted string
     return date.join("/") + " " + time.join(":") + " " + suffix;
+}
+
+function getByLocation(){
+    setInterval(function(){
+        $.ajax({
+            url: "src/php/getByLocation.php",
+            type: "GET",
+            data: {
+                ids: ids
+            },
+            dataType: "text"
+        }).done(function(response) {
+            var obj = JSON.parse(response);
+
+            build_Data(data, obj);
+
+            $("#time").empty().append("Last Updated: " + timeStamp());
+            $('#alert').empty();
+
+            for(i = 0; i < obj.length; i++){
+                if(obj[i]["current_capacity"] < 10){
+                    $("#alert").append("Alert: " + obj[i]["location"] + " has less than 10% remaining." + "</br>");
+                }
+            }
+
+            if(myBarChart == null){
+                var ctx = document.getElementById("chart");
+                myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: options
+                });
+            } else {
+                myBarChart.update();
+            }
+        });
+    }, 2000);
 }
