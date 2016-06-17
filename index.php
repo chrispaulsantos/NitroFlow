@@ -37,32 +37,36 @@
             </div>
         </div>
 
+        <div id='content' class="ui container" style="height: 500px; width: 1000px;">
 
-
-        <div class="ui container" style="height: 500px; width: 900px;">
-            <div class="ui left aligned segment">
-                <select class="ui search dropdown">
-                    <option value="">Select Region</option>
-                    <option value="ALL" selected>Select All Regions</option>
-                    <?php foreach($regions as $region): ?>
-                        <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="ui right aligned segment">
-                <div class="ui segment">
-                    <canvas id="chart"></canvas>
+            <div class="ui container" style="width: 200px; height: 500px;">
+                <div class="ui left aligned segment">
+                    <select class="ui search dropdown">
+                        <option value="">Select Region</option>
+                        <option value="ALL" selected>Select All Regions</option>
+                        <?php foreach($regions as $region): ?>
+                            <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
-                <div id="time">Last Updated: </div>
-                <div id="alert" style="color: #ff0000;">Alert: </div>
             </div>
+            <div class="ui container" style="height: 500px; width: 800px;">
+                <div class="ui right aligned segment">
+                    <div class="ui segment">
+                        <canvas id="chart"></canvas>
+                    </div>
+                    <div id="time">Last Updated: </div>
+                    <div id="alert" style="color: #ff0000;">Alert: </div>
+                </div>
+            </div>
+
         </div>
-
-
+        
         <script>
-            $('.ui.container').css("margin-top", window.innerHeight/2-(600/2));
+            $('#content').css("margin-top", window.innerHeight/2-(250/2));
             //$('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
             $('.ui.dropdown').dropdown();
         </script>
+
     </body>
 </html>
