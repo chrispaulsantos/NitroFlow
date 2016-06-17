@@ -46,7 +46,7 @@ $(document).ready(function() {
 
             for(i = 0; i < obj.length; i++){
                 if(obj[i]["current_capacity"] < 10){
-                    $("#alert").append("Alert: " + obj[i]["location"] + " has less than 10% remaining.");
+                    $("#alert").append("Alert: " + obj[i]["location"] + " has less than 10% remaining.\n");
                 }
             }
             
