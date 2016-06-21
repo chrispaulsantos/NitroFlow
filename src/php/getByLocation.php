@@ -9,8 +9,6 @@
         $ids = $_GET['ids'];
     }
 
-    error_log(json_encode($ids));
-
     $locations = [];
 
     try {
@@ -21,7 +19,7 @@
 
     // Loop over the selected id's and execute the query for each id
     foreach($ids as $id){
-        //error_log($id);
+        error_log($id);
         // Prepare the query for execution
         try {
             $stmt->bindParam(":id", $id);
@@ -37,6 +35,8 @@
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             $rows[] = $row;
         }
+
+        // Check if more than one row existed at a given timestamp
         if(count($rows) > 1){
             $row = $rows[count($rows)-1];
         } else {
