@@ -38,8 +38,6 @@
             $row = $rows[0];
         }
 
-        error_log(json_encode($row));
-
         // Create new location object to be returned to the js for processing
         $location = new location();
         $location->id = $row["P_Id"];
