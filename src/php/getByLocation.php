@@ -11,12 +11,6 @@
 
     $locations = [];
 
-    try {
-        $stmt = DBConnection::instance()->prepare("CALL `getByLocation`(:id)");
-    } catch(Exception $e){
-        error_log("Error: " .$e->getMessage());
-    }
-
     // Loop over the selected id's and execute the query for each id
     foreach($ids as $id){
         // error_log($id);
