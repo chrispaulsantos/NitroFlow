@@ -23,3 +23,20 @@ BEGIN
                                       WHERE Location_Data.P_Id = id)
     AND Locations.P_Id = id;
 END $$
+
+DELIMITER $$
+CREATE PROCEDURE `flow_data`.`getByRegion`(IN id INT, IN region VARCHAR(20))
+LANGUAGE SQL
+DETERMINISTIC
+SQL SECURITY DEFINER
+COMMENT 'Get by location'
+BEGIN
+    SELECT Locations.P_Id, Locations.location, Location_Data.current_capacity, Location_Data.time_stamp, Location.region
+    FROM Locations
+    JOIN Location_Data
+    ON Locations.P_Id = Location_Data.P_Id
+    WHERE Location_Data.time_stamp = (SELECT MAX(Location-Data.time_stamp)
+                                      FROM Location_Data
+                                      WHERE Location_Data.P_Id = id)
+    AND Locations.P_Id = id AND Locations.region = region;
+END $$
