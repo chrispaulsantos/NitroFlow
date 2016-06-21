@@ -13,7 +13,6 @@
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $regions[] = $row["region"];
     }
-    error_log(json_encode($regions));
 ?>
 
 <html>
