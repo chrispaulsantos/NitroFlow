@@ -22,6 +22,7 @@
         // error_log($id);
         // Prepare the query for execution
         try {
+            $stmt = DBConnection::instance()->prepare("CALL `getByLocation`(:id)");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
         } catch(Exception $e){
