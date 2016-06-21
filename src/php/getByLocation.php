@@ -9,6 +9,8 @@
         $ids = $_GET['ids'];
     }
 
+    error_log(json_encode($ids));
+
     $locations = [];
 
     try {
