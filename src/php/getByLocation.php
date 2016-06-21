@@ -23,9 +23,7 @@
         // Prepare the query for execution
         try {
             $stmt->bindParam(":id", $id);
-
             $stmt->execute();
-            error_log(json_encode($stmt));
         } catch(Exception $e){
             error_log("Error: " .$e->getMessage());
         }
@@ -44,6 +42,8 @@
         } else {
             $row = $rows[0];
         }
+
+        error_log(json_encode($row));
 
         // Create new location object to be returned to the js for processing
         $location = new location();
