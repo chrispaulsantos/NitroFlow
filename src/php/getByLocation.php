@@ -19,10 +19,11 @@
 
     // Loop over the selected id's and execute the query for each id
     foreach($ids as $id){
-        error_log($id);
+        // error_log($id);
         // Prepare the query for execution
         try {
             $stmt->bindParam(":id", $id);
+            error_log(json_encode($stmt));
             $stmt->execute();
         } catch(Exception $e){
             error_log("Error: " .$e->getMessage());
