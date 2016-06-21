@@ -23,8 +23,9 @@
         // Prepare the query for execution
         try {
             $stmt->bindParam(":id", $id);
-            error_log(json_encode($stmt));
+
             $stmt->execute();
+            error_log(json_encode($stmt));
         } catch(Exception $e){
             error_log("Error: " .$e->getMessage());
         }
