@@ -50,8 +50,8 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="ui left aligned segment">
-                        <div id="alert" style="color: rgba(211,47,47 ,1);">Alert: </div>
+                    <div id="alert" class="ui scrollable left aligned segment">
+                        
                     </div>
                 </div>
                 <div class="twelve wide column">

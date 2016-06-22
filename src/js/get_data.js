@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+// variables for drawing the chart; datasets and labels initially empty
     var data = {
         labels: [],
         datasets: [
@@ -28,12 +29,15 @@ $(document).ready(function() {
     var myBarChart = null;
     
     ids = [1,2,3,4,5];
-    
+
+// Get data by location
     getByLocation(data, options, myBarChart);
-    
+
 });
 
 function build_Data(data, obj){
+
+// For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
         data.datasets[0].data[i] = obj[i]["current_capacity"];
         data.labels[i] = obj[i]["location"];
@@ -71,6 +75,16 @@ function timeStamp() {
 }
 
 function getByLocation(data, options, myBarChart){
+
+// Draw graph initially on pageload
+    var ctx = document.getElementById("chart");
+    myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+
+// Update data every x seconds
     setInterval(function(){
         $.ajax({
             url: "src/php/getByLocation.php",
@@ -80,19 +94,25 @@ function getByLocation(data, options, myBarChart){
             },
             dataType: "text"
         }).done(function(response) {
-            var obj = JSON.parse(response);
 
+        // Build the data from the php response
+            var obj = JSON.parse(response);
             build_Data(data, obj);
 
+        // Update the current time, and empty the alerts div
             $("#time").empty().append("Last Updated: " + timeStamp());
             $('#alert').empty().append("Alert: ");
 
+        // Set alerts, if any less than defined amount
             for(i = 0; i < obj.length; i++){
-                if(obj[i]["current_capacity"] < 10){
-                    $("#alert").append("</br>" + obj[i]["location"] + "</br>");
+                if(obj[i]["current_capacity"] < 15){
+                    $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
+                                           " Alert: " + obj[i]['location'] +
+                                       "</div>");
                 }
             }
 
+        // If chart is null, draw, else, update
             if(myBarChart == null){
                 var ctx = document.getElementById("chart");
                 myBarChart = new Chart(ctx, {
@@ -104,5 +124,5 @@ function getByLocation(data, options, myBarChart){
                 myBarChart.update();
             }
         });
-    }, 2000);
+    }, 5000);
 }
