@@ -101,7 +101,7 @@ function getByLocation(data, options, myBarChart){
 
         // Update the current time, and empty the alerts div
             $("#time").empty().append("Last Updated: " + timeStamp());
-            $('#alert').empty().append("Alert: ");
+            $('#alert').empty();
 
         // Set alerts, if any less than defined amount
             for(i = 0; i < obj.length; i++){
