@@ -5,7 +5,7 @@
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
-        <script src="src/js/validate_login.js" type="text/javascript"></script>
+        <script src="src/js/login.js" type="text/javascript"></script>
 
         <title> Nitro Flow </title>
     </head>
