@@ -36,7 +36,7 @@
             $('.ui.dropdown')
                 .dropdown()
             ;
-            console.log(window.innerHeight);
+            // console.log(window.innerHeight);
             height = window.innerHeight;
             $('.ui.container').css("margin-top", height/2-(230/2));
         </script>
