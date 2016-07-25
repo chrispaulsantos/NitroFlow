@@ -9,10 +9,6 @@
         $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
         $stmt->bindParam(":id",$args[$ct]["id"]);
         $stmt->execute();
-        $ct++;
-    }
-    $ct = 0;
-    foreach($args as $arg){
         $stmt = DBConnection::instance()->prepare("UPDATE Current_Data SET capacity=:capacity,time_stamp=CURRENT_TIMESTAMP WHERE P_Id=:id");
         $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
         $stmt->bindParam(":id",$args[$ct]["id"]);
