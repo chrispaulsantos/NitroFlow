@@ -1,7 +1,7 @@
 <?php
     require_once "src/php/database_connect.php";
     session_start();
-
+/*
     if(isset($_SESSION["user_token"])){
         $login_token = $_SESSION["user_token"];
 
@@ -39,8 +39,22 @@
         echo "You suck";
         die;
     }
+*/
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$user = $row["username"];
 
+$regions = array();
 
+try {
+    $stmt = DBConnection::instance()->prepare("SELECT DISTINCT region FROM Locations");
+    $stmt->execute();
+} catch (Exception $e){
+    error_log("Error: " .$e->getMessage());
+}
+
+while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    $regions[] = $row["region"];
+}
 ?>
 
 <html>
