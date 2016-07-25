@@ -40,8 +40,8 @@
         die;
     }
 */
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-$user = $row["username"];
+//$row = $stmt->fetch(PDO::FETCH_ASSOC);
+//$user = $row["username"];
 
 $regions = array();
 
