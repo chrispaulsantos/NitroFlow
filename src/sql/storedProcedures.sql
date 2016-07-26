@@ -66,12 +66,13 @@ BEGIN
 END $$
 
 -- SQL to create stored procedure 'insertCurrentData'
-CREATE PROCEDURE `flow_data`.`insertCurrentData`( capacity INT )
+CREATE PROCEDURE `flow_data`.`insertCurrentData`( capacity INT, id INT )
 LANGUAGE SQL
 DETERMINISTIC
 SQL SECURITY DEFINER
 COMMENT 'Insert current capacity into Current_Data table'
 BEGIN
-    INSERT INTO Current_Data( capacity, time_stamp )
-    VALUES ( capacity, CURRENT_TIMESTAMP );
+    UPDATE `flow_data`.`Current_Data`
+	  SET capacity=capacity, time_stamp=CURRENT_TIMESTAMP
+    WHERE P_Id = id;
 END $$
