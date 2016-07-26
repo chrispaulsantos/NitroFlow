@@ -64,3 +64,14 @@ BEGIN
     AND Locations.P_Id = id
 	  AND Locations.region = reg;
 END $$
+
+-- SQL to create stored procedure 'insertCurrentData'
+CREATE PROCEDURE `flow_data`.`insertCurrentData`( capacity INT )
+LANGUAGE SQL
+DETERMINISTIC
+SQL SECURITY DEFINER
+COMMENT 'Insert current capacity into Current_Data table'
+BEGIN
+    INSERT INTO Current_Data( capacity, time_stamp )
+    VALUES ( capacity, CURRENT_TIMESTAMP );
+END $$
