@@ -20,7 +20,9 @@ function handleFileSelect(evt) {
 }
 
 function createUID(csvData){
-    csvData.forEach(function(loc){
-        console.log(loc.address);
-    });
+    l = csvData.length;
+
+    for(var i = 0; i < l; i++){
+        console.log(csvData[i]["address"]);
+    }
 }
