@@ -23,6 +23,6 @@ function createUID(csvData){
     l = csvData.length;
 
     for(var i = 0; i < l; i++){
-        console.log(csvData[i]["address"]);
+        console.log(csvData[i]["Address"]);
     }
 }
