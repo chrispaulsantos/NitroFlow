@@ -23,6 +23,10 @@ function createUID(csvData){
     l = csvData.length;
 
     for(var i = 0; i < l; i++){
-        console.log(csvData[i]["Zip"]);
+        var zip = csvData[i]["Zip"];
+        if(zip.length == 4){
+            zip = "0" + zip.toString();
+            console.log(zip);
+        }
     }
 }
