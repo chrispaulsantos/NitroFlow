@@ -14,6 +14,7 @@
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="src/includes/papaparse.min.js"></script>
         <script src="src/css/Semantic/semantic.min.js"></script>
+        <script src="src/js/add.js"></script>
     </head>
     <body>
         <label for="file" class="ui icon button" style="margin-top: 1px;">
