@@ -39,7 +39,7 @@ function createUID(csvData){
             num = "0" + num;
         }
 
-        var UID = "$UID" + zip + vendor + num;
+        var UID = "$2y$" + zip + vendor + num;
         console.log(UID);
     }
 }
