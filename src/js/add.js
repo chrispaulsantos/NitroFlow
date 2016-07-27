@@ -23,15 +23,23 @@ function createUID(csvData){
     l = csvData.length;
 
     for(var i = 0; i < l; i++){
+
         var zip = csvData[i]["Zip"].toString();
         if(zip.length == 4){
             zip = "0" + zip;
         }
-        var vendor = csvData[i]["Vendor"].toString();
 
+        var vendor = csvData[i]["Vendor"].toString();
         for(var j = 0; vendor.length < 4; j++){
             vendor = "0" + vendor;
-            console.log(vendor);
         }
+
+        var num = csvData[i]["Number"].toString();
+        for(var j = 0; num.length < 4; j++){
+            num = "0" + num;
+        }
+
+        var UID = "!" + zip + vendor + num;
+        console.log(UID);
     }
 }
