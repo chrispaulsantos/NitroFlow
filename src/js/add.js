@@ -26,7 +26,12 @@ function createUID(csvData){
         var zip = csvData[i]["Zip"].toString();
         if(zip.length == 4){
             zip = "0" + zip;
-            console.log(zip);
+        }
+        var vendor = csvData[i]["Vendor"].toString();
+
+        for(var j = 0; vendor.length < 4; j++){
+            vendor = "0" + vendor;
+            console.log(vendor);
         }
     }
 }
