@@ -13,7 +13,7 @@ function handleFileSelect(evt) {
         dynamicTyping: true,
         complete: function(results) {
             csvData = results["data"];
-            console.log(csvData);
+            // console.log(csvData);
             createUID(csvData);
         }
     });
