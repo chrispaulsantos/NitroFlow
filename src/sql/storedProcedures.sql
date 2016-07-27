@@ -73,6 +73,6 @@ SQL SECURITY DEFINER
 COMMENT 'Insert current capacity into Current_Data table'
 BEGIN
     UPDATE `flow_data`.`Current_Data`
-	  SET capacity=capacity, time_stamp=CURRENT_TIMESTAMP
-    WHERE P_Id = id;
+	  SET Current_Data.capacity=capacity, Current_Data.time_stamp=CURRENT_TIMESTAMP
+    WHERE Current_Data.P_Id = id;
 END $$
