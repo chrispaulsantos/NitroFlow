@@ -14,6 +14,13 @@ function handleFileSelect(evt) {
         complete: function(results) {
             csvData = results["data"];
             console.log(csvData);
+            createUID(csvData);
         }
+    });
+}
+
+function createUID(csvData){
+    csvData.forEach(function(){
+        console.log(this.address);
     });
 }
