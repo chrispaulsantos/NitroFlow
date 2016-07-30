@@ -10,7 +10,7 @@
         $stmt->bindParam(":id",$args[$ct]["id"]);
         $stmt->execute();
 
-        $stmt->prepare("CALL `insertCurrentCapacity`(:capacity, :id)");
+        $stmt = DBConnection::instance()->prepare("CALL `insertCurrentCapacity`(:capacity, :id)");
         $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
         $stmt->bindParam(":id",$args[$ct]["id"]);
         $stmt->execute();
