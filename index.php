@@ -1,47 +1,33 @@
 <?php
     require_once "src/php/database_connect.php";
     session_start();
-/*
-    if(isset($_SESSION["user_token"])){
+<?php
+    require_once "src/php/database_connect.php";
+    session_start();
+    error_log("Beginning login check.");
+
+    if(isset($_SESSION["user_token"])) {
         $login_token = $_SESSION["user_token"];
-
         $query = "SELECT * FROM `Users` WHERE `user_login_token` = :token";
-
-        try{
+        try {
             $stmt = DBConnection::instance()->prepare($query);
             $stmt->bindParam(":token", $login_token);
             $stmt->execute();
-        } catch (Exception $e){
+        } catch (Exception $e) {
             error_log("Error: " . $e->getMessage());
         }
-
-        if($stmt == false){
+        if ($stmt == false) {
             die;
         } else {
             error_log("Word you're logged in as user: " . $_SESSION["user_id"]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $user = $row["username"];
-
-            $regions = array();
-
-            try {
-                $stmt = DBConnection::instance()->prepare("SELECT DISTINCT region FROM Locations");
-                $stmt->execute();
-            } catch (Exception $e){
-                error_log("Error: " .$e->getMessage());
-            }
-
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                $regions[] = $row["region"];
-            }
         }
     } else {
-        echo "You suck";
+        echo "Please login, redirecting...";
         die;
     }
-*/
-//$row = $stmt->fetch(PDO::FETCH_ASSOC);
-//$user = $row["username"];
+
 
 $regions = array();
 

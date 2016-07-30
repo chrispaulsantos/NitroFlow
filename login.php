@@ -1,31 +1,3 @@
-<?php
-    require_once "src/php/database_connect.php";
-    session_start();
-    error_log("Beginning login check.");
-
-    if(isset($_SESSION["user_token"])) {
-        $login_token = $_SESSION["user_token"];
-        $query = "SELECT * FROM `Users` WHERE `user_login_token` = :token";
-        try {
-            $stmt = DBConnection::instance()->prepare($query);
-            $stmt->bindParam(":token", $login_token);
-            $stmt->execute();
-        } catch (Exception $e) {
-            error_log("Error: " . $e->getMessage());
-        }
-        if ($stmt == false) {
-            die;
-        } else {
-            error_log("Word you're logged in as user: " . $_SESSION["user_id"]);
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $user = $row["username"];
-        }
-    } else {
-        echo "Please login, redirecting...";
-        die;
-    }
-?>
-
 <HTML>
     <head>
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
