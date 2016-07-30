@@ -44,8 +44,8 @@
         $location->location = $row["location"];
 
         // Check to ensure the returned value is a number
-        if($row["current_capacity"] != null || $row["current_capacity"] != ""){
-            $location->current_capacity = $row["current_capacity"];
+        if($row["current_capacity"] != null || $row["capacity"] != ""){
+            $location->current_capacity = $row["capacity"];
         } else {
             $location->current_capacity = 0;
         }
