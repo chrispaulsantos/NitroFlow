@@ -18,6 +18,7 @@
         try {
             $stmt = DBConnection::instance()->prepare("CALL `getByLocation`(:id)");
             $stmt->bindParam(":id", $id);
+            error_log(json_encode($stmt));
             $stmt->execute();
         } catch(Exception $e){
             error_log("Error: " .$e->getMessage());
