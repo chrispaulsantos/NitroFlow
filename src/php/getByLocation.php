@@ -50,7 +50,7 @@
             $location->current_capacity = 0;
         }
 
-        $location->time = $row["time_stamp"];
+        $location->time = $row["timeStamp"];
         $locations[] = $location;
     }
 
