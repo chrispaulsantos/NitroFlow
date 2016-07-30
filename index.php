@@ -50,6 +50,7 @@
         <script type="text/javascript" src="src/js/Chart.js"></script>
         <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
+        <script src="src/js/logout.js" type="text/javascript"></script>
     </head>
     <body>
 
