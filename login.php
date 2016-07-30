@@ -1,28 +1,28 @@
 <?php
-require_once "src/php/database_connect.php";
-session_start();
-date_default_timezone_set('GMT');
-if(isset($_SESSION["user_token"])) {
-    $login_token = $_SESSION["user_token"];
-    $query = "SELECT * FROM `Users` WHERE `user_login_token` = :token";
-    try {
-        $stmt = DBConnection::instance()->prepare($query);
-        $stmt->bindParam(":token", $login_token);
-        $stmt->execute();
-    } catch (Exception $e) {
-        error_log("Error: " . $e->getMessage());
-    }
-    if ($stmt == false) {
-        die;
+    require_once "src/php/database_connect.php";
+    session_start();
+
+    if(isset($_SESSION["user_token"])) {
+        $login_token = $_SESSION["user_token"];
+        $query = "SELECT * FROM `Users` WHERE `user_login_token` = :token";
+        try {
+            $stmt = DBConnection::instance()->prepare($query);
+            $stmt->bindParam(":token", $login_token);
+            $stmt->execute();
+        } catch (Exception $e) {
+            error_log("Error: " . $e->getMessage());
+        }
+        if ($stmt == false) {
+            die;
+        } else {
+            error_log("Word you're logged in as user: " . $_SESSION["user_id"]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $user = $row["username"];
+        }
     } else {
-        error_log("Word you're logged in as user: " . $_SESSION["user_id"]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $user = $row["username"];
+        echo "Please login, redirecting...";
+        die;
     }
-} else {
-    echo "Please login, redirecting...";
-    die;
-}
 ?>
 
 <HTML>
