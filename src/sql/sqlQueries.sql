@@ -26,10 +26,6 @@ WHERE Locations.region = :reg;
 -- Select by location
 SELECT Current_Data.P_Id, Current_Data.capacity
 FROM Current_Data
+INNER JOIN Locations
+ON Locations.P_Id = Current_Data.P_Id
 WHERE Current_Data.P_Id = :id;
-
-BEGIN
-    SELECT Current_Data.P_Id, Current_Data.capacity
-	  FROM Current_Data
-	  WHERE Current_Data.P_Id = :id;
-END
