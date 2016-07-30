@@ -61,6 +61,20 @@
                 </div>
                 <div class="results"></div>
             </div>
+            <div class="ui right secondary menu">
+                <div class="ui dropdown pointing item">
+                    <i class="options icon"></i>
+                    Account
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item"><?php echo $user ?></div>
+                        <div class="item">Settings</div>
+                        <div class="item">Database</div>
+                        <div class="divider"></div>
+                        <div class="item" id="logout">Logout</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id='content' class="ui container" style="height: 500px; width: 1000px;">
