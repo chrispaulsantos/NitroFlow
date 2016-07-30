@@ -1,6 +1,7 @@
 <?php
     require_once "src/php/database_connect.php";
     session_start();
+    error_log("Beginning login check.");
 
     if(isset($_SESSION["user_token"])) {
         $login_token = $_SESSION["user_token"];
