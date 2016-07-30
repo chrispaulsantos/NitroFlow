@@ -22,7 +22,9 @@
         }
     } else {
         echo "Please login, redirecting...";
-        die;
+        sleep(5);
+        header("Location: http://159.203.186.131/login.php"); /* Redirect browser */
+        exit();
     }
 
 
