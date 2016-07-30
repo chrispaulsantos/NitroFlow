@@ -10,8 +10,8 @@
         $stmt->bindParam(":id",$args[$ct]["id"]);
         $stmt->execute();
 
-        //$stmt = DBConnection::instance()->prepare("CALL `insertCurrentCapacity`(:capacity, :id)");
-        $stmt = DBConnection::instance()->prepare("UPDATE Current_Data SET capacity=:capacity, time_stamp=CURRENT_TIMESTAMP WHERE P_Id=:id");
+        $stmt = DBConnection::instance()->prepare("CALL `insertCurrentData`(:capacity, :id)");
+        // $stmt = DBConnection::instance()->prepare("UPDATE Current_Data SET capacity=:capacity, time_stamp=CURRENT_TIMESTAMP WHERE P_Id=:id");
         $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
         $stmt->bindParam(":id",$args[$ct]["id"]);
         error_log(json_encode($stmt));
