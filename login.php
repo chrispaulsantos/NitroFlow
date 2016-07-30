@@ -25,9 +25,6 @@
                         <button id="login_button" class="ui button" type="button">Login</button>
                     </form>
                 </div>
-                <div class="ui bottom attached warning message">
-                    Haven't Registered? <a href="register.php">Register here</a> instead.
-                </div>
             </div>
         </div>
 

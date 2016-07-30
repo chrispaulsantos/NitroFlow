@@ -1,30 +1,45 @@
 /**
- * Created by TheodoreBelanger on 6/8/16.
+ * Created by chris on 7/29/16.
  */
-$(document).ready(function(){
-    $(document).on('click', "#get_button", function(){
-        $("#results").remove();
-        var brand = $("select[name=brand]").val();
-        var condition = $("select[name=condition]").val();
-        var series = $("select[name=series]").val();
-        var issue = $("select[name=issue]").val();
+$(document).ready(function() {
+    var username = null;
+    var password = null;
 
-        var args = [];
+// Get username and password and verify against database
+    $(document).on("click","#login_button",function () {
+        username = $("input[name=username]").val();
+        password = $("input[name=password]").val();
 
+        console.log(username + " : " + password);
 
-
-
-        $.ajax({
-            type: "GET",
-            url: "src/php/search_retrieve.php",
-            data: {
-                args: args
-            },
-            dataType: "text"
-        }).done(function(response){
-            console.log(response);
-            $('.ui.container').append(response);
-            $('.sortable.table').tablesort();
-        });
+        verifyUser(username, password);
     });
-});
+    $(document).on("keypress", function (e) {
+        if(e.which == 13){
+            username = $("input[name=username]").val();
+            password = $("input[name=password]").val();
+
+            console.log(username + " : " + password);
+
+            verifyUser(username, password);
+        }
+    });
+})
+
+function verifyUser(username, password){
+    $.ajax({
+        type: "GET",
+        url: "src/php/validate_login.php",
+        data: {
+            username: username,
+            password: password
+        },
+        dataType: "text"
+    }).done(function(response){
+        if(response == "REDIRECT"){
+            window.location = "index.php";
+        } else if(response == "INCORRECT"){
+            $("#wrong").removeClass("hidden");
+        }
+    });
+}
