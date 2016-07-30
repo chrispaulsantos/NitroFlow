@@ -1,9 +1,6 @@
 <?php
     require_once "src/php/database_connect.php";
     session_start();
-<?php
-    require_once "src/php/database_connect.php";
-    session_start();
     error_log("Beginning login check.");
 
     if(isset($_SESSION["user_token"])) {
@@ -29,18 +26,18 @@
     }
 
 
-$regions = array();
+    $regions = array();
 
-try {
-    $stmt = DBConnection::instance()->prepare("SELECT DISTINCT region FROM Locations");
-    $stmt->execute();
-} catch (Exception $e){
-    error_log("Error: " .$e->getMessage());
-}
+    try {
+        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT region FROM Locations");
+        $stmt->execute();
+    } catch (Exception $e){
+        error_log("Error: " .$e->getMessage());
+    }
 
-while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $regions[] = $row["region"];
-}
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        $regions[] = $row["region"];
+    }
 ?>
 
 <html>
