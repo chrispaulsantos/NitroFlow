@@ -19,6 +19,7 @@
             error_log("Word you're logged in as user: " . $_SESSION["user_id"]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $user = $row["username"];
+            error_log($user);
         }
     } else {
         echo "Please login, redirecting...";
