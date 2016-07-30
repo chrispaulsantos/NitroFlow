@@ -15,7 +15,7 @@
         $stmt->execute();
 
         // Insert into current data table
-        $stmt = DBConnection::instance()->prepare("CALL `insertCurrentData`(:capacity, :id)");
+        $stmt = DBConnection::instance()->prepare("CALL `insertCurrentData`(:capacity, :id, :t)");
         $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
         $stmt->bindParam(":id",$args[$ct]["id"]);
         $stmt->execute();
