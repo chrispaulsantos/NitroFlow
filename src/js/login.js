@@ -39,7 +39,7 @@ function verifyUser(username, password){
         if(response == "SUCCESS"){
             window.location = "index.php";
         } else if(response == "FAILURE"){
-            $("#wrong").removeClass("hidden");
+            // TEDDY ADD JQUERY HERE
         }
     });
 }
