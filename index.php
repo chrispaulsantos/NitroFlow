@@ -3,7 +3,10 @@
     session_start();
     error_log("Beginning login check.");
 
+    // Check if user token is set
     if(isset($_SESSION["user_token"])) {
+
+        // Check login token against database
         $login_token = $_SESSION["user_token"];
         $query = "SELECT * FROM `Users` WHERE `user_login_token` = :token";
         try {
@@ -13,6 +16,8 @@
         } catch (Exception $e) {
             error_log("Error: " . $e->getMessage());
         }
+
+        // If no result returned, die, else login
         if ($stmt == false) {
             die;
         } else {
@@ -21,6 +26,7 @@
             $user = $row["username"];
             error_log($user);
         }
+     // If user token is not set, redirect to login page
     } else {
         echo "Please login, redirecting...";
         sleep(2);
