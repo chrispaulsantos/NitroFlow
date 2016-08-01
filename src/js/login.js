@@ -36,9 +36,9 @@ function verifyUser(username, password){
         },
         dataType: "text"
     }).done(function(response){
-        if(response == "REDIRECT"){
+        if(response == "SUCCESS"){
             window.location = "index.php";
-        } else if(response == "INCORRECT"){
+        } else if(response == "FAILURE"){
             $("#wrong").removeClass("hidden");
         }
     });
