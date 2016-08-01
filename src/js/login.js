@@ -6,14 +6,14 @@ $(document).ready(function() {
     var password = null;
 
 // Get username and password and verify against database
+    // On login button click
     $(document).on("click","#login_button",function () {
         username = $("input[name=username]").val();
         password = $("input[name=password]").val();
 
-        console.log(username + " : " + password);
-
         verifyUser(username, password);
     });
+    // On enter key press
     $(document).on("keypress", function (e) {
         if(e.which == 13){
             username = $("input[name=username]").val();
