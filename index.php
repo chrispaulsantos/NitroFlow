@@ -7,11 +7,10 @@
     if(isset($_SESSION["user_token"])) {
 
         // Check login token against database
-        $login_token = $_SESSION["user_token"];
         $query = "SELECT * FROM `Users` WHERE `user_login_token` = :token";
         try {
             $stmt = DBConnection::instance()->prepare($query);
-            $stmt->bindParam(":token", $login_token);
+            $stmt->bindParam(":token", $_SESSION["user_token"]);
             $stmt->execute();
         } catch (Exception $e) {
             error_log("Error: " . $e->getMessage());
@@ -21,15 +20,15 @@
         if ($stmt == false) {
             die;
         } else {
-            error_log("Word you're logged in as user: " . $_SESSION["user_id"]);
+            error_log("Word, you're logged in as user: " . $_SESSION["user_id"]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $user = $row["username"];
-            error_log($user);
+            // error_log($user);
         }
      // If user token is not set, redirect to login page
     } else {
-        echo "Please login, redirecting...";
-        sleep(2);
+        // echo "Please login, redirecting...";
+        sleep(1);
         header("Location: http://159.203.186.131/login.php"); /* Redirect browser */
         exit();
     }
