@@ -13,7 +13,7 @@
     }
 
     if($region == "ALL"){
-        $query = "SELECT * FROM Current_Data INNER JOIN Locations ON Current_Data.P_Id = Locations.P_Id";
+        $query = "SELECT * FROM Current_Data INNER JOIN Locations ON Current_Data.P_Id = Locations.P_Id ORDER BY P_Id";
     } else {
         $query = "CALL `flow_data`.`getByRegion`(:reg)";
     }
