@@ -61,7 +61,7 @@
     <body>
 
         <div class="ui menu">
-            <div class="ui category search item">
+            <div class="ui category search item" style="width:220px;">
                 <div class="ui transparent icon input">
                     <input class="prompt" placeholder="Search Locations" type="text">
                     <i class="search link icon"></i>
