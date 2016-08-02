@@ -31,19 +31,22 @@
         error_log(json_encode($row));
     }
 
-    // Create new location object to be returned to the js for processing
-    $location = new location();
-    $location->id = $row["P_Id"];
-    $location->location = $row["location"];
+    foreach($rows as $row){
+        // Create new location object to be returned to the js for processing
+        $location = new location();
+        $location->id = $row["P_Id"];
+        $location->location = $row["location"];
 
-    // Check to ensure the returned value is a number
-    if($row["capacity"] != null || $row["capacity"] != ""){
-        $location->current_capacity = $row["capacity"];
-    } else {
-        $location->current_capacity = 0;
+        // Check to ensure the returned value is a number
+        if($row["capacity"] != null || $row["capacity"] != ""){
+            $location->current_capacity = $row["capacity"];
+        } else {
+            $location->current_capacity = 0;
+        }
+
+        $location->time = $row["timeStamp"];
+        $locations[] = $location;
     }
 
-    $location->time = $row["timeStamp"];
-    $locations[] = $location;
     error_log(json_encode($locations));
     echo json_encode($locations);
