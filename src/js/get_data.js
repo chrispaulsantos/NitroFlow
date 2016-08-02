@@ -1,6 +1,7 @@
+var int = null;
+
 $(document).ready(function() {
     var myBarChart = null;
-    var int = null;
     ids = [1,2,3,4,5];
 
     // Locations for search box
