@@ -61,17 +61,17 @@
     <body>
 
         <div class="ui menu">
+
             <div class="ui category search item" style="width:220px;">
                 <div class="ui transparent icon input">
                     <input class="prompt" placeholder="Search Locations" type="text">
                     <i class="search link icon"></i>
+                    <button class="ui button">
+                        <i class="right arrow icon"></i>
+                    </button>
                 </div>
                 <div class="results"></div>
             </div>
-
-            <button class="ui button">
-                <i class="right arrow icon"></i>
-            </button>
 
             <div class="ui right secondary menu">
                 <div class="ui dropdown pointing item">
