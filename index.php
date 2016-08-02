@@ -1,7 +1,6 @@
 <?php
     require_once "src/php/database_connect.php";
     session_start();
-    error_log("Beginning login check.");
 
     // Check if user token is set
     if(isset($_SESSION["user_token"])) {
@@ -105,9 +104,7 @@
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
-                        <div class="ui segment">
-                            <canvas id="chart" width="400" height="250"></canvas>
-                        </div>
+                        <div id="chartHolder" class="ui segment"></div>
                         <div id="time">Last Updated: </div>
                     </div>
                 </div>
