@@ -66,7 +66,7 @@
                     <input class="prompt" placeholder="Search Locations" type="text">
                     <i class="search link icon"></i>
                 </div>
-                <div class="fluid results"></div>
+                <div class="results"></div>
             </div>
             <div class="ui right secondary menu">
                 <div class="ui dropdown pointing item">
@@ -120,16 +120,9 @@
             //$('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
             $('.ui.dropdown').dropdown();
 
-            var
-                content = [
-                    {
-                        title: 'Horse',
-                        description: 'An Animal',
-                    },
-                    {
-                        title: 'Cow',
-                        description: 'Another Animal',
-                    }
+            var content = [
+                    { title: 'Horse' },
+                    { title: 'Cow'}
                 ];
             $('.ui.search')
                 .search({
@@ -137,7 +130,6 @@
                     searchFields   : [
                         'title'
                     ],
-                    searchFullText: false
                 });
         </script>
 

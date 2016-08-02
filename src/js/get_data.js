@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-// variables for drawing the chart; datasets and labels initially empty
+// variables for drawing the chart; datasets.data and labels initially empty
     var data = {
         labels: [],
         datasets: [
@@ -32,6 +32,7 @@ $(document).ready(function() {
 
 // Get data by location
     getByLocation(data, options, myBarChart);
+    getLocations();
 
 });
 
@@ -125,4 +126,14 @@ function getByLocation(data, options, myBarChart){
             }
         });
     }, 5000);
+}
+
+function getLocations(){
+    $.ajax({
+        type: "GET",
+        url: "src/php/getLocations.php",
+        dataType: "text"
+    }).done(function(response){
+
+    });
 }
