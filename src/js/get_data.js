@@ -82,15 +82,6 @@ $(document).ready(function() {
     });
 });
 
-function build_Data(data, obj){
-
-// For each object in return value, set datasets equal to capacity and labels equal to location
-    for(i = 0; i < obj.length; i++){
-        data.datasets[0].data[i] = obj[i]["current_capacity"];
-        data.labels[i] = obj[i]["location"];
-    }
-}
-
 function timeStamp() {
 // Create a date object with the current time
     var now = new Date();
@@ -235,21 +226,11 @@ function getByLocation(data, options, myBarChart){
         });
     }, 5000);
 }
+function build_Data(data, obj){
 
-function getLocations(){
-    $.ajax({
-        type: "GET",
-        url: "src/php/getLocations.php",
-        dataType: "text"
-    }).done(function(response){
-        var locations = JSON.parse(response);
-        console.log(locations);
-
-        $('.ui.search').search({
-            source : locations,
-            searchFields : [
-                'title'
-            ],
-        });
-    });
+// For each object in return value, set datasets equal to capacity and labels equal to location
+    for(i = 0; i < obj.length; i++){
+        data.datasets[0].data[i] = obj[i]["current_capacity"];
+        data.labels[i] = obj[i]["location"];
+    }
 }

@@ -32,10 +32,11 @@
         exit();
     }
 
-
+    // initialize region and location arrays
     $regions = array();
     $locations = array();
 
+    // Get regions
     try {
         $stmt = DBConnection::instance()->prepare("SELECT DISTINCT region FROM Locations");
         $stmt->execute();
@@ -45,7 +46,7 @@
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $regions[] = $row["region"];
     }
-
+    // Get locations
     try {
         $stmt = DBConnection::instance()->prepare("SELECT DISTINCT location FROM Locations");
         $stmt->execute();
@@ -70,7 +71,6 @@
     <body>
 
         <div class="ui menu">
-
             <select id="location" class="ui scrolling search dropdown" multiple="">
                 <option value="">Select Location</option>
                 <option value="ALL">Select All Locations</option>
@@ -78,7 +78,6 @@
                     <option value="<?php echo $location; ?>"><?php echo $location; ?></option>
                 <?php endforeach; ?>
             </select>
-
             <div class="ui right secondary menu">
                 <div class="ui dropdown pointing item">
                     <i class="options icon"></i>
@@ -93,11 +92,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div id='content' class="ui container" style="height: 500px; width: 1000px;">
-
             <div class="ui grid">
 
                 <div class="four wide column">
@@ -120,7 +117,6 @@
                 </div>
 
             </div>
-
         </div>
 
         <script>
