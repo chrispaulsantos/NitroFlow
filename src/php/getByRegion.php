@@ -12,7 +12,7 @@ if( $_GET != null ) {
 $locations = [];
 
 // Loop over the selected id's and execute the query for each id
-foreach($ids as $id){
+//foreach($ids as $id){
     // error_log($id);
     // Prepare the query for execution
     try {
@@ -53,6 +53,6 @@ foreach($ids as $id){
 
     $location->time = $row["timeStamp"];
     $locations[] = $location;
-}
+//}
 
 echo json_encode($locations);
