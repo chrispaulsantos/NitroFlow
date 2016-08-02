@@ -5,7 +5,7 @@
  * Date: 8/2/16
  * Time: 8:55 AM
  */
-error_log("Am I in?");
+
     require_once "database_connect.php";
 
     try {
@@ -20,7 +20,6 @@ error_log("Am I in?");
         $rows[] = $row;
     }
 
-
     createJSON($rows);
 
     function createJSON($rows){
@@ -30,5 +29,5 @@ error_log("Am I in?");
             $i++;
         }
         echo json_encode($json);
-        error_log(json_encode($json));
+        // error_log(json_encode($json));
     }
