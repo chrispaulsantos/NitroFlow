@@ -179,7 +179,7 @@ function getByRegion(data, options, myBarChart){
     }, 5000);
 }
 function getByLocation(data, options, myBarChart){
-    var location = $("location").val();
+    var locations = $("location").val();
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
     // Draw graph initially on pageload
@@ -199,7 +199,7 @@ function getByLocation(data, options, myBarChart){
             url: "src/php/getByRegion.php",
             type: "GET",
             data: {
-                region: region
+                locations: locations
             },
             dataType: "text"
         }).done(function(response) {
