@@ -8,18 +8,18 @@
 
     require_once "database_connect.php";
 
+    // Check if username and password are null
+    if( $_GET != null ){
+        $username = $_GET["username"];
+        $password = $_GET["password"];
+    } else {
+        throw new Exception("Username and password not set");
+    }
+
 // Check if the session is started and then login
     if ( is_session_started() == FALSE ){
         $stmt = null;
         $rows = array();
-
-        // Check if username and password are null
-        if( $_GET != null ){
-            $username = $_GET["username"];
-            $password = $_GET["password"];
-        } else {
-            throw new Exception("Username and password not set");
-        }
 
         // Check database to see if the username exists
         try{
@@ -48,14 +48,11 @@
 
         // If password_verify returns true, begin session
         if($check){
+            // Set cookie life to 120 minutes and start session
             session_set_cookie_params(120);
-
             session_start();
             $_SESSION["user_token"] = generateToken($username);
             $_SESSION["user_id"] = $user_id;
-
-            // error_log(json_encode(session_get_cookie_params()));
-            // error_log($_SESSION["user_token"]);
 
             // Return redirect
             echo "SUCCESS";
@@ -64,8 +61,12 @@
             echo "FAILURE";
         }
     } else {
-        // FINISH LATER BUT USED FOR CHECKING CURRENT SESSION
-        checkToken();
+        session_start();
+        if(checkToken($_SESSION["user_token"],$username)){
+            echo "SUCCESS";
+        } else {
+            echo "FAILURE";
+        }
     }
 
     function generateToken($username){
@@ -85,14 +86,24 @@
 
         return $login_token;
     }
-    function checkToken(){
+    function checkToken($token,$username){
         // Check the token against the database
         try{
-            $stmt = DBConnection::instance()->prepare("SELECT `user_login_token` FROM `Users` WHERE `username` = :nm");
+            $stmt = DBConnection::instance()->prepare("SELECT * FROM `Users` WHERE `username`=:nm AND `user_login_token`=:tk");
             $stmt->bindParam(":nm", $username);
+            $stmt->bindParam("tk", $token);
             $stmt->execute();
         } catch (Exception $e){
             error_log("Error: " . $e->getMessage());
+        }
+        // Check if there were results
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Return true if a result was returned, else false
+        if($row != FALSE){
+            return TRUE;
+        } else {
+            return FALSE;
         }
     }
     function is_session_started(){
