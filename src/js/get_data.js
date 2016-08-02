@@ -4,9 +4,6 @@ $(document).ready(function() {
     var myBarChart = null;
     ids = [1,2,3,4,5];
 
-    // Locations for search box
-    getLocations();
-
     $(document).on("change","#region",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
         var barData = {
