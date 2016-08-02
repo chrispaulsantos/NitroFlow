@@ -76,7 +76,6 @@ function build_Data(data, obj){
         data.datasets[0].data[i] = obj[i]["current_capacity"];
         data.labels[i] = obj[i]["location"];
     }
-    console.log(data);
 }
 
 function timeStamp() {

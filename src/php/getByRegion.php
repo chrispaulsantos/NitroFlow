@@ -48,5 +48,5 @@
 
         $locations[] = $location;
     }
-    error_log(json_encode($locations));
+
     echo json_encode($locations);
