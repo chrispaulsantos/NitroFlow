@@ -133,7 +133,7 @@
 
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
-            $('.ui.dropdown').dropdown();
+            $('.ui.dropdown').dropdown({ fullTextSearch: true });
         </script>
 
     </body>
