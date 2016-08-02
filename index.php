@@ -53,10 +53,11 @@
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <script type="text/javascript" src="src/js/Chart.js"></script>
+        <script src="src/js/Chart.js" type="text/javascript"></script>
         <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
+        <script src="src/js/location.js" type="text/javascript"></script>
     </head>
     <body>
 
