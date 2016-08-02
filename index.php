@@ -110,7 +110,7 @@
                         </select>
                     </div>
                     <div id="alert" class="ui scrollable left aligned segment"></div>
-                    <div class="ui fluid left aligned segment input"><input type="text" id="datepicker"></div>
+                    <div class="ui small fluid left aligned segment input"><input type="text" id="datepicker"></div>
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
@@ -125,7 +125,7 @@
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
-            //$( "#datepicker" ).datepicker();
+            $( "#datepicker" ).datepicker();
         </script>
 
     </body>
