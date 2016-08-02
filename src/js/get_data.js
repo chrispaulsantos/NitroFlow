@@ -37,7 +37,7 @@ $(document).ready(function() {
         getByRegion(barData, options, myBarChart);
         console.log("Change successful");
     });
-    $(document).on("click",".search.link.icon",function(){
+    $(document).on("change","#location",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
         var lineData = {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
