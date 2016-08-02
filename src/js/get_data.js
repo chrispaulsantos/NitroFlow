@@ -110,7 +110,7 @@ function timeStamp() {
 
 function getByRegion(data, options, myBarChart){
     var region = $("#region").val();
-    $("#chartHolder").empty().append("<canvas id="chart" width="400" height="250"></canvas>");
+    $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
     console.log(region);
     // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
