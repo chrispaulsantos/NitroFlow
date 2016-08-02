@@ -23,6 +23,7 @@
         error_log("Error: " .$e->getMessage());
     }
 
+    error_log(json_encode($stmt));
     // Fetch the returned values
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
