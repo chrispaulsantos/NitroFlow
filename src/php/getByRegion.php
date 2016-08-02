@@ -17,7 +17,7 @@
         $query = "SELECT `Current_Data`.`P_Id`, `Current_Data`.`capacity`, `Locations`.`region`, `Locations`.`location` FROM `flow_data`.`Current_Data` INNER JOIN `flow_data`.`Locations` ON `Current_Data`.`P_Id` = `Locations`.`P_Id` WHERE `Locations`.`region` = :reg";
         //$stmt = DBConnection::instance()->prepare($query);
         $stmt = DBConnection::instance()->prepare("CALL `flow_data`.`getByRegion`(:reg)");
-        $stmt->bindParam(":reg", $region);
+        $stmt->bindParam(":reg", 'BOSZ2L');
         $stmt->execute();
     } catch(Exception $e){
         error_log("Error: " .$e->getMessage());
