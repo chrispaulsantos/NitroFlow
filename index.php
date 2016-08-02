@@ -57,7 +57,6 @@
         <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
-        <script src="src/js/location.js" type="text/javascript"></script>
     </head>
     <body>
 
@@ -94,7 +93,7 @@
 
                 <div class="four wide column">
                     <div class="ui left aligned segment">
-                        <select class="ui fluid scrolling search dropdown">
+                        <select id="region"class="ui fluid scrolling search dropdown">
                             <option value="">Select Region</option>
                             <option value="ALL" selected>Select All Regions</option>
                             <?php foreach($regions as $region): ?>
@@ -102,9 +101,7 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div id="alert" class="ui scrollable left aligned segment">
-                        
-                    </div>
+                    <div id="alert" class="ui scrollable left aligned segment"></div>
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
@@ -121,14 +118,7 @@
 
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
-            //$('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
             $('.ui.dropdown').dropdown();
-
-            var content = [
-                    { title: 'Horse' },
-                    { title: 'Cow'}
-                ];
-
         </script>
 
     </body>

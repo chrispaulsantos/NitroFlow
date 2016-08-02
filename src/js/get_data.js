@@ -1,39 +1,70 @@
 $(document).ready(function() {
-
-// variables for drawing the chart; datasets.data and labels initially empty
-    var data = {
-        labels: [],
-        datasets: [
-            {
-                label: "Keg Capacity",
-                backgroundColor: "rgba(13,71,161, .7)",
-                borderColor: "rgba(13,71,161, .7)",
-                borderWidth: 1,
-                hoverBackgroundColor: "rgba(13,71,161, .4)",
-                hoverBorderColor: "rgba(13,71,161, .4)",
-                data: [],
-            }
-        ]
-    };
-    var options = {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    max: 100,
-                    min: 0,
-                    stepSize: 10
-                }
-            }]
-        }
-    };
     var myBarChart = null;
-    
     ids = [1,2,3,4,5];
 
-// Get data by location
-    getByLocation(data, options, myBarChart);
+    // Locations for search box
     getLocations();
 
+    $(document).on("change","#region",function(){
+        // variables for drawing the chart; datasets.data and labels initially empty
+        /*var barData = {
+            labels: [],
+            datasets: [
+                {
+                    label: "Keg Capacity",
+                    backgroundColor: "rgba(13,71,161, .7)",
+                    borderColor: "rgba(13,71,161, .7)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(13,71,161, .4)",
+                    hoverBorderColor: "rgba(13,71,161, .4)",
+                    data: [],
+                }
+            ]
+        };
+        var options = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        max: 100,
+                        min: 0,
+                        stepSize: 10
+                    }
+                }]
+            }
+        };
+        getByRegion(barData, options, myBarChart);*/
+        console.log("Change successful");
+    });
+    $(document).on("click",".search.link.icon",function(){
+        // variables for drawing the chart; datasets.data and labels initially empty
+        var barData = {
+            labels: [],
+            datasets: [
+                {
+                    label: "Keg Capacity",
+                    backgroundColor: "rgba(13,71,161, .7)",
+                    borderColor: "rgba(13,71,161, .7)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(13,71,161, .4)",
+                    hoverBorderColor: "rgba(13,71,161, .4)",
+                    data: [],
+                }
+            ]
+        };
+        var options = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        max: 100,
+                        min: 0,
+                        stepSize: 10
+                    }
+                }]
+            }
+        };
+        getByRegion(barData, options, myBarChart);
+        console.log("Click successful");
+    });
 });
 
 function build_Data(data, obj){
@@ -75,7 +106,7 @@ function timeStamp() {
     return date.join("/") + " " + time.join(":") + " " + suffix;
 }
 
-function getByLocation(data, options, myBarChart){
+function getByRegion(data, options, myBarChart){
 
 // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
