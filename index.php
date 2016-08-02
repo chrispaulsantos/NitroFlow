@@ -34,6 +34,7 @@
 
 
     $regions = array();
+    $locations = array();
 
     try {
         $stmt = DBConnection::instance()->prepare("SELECT DISTINCT region FROM Locations");
@@ -41,9 +42,18 @@
     } catch (Exception $e){
         error_log("Error: " .$e->getMessage());
     }
-
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $regions[] = $row["region"];
+    }
+
+    try {
+        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT location FROM Locations");
+        $stmt->execute();
+    } catch (Exception $e){
+        error_log("Error: " .$e->getMessage());
+    }
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        $locationss[] = $row["location"];
     }
 ?>
 
@@ -61,7 +71,15 @@
 
         <div class="ui menu">
 
-            <div class="ui category search item" multiple="" style="width:220px;">
+            <select id="region" class="ui fluid scrolling search dropdown">
+                <option value="">Select Region</option>
+                <option value="ALL">Select All Regions</option>
+                <?php foreach($locations as $location): ?>
+                    <option value="<?php echo $location; ?>"><?php echo $location; ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <div class="ui category search item" style="width:220px;">
                 <div class="ui transparent icon input">
                     <input class="prompt" placeholder="Search Locations" type="text">
                     <i class="search link icon"></i>
