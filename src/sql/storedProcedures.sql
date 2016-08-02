@@ -24,29 +24,6 @@ BEGIN
     AND Locations.P_Id = id;
 END $$
 
-
--- SQL to create stored procedure 'getByRegion'
-CREATE PROCEDURE `flow_data`.`getByRegion`(reg VARCHAR(20))
-LANGUAGE SQL
-DETERMINISTIC
-SQL SECURITY DEFINER
-COMMENT 'Get by region'
-BEGIN
-
-    DECLARE @ids INT;
-    SET @ids = SELECT @ids = P_Id FROM Locations WHERE region = reg;
-
-    SELECT Locations.P_Id, Locations.location, Location_Data.current_capacity, Location_Data.time_stamp, Locations.region
-    FROM Locations
-    JOIN Location_Data
-    ON Locations.P_Id = Location_Data.P_Id
-    WHERE Location_Data.time_stamp = (SELECT MAX(Location_Data.time_stamp)
-                                      FROM Location_Data
-                                      WHERE Location_Data.P_Id = @ids)
-    AND Locations.P_Id = @ids
-END $$
-
-
 -- SQL to create stored procedure 'getByRegionAndLocation'
 CREATE PROCEDURE `flow_data`.`getByRegionAndLocation`(id INT, reg VARCHAR(20))
 LANGUAGE SQL
@@ -75,4 +52,20 @@ BEGIN
     UPDATE `flow_data`.`Current_Data`
 	  SET Current_Data.capacity=capacity, Current_Data.time_stamp=CURRENT_TIMESTAMP
     WHERE Current_Data.P_Id = id;
+END $$
+
+----------- THESE ARE GOOD BELOW THIS LINE ---------------
+
+-- SQL to create stored procedure 'getByRegion'
+CREATE PROCEDURE `flow_data`.`getByRegion`(region VARCHAR(20))
+LANGUAGE SQL
+DETERMINISTIC
+SQL SECURITY DEFINER
+COMMENT 'Get by region'
+BEGIN
+    SELECT Current_Data.P_Id, Current_Data.capacity, Locations.region, Locations.location
+    FROM Current_Data
+    INNER JOIN Locations
+    ON Current_Data.P_Id = Locations.P_Id
+    WHERE Locations.region = region;
 END $$

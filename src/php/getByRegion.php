@@ -16,7 +16,8 @@ foreach($ids as $id){
     // error_log($id);
     // Prepare the query for execution
     try {
-        $stmt = DBConnection::instance()->prepare("CALL `getByRegion`(:ireg)");
+        $stmt = DBConnection::instance()->prepare("CALL getByRegion(:reg)");
+        // $stmt = DBConnection::instance()->prepare("CALL `getByRegion`(:ireg)");
         $stmt->bindParam(":reg", $region);
         $stmt->execute();
     } catch(Exception $e){
