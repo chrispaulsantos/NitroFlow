@@ -119,7 +119,9 @@ function getByRegion(data, options, myBarChart){
     });
 
     // Update data every x seconds
-    clearInterval(int);
+    if(int != null){
+        clearInterval(int);
+    }
     int = setInterval(function(){
         $.ajax({
             url: "src/php/getByRegion.php",
