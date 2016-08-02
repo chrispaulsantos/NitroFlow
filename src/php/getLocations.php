@@ -24,6 +24,7 @@ error_log("Am I in?");
     createJSON($rows);
 
     function createJSON($rows){
+        $i = 0;
         while($i < count($rows)){
             $json[] = ["title" => $rows[$i]["location"]];
             $i++;
