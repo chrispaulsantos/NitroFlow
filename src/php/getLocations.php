@@ -8,12 +8,12 @@
 error_log("Am I in?");
     require_once "database_connect.php";
 
-try {
-    $stmt = DBConnection::instance()->prepare("SELECT DISTINCT `location` FROM `Locations`");
-    $stmt->execute();
-} catch (Exception $e){
-    error_log("Error: ") . $e->getMessage();
-}
+    try {
+        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT `location` FROM `Locations`");
+        $stmt->execute();
+    } catch (Exception $e){
+        error_log("Error: ") . $e->getMessage();
+    }
 
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -24,5 +24,6 @@ try {
     createJSON($rows);
 
     function createJSON($rows){
-        error_log(json_encode($rows));
+        $json[] = "title" => $rows["location"];
+        error_log(json_encode($json));
     }
