@@ -97,7 +97,7 @@
                             <option value="">Select Region</option>
                             <option value="ALL" selected>Select All Regions</option>
                             <?php foreach($regions as $region): ?>
-                                <option value="'<?php echo $region; ?>'"><?php echo $region; ?></option>
+                                <option value="<?php echo $region; ?>"><?php echo $region; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
