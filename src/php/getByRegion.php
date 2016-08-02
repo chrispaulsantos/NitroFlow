@@ -12,9 +12,15 @@
         $region = $_GET['region'];
     }
 
+    if($region == "ALL"){
+        $query = "SELECT * FROM Current_Data";
+    } else {
+        $query = "CALL `flow_data`.`getByRegion`(:reg)";
+    }
+
     // Prepare the query for execution
     try {
-        $stmt = DBConnection::instance()->prepare("CALL `flow_data`.`getByRegion`(:reg)");
+        $stmt = DBConnection::instance()->prepare($query);
         $stmt->bindParam(":reg", $region);
         $stmt->execute();
     } catch(Exception $e){
