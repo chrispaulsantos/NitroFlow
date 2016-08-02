@@ -125,7 +125,7 @@
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
-            $( "#datepicker" ).datepicker();
+            //$( "#datepicker" ).datepicker();
         </script>
 
     </body>
