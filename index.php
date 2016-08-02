@@ -109,7 +109,7 @@
                         </select>
                     </div>
                     <div id="alert" class="ui scrollable left aligned segment"></div>
-                    <div class="ui left aligned segment"><input class="ui input" type="text" id="datepicker"></div>
+                    <div class="ui left aligned segment"><input class="input" type="text" id="datepicker"></div>
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
