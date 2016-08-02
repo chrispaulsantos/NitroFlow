@@ -66,9 +66,6 @@
                 <div class="ui transparent icon input">
                     <input class="prompt" placeholder="Search Locations" type="text">
                     <i class="search link icon"></i>
-                    <button class="ui button">
-                        <i class="right arrow icon"></i>
-                    </button>
                 </div>
                 <div class="results"></div>
             </div>
@@ -87,6 +84,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div id='content' class="ui container" style="height: 500px; width: 1000px;">
