@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     $(document).on("change","#region",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
-        /*var barData = {
+        var barData = {
             labels: [],
             datasets: [
                 {
@@ -32,7 +32,7 @@ $(document).ready(function() {
                 }]
             }
         };
-        getByRegion(barData, options, myBarChart);*/
+        getByRegion(barData, options, myBarChart);
         console.log("Change successful");
     });
     $(document).on("click",".search.link.icon",function(){
@@ -107,8 +107,10 @@ function timeStamp() {
 }
 
 function getByRegion(data, options, myBarChart){
+    region = $("#region").val();
+    console.log(region);
 
-// Draw graph initially on pageload
+    // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
     myBarChart = new Chart(ctx, {
         type: 'bar',
@@ -116,7 +118,7 @@ function getByRegion(data, options, myBarChart){
         options: options
     });
 
-// Update data every x seconds
+    // Update data every x seconds
     setInterval(function(){
         $.ajax({
             url: "src/php/getByLocation.php",
@@ -127,15 +129,15 @@ function getByRegion(data, options, myBarChart){
             dataType: "text"
         }).done(function(response) {
 
-        // Build the data from the php response
+            // Build the data from the php response
             var obj = JSON.parse(response);
             build_Data(data, obj);
 
-        // Update the current time, and empty the alerts div
+            // Update the current time, and empty the alerts div
             $("#time").empty().append("Last Updated: " + timeStamp());
             $('#alert').empty();
 
-        // Set alerts, if any less than defined amount
+            // Set alerts, if any less than defined amount
             for(i = 0; i < obj.length; i++){
                 if(obj[i]["current_capacity"] < 30){
                     $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
@@ -144,7 +146,7 @@ function getByRegion(data, options, myBarChart){
                 }
             }
 
-        // If chart is null, draw, else, update
+            // If chart is null, draw, else, update
             if(myBarChart == null){
                 var ctx = document.getElementById("chart");
                 myBarChart = new Chart(ctx, {

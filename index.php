@@ -93,7 +93,7 @@
 
                 <div class="four wide column">
                     <div class="ui left aligned segment">
-                        <select id="region"class="ui fluid scrolling search dropdown">
+                        <select id="region" class="ui fluid scrolling search dropdown">
                             <option value="">Select Region</option>
                             <option value="ALL" selected>Select All Regions</option>
                             <?php foreach($regions as $region): ?>
