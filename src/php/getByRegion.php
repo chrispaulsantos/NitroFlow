@@ -10,8 +10,6 @@
     // Region passed from js
     if( $_GET != null ) {
         $region = $_GET['region'];
-        //$region = 'BOSZ2L';
-        error_log($region);
     }
 
     // Prepare the query for execution
@@ -44,5 +42,5 @@
 
         $locations[] = $location;
     }
-
+    error_log(json_encode($locations));
     echo json_encode($locations);
