@@ -67,6 +67,7 @@
         <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     </head>
     <body>
 
@@ -117,11 +118,15 @@
                 </div>
 
             </div>
+            <input type="text" id="datepicker">
         </div>
 
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
+            $( function() {
+                $( "#datepicker" ).datepicker();
+            } );
         </script>
 
     </body>
