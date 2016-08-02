@@ -136,5 +136,13 @@ function getLocations(){
     }).done(function(response){
         var locations = JSON.parse(response);
         console.log(locations);
+
+        $('.ui.search')
+            .search({
+                source : locations,
+                searchFields   : [
+                    'title'
+                ],
+            });
     });
 }

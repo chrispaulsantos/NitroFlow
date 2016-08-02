@@ -124,13 +124,7 @@
                     { title: 'Horse' },
                     { title: 'Cow'}
                 ];
-            $('.ui.search')
-                .search({
-                    source : content,
-                    searchFields   : [
-                        'title'
-                    ],
-                });
+
         </script>
 
     </body>
