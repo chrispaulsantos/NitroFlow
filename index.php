@@ -63,11 +63,11 @@
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
         <script src="src/js/Chart.js" type="text/javascript"></script>
         <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     </head>
     <body>
 
@@ -124,9 +124,7 @@
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
-            $( function() {
-                $( "#datepicker" ).datepicker();
-            } );
+            $( "#datepicker" ).datepicker();
         </script>
 
     </body>
