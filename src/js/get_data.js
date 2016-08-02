@@ -134,6 +134,6 @@ function getLocations(){
         url: "src/php/getLocations.php",
         dataType: "text"
     }).done(function(response){
-
+        console.log(response);
     });
 }

@@ -29,6 +29,6 @@ error_log("Am I in?");
             $json[] = ["title" => $rows[$i]["location"]];
             $i++;
         }
-
+        echo json_encode($json);
         error_log(json_encode($json));
     }
