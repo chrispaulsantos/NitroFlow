@@ -1,8 +1,27 @@
 <?php
+    // Include database connection class
     require_once "database_connect.php";
 
-    $capacity = $_GET["capacity"];
+    $args = $_GET["args"];
+    $ct = 0;
 
-    $stmt = DBConnection::instance()->prepare("INSERT INTO Location_Data(P_Id,current_capacity) VALUES(1,:capacity)");
-    $stmt->bindParam(":capacity",$capacity);
-    $stmt->execute();
+    foreach($args as $arg){
+        $time = time();
+        // Insert into location data table
+        $stmt = DBConnection::instance()->prepare("INSERT INTO Location_Data(P_Id,current_capacity,`timeStamp`) VALUES(:id,:capacity,:t)");
+        $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
+        $stmt->bindParam(":id",$args[$ct]["id"]);
+        $stmt->bindParam(":t",$time);
+        $stmt->execute();
+
+        // Insert into current data table
+        $stmt = DBConnection::instance()->prepare("CALL `insertCurrentData`(:capacity, :id, :t)");
+        $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
+        $stmt->bindParam(":id",$args[$ct]["id"]);
+        $stmt->bindParam(":t",$time);
+        $stmt->execute();
+
+        $ct++;
+    }
+
+    
