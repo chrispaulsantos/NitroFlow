@@ -68,6 +68,9 @@
                 </div>
                 <div class="results"></div>
             </div>
+            <button class="ui button">
+                Select
+            </button>
             <div class="ui right secondary menu">
                 <div class="ui dropdown pointing item">
                     <i class="options icon"></i>
