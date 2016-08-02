@@ -66,7 +66,7 @@
                     <input class="prompt" placeholder="Search Locations" type="text">
                     <i class="search link icon"></i>
                 </div>
-                <div class="results"></div>
+                <div class="fluid results"></div>
             </div>
             <div class="ui right secondary menu">
                 <div class="ui dropdown pointing item">
