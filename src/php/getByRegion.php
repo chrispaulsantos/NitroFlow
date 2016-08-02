@@ -30,6 +30,7 @@ $locations = [];
      */
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
+        error_log(json_encode($row));
     }
 
     // Check if more than one row existed at a given timestamp
