@@ -53,7 +53,7 @@
         error_log("Error: " .$e->getMessage());
     }
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $locationss[] = $row["location"];
+        $locations[] = $row["location"];
     }
 ?>
 
@@ -71,7 +71,7 @@
 
         <div class="ui menu">
 
-            <select id="region" class="ui fluid scrolling search dropdown">
+            <select id="location" class="ui fluid scrolling search dropdown" multiple="">
                 <option value="">Select Region</option>
                 <option value="ALL">Select All Regions</option>
                 <?php foreach($locations as $location): ?>
