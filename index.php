@@ -109,8 +109,9 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
+                    <div class="ui mini fluid left aligned segment input"><input type="text" id="datepicker"></div>
                     <div id="alert" class="ui scrollable left aligned segment"></div>
-                    <div class="ui small fluid left aligned segment input"><input type="text" id="datepicker"></div>
+
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
