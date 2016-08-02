@@ -9,8 +9,8 @@
 
     // Region passed from js
     if( $_GET != null ) {
-        $region = $_GET['region'];
-        $region = 'BOSZ2L';
+        $region = "'".$_GET['region']."'";
+        //$region = 'BOSZ2L';
     }
 
     // Prepare the query for execution
