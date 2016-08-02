@@ -10,12 +10,12 @@
     if( $_GET != null ) {
         $region = $_GET['region'];
     }
-    error_log($region);
 
-    // error_log($id);
     // Prepare the query for execution
     try {
-        $stmt = DBConnection::instance()->prepare("CALL `getByRegion`(:reg)");
+        $query = "SELECT Current_Data.P_Id, Current_Data.capacity, Locations.region, Locations.location FROM Current_Data INNER JOIN Locations ON Current_Data.P_Id = Locations.P_Id WHERE Locations.region = :reg";
+        $stmt = DBConnection::instance()->prepare($query);
+        //$stmt = DBConnection::instance()->prepare("CALL `getByRegion`(:reg)");
         $stmt->bindParam(":reg", $region);
         $stmt->execute();
     } catch(Exception $e){
