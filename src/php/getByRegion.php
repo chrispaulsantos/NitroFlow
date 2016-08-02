@@ -6,7 +6,7 @@ require "location_object.php";
 // Array of id's gotten from the js responsible for hitting the database
 $ids = null;
 if( $_GET != null ) {
-    $ids = $_GET['ids'];
+    $region = $_GET['region'];
 }
 
 $locations = [];
@@ -16,8 +16,8 @@ foreach($ids as $id){
     // error_log($id);
     // Prepare the query for execution
     try {
-        $stmt = DBConnection::instance()->prepare("CALL `getByLocation`(:id)");
-        $stmt->bindParam(":id", $id);
+        $stmt = DBConnection::instance()->prepare("CALL `getByRegion`(:ireg)");
+        $stmt->bindParam(":reg", $region);
         $stmt->execute();
     } catch(Exception $e){
         error_log("Error: " .$e->getMessage());

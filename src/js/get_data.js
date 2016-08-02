@@ -107,8 +107,7 @@ function timeStamp() {
 }
 
 function getByRegion(data, options, myBarChart){
-    region = $("#region").val();
-    console.log(region);
+    var region = $("#region").val();
 
     // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
@@ -121,10 +120,10 @@ function getByRegion(data, options, myBarChart){
     // Update data every x seconds
     setInterval(function(){
         $.ajax({
-            url: "src/php/getByLocation.php",
+            url: "src/php/getByRegion.php",
             type: "GET",
             data: {
-                ids: ids
+                region: region
             },
             dataType: "text"
         }).done(function(response) {
