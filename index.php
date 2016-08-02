@@ -61,7 +61,7 @@
 
         <div class="ui menu">
 
-            <div class="ui category search item" style="width:220px;">
+            <div class="ui category search item" multiple="" style="width:220px;">
                 <div class="ui transparent icon input">
                     <input class="prompt" placeholder="Search Locations" type="text">
                     <i class="search link icon"></i>
@@ -92,7 +92,7 @@
 
                 <div class="four wide column">
                     <div class="ui left aligned segment">
-                        <select id="region" class="ui fluid scrolling search dropdown" multiple="">
+                        <select id="region" class="ui fluid scrolling search dropdown">
                             <option value="">Select Region</option>
                             <option value="ALL">Select All Regions</option>
                             <?php foreach($regions as $region): ?>
