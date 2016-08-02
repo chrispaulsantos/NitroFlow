@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var myBarChart = null;
+    var int = null;
     ids = [1,2,3,4,5];
 
     // Locations for search box
@@ -119,7 +120,7 @@ function getByRegion(data, options, myBarChart){
 
     // Update data every x seconds
     clearInterval(int);
-    var int = setInterval(function(){
+    int = setInterval(function(){
         $.ajax({
             url: "src/php/getByRegion.php",
             type: "GET",
