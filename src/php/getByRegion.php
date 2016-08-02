@@ -26,7 +26,7 @@
     // Fetch the returned values
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
-        error_log(json_encode($row));
+        //error_log(json_encode($row));
     }
 
     foreach($rows as $row){
