@@ -1,18 +1,16 @@
 <?php
 
-require_once "database_connect.php";
-require "location_object.php";
+    require_once "database_connect.php";
+    require "location_object.php";
 
-// Array of id's gotten from the js responsible for hitting the database
-$ids = null;
-if( $_GET != null ) {
-    $region = $_GET['region'];
-}
+    $stmt = null;
+    $locations = [];
 
-$locations = [];
+    // Region passed from js
+    if( $_GET != null ) {
+        $region = $_GET['region'];
+    }
 
-// Loop over the selected id's and execute the query for each id
-//foreach($ids as $id){
     // error_log($id);
     // Prepare the query for execution
     try {
@@ -20,14 +18,12 @@ $locations = [];
         // $stmt = DBConnection::instance()->prepare("CALL `getByRegion`(:ireg)");
         $stmt->bindParam(":reg", $region);
         $stmt->execute();
+        error_log(json_encode($stmt));
     } catch(Exception $e){
         error_log("Error: " .$e->getMessage());
     }
 
-    /**
-     * One row should be returned, if more than one, select the last value in the rows returned, this value
-     * should always be the lowest value, since the query is last timestamp based.
-     */
+    // Fetch the returned values
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
         error_log(json_encode($row));
@@ -54,6 +50,5 @@ $locations = [];
 
     $location->time = $row["timeStamp"];
     $locations[] = $location;
-//}
 
-echo json_encode($locations);
+    echo json_encode($locations);
