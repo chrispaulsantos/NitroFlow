@@ -77,7 +77,7 @@ $(document).ready(function() {
                 }]
             }
         };
-        getByLocation(barData, options, myBarChart);
+        getByLocation(lineData, options, myBarChart);
         console.log("Click successful");
     });
 });
