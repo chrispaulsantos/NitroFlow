@@ -66,9 +66,7 @@
                     <input class="prompt" placeholder="Search Locations" type="text">
                     <i class="search link icon"></i>
                 </div>
-                <div class="results">
-                    <div class="result">Test Result</div>
-                </div>
+                <div class="results"></div>
             </div>
             <div class="ui right secondary menu">
                 <div class="ui dropdown pointing item">
@@ -121,6 +119,26 @@
             $('#content').css("margin-top", window.innerHeight/2-(300));
             //$('#chart').attr("width", window.innerWidth*.7, "height", $('#content').height()*.6);
             $('.ui.dropdown').dropdown();
+
+            var
+                content = [
+                    {
+                        title: 'Horse',
+                        description: 'An Animal',
+                    },
+                    {
+                        title: 'Cow',
+                        description: 'Another Animal',
+                    }
+                ];
+            $('.ui.search')
+                .search({
+                    source : content,
+                    searchFields   : [
+                        'title'
+                    ],
+                    searchFullText: false
+                });
         </script>
 
     </body>
