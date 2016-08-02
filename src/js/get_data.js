@@ -39,17 +39,30 @@ $(document).ready(function() {
     });
     $(document).on("click",".search.link.icon",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
-        var barData = {
-            labels: [],
+        var lineData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [
                 {
-                    label: "Keg Capacity",
-                    backgroundColor: "rgba(13,71,161, .7)",
-                    borderColor: "rgba(13,71,161, .7)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(13,71,161, .4)",
-                    hoverBorderColor: "rgba(13,71,161, .4)",
-                    data: [],
+                    label: "My First dataset",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: "rgba(75,192,192,0.4)",
+                    borderColor: "rgba(75,192,192,1)",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    spanGaps: false,
                 }
             ]
         };
@@ -64,7 +77,7 @@ $(document).ready(function() {
                 }]
             }
         };
-        getByRegion(barData, options, myBarChart);
+        getByLocation(barData, options, myBarChart);
         console.log("Click successful");
     });
 });
@@ -148,6 +161,63 @@ function getByRegion(data, options, myBarChart){
                     $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
                                            " Alert: " + obj[i]['location'] +
                                        "</div>");
+                }
+            }
+
+            // If chart is null, draw, else, update
+            if(myBarChart == null){
+                var ctx = document.getElementById("chart");
+                myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: options
+                });
+            } else {
+                myBarChart.update();
+            }
+        });
+    }, 5000);
+}
+function getByLocation(data, options, myBarChart){
+    var location = $("location").val();
+    $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
+
+    // Draw graph initially on pageload
+    var ctx = document.getElementById("chart");
+    myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+
+    // Update data every x seconds
+    if(int != null){
+        clearInterval(int);
+    }
+    int = setInterval(function(){
+        $.ajax({
+            url: "src/php/getByRegion.php",
+            type: "GET",
+            data: {
+                region: region
+            },
+            dataType: "text"
+        }).done(function(response) {
+
+            // Build the data from the php response
+            var obj = JSON.parse(response);
+            build_Data(data, obj);
+
+            // Update the current time, and empty the alerts div
+            $("#time").empty().append("Last Updated: " + timeStamp());
+            $('#alert').empty();
+
+            // Set alerts, if any less than defined amount
+            for(i = 0; i < obj.length; i++){
+                if(obj[i]["current_capacity"] < 30){
+                    $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
+                        " Alert: " + obj[i]['location'] +
+                        "</div>");
                 }
             }
 
