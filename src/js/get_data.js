@@ -185,7 +185,7 @@ function getByLocation(data, options, myBarChart){
     // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
     myBarChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: data,
         options: options
     });
