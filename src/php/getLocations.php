@@ -24,6 +24,6 @@ error_log("Am I in?");
     createJSON($rows);
 
     function createJSON($rows){
-        $json[] = ["title" : $rows["location"]];
+        $json[] = ["title" => $rows[0]["location"]];
         error_log(json_encode($json));
     }
