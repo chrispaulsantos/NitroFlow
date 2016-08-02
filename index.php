@@ -118,7 +118,7 @@
                 </div>
 
             </div>
-            <input type="text" id="datepicker">
+            <input class="ui input"type="text" id="datepicker">
         </div>
 
         <script>
