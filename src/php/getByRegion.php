@@ -9,7 +9,7 @@
 
     // Region passed from js
     if( $_GET != null ) {
-        $region = "'".$_GET['region']."'";
+        $region = $_GET['region'];
         //$region = 'BOSZ2L';
         error_log($region);
     }
