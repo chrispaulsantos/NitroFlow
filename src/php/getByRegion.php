@@ -24,7 +24,7 @@
         error_log("Error: " .$e->getMessage());
     }
 
-    error_log(json_encode($row = $stmt->fetch(PDO::FETCH_ASSOC)));
+    //error_log(json_encode($row = $stmt->fetch(PDO::FETCH_ASSOC)));
     // Fetch the returned values
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
@@ -45,5 +45,5 @@
 
     $location->time = $row["timeStamp"];
     $locations[] = $location;
-
+    error_log(json_encode($locations));
     echo json_encode($locations);
