@@ -204,6 +204,7 @@ function getByRegion(data, options){
             dataType: "text"
         }).done(function(response) {
 
+            var obj = JSON.parse(response);
             // Build the data from the php response
             buildBarData(data, JSON.parse(response));
 
@@ -211,7 +212,7 @@ function getByRegion(data, options){
             updateTime();
 
             // Set alerts, if any less than defined amount
-            for(i = 0; i < JSON.parse(response).length; i++){
+            for(i = 0; i < obj.length; i++){
                 if(obj[i]["current_capacity"] < 30){
                     $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
                                            " Alert: " + obj[i]['location'] +
