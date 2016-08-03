@@ -172,8 +172,7 @@ function getByRegion(data, options){
     }, 5000);
 }
 function getByLocation(data, options){
-    var fromDate = $("#fromDate").val();
-    var toDate = $("#toDate").val();
+
     ids = $("#location").val();
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
@@ -190,6 +189,9 @@ function getByLocation(data, options){
         clearInterval(int);
     }
     int = setInterval(function(){
+        var fromDate = $("#fromDate").val();
+        var toDate = $("#toDate").val();
+
         $.ajax({
             url: "src/php/getByLocation.php",
             type: "GET",
