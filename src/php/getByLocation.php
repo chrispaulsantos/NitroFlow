@@ -32,7 +32,7 @@
         $capacity[] = $row["capacity"];
     }
 
-    error_log(json_encode(sumEveryN($capacity)));
+    error_log(json_encode($capacity));
 
 
 
