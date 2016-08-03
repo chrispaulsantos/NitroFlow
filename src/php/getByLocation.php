@@ -88,11 +88,11 @@ function sumEveryN($data,$n){
             if(!isset($data[$i])){
                 $sum += 0;
                 $i++;
-                error_log($sum);
+                //error_log($sum);
             } else {
                 $sum += $data[$i];
                 $i++;
-                error_log($sum);
+                //error_log($sum);
             }
         }
         $avgs[] = $sum / 10;

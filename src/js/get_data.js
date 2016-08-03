@@ -241,7 +241,7 @@ function getByLocation(data, options){
         },
         dataType: "text"
     }).done(function(response) {
-
+        console.log(response);
         // Build the data from the php response
         var obj = JSON.parse(response);
         console.log(obj);
