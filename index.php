@@ -140,7 +140,7 @@
             $('#content').css("margin-top", window.innerHeight/2-(300));
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
             $( "#fromDate" ).datepicker();
-            $( "#toDate" ).datetimepicker();
+            $( "#toDate" ).datepicker();
             $(document).ready(function(){
                 $("#location-holder").hide();
                 $("#dates").hide();
