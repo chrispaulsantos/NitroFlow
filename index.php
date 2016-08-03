@@ -49,13 +49,13 @@
     }
     // Get locations
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT location FROM Locations");
+        $stmt = DBConnection::instance()->prepare("SELECT P_Id, Location FROM Locations");
         $stmt->execute();
     } catch (Exception $e){
         error_log("Error: " .$e->getMessage());
     }
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $locations[] = $row["location"];
+        $locations[] = {id=>$row["P_Id"],location=>$row["location"]};
     }
 ?>
 
