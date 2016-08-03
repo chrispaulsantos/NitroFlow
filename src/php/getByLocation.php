@@ -15,6 +15,8 @@
     if($fromDate == $toDate){
         $toDate = $toDate + 56250;
     }
+    $fromDate = time() - 120;
+    $toDate = time();
     error_log($fromDate . " - " . $toDate);
 
     try {
