@@ -37,7 +37,7 @@
     echo json_encode(sumEveryN($capacity,getN(count($capacity))));
 
 function getN($points){
-
+    $n = 0;
     switch ($points) {
         case $points < 10:
             $n = 1;
