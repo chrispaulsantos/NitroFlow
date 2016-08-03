@@ -237,6 +237,8 @@ function buildBarData(data, obj){
 }
 function buildLineData(data, obj){
 
+    data.datasets[0].data[i] = [];
+    data.labels[i] = [];
 // For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
         data.datasets[0].data[i] = obj[i];
