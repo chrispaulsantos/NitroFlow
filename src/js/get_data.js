@@ -38,7 +38,7 @@ $(document).ready(function() {
     $(document).on("change","#location",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
         var lineData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: [],
             datasets: [
                 {
                     label: "My First dataset",
@@ -231,7 +231,7 @@ function build_Data(data, obj){
 // For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
         data.datasets[0].data[i] = obj[i]["current_capacity"];
-        data.labels[i] = obj[i]["location"];
+        data.labels[i] = obj[i][""];
     }
     return data;
 }
