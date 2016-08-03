@@ -20,7 +20,7 @@
     //error_log($fromDate . " - " . $toDate);
 
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id = 1 AND timeStamp < $toDate AND timeStamp > $fromDate");
+        $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id = $ids[0] AND timeStamp < $toDate AND timeStamp > $fromDate");
         $stmt->execute();
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
