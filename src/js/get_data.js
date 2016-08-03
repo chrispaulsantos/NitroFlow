@@ -185,47 +185,42 @@ function getByLocation(data, options){
         options: options
     });
 
-    // Update data every x seconds
-    if(int != null){
-        clearInterval(int);
-    }
-    int = setInterval(function(){
-        var fromDate = $("#fromDate").val();
-        var toDate = $("#toDate").val();
+    // Get date values
+    var fromDate = $("#fromDate").val();
+    var toDate = $("#toDate").val();
 
-        $.ajax({
-            url: "src/php/getByLocation.php",
-            type: "GET",
-            data: {
-                ids: ids,
-                fromDate: fromDate,
-                toDate: toDate
-            },
-            dataType: "text"
-        }).done(function(response) {
+    $.ajax({
+        url: "src/php/getByLocation.php",
+        type: "GET",
+        data: {
+            ids: ids,
+            fromDate: fromDate,
+            toDate: toDate
+        },
+        dataType: "text"
+    }).done(function(response) {
 
-            // Build the data from the php response
-            var obj = JSON.parse(response);
-            console.log(obj);
-            buildLineData(data, obj);
+        // Build the data from the php response
+        var obj = JSON.parse(response);
+        console.log(obj);
+        buildLineData(data, obj);
 
-            // Update the current time, and empty the alerts div
-            $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
-            $('#alert').empty();
+        // Update the current time, and empty the alerts div
+        $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
+        $('#alert').empty();
 
-            // If chart is null, draw, else, update
-            if(chart == null){
-                var ctx = document.getElementById("chart");
-                chart = new Chart(ctx, {
-                    type: 'bar',
-                    data: data,
-                    options: options
-                });
-            } else {
-                chart.update();
-            }
-        });
-    }, 5000);
+        // If chart is null, draw, else, update
+        if(chart == null){
+            var ctx = document.getElementById("chart");
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+        } else {
+            chart.update();
+        }
+    });
 }
 function buildBarData(data, obj){
 
