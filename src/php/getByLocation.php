@@ -16,7 +16,7 @@
         $toDate = $toDate + 86164;
     }
 
-    error_log($fromDate ." - ".$toDate);
+    // error_log($fromDate ." - ".$toDate);
 
     try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id = 1 AND timeStamp < $toDate AND timeStamp > $fromDate");
@@ -32,7 +32,7 @@
 
     foreach($rows as $row){
         $capacity[] = $row["capacity"];
-        error_log($row["capacity"]);
+        error_log(json_encode($row["capacity"]));
     }
 
     // Loop over the selected id's and execute the query for each id
