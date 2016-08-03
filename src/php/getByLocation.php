@@ -88,7 +88,7 @@ function sumEveryN($data){
     while($i < count($data)){
         $sum = 0;
         for($j = 0; $j < 10; $j++){
-            $sum += $sum + $data[$i];
+            $sum += $sum + $data[$j];
         }
         $avgs[] = $sum / 10;
         $i++;
