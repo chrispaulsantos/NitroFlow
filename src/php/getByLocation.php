@@ -29,7 +29,7 @@
     }
 
     foreach($rows as $row){
-        $capacity[] = $row["capacity"];
+        $capacity[] = (int) $row["capacity"];
     }
 
     error_log(json_encode($capacity));
