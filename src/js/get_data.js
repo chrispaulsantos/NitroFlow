@@ -205,20 +205,12 @@ function getByLocation(data, options){
 
             // Build the data from the php response
             var obj = JSON.parse(response);
-            build_Data(data, obj);
+            console.log(obj);
+            //build_Data(data, obj);
 
             // Update the current time, and empty the alerts div
             $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
             $('#alert').empty();
-
-            // Set alerts, if any less than defined amount
-            for(i = 0; i < obj.length; i++){
-                if(obj[i]["current_capacity"] < 30){
-                    $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
-                        " Alert: " + obj[i]['location'] +
-                        "</div>");
-                }
-            }
 
             // If chart is null, draw, else, update
             if(chart == null){
@@ -232,7 +224,7 @@ function getByLocation(data, options){
                 chart.update();
             }
         });
-    }, 5000);
+    }, 30000);
 }
 function build_Data(data, obj){
 
