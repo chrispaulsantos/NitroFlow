@@ -41,9 +41,9 @@ $(document).ready(function() {
             labels: [],
             datasets: [
                 {
-                    label: "My First dataset",
+                    label: "",
                     fill: false,
-                    lineTension: 0.1,
+                    lineTension: 0.5,
                     backgroundColor: "rgba(75,192,192,0.4)",
                     borderColor: "rgba(75,192,192,1)",
                     borderCapStyle: 'butt',
@@ -59,7 +59,7 @@ $(document).ready(function() {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: [],
                     spanGaps: false,
                 }
             ]
@@ -274,7 +274,7 @@ function buildBarData(data, obj){
     return data;
 }
 function buildLineData(data, obj){
-
+    data.dataets[0].label = $("#location").val();
 // For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
         data.datasets[0].data[i] = obj[i];
