@@ -206,7 +206,7 @@ function getByLocation(data, options){
             // Build the data from the php response
             var obj = JSON.parse(response);
             console.log(obj);
-            data = build_Data(data, obj);
+            data = build_Data1(data, obj);
 
             // Update the current time, and empty the alerts div
             $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
@@ -230,8 +230,17 @@ function build_Data(data, obj){
 
 // For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
-        data.datasets[0].data[i] = obj[i]["current_capacity"];
+        data.datasets[0].data[i] = obj[i];
         data.labels[i] = "";
+    }
+    return data;
+}
+function build_Data1(data, obj){
+
+// For each object in return value, set datasets equal to capacity and labels equal to location
+    for(i = 0; i < obj.length; i++){
+        data.datasets[0].data[i] = obj[i]["current_capacity"];
+        data.labels[i] = obj[i][""];
     }
     return data;
 }
