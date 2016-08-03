@@ -26,7 +26,7 @@
     }
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $rows = $row;
+        $rows[] = $row;
     }
     // error_log(json_encode($rows));
 
