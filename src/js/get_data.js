@@ -84,7 +84,7 @@ $(document).ready(function() {
         $("#dates").toggle();
     });
     // On refresh
-    $(".icon.refresh").hover(function(){
+    $(document).on("click",".icon.refresh",function(){
         console.log("It works");
     });
 });
