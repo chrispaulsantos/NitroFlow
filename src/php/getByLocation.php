@@ -47,13 +47,13 @@ function getN($points){
             $n = 10;
             break;
         case $points < 10000 && $points >= 1000:
-            $n = 10;
-            break;
-        case $points < 100000 && $points >= 10000:
             $n = 100;
             break;
-        case $points < 1000000 && $points >= 100000:
+        case $points < 100000 && $points >= 10000:
             $n = 1000;
+            break;
+        case $points < 1000000 && $points >= 100000:
+            $n = 10000;
             break;
         default:
             error_log("In default for some reason");// "NODATE";
