@@ -15,8 +15,6 @@
         $toDate = $toDate + 56250;
     }
 
-    getN($fromDate,$toDate);
-
     //error_log($fromDate . " - " . $toDate);
 
     try {
