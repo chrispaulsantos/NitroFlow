@@ -145,7 +145,7 @@ function getByRegion(data, options){
             buildBarData(data, obj);
 
             // Update the current time, and empty the alerts div
-            $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
+            $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp() + " <i class='icon refresh'></i>");
             $('#alert').empty();
 
             // Set alerts, if any less than defined amount
@@ -206,7 +206,7 @@ function getByLocation(data, options){
         buildLineData(data, obj);
 
         // Update the current time, and empty the alerts div
-        $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
+        $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp() + " <i class='icon refresh'></i>");
         $('#alert').empty();
 
         // If chart is null, draw, else, update
