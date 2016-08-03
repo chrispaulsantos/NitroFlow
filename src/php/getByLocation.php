@@ -15,8 +15,7 @@
     if($fromDate == $toDate){
         $toDate = $toDate + 56250;
     }
-    $fromDate = time() - 120;
-    $toDate = time();
+
     error_log($fromDate . " - " . $toDate);
 
     try {
@@ -33,11 +32,6 @@
     foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];
     }
-
-    //error_log(json_encode($capacity));
-
-
-
 
     // Loop over the selected id's and execute the query for each id
     /*foreach($ids as $id){
