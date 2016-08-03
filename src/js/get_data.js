@@ -38,7 +38,7 @@ $(document).ready(function() {
     $(document).on("change","#location",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
         var lineData = {
-            labels: [],[],
+            labels: [],
             datasets: [
                 {
                     label: "",
