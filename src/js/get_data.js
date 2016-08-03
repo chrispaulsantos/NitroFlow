@@ -174,6 +174,7 @@ function getByRegion(data, options){
 function getByLocation(data, options){
 
     ids = $("#location").val();
+    console.log(ids);
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
     // Draw graph initially on pageload
