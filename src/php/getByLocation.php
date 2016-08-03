@@ -85,7 +85,7 @@ function sumEveryN($data,$n){
     while($i < count($data)){
         $sum = 0;
         for($j = 0; $j < $n; $j++){
-            if($data[$i] == null || $data[$i] == ""){
+            if(isset($data[$i])){
                 $sum += 0;
                 $i++;
                 error_log($sum);
