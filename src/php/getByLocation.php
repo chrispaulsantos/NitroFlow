@@ -32,7 +32,7 @@
         $capacity[] = (int) $row["capacity"];
     }
 
-    error_log(json_encode($capacity));
+    //error_log(json_encode($capacity));
 
 
 
@@ -89,6 +89,7 @@ function sumEveryN($data){
         $sum = 0;
         for($j = 0; $j < 10; $j++){
             $sum += $sum + $data[$j];
+            error_log($sum);
         }
         $avgs[] = $sum / 10;
         $i++;
