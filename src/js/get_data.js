@@ -226,12 +226,13 @@ function getByLocation(data, options){
         });
     }, 5000);
 }
+
 function build_Data(data, obj){
 
 // For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
-        data.datasets[0].data[i] = obj[i];
-        data.labels[i] = "";
+        data.datasets[0].data[i] = obj[i]["current_capacity"];
+        data.labels[i] = obj[i][""];
     }
     return data;
 }
@@ -239,8 +240,8 @@ function build_Data1(data, obj){
 
 // For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
-        data.datasets[0].data[i] = obj[i]["current_capacity"];
-        data.labels[i] = obj[i][""];
+        data.datasets[0].data[i] = obj[i];
+        data.labels[i] = " ";
     }
     return data;
 }
