@@ -28,7 +28,12 @@
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows = $row;
     }
-    error_log(json_encode($rows));
+    // error_log(json_encode($rows));
+
+    foreach($rows as $row){
+        $capacity[] = $row["capacity"];
+        error_log($row["capacity"]);
+    }
 
     // Loop over the selected id's and execute the query for each id
     /*foreach($ids as $id){
