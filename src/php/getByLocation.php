@@ -47,19 +47,19 @@ function getN($from,$to){
             $n = 1;
             break;
         case $minutes < 100 && $minutes >= 10:
-            $n = 10;
+            $n = 1;
             break;
         case $minutes < 1000 && $minutes >= 100:
-            $n = 100;
+            $n = 10;
             break;
         case $minutes < 10000 && $minutes >= 1000:
-            $n = 1000;
+            $n = 100;
             break;
         case $minutes < 100000 && $minutes >= 10000:
-            $n = 10000;
+            $n = 1000;
             break;
         case $minutes < 1000000 && $minutes >= 100000:
-            $n = 100000;
+            $n = 10000;
             break;
         default:
             echo "NODATE";
