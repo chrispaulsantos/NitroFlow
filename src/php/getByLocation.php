@@ -18,7 +18,10 @@
     //error_log($fromDate . " - " . $toDate);
 
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id = $ids[0] AND timeStamp < $toDate AND timeStamp > $fromDate");
+        $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id IN :ids AND timeStamp < :to AND timeStamp > :from");
+        $stmt->bindParam(":ids", $ids);
+        $stmt->bindParam(":from",$fromDate);
+        $stmt->bindParam(":to",$toDate);
         $stmt->execute();
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
@@ -28,11 +31,14 @@
         $rows[] = $row;
     }
 
+    error_log(json_encode($rows));
+
     foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];
     }
 
-    echo json_encode(sumEveryN($capacity,getN(count($capacity))));
+
+    //echo json_encode(sumEveryN($capacity,getN(count($capacity))));
 
 function getN($points){
     $n = 0;
