@@ -4,17 +4,18 @@
     require "location_object.php";
 
     // Variables gotten from the js
+    $locations = [];
     $ids = null;
     if( $_GET != null ) {
         $ids = $_GET['ids'];
         $fromDate = strtotime($_GET['fromDate']);
         $toDate = strtotime($_GET['toDate']);
     }
-    $locations = [];
-
     if($fromDate == $toDate){
         $toDate = $toDate + 56250;
     }
+
+    getN($fromDate,$toDate);
 
     //error_log($fromDate . " - " . $toDate);
 
@@ -35,14 +36,55 @@
 
 
     //echo json_encode(sumEveryN($capacity));
-echo json_encode($capacity);
+    echo json_encode(sumEveryN($capacity,getN($fromDate,$toDate)));
 
-function sumEveryN($data){
+function getN($from,$to){
+    $seconds = $to - $from;
+    $minutes = round($seconds) / 60;
+
+    switch ($minutes) {
+        case $minutes < 10:
+            echo $minutes."<br>";
+            $n = 1;
+            echo $n;
+            break;
+        case $minutes < 100 && $minutes >= 10:
+            echo $minutes."<br>";
+            $n = 10;
+            echo $n;
+            break;
+        case $minutes < 1000 && $minutes >= 100:
+            echo $minutes."<br>";
+            $n = 100;
+            echo $n;
+            break;
+        case $minutes < 10000 && $minutes >= 1000:
+            echo $minutes."<br>";
+            $n = 1000;
+            echo $n;
+            break;
+        case $minutes < 100000 && $minutes >= 10000:
+            echo $minutes."<br>";
+            $n = 10000;
+            echo $n;
+            break;
+        case $minutes < 1000000 && $minutes >= 100000:
+            echo $minutes."<br>";
+            $n = 100000;
+            echo $n;
+            break;
+        default:
+            echo "NODATE";
+            die;
+    }
+    return $n;
+}
+function sumEveryN($data,$n){
     $avgs = [];
     $i = 0;
     while($i < count($data)){
         $sum = 0;
-        for($j = 0; $j < 10; $j++){
+        for($j = 0; $j < $n; $j++){
             $sum += $data[$i];
             $i++;
             error_log($sum);
