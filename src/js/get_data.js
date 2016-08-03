@@ -1,5 +1,27 @@
 var int = null;
 var chart = null;
+var datasetStructure = {
+    label: "",
+    fill: false,
+    lineTension: 0.7,
+    backgroundColor: "rgba(75,192,192,0.4)",
+    borderColor: "rgba(75,192,192,1)",
+    borderCapStyle: 'butt',
+    borderDash: [],
+    borderDashOffset: 0.0,
+    borderJoinStyle: 'miter',
+    pointBorderColor: "rgba(75,192,192,1)",
+    pointBackgroundColor: "#fff",
+    pointBorderWidth: 1,
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+    pointHoverBorderColor: "rgba(220,220,220,1)",
+    pointHoverBorderWidth: 2,
+    pointRadius: 1,
+    pointHitRadius: 10,
+    data: [],
+    spanGaps: false,
+}
 
 $(document).ready(function() {
     ids = [1,2,3,4,5];
@@ -60,28 +82,6 @@ $(document).ready(function() {
                     pointRadius: 1,
                     pointHitRadius: 10,
                     data: [],
-                    spanGaps: false,
-                },
-                {
-                    label: "Second",
-                    fill: false,
-                    lineTension: 0.7,
-                    backgroundColor: "rgba(75,192,192,0.4)",
-                    borderColor: "rgba(75,192,192,1)",
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: "rgba(75,192,192,1)",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: [2,3,4,5,6,5,5,5,5,4,3,2,2,2,3,1,3,3,4,5,4,],
                     spanGaps: false,
                 }
             ]
@@ -185,7 +185,7 @@ function getByRegion(data, options){
     // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
     chart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: data,
         options: options
     });
@@ -205,12 +205,10 @@ function getByRegion(data, options){
         }).done(function(response) {
 
             // Build the data from the php response
-            var obj = JSON.parse(response);
-            buildBarData(data, obj);
+            buildBarData(data, JSON.parse(response));
 
             // Update the current time, and empty the alerts div
-            $("#time").empty().append("<i class='icon refresh'></i> Last Updated: " + timeStamp());
-            $('#alert').empty();
+            updateTime();
 
             // Set alerts, if any less than defined amount
             for(i = 0; i < obj.length; i++){
@@ -263,15 +261,12 @@ function getByLocation(data, options){
         },
         dataType: "text"
     }).done(function(response) {
-        console.log(response);
+
         // Build the data from the php response
-        var obj = JSON.parse(response);
-        console.log(obj);
-        buildLineData(data, obj);
+        buildLineData(data, JSON.parse(response));
 
         // Update the current time, and empty the alerts div
-        $("#time").empty().append("<i class='icon refresh'></i> Last Updated: " + timeStamp());
-        $('#alert').empty();
+        updateTime();
 
         // If chart is null, draw, else, update
         if(chart == null){
@@ -299,10 +294,16 @@ function buildLineData(data, obj){
     data.datasets[0].label = $("#location").val();
     var datasets = $("#location").val().length;
     console.log(datasets);
-// For each object in return value, set datasets equal to capacity and labels equal to location
-    for(i = 0; i < obj.length; i++){
-        data.datasets[0].data[i] = obj[i];
-        data.labels[i] = " ";
+    // For each object in return value, set datasets equal to capacity and labels equal to location
+    for(i = 0; i < datasets; i++){
+        for(j = 0; j < obj.length; j++){
+            data.datasets[i].data[j] = obj[j];
+            data.labels[j] = " ";
+        }
     }
     return data;
+}
+function updateTime(){
+    $("#time").empty().append("<i class='icon refresh'></i> Last Updated: " + timeStamp());
+    $('#alert').empty();
 }
