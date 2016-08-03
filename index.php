@@ -129,7 +129,7 @@
                 <div class="eleven wide column">
                     <div class="ui right left segment">
                         <div id="chartHolder" class="ui segment"><i class="icon angle left"></i>Please select a region.</div>
-                        <div id="time"><i class="icon wait"></i> Last Updated: <i class="icon refresh"></i></div>
+                        <div id="time"><i class="icon refresh"></i> Last Updated: </div>
                     </div>
                 </div>
 
