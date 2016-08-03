@@ -83,7 +83,7 @@ function sumEveryN($data,$n){
                 //error_log($sum);
             }
         }
-        $avgs[] = $sum / 10;
+        $avgs[] = $sum / $n;
     }
     return $avgs;
 }
