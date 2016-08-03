@@ -84,7 +84,7 @@ $(document).ready(function() {
         $("#dates").toggle();
     });
     // On refresh
-    $(document).on("mouseenter mouseleave",".icon.refresh",function(){
+    $(".icon.refresh").hover(function(){
         console.log("It works");
     });
 });
