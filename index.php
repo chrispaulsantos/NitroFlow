@@ -28,7 +28,8 @@
     } else {
         // echo "Please login, redirecting...";
         sleep(1);
-        header("Location: http://159.203.186.131/login.php"); /* Redirect browser */
+        //header("Location: http://159.203.186.131/login.php"); /* Redirect browser */
+        header("Location: http://127.0.0.1:8888/login.php"); /* Redirect browser */
         exit();
     }
 
@@ -61,10 +62,10 @@
 <html>
     <head>
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
-        <link rel="stylesheet" href="src/css/jquery-ui.min.css">
+        <link rel="stylesheet" href="src/includes/jquery-ui-1.12.0/jquery-ui.min.css">
 
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+        <script src="src/includes/jquery-1.12.4.min.js"></script>
+        <script src="src/includes/jquery-ui-1.12.0/jquery-ui.js"></script>
         <script src="src/js/Chart.js" type="text/javascript"></script>
         <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
@@ -73,13 +74,6 @@
     <body>
 
         <div class="ui menu">
-            <select id="location" class="ui scrolling search dropdown" multiple="">
-                <option value="">Select Location</option>
-                <option value="ALL">Select All Locations</option>
-                <?php foreach($locations as $location): ?>
-                    <option value="<?php echo $location; ?>"><?php echo $location; ?></option>
-                <?php endforeach; ?>
-            </select>
             <div class="ui right secondary menu">
                 <div class="ui dropdown pointing item">
                     <i class="options icon"></i>
@@ -101,20 +95,36 @@
 
                 <div class="four wide column">
                     <div class="ui left aligned segment">
-                        <select id="region" class="ui fluid scrolling search dropdown">
-                            <option value="">Select Region</option>
-                            <option value="ALL">Select All Regions</option>
-                            <?php foreach($regions as $region): ?>
-                                <option value="<?php echo $region; ?>"><?php echo $region; ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <div id="region-holder">
+                            <select id="region" class="ui fluid scrolling search dropdown">
+                                <option value="">Select Region</option>
+                                <option value="ALL">Select All Regions</option>
+                                <?php foreach($regions as $region): ?>
+                                    <option value="<?php echo $region; ?>"><?php echo $region; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div id="location-holder">
+                            <select id="location" class="ui fluid scrolling search dropdown" multiple="">
+                                <option value="">Select Location</option>
+                                <option value="ALL">Select All Locations</option>
+                                <?php foreach($locations as $location): ?>
+                                    <option value="<?php echo $location; ?>"><?php echo $location; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
                     </div>
-                    <div class="ui mini fluid left aligned segment input"><input type="text" id="datepicker"><input type="text" id="datepicker1"></div>
-                    <div id="alert" class="ui scrollable left aligned segment"></div>
                     <div class="ui slider checkbox">
-                        <input name="newsletter" type="checkbox">
-                        <label>Toggle Graph Type</label>
+                        <input name="graph-type" type="checkbox">
+                        <label>By Location</label>
                     </div>
+                    <div class="ui small fluid left aligned segment input" id="dates">
+                        <input type="text" id="fromDate" placeholder="From Date">
+                        <input type="text" id="toDate" placeholder="To Date">
+                    </div>
+                    <div id="alert" class="ui scrollable left aligned segment"></div>
+
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
@@ -129,8 +139,12 @@
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
-            $( "#datepicker" ).datepicker();
-            $( "#datepicker1" ).datepicker();
+            $( "#fromDate" ).datepicker();
+            $( "#toDate" ).datepicker();
+            $(document).ready(function(){
+                $("#location-holder").hide();
+                $("#dates").hide();
+            });
         </script>
 
     </body>

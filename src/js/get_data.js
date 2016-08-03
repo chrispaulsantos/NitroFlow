@@ -1,7 +1,7 @@
 var int = null;
+var chart = null;
 
 $(document).ready(function() {
-    var myBarChart = null;
     ids = [1,2,3,4,5];
 
     // Listen on region change
@@ -32,7 +32,7 @@ $(document).ready(function() {
                 }]
             }
         };
-        getByRegion(barData, options, myBarChart);
+        getByRegion(barData, options);
         console.log("Change successful");
     });
     // Listen on location change
@@ -76,8 +76,14 @@ $(document).ready(function() {
                 }]
             }
         };
-        getByLocation(lineData, options, myBarChart);
+        getByLocation(lineData, options);
         console.log("Click successful");
+    });
+    // Hide/Show inputs based on position of toggle
+    $(document).on("change","input[name=graph-type]",function(){
+        $("#location-holder").toggle();
+        $("#region-holder").toggle();
+        $("#dates").toggle();
     });
 });
 
@@ -110,14 +116,13 @@ function timeStamp() {
 // Return the formatted string
     return date.join("/") + " " + time.join(":") + " " + suffix;
 }
-
-function getByRegion(data, options, myBarChart){
+function getByRegion(data, options){
     var region = $("#region").val();
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
     // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
-    myBarChart = new Chart(ctx, {
+    chart = new Chart(ctx, {
         type: 'bar',
         data: data,
         options: options
@@ -155,26 +160,26 @@ function getByRegion(data, options, myBarChart){
             }
 
             // If chart is null, draw, else, update
-            if(myBarChart == null){
+            if(chart == null){
                 var ctx = document.getElementById("chart");
-                myBarChart = new Chart(ctx, {
+                chart = new Chart(ctx, {
                     type: 'bar',
                     data: data,
                     options: options
                 });
             } else {
-                myBarChart.update();
+                chart.update();
             }
         });
     }, 5000);
 }
-function getByLocation(data, options, myBarChart){
+function getByLocation(data, options){
     var ids = $("location").val();
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
     // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
-    myBarChart = new Chart(ctx, {
+    chart = new Chart(ctx, {
         type: 'line',
         data: data,
         options: options
@@ -212,15 +217,15 @@ function getByLocation(data, options, myBarChart){
             }
 
             // If chart is null, draw, else, update
-            if(myBarChart == null){
+            if(chart == null){
                 var ctx = document.getElementById("chart");
-                myBarChart = new Chart(ctx, {
+                chart = new Chart(ctx, {
                     type: 'bar',
                     data: data,
                     options: options
                 });
             } else {
-                myBarChart.update();
+                chart.update();
             }
         });
     }, 5000);
