@@ -142,7 +142,7 @@ function getByRegion(data, options){
 
             // Build the data from the php response
             var obj = JSON.parse(response);
-            build_Data(data, obj);
+            buildBarData(data, obj);
 
             // Update the current time, and empty the alerts div
             $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
@@ -206,7 +206,7 @@ function getByLocation(data, options){
             // Build the data from the php response
             var obj = JSON.parse(response);
             console.log(obj);
-            data = build_Data1(data, obj);
+            buildLineData(data, obj);
 
             // Update the current time, and empty the alerts div
             $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
@@ -226,8 +226,7 @@ function getByLocation(data, options){
         });
     }, 5000);
 }
-
-function build_Data(data, obj){
+function buildBarData(data, obj){
 
 // For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
@@ -236,7 +235,7 @@ function build_Data(data, obj){
     }
     return data;
 }
-function build_Data1(data, obj){
+function buildLineData(data, obj){
 
 // For each object in return value, set datasets equal to capacity and labels equal to location
     for(i = 0; i < obj.length; i++){
