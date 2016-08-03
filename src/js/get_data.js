@@ -83,6 +83,10 @@ $(document).ready(function() {
         $("#region-holder").toggle();
         $("#dates").toggle();
     });
+    // On refresh
+    $(document).on("mouseenter mouseleave",".icon.refresh",function(){
+        console.log("It works");
+    });
 });
 
 function timeStamp() {
