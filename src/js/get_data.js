@@ -224,7 +224,7 @@ function getByLocation(data, options){
                 chart.update();
             }
         });
-    }, 30000);
+    }, 5000);
 }
 function build_Data(data, obj){
 
