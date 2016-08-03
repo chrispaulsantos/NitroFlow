@@ -66,6 +66,7 @@ function getN($data){
             echo "NODATE";
             die;
     }
+    error_log($n);
     return $n;
 }
 function sumEveryN($data,$n){
