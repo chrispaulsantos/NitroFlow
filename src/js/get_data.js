@@ -185,7 +185,7 @@ function getByRegion(data, options){
     // Draw graph initially on pageload
     var ctx = document.getElementById("chart");
     chart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: data,
         options: options
     });
@@ -235,9 +235,12 @@ function getByRegion(data, options){
     }, 5000);
 }
 function getByLocation(data, options){
+    // Have to clear interval if graph is changed to line after region
+    if(int != null){
+        clearInterval(int);
+    }
 
     ids = $("#location").val();
-    console.log(ids);
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
     // Draw graph initially on pageload
