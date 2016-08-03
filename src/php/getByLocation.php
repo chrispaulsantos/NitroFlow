@@ -80,7 +80,8 @@
         $locations[] = $location;
     }*/
 
-    echo json_encode(sumEveryN($capacity));
+    //echo json_encode(sumEveryN($capacity));
+echo json_encode($capacity);
 
 function sumEveryN($data){
     $avgs = [];
