@@ -55,7 +55,7 @@
         error_log("Error: " .$e->getMessage());
     }
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $locations[] = {id=>$row["P_Id"],location=>$row["location"]};
+        $locations[] = [id=>$row["P_Id"],location=>$row["location"]];
     }
 ?>
 
