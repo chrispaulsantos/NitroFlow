@@ -109,7 +109,7 @@
                                 <option value="">Select Location</option>
                                 <option value="ALL">Select All Locations</option>
                                 <?php foreach($locations as $location): ?>
-                                    <option value="<?php echo $location; ?>"><?php echo $location; ?></option>
+                                    <option value="<?php echo $location["id"]; ?>"><?php echo $location["location"]; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
