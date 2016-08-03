@@ -38,27 +38,28 @@
     //echo json_encode(sumEveryN($capacity));
     echo json_encode(sumEveryN($capacity,getN($fromDate,$toDate)));
 
-function getN($from,$to){
-    $seconds = $to - $from;
-    $minutes = round($seconds) / 60;
+function getN($data){
+    //$seconds = $to - $from;
+    //$minutes = round($seconds) / 60;
 
-    switch ($minutes) {
-        case $minutes < 10:
+    $points = count($data);
+    switch ($points) {
+        case $points < 10:
             $n = 1;
             break;
-        case $minutes < 100 && $minutes >= 10:
+        case $points < 100 && $points >= 10:
             $n = 1;
             break;
-        case $minutes < 1000 && $minutes >= 100:
+        case $points < 1000 && $points >= 100:
             $n = 10;
             break;
-        case $minutes < 10000 && $minutes >= 1000:
+        case $points < 10000 && $points >= 1000:
             $n = 100;
             break;
-        case $minutes < 100000 && $minutes >= 10000:
+        case $points < 100000 && $points >= 10000:
             $n = 1000;
             break;
-        case $minutes < 1000000 && $minutes >= 100000:
+        case $points < 1000000 && $points >= 100000:
             $n = 10000;
             break;
         default:
@@ -76,11 +77,9 @@ function sumEveryN($data,$n){
             if(!isset($data[$i])){
                 $sum += 0;
                 $i++;
-                //error_log($sum);
             } else {
                 $sum += $data[$i];
                 $i++;
-                //error_log($sum);
             }
         }
         $avgs[] = $sum / $n;
