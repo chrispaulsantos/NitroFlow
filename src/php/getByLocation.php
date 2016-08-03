@@ -44,34 +44,22 @@ function getN($from,$to){
 
     switch ($minutes) {
         case $minutes < 10:
-            echo $minutes."<br>";
             $n = 1;
-            echo $n;
             break;
         case $minutes < 100 && $minutes >= 10:
-            echo $minutes."<br>";
             $n = 10;
-            echo $n;
             break;
         case $minutes < 1000 && $minutes >= 100:
-            echo $minutes."<br>";
             $n = 100;
-            echo $n;
             break;
         case $minutes < 10000 && $minutes >= 1000:
-            echo $minutes."<br>";
             $n = 1000;
-            echo $n;
             break;
         case $minutes < 100000 && $minutes >= 10000:
-            echo $minutes."<br>";
             $n = 10000;
-            echo $n;
             break;
         case $minutes < 1000000 && $minutes >= 100000:
-            echo $minutes."<br>";
             $n = 100000;
-            echo $n;
             break;
         default:
             echo "NODATE";
