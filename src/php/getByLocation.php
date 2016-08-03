@@ -13,7 +13,7 @@
     $locations = [];
 
     if($fromDate == $toDate){
-        $toDate = $toDate + 55000;
+        $toDate = $toDate + 57000;
     }
     error_log($fromDate . " - " . $toDate);
 
