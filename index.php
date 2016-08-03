@@ -111,7 +111,10 @@
                     </div>
                     <div class="ui mini fluid left aligned segment input"><input type="text" id="datepicker"><input type="text" id="datepicker1"></div>
                     <div id="alert" class="ui scrollable left aligned segment"></div>
-
+                    <div class="ui slider checkbox">
+                        <input name="newsletter" type="checkbox">
+                        <label>Toggle Graph Type</label>
+                    </div>
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
