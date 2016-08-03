@@ -12,6 +12,10 @@
     }
     $locations = [];
 
+    if($fromDate == $toDate){
+        $toDate = $toDate + 60;
+    }
+
     error_log($fromDate ." - ".$toDate);
 
     try {

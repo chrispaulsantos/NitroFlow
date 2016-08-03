@@ -8,14 +8,7 @@
     foreach($args as $arg){
         $time = time();
         // Insert into location data table
-        $stmt = DBConnection::instance()->prepare("CALL `insertHistoricData`(:id,:capacity,:t)");
-        $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
-        $stmt->bindParam(":id",$args[$ct]["id"]);
-        $stmt->bindParam(":t",$time);
-        $stmt->execute();
-
-        // Insert into current data table
-        $stmt = DBConnection::instance()->prepare("CALL `insertCurrentData`(:capacity, :id, :t)");
+        $stmt = DBConnection::instance()->prepare("CALL `insertData`(:id,:capacity,:t)");
         $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
         $stmt->bindParam(":id",$args[$ct]["id"]);
         $stmt->bindParam(":t",$time);
