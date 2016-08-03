@@ -16,8 +16,6 @@
         $toDate = $toDate + 86164;
     }
 
-    // error_log($fromDate ." - ".$toDate);
-
     try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id = 1 AND timeStamp < $toDate AND timeStamp > $fromDate");
         $stmt->execute();
@@ -28,12 +26,15 @@
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
     }
-    // error_log(json_encode($rows));
 
     foreach($rows as $row){
         $capacity[] = $row["capacity"];
-        error_log(json_encode($row["capacity"]));
     }
+
+    error_log(json_encode(sumEveryN($capacity)));
+
+
+
 
     // Loop over the selected id's and execute the query for each id
     /*foreach($ids as $id){
@@ -79,3 +80,18 @@
     }*/
 
     echo json_encode($locations);
+
+function sumEveryN($data){
+    $avgs = [];
+    $avg = 0;
+    $i = 0;
+    while($i < count($data)){
+        $sum = 0;
+        for($j = 0; $j < 10; $j++){
+            $sum += $sum + $data[$i];
+            $avg = $sum / 10;
+        }
+        $avgs[] = $avg;
+    }
+    return $avgs;
+}
