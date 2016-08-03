@@ -211,7 +211,7 @@ function getByRegion(data, options){
             updateTime();
 
             // Set alerts, if any less than defined amount
-            for(i = 0; i < obj.length; i++){
+            for(i = 0; i < JSON.parse(response).length; i++){
                 if(obj[i]["current_capacity"] < 30){
                     $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
                                            " Alert: " + obj[i]['location'] +
