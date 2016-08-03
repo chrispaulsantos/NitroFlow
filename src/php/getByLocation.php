@@ -92,6 +92,7 @@ function sumEveryN($data){
             $avg = $sum / 10;
         }
         $avgs[] = $avg;
+        $i++;
     }
     return $avgs;
 }
