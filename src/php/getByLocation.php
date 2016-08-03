@@ -7,10 +7,23 @@
     $ids = null;
     if( $_GET != null ) {
         $ids = $_GET['ids'];
+        $fromDate = strtotime($_GET['fromDate']);
+        $toDate = strtotime($_GET['toDate']);
     }
-
     $locations = [];
 
+    error_log($fromDate ." - ".$toDate);
+
+    try {
+        $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id = 1 AND timeStamp < $toDate AND timeStamp > $fromDate");
+    } catch(Exception $e) {
+        error_log("Error: ") . $e.getMessage();
+    }
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        $rows = $row;
+    }
+    error_log(json_encode($rows));
 
     // Loop over the selected id's and execute the query for each id
     /*foreach($ids as $id){

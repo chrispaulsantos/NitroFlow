@@ -33,7 +33,6 @@ $(document).ready(function() {
             }
         };
         getByRegion(barData, options);
-        console.log("Change successful");
     });
     // Listen on location change
     $(document).on("change","#location",function(){
@@ -77,7 +76,6 @@ $(document).ready(function() {
             }
         };
         getByLocation(lineData, options);
-        console.log("Click successful");
     });
     // Hide/Show inputs based on position of toggle
     $(document).on("change","input[name=graph-type]",function(){
@@ -174,7 +172,9 @@ function getByRegion(data, options){
     }, 5000);
 }
 function getByLocation(data, options){
-    var ids = $("location").val();
+    var fromDate = $("#fromDate").val();
+    var toDate = $("#toDate").val();
+    ids = $("#location").val();
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
     // Draw graph initially on pageload
@@ -191,10 +191,12 @@ function getByLocation(data, options){
     }
     int = setInterval(function(){
         $.ajax({
-            url: "src/php/getByRegion.php",
+            url: "src/php/getByLocation.php",
             type: "GET",
             data: {
-                ids: ids
+                ids: ids,
+                fromDate: fromDate,
+                toDate: toDate
             },
             dataType: "text"
         }).done(function(response) {

@@ -90,10 +90,10 @@
             </div>
         </div>
 
-        <div id='content' class="ui container" style="height: 500px; width: 1000px;">
+        <div id='content' class="ui container" style="height: 500px; width: 1100px;">
             <div class="ui grid">
 
-                <div class="four wide column">
+                <div class="five wide column">
                     <div class="ui left aligned segment">
                         <div id="region-holder">
                             <select id="region" class="ui fluid scrolling search dropdown">
@@ -126,7 +126,7 @@
                     <div id="alert" class="ui scrollable left aligned segment"></div>
 
                 </div>
-                <div class="twelve wide column">
+                <div class="eleven wide column">
                     <div class="ui right left segment">
                         <div id="chartHolder" class="ui segment"><i class="icon angle left"></i>Please select a region.</div>
                         <div id="time"><i class="icon wait"></i> Last Updated: </div>
