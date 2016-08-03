@@ -93,7 +93,6 @@ function sumEveryN($data){
             error_log($sum);
         }
         $avgs[] = $sum / 10;
-
     }
     return $avgs;
 }

@@ -206,7 +206,7 @@ function getByLocation(data, options){
             // Build the data from the php response
             var obj = JSON.parse(response);
             console.log(obj);
-            //build_Data(data, obj);
+            build_Data(data, obj);
 
             // Update the current time, and empty the alerts div
             $("#time").empty().append("<i class='icon wait'></i> Last Updated: " + timeStamp());
