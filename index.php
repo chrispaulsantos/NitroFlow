@@ -117,7 +117,7 @@
                     </div>
                     <div class="ui slider checkbox">
                         <input name="graph-type" type="checkbox">
-                        <label>By Location</label>
+                        <label><i class="icon line chart"></i>By Location</label>
                     </div>
                     <div class="ui small fluid left aligned segment input" id="dates">
                         <input type="text" id="fromDate" placeholder="From Date">
@@ -128,8 +128,8 @@
                 </div>
                 <div class="twelve wide column">
                     <div class="ui right left segment">
-                        <div id="chartHolder" class="ui segment"></div>
-                        <div id="time">Last Updated: </div>
+                        <div id="chartHolder" class="ui segment"><i class="icon angle left"></i>Please select a region.</div>
+                        <div id="time"><i class="icon wait"></i> Last Updated: </div>
                     </div>
                 </div>
 
