@@ -34,8 +34,6 @@
         $capacity[] = (int) $row["capacity"];
     }
 
-
-    //echo json_encode(sumEveryN($capacity));
     echo json_encode(sumEveryN($capacity,getN(count($capacity))));
 
 function getN($points){
@@ -60,8 +58,7 @@ function getN($points){
             $n = 10000;
             break;
         default:
-            echo "NODATE";
-            die;
+            error_log("In default for some reason");// "NODATE";
     }
     error_log($n);
     return $n;
