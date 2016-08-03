@@ -49,7 +49,7 @@
     }
     // Get locations
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT P_Id, Location FROM Locations");
+        $stmt = DBConnection::instance()->prepare("SELECT P_Id, location FROM Locations");
         $stmt->execute();
     } catch (Exception $e){
         error_log("Error: " .$e->getMessage());
