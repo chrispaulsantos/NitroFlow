@@ -15,6 +15,7 @@
     if($fromDate == $toDate){
         $toDate = $toDate + 10000;
     }
+    error_log($fromDate . " - " . $toDate);
 
     try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id = 1 AND timeStamp < $toDate AND timeStamp > $fromDate");
