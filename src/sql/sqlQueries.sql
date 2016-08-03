@@ -29,3 +29,12 @@ FROM Current_Data
 INNER JOIN Locations
 ON Locations.P_Id = Current_Data.P_Id
 WHERE Current_Data.P_Id = :id;
+
+---------- Queries ------------
+
+-- Select betweeen times
+SELECT *
+FROM Location_Data
+WHERE timeStamp < 1470169340
+      AND timeStamp > 1470169240
+      AND P_Id = 2;

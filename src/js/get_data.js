@@ -4,6 +4,7 @@ $(document).ready(function() {
     var myBarChart = null;
     ids = [1,2,3,4,5];
 
+    // Listen on region change
     $(document).on("change","#region",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
         var barData = {
@@ -34,6 +35,7 @@ $(document).ready(function() {
         getByRegion(barData, options, myBarChart);
         console.log("Change successful");
     });
+    // Listen on location change
     $(document).on("change","#location",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
         var lineData = {
@@ -167,7 +169,7 @@ function getByRegion(data, options, myBarChart){
     }, 5000);
 }
 function getByLocation(data, options, myBarChart){
-    var locations = $("location").val();
+    var ids = $("location").val();
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
     // Draw graph initially on pageload
@@ -187,7 +189,7 @@ function getByLocation(data, options, myBarChart){
             url: "src/php/getByRegion.php",
             type: "GET",
             data: {
-                locations: locations
+                ids: ids
             },
             dataType: "text"
         }).done(function(response) {

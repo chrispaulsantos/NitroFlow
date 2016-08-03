@@ -8,7 +8,7 @@
     foreach($args as $arg){
         $time = time();
         // Insert into location data table
-        $stmt = DBConnection::instance()->prepare("INSERT INTO Location_Data(P_Id,current_capacity,`timeStamp`) VALUES(:id,:capacity,:t)");
+        $stmt = DBConnection::instance()->prepare("CALL insertHistoricData(:id,:capacity,:t)");
         $stmt->bindParam(":capacity",$args[$ct]["capacity"]);
         $stmt->bindParam(":id",$args[$ct]["id"]);
         $stmt->bindParam(":t",$time);

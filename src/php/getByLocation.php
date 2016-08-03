@@ -11,8 +11,9 @@
 
     $locations = [];
 
+
     // Loop over the selected id's and execute the query for each id
-    foreach($ids as $id){
+    /*foreach($ids as $id){
         // error_log($id);
         // Prepare the query for execution
         try {
@@ -26,7 +27,7 @@
         /**
          * One row should be returned, if more than one, select the last value in the rows returned, this value
          * should always be the lowest value, since the query is last timestamp based.
-         */
+         *
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             $rows[] = $row;
         }
@@ -52,6 +53,6 @@
 
         $location->time = $row["timeStamp"];
         $locations[] = $location;
-    }
+    }*/
 
     echo json_encode($locations);
