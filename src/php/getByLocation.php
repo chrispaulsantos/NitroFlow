@@ -36,13 +36,10 @@
 
 
     //echo json_encode(sumEveryN($capacity));
-    echo json_encode(sumEveryN($capacity,getN($fromDate,$toDate)));
+    echo json_encode(sumEveryN($capacity,getN(count($capacity))));
 
-function getN($data){
-    //$seconds = $to - $from;
-    //$minutes = round($seconds) / 60;
+function getN($points){
 
-    $points = count($data);
     switch ($points) {
         case $points < 10:
             $n = 1;
