@@ -23,8 +23,8 @@
     error_log($questionmarks);
 
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN (:ids) AND timeStamp < :to AND timeStamp > :from");
-        $stmt->bindParam(":ids", $questionmarks);
+        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < :to AND timeStamp > :from");
+        //$stmt->bindParam(":ids", $questionmarks);
         $stmt->bindParam(":from",$fromDate);
         $stmt->bindParam(":to",$toDate);
         $stmt->execute($ids);
