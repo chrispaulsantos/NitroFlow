@@ -93,7 +93,6 @@ function organizeData($data,$ids){
         $index = 0;
         // Create data object
         $obj = [id=>$id,capacity=>array()];
-        error_log(json_encode($obj));
         // While the index is less than the data length
         while($index < $data.length){
 
@@ -103,6 +102,7 @@ function organizeData($data,$ids){
             }
             $index++;
         }
+        error_log(json_encode($obj));
         // Push the object to the return array
         array_push($objArr, $obj);
     }
