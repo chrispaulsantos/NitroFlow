@@ -40,14 +40,14 @@
         error_log("Error: ") . $e.getMessage();
     }
 
-    while ($row = $stmt->fetchAll()){
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
     }
     error_log(json_encode($rows));
     echo json_encode($rows);
 
     foreach($rows as $row){
-        $capacity[] = (int) $row["capacity"];
+        $capacity[] = (int) $row[0]["capacity"];
     }
 
     //echo json_encode(sumEveryN($capacity,getN(count($capacity))));
