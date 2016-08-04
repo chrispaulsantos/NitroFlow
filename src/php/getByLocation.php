@@ -32,6 +32,7 @@
             $stmt->bindParam($index,$id);
             $index++;
         }
+        error_log($index);
         //$stmt->bindParam(":ids", $questionmarks);
         $stmt->bindParam($index+1,$fromDate);
         $stmt->bindParam($index+2,$toDate);
