@@ -222,7 +222,6 @@ function buildBarData(data, obj){
 }
 function buildLineData(obj){
 
-    var cap = [];
     var i = 0, j = 0;
     //lineData.datasets[0].label = $("#location").val();
     var numDatasets = $("#location").val().length;
@@ -236,6 +235,7 @@ function buildLineData(obj){
     // For each object in return value, set datasets equal to capacity
     for(i = 0; i < numDatasets; i++) {
         var label = obj[i].location;
+        var cap = [];
 
         for (j = 0; j < obj[i].capacity.length; j++) {
             cap[j] = obj[i].capacity[j];
