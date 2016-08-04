@@ -18,11 +18,6 @@
     $toDate = 1469906230;
     $fromDate = 1469906220;
     $index = 3;
-
-    //$ids = implode(',',$ids);
-    //error_log($ids);
-    //error_log($fromDate . " - " . $toDate);
-
     $questionmarks = str_repeat("?,", count($ids)-1) . "?";
     error_log($questionmarks);
 
@@ -47,7 +42,7 @@
     echo json_encode($rows);
 
     foreach($rows as $row){
-        $capacity[] = (int) $row[0]["capacity"];
+        $capacity[] = (int) $row["capacity"];
     }
 
     //echo json_encode(sumEveryN($capacity,getN(count($capacity))));
