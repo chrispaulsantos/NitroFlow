@@ -7,7 +7,7 @@
     $locations = [];
     $ids = null;
     if( $_GET != null ) {
-        $params = $_GET['ids'];
+        $ids = $_GET['ids'];
         $fromDate = strtotime($_GET['fromDate']);
         $toDate = strtotime($_GET['toDate']);
     }
@@ -15,6 +15,7 @@
         $toDate = $toDate + 55250;
     }
 
+    array_push($params,$ids);
     $toDate = 1469906230;
     $fromDate = 1469906220;
     $questionmarks = str_repeat("?,", count($params)-1) . "?";
