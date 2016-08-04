@@ -29,7 +29,7 @@
         error_log("Error: ") . $e.getMessage();
     }
 
-    while ($row = $stmt->fetch(PDO::FETCH_OBJ)){
+    while ($row = $stmt->fetchAll()){
         $rows[] = $row;
     }
 
