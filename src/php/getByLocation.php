@@ -34,8 +34,8 @@
         }
         error_log($index);
         //$stmt->bindParam(":ids", $questionmarks);
-        $stmt->bindParam($index,$fromDate);
-        $stmt->bindParam($index+1,$toDate);
+        $stmt->bindParam($index,$toDate);
+        $stmt->bindParam($index+1,$fromDate);
         $stmt->execute();
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
