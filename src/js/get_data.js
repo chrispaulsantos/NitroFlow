@@ -222,28 +222,7 @@ function buildBarData(data, obj){
 }
 function buildLineData(obj){
 
-    var datasetStructure = {
-        label: "",
-        fill: false,
-        lineTension: 0.7,
-        backgroundColor: "rgba(75,192,192,0.4)",
-        borderColor: "rgba(75,192,192,1)",
-        borderCapStyle: 'butt',
-        borderDash: [],
-        borderDashOffset: 0.0,
-        borderJoinStyle: 'miter',
-        pointBorderColor: "rgba(75,192,192,1)",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "rgba(75,192,192,1)",
-        pointHoverBorderColor: "rgba(220,220,220,1)",
-        pointHoverBorderWidth: 2,
-        pointRadius: 1,
-        pointHitRadius: 10,
-        data: [],
-        spanGaps: false,
-    }
+
     var i = 0, j = 0;
     //lineData.datasets[0].label = $("#location").val();
     var numDatasets = $("#location").val().length;
@@ -256,12 +235,13 @@ function buildLineData(obj){
     //console.log(data);
     // For each object in return value, set datasets equal to capacity
     for(i = 0; i < numDatasets; i++) {
-        datasetStructure.data = [];
-        datasetStructure.label = obj[i].location;
+        var label = obj[i].location;
+
         for (j = 0; j < obj[i].capacity.length; j++) {
-            datasetStructure.data[j] = obj[i].capacity[j];
+            cap[j] = obj[i].capacity[j];
         }
-        lineData.datasets[i] = datasetStructure;
+        var struct = new datasetStruct(cap,label);
+        lineData.datasets[i] = struct;
     }
 
     console.log(lineData);
@@ -299,4 +279,27 @@ function timeStamp() {
 function updateTime(){
     $("#time").empty().append("<i class='icon refresh'></i> Last Updated: " + timeStamp());
     $('#alert').empty();
+}
+
+function datasetStruct(data,label){
+    this.label = label;
+    this.fill = false;
+    this.lineTension = 0.7,
+        this.backgroundColor = "rgba(75,192,192,0.4)";
+    this.borderColor = "rgba(75,192,192,1)";
+    this.borderCapStyle = 'butt';
+    this.borderDash = [];
+    this.borderDashOffset = 0.0;
+    this.borderJoinStyle = 'miter';
+    this.pointBorderColor = "rgba(75,192,192,1)";
+    this.pointBackgroundColor = "#fff";
+    this.pointBorderWidth = 1;
+    this.pointHoverRadius = 5;
+    this.pointHoverBackgroundColor = "rgba(75,192,192,1)";
+    this.pointHoverBorderColor = "rgba(220,220,220,1)";
+    this.pointHoverBorderWidth = 2;
+    this.pointRadius = 1;
+    this.pointHitRadius = 10;
+    this.data = data;
+    this.spanGaps = false;
 }
