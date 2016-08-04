@@ -40,7 +40,7 @@
     foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];
     }
-    organizeData($rows,$ids);
+    echo json_encode(organizeData($rows,$ids));
     //echo json_encode(sumEveryN($capacity,getN(count($capacity))));
 
 function getN($points){
@@ -109,8 +109,9 @@ function organizeData($data,$ids){
         // Push the object to the return array
         array_push($objArr, $obj);
     }
-    error_log(json_encode($objArr));
+    return $objArr;
 }
+
 class dataObj {
     public $id;
     public $capacity = array();
