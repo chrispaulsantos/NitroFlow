@@ -243,7 +243,7 @@ function buildBarData(data, obj){
     return data;
 }
 function buildLineData(obj){
-    lineData.datasets[0].label = $("#location").val();
+    //lineData.datasets[0].label = $("#location").val();
     var numDatasets = $("#location").val().length;
 
     // Set labels
