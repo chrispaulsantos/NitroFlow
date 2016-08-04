@@ -47,7 +47,7 @@ $(document).ready(function() {
                     ticks: {
                         max: 105,
                         min: 0,
-                        stepSize: 10
+                        stepSize: 5
                     }
                 }]
             }
