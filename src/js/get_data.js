@@ -222,7 +222,7 @@ function buildBarData(data, obj){
 }
 function buildLineData(obj){
 
-
+    var cap = [];
     var i = 0, j = 0;
     //lineData.datasets[0].label = $("#location").val();
     var numDatasets = $("#location").val().length;
