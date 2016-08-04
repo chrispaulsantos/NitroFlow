@@ -89,21 +89,33 @@ function sumEveryN($data,$n){
     return $avgs;
 }
 function organizeData($data,$ids){
+
+
     foreach($ids as $id){
         $index = 0;
         // Create data object
-        $obj = [id=>$id,capacity=>array()];
+        $obj = new dataObj();
+        // Set id
+        $obj->id = $id;
         // While the index is less than the data length
         while($index < count($data)){
 
             // If P_Id is equal to id, push the capacity to the object capacity array
             if($data["P_Id"] == $id){
-                array_push($obj->capacity,$data["capacity"]);
+                $obj->pushCapacity($data["capacity"]);
             }
             $index++;
         }
         error_log(json_encode($obj));
         // Push the object to the return array
         array_push($objArr, $obj);
+    }
+}
+class dataObj {
+    private $id;
+    private $capacity = array();
+
+    public function pushCapacity($val){
+        array_push($this->capacity,$val);
     }
 }
