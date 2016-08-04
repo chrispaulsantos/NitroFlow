@@ -101,14 +101,14 @@ function organizeData($data,$ids){
         while($index < count($data)){
 
             // If P_Id is equal to id, push the capacity to the object capacity array
-            if($data["P_Id"] == $id){
+            if($data[$index]["P_Id"] == $id){
                 $obj->pushCapacity($data["capacity"]);
             }
             $index++;
         }
         error_log(json_encode($obj));
         // Push the object to the return array
-        array_push($objArr, $obj);
+        //array_push($objArr, $obj);
     }
 }
 class dataObj {
