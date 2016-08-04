@@ -19,7 +19,7 @@
     //error_log($fromDate . " - " . $toDate);
 
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT capacity FROM Location_Data WHERE P_Id IN (:ids) AND timeStamp < :to AND timeStamp > :from");
+        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN (:ids) AND timeStamp < :to AND timeStamp > :from");
         $stmt->bindParam(":ids", $ids);
         $stmt->bindParam(":from",$fromDate);
         $stmt->bindParam(":to",$toDate);
