@@ -94,7 +94,7 @@ function organizeData($data,$ids){
         // Create data object
         $obj = [id=>$id,capacity=>array()];
         // While the index is less than the data length
-        while($index < $data.length){
+        while($index < count($data)){
 
             // If P_Id is equal to id, push the capacity to the object capacity array
             if($data["P_Id"] == $id){
