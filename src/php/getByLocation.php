@@ -16,7 +16,7 @@
     }
 
     $ids = implode(',',$ids);
-error_log($ids);
+    error_log($ids);
     //error_log($fromDate . " - " . $toDate);
 
     try {
@@ -29,7 +29,7 @@ error_log($ids);
         error_log("Error: ") . $e.getMessage();
     }
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    while ($row = $stmt->fetch(PDO::FETCH_OBJ)){
         $rows[] = $row;
     }
 
