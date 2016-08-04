@@ -7,7 +7,7 @@
     $locations = [];
     $ids = null;
     if( $_GET != null ) {
-        $ids = $_GET['ids'];
+        $params = $_GET['ids'];
         $fromDate = strtotime($_GET['fromDate']);
         $toDate = strtotime($_GET['toDate']);
     }
@@ -18,7 +18,7 @@
     $toDate = 1469906230;
     $fromDate = 1469906220;
     $index = 3;
-    $questionmarks = str_repeat("?,", count($ids)-1) . "?";
+    $questionmarks = str_repeat("?,", count($params)-1) . "?";
     error_log($questionmarks);
 
     /*try {
@@ -35,7 +35,7 @@
         error_log("Error: ") . $e.getMessage();
     }*/
 
-    $params = $ids.array_push($toDate,$fromDate);
+    array_push($ids, $toDate,$fromDate);
 
     try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ? ");
