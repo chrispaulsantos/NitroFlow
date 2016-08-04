@@ -15,21 +15,23 @@
         $toDate = $toDate + 56250;
     }
 
-    $ids = implode(',',$ids);
+    //$ids = implode(',',$ids);
     error_log($ids);
     //error_log($fromDate . " - " . $toDate);
 
+    $questionmarks = str_repeat("?,", count($ids)-1) . "?";
+
     try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN (:ids) AND timeStamp < :to AND timeStamp > :from");
-        $stmt->bindParam(":ids", $ids);
+        $stmt->bindParam(":ids", $questionmarks);
         $stmt->bindParam(":from",$fromDate);
         $stmt->bindParam(":to",$toDate);
-        $stmt->execute();
+        $stmt->execute($ids);
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
     }
 
-    while ($row = $stmt->fetchAll()){
+    while ($row = $stmt->fetchObj()){
         $rows[] = $row;
     }
 
@@ -38,7 +40,6 @@
     foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];
     }
-
 
     //echo json_encode(sumEveryN($capacity,getN(count($capacity))));
 
