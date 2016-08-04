@@ -23,9 +23,10 @@
     $fromDate = 1469906220;
     $questionmarks = str_repeat("?,", count($params)-1) . "?";
     array_push($params, $toDate, $fromDate);
-    error_log(json_encode($params));
+
+    $query = "SELECT `Location_Data`.capacity,`Location_Data`.P_Id, `Locations`.location FROM Location_Data INNER JOIN Locations ON Locations.P_Id = Location_Data.P_Id WHERE P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ? ";
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ? ");
+        $stmt = DBConnection::instance()->prepare($query);
         $stmt->execute($params);
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
@@ -34,8 +35,6 @@
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
     }
-    error_log(json_encode($rows));
-    //echo json_encode($rows);
 
     foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];

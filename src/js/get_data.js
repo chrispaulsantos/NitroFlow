@@ -272,11 +272,13 @@ function buildLineData(data, obj){
     for(j = 0; j < obj.length; j++){
         data.labels[j] = " ";
     }
-
+    console.log(data);
     // For each object in return value, set datasets equal to capacity
     for(i = 0; i < numDatasets; i++){
+        datasetStructure.data = [];
+        datasetStructure.label = "";
         for(j = 0; j < obj.length; j++){
-            data.datasets[i].data[j] = obj[j];
+            datasetStructure[i].data[j] = obj[j];
         }
     }
     return data;
