@@ -16,6 +16,9 @@
     }
 
     $params = array();
+    foreach ($ids as $id){
+        array_push($params,$id);
+    }
     array_push($params,$ids);
     $toDate = 1469906230;
     $fromDate = 1469906220;
