@@ -110,6 +110,7 @@ function organizeData($data,$ids){
         array_push($objArr, $obj);
     }
     return $objArr;
+    error_log(json_encode($objArr));
 }
 
 class dataObj {
