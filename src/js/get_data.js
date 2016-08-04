@@ -245,6 +245,7 @@ function buildBarData(data, obj){
 function buildLineData(obj){
     //lineData.datasets[0].label = $("#location").val();
     var numDatasets = $("#location").val().length;
+    lineData.datasets = [];
 
     // Set labels
     for(j = 0; j < obj[0].capacity.length; j++){
