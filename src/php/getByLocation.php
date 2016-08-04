@@ -27,15 +27,14 @@
     error_log($questionmarks);
 
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ?");
+        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE timeStamp < ? AND timeStamp > ? AND P_Id IN ($questionmarks)");
+        $stmt->bindParam($index,$toDate);
+        $stmt->bindParam($index+1,$fromDate);
         foreach($ids as $id){
             $stmt->bindParam($index,$id);
             $index++;
         }
         error_log($index);
-        //$stmt->bindParam(":ids", $questionmarks);
-        $stmt->bindParam($index,$toDate);
-        $stmt->bindParam($index+1,$fromDate);
         $stmt->execute();
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
