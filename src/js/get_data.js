@@ -276,9 +276,9 @@ function buildLineData(data, obj){
     // For each object in return value, set datasets equal to capacity
     for(i = 0; i < numDatasets; i++){
         datasetStructure.data = [];
-        datasetStructure.label = "";
-        for(j = 0; j < obj.length; j++){
-            datasetStructure[i].data[j] = obj[j];
+        datasetStructure.label = obj[i].location;
+        for(j = 0; j < obj[i].capacity.length; j++){
+            datasetStructure[i].data[j] = obj[i].capacity[j];
         }
     }
     return data;
