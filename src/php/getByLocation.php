@@ -17,24 +17,7 @@
 
     $toDate = 1469906230;
     $fromDate = 1469906220;
-    $index = 3;
     $questionmarks = str_repeat("?,", count($params)-1) . "?";
-    error_log($questionmarks);
-
-    /*try {
-        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE timeStamp < ? AND timeStamp > ? AND P_Id IN ($questionmarks)");
-        $stmt->bindParam(1,$toDate);
-        $stmt->bindParam(2,$fromDate);
-        foreach($ids as $id){
-            $stmt->bindParam($index,$id);
-            $index++;
-        }
-        error_log($index);
-        $stmt->execute();
-    } catch(Exception $e) {
-        error_log("Error: ") . $e.getMessage();
-    }*/
-
     array_push($params, $toDate, $fromDate);
 
     try {
@@ -53,7 +36,7 @@
     foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];
     }
-
+    organizeData($rows,$ids);
     //echo json_encode(sumEveryN($capacity,getN(count($capacity))));
 
 function getN($points){
@@ -100,4 +83,23 @@ function sumEveryN($data,$n){
         $avgs[] = $sum / $n;
     }
     return $avgs;
+}
+function organizeData($data,$ids){
+    foreach($ids as $id){
+        $index = 0;
+        // Create data object
+        $obj = [id=>$id,capacity=>array()];
+        error_log(json_encode($obj));
+        // While the index is less than the data length
+        while($index < $data.length){
+
+            // If P_Id is equal to id, push the capacity to the object capacity array
+            if($data["P_Id"] == $id){
+                array_push($obj["capacity"],$data["capacity"]);
+            }
+            $index++;
+        }
+        // Push the object to the return array
+        array_push($objArr, $obj);
+    }
 }
