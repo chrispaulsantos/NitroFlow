@@ -35,7 +35,7 @@
         error_log("Error: ") . $e.getMessage();
     }*/
 
-    array_push($ids, $toDate,$fromDate);
+    array_push($params, $toDate, $fromDate);
 
     try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ? ");
