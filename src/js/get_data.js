@@ -284,7 +284,7 @@ function updateTime(){
 function datasetStruct(data,label){
     this.label = label;
     this.fill = false;
-    this.lineTension = 0.7,
+    this.lineTension = 0.1,
         this.backgroundColor = "rgba(75,192,192,0.4)";
     this.borderColor = "rgba(75,192,192,1)";
     this.borderCapStyle = 'butt';
