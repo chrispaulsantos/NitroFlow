@@ -17,6 +17,7 @@
 
     $toDate = 1469906220;
     $fromDate = 1469906230;
+    $index = 1;
 
     //$ids = implode(',',$ids);
     //error_log($ids);
@@ -26,11 +27,15 @@
     error_log($questionmarks);
 
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ?");
+        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < :to AND timeStamp > :from");
+        foreach($ids as $id){
+            $stmt->bindParam($index,$id);
+            $index++;
+        }
         //$stmt->bindParam(":ids", $questionmarks);
-        //$stmt->bindParam(":from",$fromDate);
-        //$stmt->bindParam(":to",$toDate);
-        $stmt->execute(array($ids,$fromDate,$toDate));
+        $stmt->bindParam(":from",$fromDate);
+        $stmt->bindParam(":to",$toDate);
+        $stmt->execute();
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
     }
