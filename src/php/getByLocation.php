@@ -112,8 +112,8 @@ function organizeData($data,$ids){
     }
 }
 class dataObj {
-    private $id;
-    private $capacity = array();
+    public $id;
+    public $capacity = array();
 
     public function pushCapacity($val){
         array_push($this->capacity,$val);
