@@ -21,7 +21,7 @@
     $questionmarks = str_repeat("?,", count($ids)-1) . "?";
     error_log($questionmarks);
 
-    try {
+    /*try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE timeStamp < ? AND timeStamp > ? AND P_Id IN ($questionmarks)");
         $stmt->bindParam(1,$toDate);
         $stmt->bindParam(2,$fromDate);
@@ -31,6 +31,15 @@
         }
         error_log($index);
         $stmt->execute();
+    } catch(Exception $e) {
+        error_log("Error: ") . $e.getMessage();
+    }*/
+
+    $params = $ids.array_push($toDate,$fromDate);
+
+    try {
+        $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ? ");
+        $stmt->execute($params);
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
     }
