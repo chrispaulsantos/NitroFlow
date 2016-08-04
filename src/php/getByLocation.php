@@ -15,6 +15,7 @@
         $toDate = $toDate + 55250;
     }
 
+    $params = array();
     array_push($params,$ids);
     $toDate = 1469906230;
     $fromDate = 1469906220;
