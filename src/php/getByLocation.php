@@ -30,7 +30,7 @@
         //$stmt->bindParam(":ids", $questionmarks);
         //$stmt->bindParam(":from",$fromDate);
         //$stmt->bindParam(":to",$toDate);
-        $stmt->execute($ids,$fromDate,$toDate);
+        $stmt->execute(array($ids,$fromDate,$toDate));
     } catch(Exception $e) {
         error_log("Error: ") . $e.getMessage();
     }
