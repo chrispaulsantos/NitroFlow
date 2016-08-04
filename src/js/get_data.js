@@ -22,6 +22,10 @@ var datasetStructure = {
     data: [],
     spanGaps: false,
 }
+var lineData = {
+    labels: [],
+    datasets: []
+};
 
 $(document).ready(function() {
 
@@ -58,10 +62,7 @@ $(document).ready(function() {
     // Listen on location change
     $(document).on("change","#location",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
-        var lineData = {
-            labels: [],
-            datasets: []
-        };
+
         var options = {
             scales: {
                 yAxes: [{
@@ -181,7 +182,7 @@ function getByRegion(data, options){
         });
     }, 5000);
 }
-function getByLocation(data, options){
+function getByLocation(options){
     // Have to clear interval if graph is changed to line after region
     if(int != null){
         clearInterval(int);
@@ -214,7 +215,7 @@ function getByLocation(data, options){
     }).done(function(response) {
         console.log(JSON.parse(response));
         // Build the data from the php response
-        buildLineData(data, JSON.parse(response));
+        buildLineData(JSON.parse(response));
 
         // Update the current time, and empty the alerts div
         updateTime();
@@ -241,13 +242,13 @@ function buildBarData(data, obj){
     }
     return data;
 }
-function buildLineData(data, obj){
-    data.datasets[0].label = $("#location").val();
+function buildLineData(obj){
+    lineData.datasets[0].label = $("#location").val();
     var numDatasets = $("#location").val().length;
 
     // Set labels
     for(j = 0; j < obj.length; j++){
-        data.labels[j] = " ";
+        lineData.labels[j] = " ";
     }
     //console.log(data);
     // For each object in return value, set datasets equal to capacity
@@ -257,11 +258,11 @@ function buildLineData(data, obj){
         for (j = 0; j < obj[i].capacity.length; j++) {
             datasetStructure.data[j] = obj[i].capacity[j];
         }
-        data.datasets[i] = datasetStructure;
+        lineData.datasets[i] = datasetStructure;
     }
 
-    console.log(data);
-    return data;
+    console.log(lineData);
+    return lineData;
 }
 function timeStamp() {
 // Create a date object with the current time
