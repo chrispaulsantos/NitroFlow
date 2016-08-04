@@ -35,7 +35,7 @@
         $rows[] = $row;
     }
     error_log(json_encode($rows));
-    echo json_encode($rows);
+    //echo json_encode($rows);
 
     foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];
