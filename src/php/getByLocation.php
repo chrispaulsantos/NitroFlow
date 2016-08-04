@@ -19,7 +19,7 @@
     foreach ($ids as $id){
         array_push($params,$id);
     }
-    $toDate = 1469906420;
+    $toDate = 1469907220;
     $fromDate = 1469906220;
     $questionmarks = str_repeat("?,", count($params)-1) . "?";
     array_push($params, $toDate, $fromDate);
