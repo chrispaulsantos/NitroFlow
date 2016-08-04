@@ -31,7 +31,7 @@
         error_log("Error: ") . $e.getMessage();
     }
 
-    while ($row = $stmt->fetchObj()){
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
     }
 
