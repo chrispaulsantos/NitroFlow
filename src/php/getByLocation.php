@@ -12,8 +12,11 @@
         $toDate = strtotime($_GET['toDate']);
     }
     if($fromDate == $toDate){
-        $toDate = $toDate + 56250;
+        $toDate = $toDate + 55250;
     }
+
+    $toDate = 1469906220;
+    $fromDate = 1469906230;
 
     //$ids = implode(',',$ids);
     //error_log($ids);
