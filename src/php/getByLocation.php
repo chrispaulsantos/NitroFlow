@@ -21,7 +21,7 @@
     $fromDate = 1469906220;
     $questionmarks = str_repeat("?,", count($params)-1) . "?";
     array_push($params, $toDate, $fromDate);
-    error_log($params);
+    error_log(json_encode($params));
     try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ? ");
         $stmt->execute($params);
