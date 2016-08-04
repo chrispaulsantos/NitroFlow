@@ -39,6 +39,7 @@
     foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];
     }
+    error_log(json_encode(organizeData($rows,$ids)));
     echo json_encode(organizeData($rows,$ids));
     //echo json_encode(sumEveryN($capacity,getN(count($capacity))));
 
@@ -110,7 +111,7 @@ function organizeData($data,$ids){
         array_push($objArr, $obj);
     }
     return $objArr;
-    error_log(json_encode($objArr));
+
 }
 
 class dataObj {
