@@ -16,10 +16,11 @@
     }
 
     //$ids = implode(',',$ids);
-    error_log($ids);
+    //error_log($ids);
     //error_log($fromDate . " - " . $toDate);
 
     $questionmarks = str_repeat("?,", count($ids)-1) . "?";
+    error_log($questionmarks);
 
     try {
         $stmt = DBConnection::instance()->prepare("SELECT capacity,P_Id FROM Location_Data WHERE P_Id IN (:ids) AND timeStamp < :to AND timeStamp > :from");
@@ -34,7 +35,7 @@
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $rows[] = $row;
     }
-
+    error_log(json_encode($rows));
     echo json_encode($rows);
 
     foreach($rows as $row){
