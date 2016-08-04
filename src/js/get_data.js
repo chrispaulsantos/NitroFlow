@@ -45,7 +45,7 @@ $(document).ready(function() {
             scales: {
                 yAxes: [{
                     ticks: {
-                        max: 100,
+                        max: 105,
                         min: 0,
                         stepSize: 10
                     }
