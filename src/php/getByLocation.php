@@ -89,7 +89,7 @@ function sumEveryN($data,$n){
     return $avgs;
 }
 function organizeData($data,$ids){
-
+    $objArr = array();
 
     foreach($ids as $id){
         $index = 0;
@@ -106,10 +106,10 @@ function organizeData($data,$ids){
             }
             $index++;
         }
-        error_log(json_encode($obj));
         // Push the object to the return array
-        //array_push($objArr, $obj);
+        array_push($objArr, $obj);
     }
+    error_log(json_encode($objArr));
 }
 class dataObj {
     public $id;
