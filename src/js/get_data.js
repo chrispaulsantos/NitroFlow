@@ -195,7 +195,7 @@ function getByLocation(options){
     var ctx = document.getElementById("chart");
     chart = new Chart(ctx, {
         type: 'line',
-        data: data,
+        data: lineData,
         options: options
     });
 
