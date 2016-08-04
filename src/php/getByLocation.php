@@ -16,6 +16,7 @@
     }
 
     $ids = implode(',',$ids);
+error_log($ids);
     //error_log($fromDate . " - " . $toDate);
 
     try {
