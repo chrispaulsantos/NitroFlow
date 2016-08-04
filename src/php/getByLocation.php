@@ -15,8 +15,8 @@
         $toDate = $toDate + 55250;
     }
 
-    $toDate = 1469906220;
-    $fromDate = 1469906230;
+    $toDate = 1469906230;
+    $fromDate = 1469906220;
     $index = 1;
 
     //$ids = implode(',',$ids);
