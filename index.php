@@ -114,6 +114,12 @@
                             </select>
                         </div>
 
+                        <p>
+                            <label for="time-range">Price range:</label>
+                            <input type="text" id="time-range" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        </p>
+                        <div id="slider-range"></div>
+
                     </div>
                     <div class="ui slider checkbox">
                         <input name="graph-type" type="checkbox">
@@ -145,11 +151,6 @@
                         <div id="time"><i class="icon refresh"></i> Last Updated: </div>
                     </div>
                 </div>
-                <p>
-                    <label for="time">Price range:</label>
-                    <input type="text" id="time" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                </p>
-                <div id="slider-range"></div>
             </div>
         </div>
 
