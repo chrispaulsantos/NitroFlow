@@ -184,7 +184,7 @@
 
                 startTime = getTime(hours0, minutes0);
                 endTime = getTime(hours1, minutes1);
-                $("#time").text(startTime + ' - ' + endTime);
+                $("#time-range").text(startTime + ' - ' + endTime);
             }
             function getTime(hours, minutes) {
                 var time = null;
