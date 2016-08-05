@@ -93,7 +93,7 @@ $(document).ready(function() {
                 $(".icon.refresh").popup({
                     on      : 'click',
                     target  : '#location-holder',
-                    content : 'Please select a region!',
+                    content : 'Please select a location!',
                     delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
