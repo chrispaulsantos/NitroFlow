@@ -161,6 +161,12 @@
                 $("#location-holder").hide();
                 $("#dates").hide();
                 $("#location-alert").hide();
+                $(".icon.refresh").popup({
+                    target  : '#dates',
+                    on      : 'click',
+                    content : 'Please select a date range!',
+                    delay   : { show : 300, hide : 800 }
+                });
             });
         </script>
 

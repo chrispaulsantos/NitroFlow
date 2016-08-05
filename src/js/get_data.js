@@ -81,12 +81,7 @@ $(document).ready(function() {
         if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
             if(flag != false){
                 //$(".ui.message").removeClass("hidden");
-                $(".icon.refresh").popup({
-                    target  : '#dates',
-                    on      : 'click',
-                    content : 'Please select a date range!',
-                    delay   : { show : 800, hide : 800 }
-                });
+                $(".icon.refresh").popup('toggle');
             }
         } else {
             var options = {
