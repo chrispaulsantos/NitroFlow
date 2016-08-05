@@ -45,9 +45,12 @@ $(document).ready(function() {
     });
     // Listen on location change
     $(document).on("change","#location",function(){
+        var dateCheck = false;
+        var locationCheck = false;
         // variables for drawing the chart; datasets.data and labels initially empty
         if (flag != false) {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
+                 dateCheck = false;
                 //$(".ui.message").removeClass("hidden");
                 $(".icon.refresh").popup({
                     on      : 'click',
@@ -56,8 +59,11 @@ $(document).ready(function() {
                     delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
+            } else {
+                dateCheck = true;
             }
             if($("#location").val() == null || $("#location").val() == ""){
+                locationCheck = false;
                 $(".icon.refresh").popup({
                     on      : 'click',
                     target  : '#location-holder',
@@ -65,20 +71,24 @@ $(document).ready(function() {
                     delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
+            } else {
+                locationCheck = true;
             }
-        } else {
-            var options = {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            max: 105,
-                            min: 0,
-                            stepSize: 5
-                        }
-                    }]
-                }
-            };
-            getByLocation(options);
+
+            if(dateCheck && locationCheck){
+                var options = {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                max: 105,
+                                min: 0,
+                                stepSize: 5
+                            }
+                        }]
+                    }
+                };
+                getByLocation(options);
+            }
         }
     });
     // Hide/Show inputs based on position of toggle
@@ -95,9 +105,12 @@ $(document).ready(function() {
     });
     // On refresh click
     $(document).on("click",".icon.refresh",function(){
-        // Check to make sure dates are selected
+        var dateCheck = false;
+        var locationCheck = false;
+        // variables for drawing the chart; datasets.data and labels initially empty
         if (flag != false) {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
+                dateCheck = false;
                 //$(".ui.message").removeClass("hidden");
                 $(".icon.refresh").popup({
                     on      : 'click',
@@ -106,8 +119,11 @@ $(document).ready(function() {
                     delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
+            } else {
+                dateCheck = true;
             }
             if($("#location").val() == null || $("#location").val() == ""){
+                locationCheck = false;
                 $(".icon.refresh").popup({
                     on      : 'click',
                     target  : '#location-holder',
@@ -115,20 +131,24 @@ $(document).ready(function() {
                     delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
+            } else {
+                locationCheck = true;
             }
-        } else {
-            var options = {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            max: 105,
-                            min: 0,
-                            stepSize: 5
-                        }
-                    }]
-                }
-            };
-            getByLocation(options);
+
+            if(dateCheck && locationCheck){
+                var options = {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                max: 105,
+                                min: 0,
+                                stepSize: 5
+                            }
+                        }]
+                    }
+                };
+                getByLocation(options);
+            }
         }
     });
 });
