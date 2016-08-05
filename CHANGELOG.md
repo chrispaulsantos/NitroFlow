@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.4-alpha] - 2016-8
+## [1.0] - 2016-8-4
 - Login function with redirect
 - Logout function
 - Using current data table
