@@ -120,6 +120,7 @@ $(document).ready(function() {
                 });
                 $(".icon.refresh").popup('toggle');
             } else {
+                $(".icon.refresh").popup('destroy');
                 dateCheck = true;
             }
             if($("#location").val() == null || $("#location").val() == ""){
@@ -132,6 +133,7 @@ $(document).ready(function() {
                 });
                 $(".icon.refresh").popup('toggle');
             } else {
+                $(".icon.refresh").popup('destroy');
                 locationCheck = true;
             }
 
