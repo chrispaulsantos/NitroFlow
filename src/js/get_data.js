@@ -81,10 +81,18 @@ $(document).ready(function() {
         if (flag != false) {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 //$(".ui.message").removeClass("hidden");
-                $(".icon.refresh").popup('toggle');
+                $(".icon.refresh").popup({
+                    target  : '#dates',
+                    content : 'Please select a date range!',
+                    delay   : { show : 300, hide : 800 }
+                });
             }
             if($("#location").val() == null || $("#location").val() == ""){
-                $(".icon.refresh").popup('toggle');
+                $(".icon.refresh").popup({
+                    target  : '#region-holder',
+                    content : 'Please select a region!',
+                    delay   : { show : 300, hide : 800 }
+                });
             }
         } else {
             var options = {
