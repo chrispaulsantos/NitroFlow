@@ -1,5 +1,8 @@
+// Interval variable
 var int = null;
+// Global chart value
 var chart = null;
+// Line data for line graph
 var lineData = {
     labels: [],
     datasets: []
@@ -9,12 +12,12 @@ $(document).ready(function() {
 
     // Listen on region change
     $(document).on("change","#region",function(){
-        // variables for drawing the chart; datasets.data and labels initially empty
+        // Variables for drawing the chart; datasets.data and labels initially empty
         var barData = {
             labels: [],
             datasets: [
                 {
-                    label: "Keg Capacity",
+                    label: $("#region").val(),
                     backgroundColor: "rgba(13,71,161, .7)",
                     borderColor: "rgba(13,71,161, .7)",
                     borderWidth: 1,
@@ -62,6 +65,7 @@ $(document).ready(function() {
         $("#location-holder").toggle();
         $("#region-holder").toggle();
         $("#dates").toggle();
+        // If first page load, change the select message
         if(chart == null){
             $("#location-alert").toggle();
             $("#region-alert").toggle();
@@ -69,48 +73,22 @@ $(document).ready(function() {
     });
     // On refresh click
     $(document).on("click",".icon.refresh",function(){
+        // Check to make sure dates are selected
         if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
             $(".ui.message").removeClass("hidden");
         } else {
-            var lineData = {
-                labels: [],
-                datasets: [
-                    {
-                        label: "My First dataset",
-                        fill: false,
-                        lineTension: 0.1,
-                        backgroundColor: "rgba(75,192,192,0.4)",
-                        borderColor: "rgba(75,192,192,1)",
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        pointBorderColor: "rgba(75,192,192,1)",
-                        pointBackgroundColor: "#fff",
-                        pointBorderWidth: 1,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                        pointHoverBorderColor: "rgba(220,220,220,1)",
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 1,
-                        pointHitRadius: 10,
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        spanGaps: false,
-                    }
-                ]
-            };
             var options = {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            max: 100,
+                            max: 105,
                             min: 0,
-                            stepSize: 10
+                            stepSize: 5
                         }
                     }]
                 }
             };
-            getByLocation(lineData, options);
+            getByLocation(options);
         }
     });
 });
@@ -252,7 +230,7 @@ function buildLineData(obj){
         }
 
         // Push data into lineData
-        lineData.datasets[i] = new datasetStruct(cap,label);
+        lineData.datasets[i] = new lineStruct(cap,label);
     }
 
     return lineData;
@@ -301,7 +279,7 @@ function randomColorGenerate(alpha){
 }
 
 // Dataset structure class
-function datasetStruct(data,label){
+function lineStruct(data,label){
     var color = randomColorGenerate(1);
 
     this.label = label;
