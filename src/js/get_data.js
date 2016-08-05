@@ -12,17 +12,19 @@ $(document).ready(function() {
 
     // Listen on region change
     $(document).on("change","#region",function(){
+        var color = randomColorGenerate(.7);
+
         // Variables for drawing the chart; datasets.data and labels initially empty
         var barData = {
             labels: [],
             datasets: [
                 {
                     label: $("#region").val(),
-                    backgroundColor: "rgba(13,71,161, .7)",
-                    borderColor: "rgba(13,71,161, .7)",
+                    backgroundColor: color,
+                    borderColor: color,
                     borderWidth: 1,
-                    hoverBackgroundColor: "rgba(13,71,161, .4)",
-                    hoverBorderColor: "rgba(13,71,161, .4)",
+                    hoverBackgroundColor: color,
+                    hoverBorderColor: color,
                     data: [],
                 }
             ]
