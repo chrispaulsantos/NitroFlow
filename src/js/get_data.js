@@ -80,7 +80,8 @@ $(document).ready(function() {
         // Check to make sure dates are selected
         if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
             if(flag != false){
-                $(".ui.message").removeClass("hidden");
+                //$(".ui.message").removeClass("hidden");
+                $("#dates").popup({content: "Please enter a date range!"});
             }
         } else {
             var options = {
