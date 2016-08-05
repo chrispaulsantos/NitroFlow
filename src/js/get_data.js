@@ -50,7 +50,7 @@ $(document).ready(function() {
         // variables for drawing the chart; datasets.data and labels initially empty
         if (flag != false) {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
-                 dateCheck = false;
+                dateCheck = false;
                 //$(".ui.message").removeClass("hidden");
                 $(".icon.refresh").popup({
                     on      : 'click',
@@ -60,6 +60,7 @@ $(document).ready(function() {
                 });
                 $(".icon.refresh").popup('toggle');
             } else {
+                $(".icon.refresh").popup('destroy');
                 dateCheck = true;
             }
             if($("#location").val() == null || $("#location").val() == ""){
@@ -72,6 +73,7 @@ $(document).ready(function() {
                 });
                 $(".icon.refresh").popup('toggle');
             } else {
+                $(".icon.refresh").popup('destroy');
                 locationCheck = true;
             }
 
