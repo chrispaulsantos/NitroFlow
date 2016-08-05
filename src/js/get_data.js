@@ -92,7 +92,7 @@ $(document).ready(function() {
             if($("#location").val() == null || $("#location").val() == ""){
                 $(".icon.refresh").popup({
                     on      : 'click',
-                    target  : '#region-holder',
+                    target  : '#location-holder',
                     content : 'Please select a region!',
                     delay   : { show : 300, hide : 800 }
                 });
