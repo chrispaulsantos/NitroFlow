@@ -82,9 +82,9 @@ $(document).ready(function() {
             if(flag != false){
                 //$(".ui.message").removeClass("hidden");
                 $(".icon.refresh").popup({
-                    popup : '#popup',
                     target: '#dates',
-                    on    : 'click'
+                    on    : 'click',
+                    title : 'Please select a date range!'
                 });
             }
         } else {
