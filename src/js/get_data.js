@@ -222,8 +222,6 @@ function buildBarData(data, obj){
 }
 function buildLineData(obj){
 
-    var i = 0, j = 0;
-    //lineData.datasets[0].label = $("#location").val();
     var numDatasets = $("#location").val().length;
     lineData.datasets = [];
 
@@ -231,20 +229,21 @@ function buildLineData(obj){
     for(j = 0; j < obj[0].capacity.length; j++){
         lineData.labels[j] = " ";
     }
-    //console.log(data);
+
     // For each object in return value, set datasets equal to capacity
     for(i = 0; i < numDatasets; i++) {
         var label = obj[i].location;
         var cap = [];
 
+        // Push data into cap placeholder array
         for (j = 0; j < obj[i].capacity.length; j++) {
             cap[j] = obj[i].capacity[j];
         }
-        var struct = new datasetStruct(cap,label);
-        lineData.datasets[i] = struct;
+
+        // Push data into lineData
+        lineData.datasets[i] = new datasetStruct(cap,label);
     }
 
-    console.log(lineData);
     return lineData;
 }
 function timeStamp() {
@@ -281,12 +280,15 @@ function updateTime(){
     $('#alert').empty();
 }
 
+// Dataset structure class
 function datasetStruct(data,label){
+    var color = randomColorGenerate(1);
+
     this.label = label;
     this.fill = false;
-    this.lineTension = 0.1,
-        this.backgroundColor = "rgba(75,192,192,0.4)";
-    this.borderColor = "rgba(75,192,192,1)";
+    this.lineTension = 0.1;
+    this.backgroundColor = "rgba(75,192,192,0.4)";
+    this.borderColor = color;
     this.borderCapStyle = 'butt';
     this.borderDash = [];
     this.borderDashOffset = 0.0;
@@ -302,4 +304,13 @@ function datasetStruct(data,label){
     this.pointHitRadius = 10;
     this.data = data;
     this.spanGaps = false;
+}
+function randomColorGenerate(alpha){
+    var R = Math.floor((Math.random() * 255) + 0);
+    var G = Math.floor((Math.random() * 255) + 0);
+    var B = Math.floor((Math.random() * 255) + 0);
+
+    var RGBA = "rgba(" + R.toString() + "," + G.toString() + "," + B.toString() + "," + alpha.toString() + ")";
+    console.log(RGBA);
+    return RGBA;
 }
