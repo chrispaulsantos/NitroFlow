@@ -58,14 +58,13 @@ $(document).ready(function() {
     $(document).on("change","input[name=graph-type]",function(){
         if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
             $(".ui.message").removeClass("hidden");
-        } else {
-            $("#location-holder").toggle();
-            $("#region-holder").toggle();
-            $("#dates").toggle();
-            if(chart == null){
-                $("#location-alert").toggle();
-                $("#region-alert").toggle();
-            }
+        }
+        $("#location-holder").toggle();
+        $("#region-holder").toggle();
+        $("#dates").toggle();
+        if(chart == null){
+            $("#location-alert").toggle();
+            $("#region-alert").toggle();
         }
     });
     // On refresh
