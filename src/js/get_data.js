@@ -9,6 +9,7 @@ var lineData = {
 };
 
 $(document).ready(function() {
+    var flag = false;
 
     // Listen on region change
     $(document).on("change","#region",function(){
@@ -64,6 +65,7 @@ $(document).ready(function() {
     });
     // Hide/Show inputs based on position of toggle
     $(document).on("change","input[name=graph-type]",function(){
+        flag = !flag;
         $("#location-holder").toggle();
         $("#region-holder").toggle();
         $("#dates").toggle();
@@ -76,7 +78,7 @@ $(document).ready(function() {
     // On refresh click
     $(document).on("click",".icon.refresh",function(){
         // Check to make sure dates are selected
-        if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
+        if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "" && flag != false){
             $(".ui.message").removeClass("hidden");
         } else {
             var options = {
