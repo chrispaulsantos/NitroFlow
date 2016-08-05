@@ -81,7 +81,10 @@ $(document).ready(function() {
         if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
             if(flag != false){
                 //$(".ui.message").removeClass("hidden");
-                $("#dates").popup();
+                $(".icon.refresh").popup(
+                    popup : $('#dates'),
+                    on    : 'click'
+                );
             }
         } else {
             var options = {
