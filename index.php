@@ -167,6 +167,12 @@
                     content : 'Please select a date range!',
                     delay   : { show : 300, hide : 800 }
                 });
+                $(".icon.refresh").popup({
+                    target  : '#region-holder',
+                    on      : 'click',
+                    content : 'Please select a region!',
+                    delay   : { show : 300, hide : 800 }
+                });
             });
         </script>
 
