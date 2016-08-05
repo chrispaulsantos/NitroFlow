@@ -166,6 +166,22 @@
 
 
             var dateSlider = document.getElementById('slider-range');
+            var
+                weekdays = [
+                    "Sunday", "Monday", "Tuesday",
+                    "Wednesday", "Thursday", "Friday",
+                    "Saturday"
+                ],
+                months = [
+                    "January", "February", "March",
+                    "April", "May", "June", "July",
+                    "August", "September", "October",
+                    "November", "December"
+                ];
+            var dateValues = [
+                document.getElementById('event-start'),
+                document.getElementById('event-end')
+            ];
 
             noUiSlider.create(dateSlider, {
             // Create two timestamps to define a range.
@@ -186,27 +202,11 @@
                 })
             });
 
-            var dateValues = [
-                document.getElementById('event-start'),
-                document.getElementById('event-end')
-            ];
-
             dateSlider.noUiSlider.on('update', function( values, handle ) {
                 dateValues[handle].innerHTML = formatDate(new Date(+values[handle]));
             });
             // Create a list of day and monthnames.
-            var
-                weekdays = [
-                    "Sunday", "Monday", "Tuesday",
-                    "Wednesday", "Thursday", "Friday",
-                    "Saturday"
-                ],
-                months = [
-                    "January", "February", "March",
-                    "April", "May", "June", "July",
-                    "August", "September", "October",
-                    "November", "December"
-                ];
+
 
             // Append a suffix to dates.
             // Example: 23 => 23rd, 1 => 1st.
