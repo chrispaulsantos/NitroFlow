@@ -56,7 +56,7 @@ $(document).ready(function() {
                     target  : '#dates',
                     content : 'Please select a date range!',
                 });
-                $(".icon.refresh").popup('toggle');
+                $(".icon.refresh").popup('show');
             } else {
                 $(".icon.refresh").popup('destroy');
                 dateCheck = true;
@@ -67,7 +67,7 @@ $(document).ready(function() {
                     target  : '#location-holder',
                     content : 'Please select a location!',
                 });
-                $(".icon.refresh").popup('toggle');
+                $(".icon.refresh").popup('show');
             } else {
                 $(".icon.refresh").popup('destroy');
                 locationCheck = true;
@@ -114,7 +114,7 @@ $(document).ready(function() {
                     target  : '#dates',
                     content : 'Please select a date range!',
                 });
-                $(".icon.refresh").popup('toggle');
+                $(".icon.refresh").popup('show');
             } else {
                 $(".icon.refresh").popup('destroy');
                 dateCheck = true;
@@ -125,7 +125,7 @@ $(document).ready(function() {
                     target  : '#location-holder',
                     content : 'Please select a location!',
                 });
-                $(".icon.refresh").popup('toggle');
+                $(".icon.refresh").popup('show');
             } else {
                 $(".icon.refresh").popup('destroy');
                 locationCheck = true;
