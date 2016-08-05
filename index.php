@@ -186,15 +186,15 @@
             noUiSlider.create(dateSlider, {
             // Create two timestamps to define a range.
                 range: {
-                    min: timestamp('2010'),
-                    max: timestamp('2016')
+                    min: timestamp('00:00'),
+                    max: timestamp('23:59')
                 },
 
-                // Steps of one week
-                step: 7 * 24 * 60 * 60 * 1000,
+                // Steps of fifteen minutes
+                step: 15 * 60 * 1000,
 
                 // Two more timestamps indicate the handle starting positions.
-                start: [ timestamp('2011'), timestamp('2015') ],
+                start: [ timestamp('08:00'), timestamp('17:00') ],
 
                 // No decimals
                 format: wNumb({
