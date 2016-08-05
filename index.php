@@ -62,7 +62,8 @@
 <html>
     <head>
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
-        <link rel="stylesheet" href="src/includes/jquery-ui-1.12.0/jquery-ui.min.css">
+        <link rel="stylesheet" href="src/includes/jquery-ui-1.12.0/jquery-ui.min.css"/>
+        <link rel="stylesheet" href="src/includes/noUiSlider/nouislider.min.css"/>
 
         <script src="src/includes/jquery-1.12.4.min.js"></script>
         <script src="src/includes/jquery-ui-1.12.0/jquery-ui.js"></script>
@@ -70,7 +71,7 @@
         <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
-        <script src="src/includes/noUiSlider/nouislider.js" type="text/javascript"></script>
+        <script src="src/includes/noUiSlider/nouislider.min.js" type="text/javascript"></script>
     </head>
     <body>
 
