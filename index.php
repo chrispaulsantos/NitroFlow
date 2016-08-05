@@ -118,8 +118,8 @@
 
 
                         <div id="slider-range"></div>
-                        <span id="value-span"></span>
-                        <input type="text" id="value-input"></input>
+                        <div id="event-start"></div>
+                        <div id="event-end"></div>
 
                     </div>
                     <div class="ui slider checkbox">
@@ -164,41 +164,74 @@
             });
             var range = document.getElementById('slider-range');
 
-            noUiSlider.create(range, {
-                start: [ 20, 80 ], // Handle start position
-                step: 15, // Slider moves in increments of '10'
-                margin: 20, // Handles must be more than '20' apart
-                connect: true, // Display a colored bar between the handles
-                direction: 'ltr', // Put '0' at the bottom of the slider
-                orientation: 'horizontal', // Orient the slider vertically
-                behaviour: 'tap-drag', // Move handle on tap, bar is draggable
-                range: { // Slider can select '0' to '100'
-                    'min': '1',
-                    'max': '100'
+
+
+            var dateSlider = document.getElementById('slider-date');
+
+            noUiSlider.create(dateSlider, {
+// Create two timestamps to define a range.
+                range: {
+                    min: timestamp('2010'),
+                    max: timestamp('2016')
                 },
-                pips: { // Show a scale with the slider
-                    mode: 'steps',
-                    density: 2
+
+// Steps of one week
+                step: 7 * 24 * 60 * 60 * 1000,
+
+// Two more timestamps indicate the handle starting positions.
+                start: [ timestamp('2011'), timestamp('2015') ],
+
+// No decimals
+                format: wNumb({
+                    decimals: 0
+                })
+            });
+
+            var dateValues = [
+                document.getElementById('event-start'),
+                document.getElementById('event-end')
+            ];
+
+            dateSlider.noUiSlider.on('update', function( values, handle ) {
+                dateValues[handle].innerHTML = formatDate(new Date(+values[handle]));
+            });
+            // Create a list of day and monthnames.
+            var
+                weekdays = [
+                    "Sunday", "Monday", "Tuesday",
+                    "Wednesday", "Thursday", "Friday",
+                    "Saturday"
+                ],
+                months = [
+                    "January", "February", "March",
+                    "April", "May", "June", "July",
+                    "August", "September", "October",
+                    "November", "December"
+                ];
+
+            // Append a suffix to dates.
+            // Example: 23 => 23rd, 1 => 1st.
+            function nth (d) {
+                if(d>3 && d<21) return 'th';
+                switch (d % 10) {
+                    case 1:  return "st";
+                    case 2:  return "nd";
+                    case 3:  return "rd";
+                    default: return "th";
                 }
-            });
-            var valueInput = document.getElementById('value-input'),
-                valueSpan = document.getElementById('value-span');
+            }
 
-            // When the slider value changes, update the input and span
-            range.noUiSlider.on('update', function( values, handle ) {
-                if ( handle ) {
-                    valueInput.value = values[handle];
-                } else {
-                    valueSpan.innerHTML = values[handle];
-                }
-            });
+            // Create a string representation of the date.
+            function formatDate ( date ) {
+                return weekdays[date.getDay()] + ", " +
+                    date.getDate() + nth(date.getDate()) + " " +
+                    months[date.getMonth()] + " " +
+                    date.getFullYear();
+            }
 
-            // When the input changes, set the slider value
-            valueInput.addEventListener('change', function(){
-                range.noUiSlider.set([null, this.value]);
-            });
-
-
+            function timestamp(str){
+                return new Date(str).getTime();
+            }
 
         </script>
 
