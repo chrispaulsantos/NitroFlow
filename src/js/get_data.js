@@ -79,7 +79,7 @@ $(document).ready(function() {
     $(document).on("click",".icon.refresh",function(){
         // Check to make sure dates are selected
         if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
-            if(flag != false){
+            if(flag != false && $("#region").val() != null){
                 //$(".ui.message").removeClass("hidden");
                 $(".icon.refresh").popup('toggle');
             }
