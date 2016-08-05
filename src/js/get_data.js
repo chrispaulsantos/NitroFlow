@@ -86,6 +86,7 @@ $(document).ready(function() {
                     content : 'Please select a date range!',
                     delay   : { show : 300, hide : 800 }
                 });
+                $(".icon.refresh").popup('toggle');
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 $(".icon.refresh").popup({
@@ -93,6 +94,7 @@ $(document).ready(function() {
                     content : 'Please select a region!',
                     delay   : { show : 300, hide : 800 }
                 });
+                $(".icon.refresh").popup('toggle');
             }
         } else {
             var options = {
