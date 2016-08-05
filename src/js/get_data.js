@@ -269,6 +269,7 @@ function buildLineData(obj){
 
     var numDatasets = $("#location").val().length;
     lineData.datasets = [];
+    lineData.labels = [];
 
     // Set labels
     for(j = 0; j < obj[0].capacity.length; j++){
