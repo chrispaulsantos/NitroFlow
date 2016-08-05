@@ -145,7 +145,7 @@
                         <div id="time"><i class="icon refresh"></i> Last Updated: </div>
                     </div>
                 </div>
-
+                <div id="slider-range"></div>
             </div>
         </div>
 
@@ -161,6 +161,15 @@
                 $("#location-holder").hide();
                 $("#dates").hide();
                 $("#location-alert").hide();
+            });
+            $( "#slider-range" ).slider({
+                value:100,
+                min: 0,
+                max: 500,
+                step: 50,
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.value );
+                }
             });
         </script>
 
