@@ -78,7 +78,7 @@ $(document).ready(function() {
     // On refresh click
     $(document).on("click",".icon.refresh",function(){
         // Check to make sure dates are selected
-        if($("#region").val() == null || $("#region").val() == ""){
+        if($("#location").val() == null || $("#location").val() == ""){
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 if (flag != false) {
                     //$(".ui.message").removeClass("hidden");
