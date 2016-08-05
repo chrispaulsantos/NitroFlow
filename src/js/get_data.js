@@ -82,7 +82,8 @@ $(document).ready(function() {
             if(flag != false){
                 //$(".ui.message").removeClass("hidden");
                 $(".icon.refresh").popup({
-                    popup : $('#dates'),
+                    popup : '#popup',
+                    target: '#dates',
                     on    : 'click'
                 });
             }
