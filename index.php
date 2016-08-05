@@ -122,6 +122,12 @@
                     <div class="ui small fluid left aligned segment input" id="dates">
                         <input type="text" id="fromDate" placeholder="From Date">
                         <input type="text" id="toDate" placeholder="To Date">
+                        <div class="ui hidden warning message">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                Please enter a date range!
+                            </div>
+                        </div>
                     </div>
                     <div id="alert" class="ui scrollable left aligned segment"></div>
 
@@ -148,6 +154,9 @@
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
             $( "#fromDate" ).datepicker();
             $( "#toDate" ).datepicker();
+            $('.message .close').on('click', function() {
+                    $(this).closest('.message').transition('fade');
+            });
             $(document).ready(function(){
                 $("#location-holder").hide();
                 $("#dates").hide();

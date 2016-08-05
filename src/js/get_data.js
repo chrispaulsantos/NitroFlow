@@ -56,12 +56,16 @@ $(document).ready(function() {
     });
     // Hide/Show inputs based on position of toggle
     $(document).on("change","input[name=graph-type]",function(){
-        $("#location-holder").toggle();
-        $("#region-holder").toggle();
-        $("#dates").toggle();
-        if(chart == null){
-            $("#location-alert").toggle();
-            $("#region-alert").toggle();
+        if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
+            $(".ui.message").removeClass("hidden");
+        } else {
+            $("#location-holder").toggle();
+            $("#region-holder").toggle();
+            $("#dates").toggle();
+            if(chart == null){
+                $("#location-alert").toggle();
+                $("#region-alert").toggle();
+            }
         }
     });
     // On refresh
