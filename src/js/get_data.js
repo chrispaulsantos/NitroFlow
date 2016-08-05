@@ -59,6 +59,10 @@ $(document).ready(function() {
         $("#location-holder").toggle();
         $("#region-holder").toggle();
         $("#dates").toggle();
+        if(chart == null){
+            $("#location-alert").toggle();
+            $("#region-alert").toggle();
+        }
     });
     // On refresh
     $(document).on("click",".icon.refresh",function(){
@@ -279,6 +283,15 @@ function updateTime(){
     $("#time").empty().append("<i class='icon refresh'></i> Last Updated: " + timeStamp());
     $('#alert').empty();
 }
+function randomColorGenerate(alpha){
+    var R = Math.floor((Math.random() * 255) + 0);
+    var G = Math.floor((Math.random() * 255) + 0);
+    var B = Math.floor((Math.random() * 255) + 0);
+
+    var RGBA = "rgba(" + R.toString() + "," + G.toString() + "," + B.toString() + "," + alpha.toString() + ")";
+    console.log(RGBA);
+    return RGBA;
+}
 
 // Dataset structure class
 function datasetStruct(data,label){
@@ -303,14 +316,5 @@ function datasetStruct(data,label){
     this.pointRadius = 1;
     this.pointHitRadius = 10;
     this.data = data;
-    this.spanGaps = false;
-}
-function randomColorGenerate(alpha){
-    var R = Math.floor((Math.random() * 255) + 0);
-    var G = Math.floor((Math.random() * 255) + 0);
-    var B = Math.floor((Math.random() * 255) + 0);
-
-    var RGBA = "rgba(" + R.toString() + "," + G.toString() + "," + B.toString() + "," + alpha.toString() + ")";
-    console.log(RGBA);
-    return RGBA;
+    this.spanGaps = true;
 }

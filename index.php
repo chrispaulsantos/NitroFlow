@@ -128,7 +128,14 @@
                 </div>
                 <div class="eleven wide column">
                     <div class="ui right left segment">
-                        <div id="chartHolder" class="ui segment"><i class="icon angle left"></i>Please select a region.</div>
+                        <div id="chartHolder" class="ui segment">
+                            <div id="region-alert">
+                                <i class="icon angle left"></i>Please select a region.
+                            </div>
+                            <div id="location-alert">
+                                <i class="icon angle left"></i>Please select a location.
+                            </div>
+                        </div>
                         <div id="time"><i class="icon refresh"></i> Last Updated: </div>
                     </div>
                 </div>
@@ -144,6 +151,7 @@
             $(document).ready(function(){
                 $("#location-holder").hide();
                 $("#dates").hide();
+                $("#location-alert").hide();
             });
         </script>
 
