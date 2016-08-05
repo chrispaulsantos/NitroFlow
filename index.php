@@ -145,6 +145,10 @@
                         <div id="time"><i class="icon refresh"></i> Last Updated: </div>
                     </div>
                 </div>
+                <p>
+                    <label for="amount">Price range:</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                </p>
                 <div id="slider-range"></div>
             </div>
         </div>
