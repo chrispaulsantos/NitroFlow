@@ -78,11 +78,14 @@ $(document).ready(function() {
     // On refresh click
     $(document).on("click",".icon.refresh",function(){
         // Check to make sure dates are selected
-        if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "" && $("#region").val() != null){
-            if(flag != false){
-                //$(".ui.message").removeClass("hidden");
-                $(".icon.refresh").popup('toggle');
+        if($("#region").val() == null || $("#region").val() == ""){
+            if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
+                if (flag != false) {
+                    //$(".ui.message").removeClass("hidden");
+                    $(".icon.refresh").popup('toggle');
+                }
             }
+            //$(".icon.refresh")
         } else {
             var options = {
                 scales: {
