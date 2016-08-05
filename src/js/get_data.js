@@ -46,8 +46,26 @@ $(document).ready(function() {
     // Listen on location change
     $(document).on("change","#location",function(){
         // variables for drawing the chart; datasets.data and labels initially empty
-        if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
-            $(".ui.message").removeClass("hidden");
+        if (flag != false) {
+            if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
+                //$(".ui.message").removeClass("hidden");
+                $(".icon.refresh").popup({
+                    on      : 'click',
+                    target  : '#dates',
+                    content : 'Please select a date range!',
+                    delay   : { show : 300, hide : 800 }
+                });
+                $(".icon.refresh").popup('toggle');
+            }
+            if($("#location").val() == null || $("#location").val() == ""){
+                $(".icon.refresh").popup({
+                    on      : 'click',
+                    target  : '#location-holder',
+                    content : 'Please select a location!',
+                    delay   : { show : 300, hide : 800 }
+                });
+                $(".icon.refresh").popup('toggle');
+            }
         } else {
             var options = {
                 scales: {
@@ -60,7 +78,7 @@ $(document).ready(function() {
                     }]
                 }
             };
-            getByLocation(lineData, options);
+            getByLocation(options);
         }
     });
     // Hide/Show inputs based on position of toggle
