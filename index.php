@@ -114,11 +114,25 @@
                             </select>
                         </div>
 
-                        <p>
-                            <label for="time-range">Price range:</label>
-                            <input type="text" id="time-range" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                        </p>
+                        <style>
+                            #slider-range,#SlideMax{width:400px;}
+                            #slider-range,#time, #SlideMax, table{margin:10px;display:block;}
+                        </style>
                         <div id="slider-range"></div>
+                        <span id="SlideMax"></span>
+                        <br />
+                        <span id="time-range"></span>
+                        <input type="submit" name="scheduleSubmit" value="Submit" id="scheduleSubmit" class="ui-button ui-state-default ui-corner-all"/>
+                        <table id="Schedule">
+                            <thead>
+                            <tr>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
 
                     </div>
                     <div class="ui slider checkbox">
