@@ -82,6 +82,7 @@ $(document).ready(function() {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 //$(".ui.message").removeClass("hidden");
                 $(".icon.refresh").popup({
+                    on      : 'click',
                     target  : '#dates',
                     content : 'Please select a date range!',
                     delay   : { show : 300, hide : 800 }
@@ -90,6 +91,7 @@ $(document).ready(function() {
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 $(".icon.refresh").popup({
+                    on      : 'click',
                     target  : '#region-holder',
                     content : 'Please select a region!',
                     delay   : { show : 300, hide : 800 }

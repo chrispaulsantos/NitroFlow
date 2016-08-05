@@ -161,9 +161,6 @@
                 $("#location-holder").hide();
                 $("#dates").hide();
                 $("#location-alert").hide();
-                $(".icon.refresh").popup({
-                    on      : 'click',
-                });
             });
         </script>
 
