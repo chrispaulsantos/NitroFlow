@@ -166,18 +166,6 @@
 
 
             var dateSlider = document.getElementById('slider-range');
-            var
-                weekdays = [
-                    "Sunday", "Monday", "Tuesday",
-                    "Wednesday", "Thursday", "Friday",
-                    "Saturday"
-                ],
-                months = [
-                    "January", "February", "March",
-                    "April", "May", "June", "July",
-                    "August", "September", "October",
-                    "November", "December"
-                ];
             var dateValues = [
                 document.getElementById('event-start'),
                 document.getElementById('event-end')
@@ -186,15 +174,15 @@
             noUiSlider.create(dateSlider, {
             // Create two timestamps to define a range.
                 range: {
-                    min: timestamp('00:00'),
-                    max: timestamp('23:59')
+                    min: 0,
+                    max: 96
                 },
 
                 // Steps of fifteen minutes
-                step: 15 * 60 * 1000,
+                step: 1,
 
                 // Two more timestamps indicate the handle starting positions.
-                start: [ timestamp('08:00'), timestamp('17:00') ],
+                start: [ 0, 15 ],
 
                 // No decimals
                 format: wNumb({
@@ -202,35 +190,7 @@
                 })
             });
 
-            dateSlider.noUiSlider.on('update', function( values, handle ) {
-                dateValues[handle].innerHTML = formatDate(new Date(+values[handle]));
-            });
-            // Create a list of day and monthnames.
 
-
-            // Append a suffix to dates.
-            // Example: 23 => 23rd, 1 => 1st.
-            function nth (d) {
-                if(d>3 && d<21) return 'th';
-                switch (d % 10) {
-                    case 1:  return "st";
-                    case 2:  return "nd";
-                    case 3:  return "rd";
-                    default: return "th";
-                }
-            }
-
-            // Create a string representation of the date.
-            function formatDate ( date ) {
-                return weekdays[date.getDay()] + ", " +
-                    date.getDate() + nth(date.getDate()) + " " +
-                    months[date.getMonth()] + " " +
-                    date.getFullYear();
-            }
-
-            function timestamp(str){
-                return new Date(str).getTime();
-            }
 
         </script>
 
