@@ -286,7 +286,7 @@ function datasetStruct(data,label){
 
     this.label = label;
     this.fill = false;
-    this.lineTension = 0.1;
+    this.lineTension = 0.5;
     this.backgroundColor = color;
     this.borderColor = color;
     this.borderCapStyle = 'butt';
