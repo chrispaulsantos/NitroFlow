@@ -72,6 +72,7 @@
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
         <script src="src/includes/noUiSlider/nouislider.min.js" type="text/javascript"></script>
+        <script src="src/includes/wNumb.js" type="text/javascript"></script>
     </head>
     <body>
 
