@@ -119,7 +119,7 @@
                         <input name="graph-type" type="checkbox">
                         <label><i class="icon line chart"></i>By Location</label>
                     </div>
-                    <div class="ui small fluid left aligned segment input" id="dates">
+                    <div class="ui small fluid left aligned segment input" id="dates" data-content="Please enter a date range!">
                         <input type="text" id="fromDate" placeholder="From Date">
                         <input type="text" id="toDate" placeholder="To Date">
                         <div class="ui hidden warning message">

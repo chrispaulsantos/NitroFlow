@@ -81,7 +81,7 @@ $(document).ready(function() {
         if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == ""){
             if(flag != false){
                 //$(".ui.message").removeClass("hidden");
-                $("#dates").popup({content: "Please enter a date range!"});
+                $("#dates").popup();
             }
         } else {
             var options = {
