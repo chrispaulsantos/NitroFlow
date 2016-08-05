@@ -4,6 +4,7 @@
 - Removed unecessary definition of line graph data
 - Set region name as title on bar graph
 - Random color generated for bar graph
+- Adding time slider
 
 ## [1.0.0] - 2016-8-4
 - Login function with redirect

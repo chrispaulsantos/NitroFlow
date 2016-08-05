@@ -65,12 +65,12 @@
         <link rel="stylesheet" href="src/includes/jquery-ui-1.12.0/jquery-ui.min.css">
 
         <script src="src/includes/jquery-1.12.4.min.js"></script>
-        <!--<script src="src/includes/jquery-ui-1.12.0/jquery-ui.js"></script>-->
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <script src="src/includes/jquery-ui-1.12.0/jquery-ui.js"></script>
         <script src="src/js/Chart.js" type="text/javascript"></script>
         <script src="src/js/get_data.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
+        <script src="src/includes/noUiSlider/nouislider.js" type="text/javascript"></script>
     </head>
     <body>
 
@@ -115,25 +115,8 @@
                             </select>
                         </div>
 
-                        <style>
-                            #slider-range,#SlideMax{width:400px;}
-                            #slider-range,#time, #SlideMax, table{margin:10px;display:block;}
-                        </style>
+
                         <div id="slider-range"></div>
-                        <span id="SlideMax"></span>
-                        <br />
-                        <span id="time-range"></span>
-                        <input type="submit" name="scheduleSubmit" value="Submit" id="scheduleSubmit" class="ui-button ui-state-default ui-corner-all"/>
-                        <table id="Schedule">
-                            <thead>
-                            <tr>
-                                <th>Start Time</th>
-                                <th>End Time</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
 
                     </div>
                     <div class="ui slider checkbox">
@@ -143,12 +126,6 @@
                     <div class="ui small fluid left aligned segment input" id="dates">
                         <input type="text" id="fromDate" placeholder="From Date">
                         <input type="text" id="toDate" placeholder="To Date">
-                        <div class="ui hidden warning message">
-                            <i class="close icon"></i>
-                            <div class="header">
-                                Please enter a date range!
-                            </div>
-                        </div>
                     </div>
                     <div id="alert" class="ui scrollable left aligned segment"></div>
 
@@ -182,78 +159,26 @@
                 $("#dates").hide();
                 $("#location-alert").hide();
             });
+            var range = document.getElementById('range');
 
-
-            var startTime;
-            var endTime;
-            $("#slider-range").slider({
-                range: true, min: 0, max: 1439, values: [540, 1020], step:15, slide: slideTime, change: checkMax
+            noUiSlider.create(range, {
+                start: [ 20, 80 ], // Handle start position
+                step: 10, // Slider moves in increments of '10'
+                margin: 20, // Handles must be more than '20' apart
+                connect: true, // Display a colored bar between the handles
+                direction: 'rtl', // Put '0' at the bottom of the slider
+                orientation: 'vertical', // Orient the slider vertically
+                behaviour: 'tap-drag', // Move handle on tap, bar is draggable
+                range: { // Slider can select '0' to '100'
+                    'min': 0,
+                    'max': 100
+                },
+                pips: { // Show a scale with the slider
+                    mode: 'steps',
+                    density: 2
+                }
             });
-            function slideTime(event, ui){
-                var val0 = $("#slider-range").slider("values", 0),
-                    val1 = $("#slider-range").slider("values", 1),
-                    minutes0 = parseInt(val0 % 60, 10),
-                    hours0 = parseInt(val0 / 60 % 24, 10),
-                    minutes1 = parseInt(val1 % 60, 10),
-                    hours1 = parseInt(val1 / 60 % 24, 10);
 
-                startTime = getTime(hours0, minutes0);
-                endTime = getTime(hours1, minutes1);
-                $("#time-range").text(startTime + ' - ' + endTime);
-            }
-            function getTime(hours, minutes) {
-                var time = null;
-                minutes = minutes + "";
-                if (hours < 12) {
-                    time = "AM";
-                }
-                else {
-                    time = "PM";
-                }
-                if (hours == 0) {
-                    hours = 12;
-                }
-                if (hours > 12) {
-                    hours = hours - 12;
-                }
-                if (minutes.length == 1) {
-                    minutes = "0" + minutes;
-                }
-                return hours + ":" + minutes + " " + time;
-            }
-            function checkMax() {
-                var size = $("#slider-range").slider("values", 1) - $("#slider-range").slider("values", 0);
-                if( size >= 1435) {
-                    $("#slider-range div")
-                        .addClass("ui-state-error")
-                        .removeClass("ui-widget-header");
-                    $("#scheduleSubmit")
-                        .attr("disabled","disabled")
-                        .addClass("ui-state-disabled")
-                        .removeClass("ui-state-default");
-                    $("#SlideMax").text("Cannot be more than 24 hours");
-                }
-                else {
-                    $("#slider-range div")
-                        .addClass("ui-widget-header")
-                        .removeClass("ui-state-error");
-                    $("#scheduleSubmit")
-                        .removeAttr("disabled")
-                        .addClass("ui-state-default")
-                        .removeClass("ui-state-disabled");
-                    $("#SlideMax").text("");
-                }
-            }
-
-            $("#scheduleSubmit").on('click', function(){
-                console.log(startTime);
-                console.log(endTime);
-                $('#Schedule tbody').append('<tr>' +
-                    '<td>' + startTime + '</td>' +
-                    '<td>' + endTime + '</td>' +
-                    '</tr>');
-            });
-            slideTime();
         </script>
 
     </body>
