@@ -52,11 +52,9 @@ $(document).ready(function() {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 dateCheck = false;
                 //$(".ui.message").removeClass("hidden");
-                $(".icon.refresh").popup({
-                    on      : 'click',
+                $(".icon.refresh").popup('setting',{
                     target  : '#dates',
                     content : 'Please select a date range!',
-                    delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
             } else {
@@ -65,11 +63,9 @@ $(document).ready(function() {
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 locationCheck = false;
-                $(".icon.refresh").popup({
-                    on      : 'click',
+                $(".icon.refresh").popup('setting',{
                     target  : '#location-holder',
                     content : 'Please select a location!',
-                    delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
             } else {
@@ -114,11 +110,9 @@ $(document).ready(function() {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 dateCheck = false;
                 //$(".ui.message").removeClass("hidden");
-                $(".icon.refresh").popup({
-                    on      : 'click',
+                $(".icon.refresh").popup('setting',{
                     target  : '#dates',
                     content : 'Please select a date range!',
-                    delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
             } else {
@@ -127,11 +121,9 @@ $(document).ready(function() {
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 locationCheck = false;
-                $(".icon.refresh").popup({
-                    on      : 'click',
+                $(".icon.refresh").popup('setting',{
                     target  : '#location-holder',
                     content : 'Please select a location!',
-                    delay   : { show : 300, hide : 800 }
                 });
                 $(".icon.refresh").popup('toggle');
             } else {
