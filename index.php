@@ -159,7 +159,7 @@
                 $("#dates").hide();
                 $("#location-alert").hide();
             });
-            var range = document.getElementById('range');
+            var range = document.getElementById('slider-range');
 
             noUiSlider.create(range, {
                 start: [ 20, 80 ], // Handle start position
