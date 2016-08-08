@@ -37,32 +37,21 @@
         $rows[] = $row;
     }
 
-    /*foreach($rows as $row){
-        $capacity[] = (int) $row["capacity"];
-    }*/
-
-
-    $arr = getEveryN(organizeData($rows,$ids),getN(count($rows)));
-    error_log(json_encode($arr));
-    echo json_encode($arr);
-
+    // Echo processed data
+    echo json_encode(getEveryN(organizeData($rows,$ids),getN(count($rows))));
 
 
 function getEveryN($objs,$n){
     $arr = array();
-    //$n = 1;
 
     foreach ($objs as $obj){
         $tmp = array();
-        error_log(json_encode($obj->capacity));
+
         for($i = 0; $i < count($obj->capacity); $i++){
             if($i%$n == 0){
-                error_log($i%$n);
                 $tmp[] = $obj->capacity[$i];
-                error_log($obj->capacity[$i]);
             }
         }
-        error_log(json_encode($tmp));
         $obj->capacity = $tmp;
         $arr[] = $obj;
     }
@@ -76,19 +65,19 @@ function getN($points){
             $n = 1;
             break;
         case $points < 100 && $points >= 10:
-            $n = 5;
+            $n = 2;
             break;
         case $points < 1000 && $points >= 100:
-            $n = 10;
+            $n = 5;
             break;
         case $points < 10000 && $points >= 1000:
-            $n = 25;
+            $n = 10;
             break;
         case $points < 100000 && $points >= 10000:
-            $n = 50;
+            $n = 25;
             break;
         case $points < 1000000 && $points >= 100000:
-            $n = 100;
+            $n = 50;
             break;
         default:
             error_log("In default for some reason");// "NODATE";
