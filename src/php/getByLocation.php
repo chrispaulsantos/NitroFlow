@@ -17,7 +17,7 @@
      * to avoid no data being returned, add hours to the dates so that the query returns data
      */
     $fromDate = $fromDate + 28800; // 08:00
-    $toDate = $toDate + 82800; // 17:00
+    $toDate = $toDate + 86400; // 24:00
     error_log("From: " .$fromDate . " To: " . $toDate);
 
     $params = array();
