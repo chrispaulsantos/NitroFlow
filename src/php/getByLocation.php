@@ -44,6 +44,7 @@
 
     $arr = getEveryN(organizeData($rows,$ids),getN(count($rows)));
     error_log(json_encode($arr));
+    echo $arr;
 
 
 
