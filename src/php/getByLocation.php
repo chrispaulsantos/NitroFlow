@@ -42,15 +42,26 @@
     }*/
 
 
-    getEveryN(organizeData($rows,$ids),getN(count($rows)));
+    $arr = getEveryN(organizeData($rows,$ids),getN(count($rows)));
+    error_log(json_encode($arr));
 
 
 
 function getEveryN($objArr,$n){
+    $tmp = array();
+    $arr = array();
 
     foreach ($objArr as $obj){
-        error_log(json_encode($objArr));
+        for($i = 0; $i < $n; $i++){
+            if($i == $n){
+                $tmp[] = $obj->capacity;
+            }
+        }
+        $obj->capacity = $tmp;
+        $arr[] = $obj;
     }
+    return $arr;
+
 }
 function getN($points){
     $n = 0;
