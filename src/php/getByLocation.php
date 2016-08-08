@@ -12,6 +12,10 @@
         $toDate = strtotime($_GET['toDate']);
     }
 
+    /*
+     * Since the dates are given in the format mm/dd/yyyy, it will cause the day to start at 00:00, no matter what, so
+     * to avoid no data being returned, add hours to the dates so that the query returns data
+     */
     $fromDate = $fromDate + 28800; // 08:00
     $toDate = $toDate + 61200; // 17:00
     error_log("From: " .$fromDate . " To: " . $toDate);
@@ -20,8 +24,7 @@
     foreach ($ids as $id){
         array_push($params,$id);
     }
-    // $toDate = 1469906320;
-    // $fromDate = 1469906220;
+
     $questionmarks = str_repeat("?,", count($params)-1) . "?";
     array_push($params, $toDate, $fromDate);
 
@@ -38,7 +41,7 @@
     }
 
     // Echo processed data
-    echo json_encode(getEveryN(organizeData($rows,$ids),getN(count($rows))));
+    echo json_encode(getEveryN(organizeData($rows,$ids),getN(count($rows/count($ids)))));
 
 
 function getEveryN($objs,$n){
