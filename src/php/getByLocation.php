@@ -16,7 +16,7 @@
      * Since the dates are given in the format mm/dd/yyyy, it will cause the day to start at 00:00, no matter what, so
      * to avoid no data being returned, add hours to the dates so that the query returns data
      */
-    $fromDate = $fromDate + 28800; // 08:00
+    $fromDate = $fromDate + 21600; // 06:00
     $toDate = $toDate + 86400; // 24:00
     error_log("From: " .$fromDate . " To: " . $toDate);
 
