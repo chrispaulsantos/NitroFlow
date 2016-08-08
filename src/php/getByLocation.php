@@ -15,6 +15,7 @@
         $fromDate = $fromDate + 28800; // 08:00
         $toDate = $toDate + 61200; // 17:00
     }
+    error_log($fromDate . " : " . $toDate);
 
     $params = array();
     foreach ($ids as $id){
