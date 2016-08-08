@@ -37,13 +37,21 @@
         $rows[] = $row;
     }
 
-    foreach($rows as $row){
+    /*foreach($rows as $row){
         $capacity[] = (int) $row["capacity"];
-    }
-    error_log(json_encode(organizeData($rows,$ids)));
-    echo json_encode(organizeData($rows,$ids));
-    //echo json_encode(sumEveryN($capacity,getN(count($capacity))));
+    }*/
 
+
+    getEveryN(organizeData($rows,$ids),getN(count($rows)));
+
+
+
+function getEveryN($objArr,$n){
+
+    foreach ($objArr as $obj){
+        error_log(json_encode($objArr));
+    }
+}
 function getN($points){
     $n = 0;
     switch ($points) {
@@ -112,7 +120,6 @@ function organizeData($data,$ids){
         array_push($objArr, $obj);
     }
     return $objArr;
-
 }
 
 class dataObj {
