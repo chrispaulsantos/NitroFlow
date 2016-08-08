@@ -48,14 +48,14 @@
 
 
 function getEveryN($objs,$n){
-    $tmp = array();
     $arr = array();
 
     foreach ($objs as $obj){
+        $tmp = array();
         error_log(json_encode($obj->capacity));
         for($i = 0; $i < $n; $i++){
             if($i%$n == 0){
-                error_log("In the if");
+                error_log($i%$n);
                 $tmp[] = $obj->capacity[$i];
                 error_log($obj->capacity[$i]);
             }
