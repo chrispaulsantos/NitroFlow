@@ -41,7 +41,8 @@
     }
 
     // Echo processed data
-    echo json_encode(getEveryN(organizeData($rows,$ids),getN(count($rows/count($ids)))));
+    $points = getN(count($rows/count($ids)));
+    echo json_encode(getEveryN(organizeData($rows,$ids),$points));
 
 
 function getEveryN($objs,$n){
