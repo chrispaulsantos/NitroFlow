@@ -76,7 +76,7 @@ function getN($points){
             $n = 10;
             break;
         case $points < 10000 && $points >= 1000:
-            $n = 20;
+            $n = 10;
             break;
         case $points < 100000 && $points >= 10000:
             $n = 50;
