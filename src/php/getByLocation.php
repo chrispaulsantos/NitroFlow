@@ -49,6 +49,7 @@
 
 function getEveryN($objs,$n){
     $arr = array();
+    $n = 1;
 
     foreach ($objs as $obj){
         $tmp = array();
