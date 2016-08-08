@@ -11,10 +11,9 @@
         $fromDate = strtotime($_GET['fromDate']);
         $toDate = strtotime($_GET['toDate']);
     }
-    if($fromDate == $toDate){
-        $fromDate = $fromDate + 28800; // 08:00
-        $toDate = $toDate + 61200; // 17:00
-    }
+
+    $fromDate = $fromDate + 28800; // 08:00
+    $toDate = $toDate + 61200; // 17:00
     error_log("From: " .$fromDate . " To: " . $toDate);
 
     $params = array();
