@@ -15,7 +15,7 @@
         $fromDate = $fromDate + 28800; // 08:00
         $toDate = $toDate + 61200; // 17:00
     }
-    error_log($fromDate . " : " . $toDate);
+    error_log("From: " .$fromDate . " To: " . $toDate);
 
     $params = array();
     foreach ($ids as $id){
@@ -26,7 +26,7 @@
     $questionmarks = str_repeat("?,", count($params)-1) . "?";
     array_push($params, $toDate, $fromDate);
 
-    $query = "SELECT `Location_Data`.capacity,`Location_Data`.P_Id, `Locations`.location FROM Location_Data INNER JOIN Locations ON Locations.P_Id = Location_Data.P_Id WHERE Location_Data.P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ? ";
+    $query = "SELECT `Location_Data`.capacity,`Location_Data`.P_Id, `Locations`.location FROM Location_Data INNER JOIN Locations ON Locations.P_Id = Location_Data.P_Id WHERE Location_Data.P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ?";
     try {
         $stmt = DBConnection::instance()->prepare($query);
         $stmt->execute($params);
