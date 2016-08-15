@@ -80,9 +80,8 @@
                     Account
                     <i class="dropdown icon"></i>
                     <div class="menu">
+                        <div class="item" id="addaAcc">Add Account</div>
                         <div class="item"><?php echo $user ?></div>
-                        <div class="item">Settings</div>
-                        <div class="item">Database</div>
                         <div class="divider"></div>
                         <div class="item" id="logout">Logout</div>
                     </div>
@@ -139,6 +138,11 @@
                         <div id="time"><i class="icon refresh"></i> Last Updated: </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="ui active page dimmer">
+            <div class="content">
+                <div class="center">Hello</div>
             </div>
         </div>
 
