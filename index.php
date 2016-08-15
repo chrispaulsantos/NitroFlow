@@ -141,7 +141,7 @@
             </div>
         </div>
 
-        <div id="addAccDim" class="ui page dimmer">
+        <div id="addAccDim" class="ui inverted page dimmer">
             <div class="ui container" style="width:500px; height:196px;">
 
                 <form id="addAccForm" class="ui form"> <!-- Add Account Form -->
