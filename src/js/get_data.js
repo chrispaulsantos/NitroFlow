@@ -180,7 +180,7 @@ $(document).ready(function() {
         $(this).addClass("loading");
         console.log(parseAddAcct());
         $.ajax({
-            url: "src/php/addAccount.php"
+            url: "src/php/addAccount.php",
             data: {
                 acct: parseAddAcct()
             }
