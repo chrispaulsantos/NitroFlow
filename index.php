@@ -149,20 +149,20 @@
                     <div class="field">
                         <div class="two fields">
                             <div class="field">
-                                <input name="shipping[first-name]" placeholder="First Name" type="text">
-                            </div> <!-- First Name Field -->
-                            <div class="field">
+                                <input id="acctName" placeholder="Account Name" type="text">
+                            </div> <!-- Account Name Field -->
+                            <!--<div class="field">
                                 <input name="shipping[last-name]" placeholder="Last Name" type="text">
-                            </div> <!-- Last Name Field -->
+                            </div> <!- Last Name Field -->
                         </div>
                     </div>
                     <div class="field">
                         <div class="fields">
                             <div class="twelve wide field">
-                                <input name="address" placeholder="Street Address" type="text">
+                                <input id="address" placeholder="Street Address" type="text">
                             </div> <!-- Street Address Field -->
                             <div class="four wide field">
-                                <input name="address-2" placeholder="Apt #" type="text">
+                                <input id="address-2" placeholder="Apt #" type="text">
                             </div> <!-- Street Address 2 Field -->
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                         <div class="three fields">
                             <div class="seven wide field">
                                 <label></label>
-                                <select class="ui fluid dropdown">
+                                <select id="state" class="ui fluid dropdown">
                                     <option value="">State</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
@@ -227,11 +227,11 @@
                             </div> <!-- State Field -->
                             <div class="five wide field">
                                 <label></label>
-                                <input class="ui input" name="zip" placeholder="Zip Code"></input>
+                                <input class="ui input" id="zip" placeholder="Zip Code"></input>
                             </div> <!-- Zip Code Field -->
                             <div class="five wide field">
                                 <label></label>
-                                <select class="ui fluid search dropdown">
+                                <select id="unitCount" class="ui fluid search dropdown">
                                     <option value="">Unit Count</option>
                                     <option value="1">1</option>
                                     <?php for($i = 5; $i <= 100; $i+=5){ ?>
