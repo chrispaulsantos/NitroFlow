@@ -33,10 +33,13 @@ $(document).ready(function() {
         var options = {
             scales: {
                 yAxes: [{
-                    ticks: {
-                        max: 100,
-                        min: 0,
-                        stepSize: 10
+                    gridlines: {
+                        display: false
+                    },
+                }],
+                xAxes: [{
+                    gridlines: {
+                        display: false
                     }
                 }]
             }
