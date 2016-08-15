@@ -89,7 +89,7 @@
             </div>
         </div>
 
-        <div id='content' class="ui container" style="height: 500px; width: 1100px;">
+        <div id='content' class="ui blurring container" style="height: 500px; width: 1100px;">
             <div class="ui grid">
 
                 <div class="five wide column">
@@ -142,8 +142,8 @@
         </div>
 
         <div class="ui active page dimmer">
-            <div class="ui segment">
-                <form class="ui blurring form">
+            <div class="ui container" style="width:500px;">
+                <form class="ui form">
                     <h4 class="ui dividing header">Shipping Information</h4>
                     <div class="field">
                         <label>Name</label>
@@ -218,6 +218,7 @@
                     <div class="ui button" tabindex="0">Submit Order</div>
                 </form>
             </div>
+
         </div>
 
         <script>
