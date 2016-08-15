@@ -242,7 +242,8 @@
                             </div> <!-- Unit Count Field -->
                         </div>
                     </div>
-                    <div class="ui button" tabindex="0">Submit Order</div>
+                    <div class="ui inverted divider"></div>
+                    <div class="ui left aligned button" tabindex="0">Submit Order</div>
                 </form>
 
             </div>
