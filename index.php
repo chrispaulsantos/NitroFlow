@@ -144,9 +144,8 @@
         <div class="ui active page dimmer">
             <div class="ui container" style="width:500px;">
                 <form class="ui form">
-                    <h4 class="ui dividing header">Shipping Information</h4>
                     <div class="field">
-                        <label>Name</label>
+                        <label></label>
                         <div class="two fields">
                             <div class="field">
                                 <input name="shipping[first-name]" placeholder="First Name" type="text">
@@ -157,19 +156,19 @@
                         </div>
                     </div>
                     <div class="field">
-                        <label>Billing Address</label>
+                        <label></label>
                         <div class="fields">
                             <div class="twelve wide field">
-                                <input name="shipping[address]" placeholder="Street Address" type="text">
+                                <input name="address" placeholder="Street Address" type="text">
                             </div>
                             <div class="four wide field">
-                                <input name="shipping[address-2]" placeholder="Apt #" type="text">
+                                <input name="address-2" placeholder="Apt #" type="text">
                             </div>
                         </div>
                     </div>
                     <div class="two fields">
                         <div class="field">
-                            <label>State</label>
+                            <label></label>
                             <select class="ui fluid dropdown">
                                 <option value="">State</option>
                                 <option value="AL">Alabama</option>
@@ -224,6 +223,9 @@
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select>
+                        </div>
+                        <div class="field">
+                            <input class="ui input" name="zip" placeholder="Zip Code"></input>
                         </div>
                     </div>
                     <div class="ui button" tabindex="0">Submit Order</div>
