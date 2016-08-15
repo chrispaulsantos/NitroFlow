@@ -380,7 +380,7 @@ function parseAddAcct(){
         acctAddress: $("#address").val() + " " + $("#address-2").val(),
         acctState: $("#state").val(),
         acctZip: $("#zip").val(),
-        acctUnitCount: $("#unitCount")
+        acctUnitCount: $("#unitCount").val()
     };
     return acct;
 }
