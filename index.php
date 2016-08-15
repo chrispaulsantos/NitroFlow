@@ -141,12 +141,11 @@
             </div>
         </div>
 
-        <div class="ui active page dimmer">
-            <div class="ui container" style="width:500px;">
+        <div id="addAcc" class="ui page dimmer">
+            <div class="ui container" style="width:500px; height:196px;">
 
                 <form class="ui form"> <!-- Add Account Form -->
                     <div class="field">
-                        <label></label>
                         <div class="two fields">
                             <div class="field">
                                 <input name="shipping[first-name]" placeholder="First Name" type="text">
@@ -157,7 +156,6 @@
                         </div>
                     </div>
                     <div class="field">
-                        <label></label>
                         <div class="fields">
                             <div class="twelve wide field">
                                 <input name="address" placeholder="Street Address" type="text">
@@ -239,7 +237,7 @@
                                     <option value="<?php echo $i ?>"><?php echo $i ?></option>
                                     <?php } ?>
                                 </select>
-                            </div>
+                            </div> <!-- Unit Count Field -->
                         </div>
                     </div>
                     <div class="ui button" tabindex="0">Submit Order</div>
@@ -251,6 +249,7 @@
 
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
+            $('#addaAcc').css("margin-top", window.innerHeight/2-(100));
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
             $( "#fromDate" ).datepicker();
             $( "#toDate" ).datepicker();
