@@ -145,6 +145,7 @@
             <div class="ui container" style="width:500px; height:196px;">
 
                 <form id="addAccForm" class="ui form"> <!-- Add Account Form -->
+                    <h4 class="ui dividing header" style="color: rgb(255,255,255);">Add Account</h4>
                     <div class="field">
                         <div class="two fields">
                             <div class="field">
