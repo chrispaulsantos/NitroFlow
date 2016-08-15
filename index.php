@@ -235,7 +235,7 @@
                                 <select class="ui fluid search dropdown">
                                     <option value="">Unit Count</option>
                                     <option value="1">1</option>
-                                    <?php for($i = 0; $i <= 100; $i+=5){ ?>
+                                    <?php for($i = 5; $i <= 100; $i+=5){ ?>
                                     <option value="<?php echo $i ?>"><?php echo $i ?></option>
                                     <?php } ?>
                                 </select>
