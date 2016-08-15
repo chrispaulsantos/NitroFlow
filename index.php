@@ -156,7 +156,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="one fields">
+                    <div class="field">
+                        <label>Billing Address</label>
+                        <div class="fields">
+                            <div class="twelve wide field">
+                                <input name="shipping[address]" placeholder="Street Address" type="text">
+                            </div>
+                            <div class="four wide field">
+                                <input name="shipping[address-2]" placeholder="Apt #" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="two fields">
                         <div class="field">
                             <label>State</label>
                             <select class="ui fluid dropdown">
