@@ -143,16 +143,17 @@
 
         <div class="ui active page dimmer">
             <div class="ui container" style="width:500px;">
-                <form class="ui form">
+
+                <form class="ui form"> <!-- Add Account Form -->
                     <div class="field">
                         <label></label>
                         <div class="two fields">
                             <div class="field">
                                 <input name="shipping[first-name]" placeholder="First Name" type="text">
-                            </div>
+                            </div> <!-- First Name Field -->
                             <div class="field">
                                 <input name="shipping[last-name]" placeholder="Last Name" type="text">
-                            </div>
+                            </div> <!-- Last Name Field -->
                         </div>
                     </div>
                     <div class="field">
@@ -160,15 +161,15 @@
                         <div class="fields">
                             <div class="twelve wide field">
                                 <input name="address" placeholder="Street Address" type="text">
-                            </div>
+                            </div> <!-- Street Address Field -->
                             <div class="four wide field">
                                 <input name="address-2" placeholder="Apt #" type="text">
-                            </div>
+                            </div> <!-- Street Address 2 Field -->
                         </div>
                     </div>
                     <div class="field">
-                        <div class="two fields">
-                            <div class="field">
+                        <div class="three fields">
+                            <div class="four wide field">
                                 <label></label>
                                 <select class="ui fluid dropdown">
                                     <option value="">State</option>
@@ -224,15 +225,24 @@
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
                                 </select>
-                            </div>
-                            <div class="field">
+                            </div> <!-- State Field -->
+                            <div class="eight wide field">
                                 <label></label>
                                 <input class="ui input" name="zip" placeholder="Zip Code"></input>
+                            </div> <!-- Zip Code Field -->
+                            <div class="four wide field">
+                                <labe></labe>
+                                <select class="ui fluid search dropdown">
+                                    <?php for($i = -; $i < 100; $i++){ ?>
+                                    <option value="<?php $i ?>"><?php $i ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="ui button" tabindex="0">Submit Order</div>
                 </form>
+
             </div>
 
         </div>
