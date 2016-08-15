@@ -12,8 +12,7 @@
         $acct = $_GET["acct"];
     }
 
-    $UIDS = array();
-    $numIDs = $acct["acctUnitCount"];
+    createUID($acct);
 
 
     /*try {
@@ -25,7 +24,7 @@
     }*/
 
 
-    function createUID($acct, $unitNum){
+    function createUID($acct){
     $l = $acct["acctUnitCount"];
 
     for($i = 0; $i < $l; $i++){
@@ -41,6 +40,7 @@
             $vendor = "0" . $vendor;
         }
 
+        $unitNum = $i;
         for($j = 0; strlen($unitNum) < 4; $j++){
             $unitNum = "0" . $unitNum;
         }
