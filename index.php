@@ -147,14 +147,9 @@
                 <form id="addAccForm" class="ui form"> <!-- Add Account Form -->
                     <h4 class="ui left aligned dividing header">Add Account</h4>
                     <div class="field">
-                        <div class="two fields">
-                            <div class="field">
+                        <div class="field">
                                 <input id="acctName" placeholder="Account Name" type="text">
                             </div> <!-- Account Name Field -->
-                            <!--<div class="field">
-                                <input name="shipping[last-name]" placeholder="Last Name" type="text">
-                            </div> <!- Last Name Field -->
-                        </div>
                     </div>
                     <div class="field">
                         <div class="fields">
