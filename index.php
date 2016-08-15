@@ -169,7 +169,7 @@
                     </div>
                     <div class="field">
                         <div class="three fields">
-                            <div class="four wide field">
+                            <div class="seven wide field">
                                 <label></label>
                                 <select class="ui fluid dropdown">
                                     <option value="">State</option>
@@ -226,11 +226,11 @@
                                     <option value="WY">Wyoming</option>
                                 </select>
                             </div> <!-- State Field -->
-                            <div class="eight wide field">
+                            <div class="five wide field">
                                 <label></label>
                                 <input class="ui input" name="zip" placeholder="Zip Code"></input>
                             </div> <!-- Zip Code Field -->
-                            <div class="four wide field">
+                            <div class="five wide field">
                                 <label></label>
                                 <select class="ui fluid search dropdown">
                                     <option value="">Unit Count</option>
