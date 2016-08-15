@@ -231,10 +231,10 @@
                                 <input class="ui input" name="zip" placeholder="Zip Code"></input>
                             </div> <!-- Zip Code Field -->
                             <div class="four wide field">
-                                <labe></labe>
+                                <label></label>
                                 <select class="ui fluid search dropdown">
                                     <?php for($i = 0; $i < 100; $i++){ ?>
-                                    <option value="<?php $i ?>"><?php $i ?></option>
+                                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
