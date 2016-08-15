@@ -13,7 +13,7 @@
     }
 
     $UIDS = array();
-    $numIDs = $acct["unitCount"];
+    $numIDs = $acct["acctUnitCount"];
 
     for($i = 0; $i < $numIDs; $i++){
         $UIDS[] = createUID($acct, $i);
@@ -30,7 +30,7 @@
     }
 
 
-    function createUID($acct, $id){
+    function createUID($acct, $unitNum){
     $l = count($acct);
 
     for($i = 0; $i < $l; $i++){
@@ -45,12 +45,11 @@
             $vendor = "0" . $vendor;
         }
 
-        //$num = $acct["Number"];
-        for($j = 0; strlen($id) < 4; $j++){
-            $id = "0" . $id;
+        for($j = 0; strlen($unitNum) < 4; $j++){
+            $unitNum = "0" . $unitNum;
         }
 
-        $UID = "\$UID$" . $zip . $vendor . $id;
+        $UID = "\$UID$" . $zip . $vendor . $unitNum;
         error_log($UID);
     }
 }
