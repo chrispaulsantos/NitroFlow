@@ -27,7 +27,7 @@
     function createUID($acct){
     $l = $acct["acctUnitCount"];
 
-    for($i = 0; $i < $l; $i++){
+    for($i = 1; $i <= $l; $i++){
 
         $zip = $acct["acctZip"];
         if(strlen($zip) == 4){
