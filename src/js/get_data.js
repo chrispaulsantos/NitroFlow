@@ -171,13 +171,21 @@ $(document).ready(function() {
             }
         }
     });
-    // On Add Account click
+    // On add account click
     $(document).on("click","#addAccBt",function(){
         $("#addAccDim").dimmer("show");
     })
+    // On submit order click
     $(document).on("click","#submitOrd",function(){
-        console.log("Order submitted");
         $(this).addClass("loading");
+        console.log(parseAddAcct());
+        /*$.ajax({
+            url: "src/php/addAccount.php"
+            data: {
+                acct: parseAddAcct()
+            }
+
+        })*/
     })
 });
 
@@ -365,6 +373,16 @@ function randomColorGenerate(alpha){
     var RGBA = "rgba(" + R.toString() + "," + G.toString() + "," + B.toString() + "," + alpha.toString() + ")";
     console.log(RGBA);
     return RGBA;
+}
+function parseAddAcct(){
+    var acct = {
+        acctName: $("#acctName").val(),
+        acctAddress: $("#address").val() + " " + $("#address-2").val(),
+        acctState: $("#state").val(),
+        acctZip: $("#zip").val(),
+        acctUnitCount: $("#unitCount")
+    };
+    return acct;
 }
 
 // Dataset structure class
