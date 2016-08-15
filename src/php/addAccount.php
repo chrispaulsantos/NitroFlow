@@ -15,11 +15,6 @@
     $UIDS = array();
     $numIDs = $acct["acctUnitCount"];
 
-    for($i = 0; $i < $numIDs; $i++){
-        $UIDS[] = createUID($acct, $i);
-    }
-    error_log(json_encode($UIDS));
-
 
     /*try {
         $stmt = DBConnection::instance()->prepare("INSERT INTO UnregisteredUID(UID) VALUES(:UID)");
@@ -31,7 +26,7 @@
 
 
     function createUID($acct, $unitNum){
-    $l = count($acct);
+    $l = $acct["acctUnitCount"];
 
     for($i = 0; $i < $l; $i++){
 
@@ -41,6 +36,7 @@
         }
 
         $vendor = $acct["acctVendor"];
+        $vendor = "1";
         for($j = 0; strlen($vendor) < 4; $j++){
             $vendor = "0" . $vendor;
         }
@@ -49,7 +45,8 @@
             $unitNum = "0" . $unitNum;
         }
 
-        $UID = "\$UID$" . $zip . $vendor . $unitNum;
-        error_log($UID);
+        $UIDS[] = "\$UID$" . $zip . $vendor . $unitNum;
+
     }
+        error_log($UIDS);
 }
