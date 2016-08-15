@@ -154,11 +154,10 @@
                 $("#location-holder").hide();
                 $("#dates").hide();
                 $("#location-alert").hide();
-            });
-
-            $(".icon.refresh").popup({
-                on      : 'click',
-                delay   : { show : 300, hide : 800 }
+                $(".icon.refresh").popup({
+                    on      : 'click',
+                    delay   : { show : 300, hide : 800 }
+                });
             });
         </script>
 
