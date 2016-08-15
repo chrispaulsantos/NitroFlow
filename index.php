@@ -233,7 +233,7 @@
                             <div class="four wide field">
                                 <labe></labe>
                                 <select class="ui fluid search dropdown">
-                                    <?php for($i = -; $i < 100; $i++){ ?>
+                                    <?php for($i = 0; $i < 100; $i++){ ?>
                                     <option value="<?php $i ?>"><?php $i ?></option>
                                     <?php } ?>
                                 </select>
