@@ -226,6 +226,7 @@
                                 </select>
                             </div>
                             <div class="field">
+                                <label></label>
                                 <input class="ui input" name="zip" placeholder="Zip Code"></input>
                             </div>
                         </div>
