@@ -177,6 +177,7 @@ $(document).ready(function() {
     })
     $(document).on("click","#submitOrd",function(){
         console.log("Order submitted");
+        $(this).addClass("loading");
     })
 });
 
