@@ -179,13 +179,13 @@ $(document).ready(function() {
     $(document).on("click","#submitOrd",function(){
         $(this).addClass("loading");
         console.log(parseAddAcct());
-        /*$.ajax({
+        $.ajax({
             url: "src/php/addAccount.php"
             data: {
                 acct: parseAddAcct()
             }
 
-        })*/
+        })
     })
 });
 
