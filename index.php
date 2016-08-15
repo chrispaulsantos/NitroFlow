@@ -233,6 +233,8 @@
                             <div class="four wide field">
                                 <label></label>
                                 <select class="ui fluid search dropdown">
+                                    <option value="">Unit Count</option>
+                                    <option value="1">1</option>
                                     <?php for($i = 0; $i <= 100; $i+=5){ ?>
                                     <option value="<?php echo $i ?>"><?php echo $i ?></option>
                                     <?php } ?>
