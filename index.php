@@ -80,7 +80,7 @@
                     Account
                     <i class="dropdown icon"></i>
                     <div class="menu">
-                        <div class="item" id="addaAcc">Add Account</div>
+                        <div class="item" id="addAccBt">Add Account</div>
                         <div class="item"><?php echo $user ?></div>
                         <div class="divider"></div>
                         <div class="item" id="logout">Logout</div>
@@ -141,10 +141,10 @@
             </div>
         </div>
 
-        <div id="addAcc" class="ui page dimmer">
+        <div id="addAccDim" class="ui page dimmer">
             <div class="ui container" style="width:500px; height:196px;">
 
-                <form class="ui form"> <!-- Add Account Form -->
+                <form id="addAccForm" class="ui form"> <!-- Add Account Form -->
                     <div class="field">
                         <div class="two fields">
                             <div class="field">
@@ -249,7 +249,7 @@
 
         <script>
             $('#content').css("margin-top", window.innerHeight/2-(300));
-            $('#addaAcc').css("margin-top", window.innerHeight/2-(100));
+            $('#addAccForm').css("margin-top", window.innerHeight/2-(100));
             $('.ui.dropdown').dropdown({ fullTextSearch: true });
             $( "#fromDate" ).datepicker();
             $( "#toDate" ).datepicker();

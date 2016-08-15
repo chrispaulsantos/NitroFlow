@@ -171,6 +171,10 @@ $(document).ready(function() {
             }
         }
     });
+    // On Add Account click
+    $(document).on("click","#addAccBt",function(){
+        $("#addAccDim").dimmer("show");
+    })
 });
 
 function getByRegion(data, options){
