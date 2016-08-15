@@ -146,7 +146,6 @@
 
                 <form id="addAccForm" class="ui form"> <!-- Add Account Form -->
                     <h4 class="ui left aligned dividing header" style="color: rgb(255,255,255);">Add Account</h4>
-                    <div class="ui inverted divider"></div>
                     <div class="field">
                         <div class="two fields">
                             <div class="field">
@@ -242,7 +241,7 @@
                             </div> <!-- Unit Count Field -->
                         </div>
                     </div>
-                    <div class="ui inverted divider"></div>
+                    <div class="ui divider"></div>
                     <div class="ui left aligned button" tabindex="0">Submit Order</div>
                 </form>
 
