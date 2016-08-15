@@ -31,7 +31,18 @@ $(document).ready(function() {
             ]
         };
         var options = {
-            scaleShowVerticalLines: false
+            scales: {
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                        max: 100,
+                        min: 0,
+                        stepSize: 10
+                    }
+                }]
+            }
         };
         getByRegion(barData, options);
     });
