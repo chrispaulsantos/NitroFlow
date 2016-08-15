@@ -21,13 +21,13 @@
     error_log(json_encode($UIDS));
 
 
-    try {
+    /*try {
         $stmt = DBConnection::instance()->prepare("INSERT INTO UnregisteredUID(UID) VALUES(:UID)");
         $stmt->bindParam(":UID",$UID);
         $stmt->execute();
     } catch (Exception $e){
         error_log("Error: " . $e->getMessage());
-    }
+    }*/
 
 
     function createUID($acct, $unitNum){
@@ -35,12 +35,12 @@
 
     for($i = 0; $i < $l; $i++){
 
-        $zip = $acct["Zip"];
+        $zip = $acct["acctZip"];
         if(strlen($zip) == 4){
             $zip = "0" . $zip;
         }
 
-        $vendor = $acct["Vendor"];
+        $vendor = $acct["acctVendor"];
         for($j = 0; strlen($vendor) < 4; $j++){
             $vendor = "0" . $vendor;
         }
