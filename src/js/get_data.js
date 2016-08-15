@@ -41,6 +41,11 @@ $(document).ready(function() {
                         min: 0,
                         stepSize: 10
                     }
+                }],
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
                 }]
             }
         };
