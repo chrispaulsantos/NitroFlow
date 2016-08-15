@@ -175,6 +175,9 @@ $(document).ready(function() {
     $(document).on("click","#addAccBt",function(){
         $("#addAccDim").dimmer("show");
     })
+    $(document).on("click","#submitOrd",function(){
+        console.log("Order submitted");
+    })
 });
 
 function getByRegion(data, options){

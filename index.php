@@ -242,7 +242,7 @@
                         </div>
                     </div>
                     <div class="ui divider"></div>
-                    <div class="ui left aligned button" tabindex="0">Submit Order</div>
+                    <div id="submitOrd" class="ui left aligned button" tabindex="0">Submit Order</div>
                 </form>
 
             </div>
