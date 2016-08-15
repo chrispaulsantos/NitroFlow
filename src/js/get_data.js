@@ -85,10 +85,18 @@ $(document).ready(function() {
                 var options = {
                     scales: {
                         yAxes: [{
+                            gridLines: {
+                                display: false
+                            },
                             ticks: {
-                                max: 105,
+                                max: 100,
                                 min: 0,
-                                stepSize: 5
+                                stepSize: 10
+                            }
+                        }],
+                        xAxes: [{
+                            gridLines: {
+                                display: false
                             }
                         }]
                     }
@@ -143,10 +151,18 @@ $(document).ready(function() {
                 var options = {
                     scales: {
                         yAxes: [{
+                            gridLines: {
+                                display: false
+                            },
                             ticks: {
-                                max: 105,
+                                max: 100,
                                 min: 0,
-                                stepSize: 5
+                                stepSize: 10
+                            }
+                        }],
+                        xAxes: [{
+                            gridLines: {
+                                display: false
                             }
                         }]
                     }
