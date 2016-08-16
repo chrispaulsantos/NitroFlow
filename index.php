@@ -246,7 +246,7 @@
                         </div>
                     </div>
                     <div class="ui divider"></div>
-                    <div id="submitOrd" class="ui left aligned button" tabindex="0">Submit Order</div>
+                    <div id="submitOrd" class="ui left aligned button" tabindex="0">Add Account Order</div>
                 </form> <!-- Add Account Form -->
             </div>
         </div>

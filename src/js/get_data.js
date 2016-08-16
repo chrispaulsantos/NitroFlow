@@ -171,24 +171,11 @@ $(document).ready(function() {
             }
         }
     });
-    // On add account click
+    // On add account menu click
     $(document).on("click","#addAccBt",function(){
         $("#addAccDim").dimmer("show");
     })
-    // On submit request units click
-    $(document).on("click","#reqUnits",function(){
-        $(this).addClass("loading");
-        //console.log(parseAddAcct());
-        /*$.ajax({
-            url: "src/php/addAccount.php",
-            data: {
-                acct: parseAddAcct()
-            }
-        }).done(function(){
-            $("#reqUnits").removeClass("loading").addClass("positive");
-        });*/
-    })
-    // On submit order click
+    // On add account button order click
     $(document).on("click","#submitOrd",function(){
         $(this).addClass("loading");
         console.log(parseAddAcct());
@@ -201,13 +188,26 @@ $(document).ready(function() {
             $("#submitOrd").removeClass("loading").addClass("positive");
         });
     })
-    // On request units click
-    $(document).on("click","#reqUnitBt",function(){
-        $("#reqUnitDim").dimmer("show").addClass("active");
-    })
     // On add account close
     $(document).on("click","#closeAddAcc", function(){
         $("#addAccDim").dimmer("hide");
+    })
+    // On request units menu click
+    $(document).on("click","#reqUnitBt",function(){
+        $("#reqUnitDim").dimmer("show").addClass("active");
+    })
+    // On request units button click
+    $(document).on("click","#reqUnits",function(){
+        $(this).addClass("loading");
+        //console.log(parseAddAcct());
+        /*$.ajax({
+         url: "src/php/addAccount.php",
+         data: {
+         acct: parseAddAcct()
+         }
+         }).done(function(){
+         $("#reqUnits").removeClass("loading").addClass("positive");
+         });*/
     })
     // On request units close
     $(document).on("click","#closeReqUnit", function(){
