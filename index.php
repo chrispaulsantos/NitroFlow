@@ -304,6 +304,20 @@
                     on      : 'click',
                     delay   : { show : 300, hide : 800 }
                 });
+                $("#addAccDim").dimmer({
+                    closable: false,
+                    duration: {
+                        show:500,
+                        hide:500
+                    }
+                });
+                $("#reqUnitDim").dimmer({
+                    closable: false,
+                    duration: {
+                        show:500,
+                        hide:500
+                    }
+                });
             });
         </script>
 

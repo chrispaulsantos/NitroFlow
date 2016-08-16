@@ -173,13 +173,6 @@ $(document).ready(function() {
     });
     // On add account click
     $(document).on("click","#addAccBt",function(){
-        $("#addAccDim").dimmer({
-            closable: false,
-            duration: {
-                show:500,
-                hide:500
-            }
-        });
         $("#addAccDim").dimmer("show");
     })
     // On submit order click
@@ -211,6 +204,10 @@ $(document).ready(function() {
         }).done(function(){
             $("#reqUnits").removeClass("loading").addClass("positive");
         });*/
+    })
+    // On add account close
+    $(document).on("click","#closeAddAcc", function(){
+        $("#addAccDim").dimmer("hide");
     })
 });
 
