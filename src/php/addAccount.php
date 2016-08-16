@@ -42,7 +42,7 @@
                 $vendor = "0" . $vendor;
             }
 
-            $unitNum = dechex($i);
+            $unitNum = strtoupper(dechex($i));
             for($j = 0; strlen($unitNum) < 4; $j++){
                 $unitNum = "0" . $unitNum;
             }
