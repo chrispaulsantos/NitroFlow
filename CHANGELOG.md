@@ -6,6 +6,7 @@
 - Random color generated for bar graph
 - Removed grid lines from graph
 - Added add account form
+- Added request unit form
 
 ## [1.0.0] - 2016-8-4
 - Login function with redirect

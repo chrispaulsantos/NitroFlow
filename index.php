@@ -36,6 +36,7 @@
     // initialize region and location arrays
     $regions = array();
     $locations = array();
+    $accNames = array();
 
     // Get regions
     try {
@@ -57,6 +58,7 @@
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $locations[] = ['id' => $row["P_Id"], 'location' => $row["location"]];
     }
+    // Get account names
 ?>
 
 <html>
@@ -81,6 +83,7 @@
                     <i class="dropdown icon"></i>
                     <div class="menu">
                         <div class="item" id="addAccBt">Add Account</div>
+                        <div class="item" id="reqUnitBt">Request Units</div>
                         <div class="item"><?php echo $user ?></div>
                         <div class="divider"></div>
                         <div class="item" id="logout">Logout</div>
@@ -93,7 +96,9 @@
             <div class="ui grid">
 
                 <div class="five wide column">
+
                     <div class="ui left aligned segment">
+
                         <div id="region-holder">
                             <select id="region" class="ui fluid scrolling search dropdown">
                                 <option value="">Select Region</option>
@@ -101,7 +106,7 @@
                                 <?php foreach($regions as $region): ?>
                                     <option value="<?php echo $region; ?>"><?php echo $region; ?></option>
                                 <?php endforeach; ?>
-                            </select>
+                            </select> <!-- Region dropdown -->
                         </div>
                         <div id="location-holder">
                             <select id="location" class="ui fluid scrolling search dropdown" multiple="">
@@ -110,7 +115,7 @@
                                 <?php foreach($locations as $location): ?>
                                     <option value="<?php echo $location['id']; ?>"><?php echo $location['location']; ?></option>
                                 <?php endforeach; ?>
-                            </select>
+                            </select> <!-- Location dropdown -->
                         </div>
 
                     </div>
@@ -143,8 +148,7 @@
 
         <div id="addAccDim" class="ui inverted page dimmer">
             <div class="ui container" style="width:500px; height:196px;">
-
-                <form id="addAccForm" class="ui form"> <!-- Add Account Form -->
+                <form id="addAccForm" class="ui form">
                     <h4 class="ui left aligned dividing header">Add Account</h4>
                     <div class="field">
                         <div class="field">
@@ -165,7 +169,7 @@
                         <div class="three fields">
                             <div class="seven wide field">
                                 <label></label>
-                                <select id="state" class="ui fluid dropdown">
+                                <select id="state" class="ui fluid search dropdown">
                                     <option value="">State</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
@@ -238,10 +242,38 @@
                     </div>
                     <div class="ui divider"></div>
                     <div id="submitOrd" class="ui left aligned button" tabindex="0">Submit Order</div>
-                </form>
-
+                </form> <!-- Add Account Form -->
             </div>
-
+        </div>
+        <div id="reqUnitDim" class="ui inverted page dimmer">
+            <div class="ui container" style="width:500px; height:196px;">
+                <form id="reqUnitForm" class="ui form">
+                    <h4 class="ui left aligned dividing header">Request Units</h4>
+                    <div class="field">
+                        <div class="field">
+                            <label></label>
+                            <select id="reqAccName" class="ui fluid search dropdown">
+                                <option value="">Account</option>
+                                <?php foreach($locations as $location): ?>
+                                    <option value="<?php echo $location["id"] ?>"><?php echo $location["location"] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div> <!-- Account Name Dropdown Field -->
+                        <div class="field">
+                            <label></label>
+                            <select id="reqUnitCount" class="ui fluid search dropdown">
+                                <option value="">Unit Count</option>
+                                <option value="1">1</option>
+                                <?php for($i = 5; $i <= 100; $i+=5){ ?>
+                                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                                <?php } ?>
+                            </select>
+                        </div> <!-- Unit Count Field -->
+                    </div>
+                    <div class="ui divider"></div>
+                    <div id="submitOrd" class="ui left aligned button" tabindex="0">Submit Order</div>
+                </form> <!-- Request Unit Form -->
+            </div>
         </div>
 
         <script>

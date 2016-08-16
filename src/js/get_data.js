@@ -187,6 +187,17 @@ $(document).ready(function() {
 
         });
     })
+    $(document).on("click","#reqUnitBt",function(){
+        $(this).addClass("loading");
+        console.log(parseAddAcct());
+        /*$.ajax({
+            url: "src/php/addAccount.php",
+            data: {
+                acct: parseAddAcct()
+            }
+
+        });*/
+    })
 });
 
 function getByRegion(data, options){
