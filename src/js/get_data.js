@@ -173,7 +173,7 @@ $(document).ready(function() {
     });
     // On add account click
     $(document).on("click","#addAccBt",function(){
-        $("#addAccDim").addClass("active");
+        $("#addAccDim").dimmer("show").addClass("active");
     })
     // On submit order click
     $(document).on("click","#submitOrd",function(){
@@ -190,7 +190,7 @@ $(document).ready(function() {
     })
     // On request units click
     $(document).on("click","#reqUnitBt",function(){
-        $("#reqUnitDim").addClass("active");
+        $("#reqUnitDim").dimmer("show").addClass("active");
     })
     // On submit request units click
     $(document).on("click","#reqUnits",function(){
