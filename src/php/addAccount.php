@@ -34,7 +34,7 @@
                 $zip = "0" . $zip;
             }
 
-            $vendor = $acct["acctVendor"];
+            //$vendor = $acct["acctVendor"];
             $vendor = "1";
             for($j = 0; strlen($vendor) < 4; $j++){
                 $vendor = "0" . $vendor;
@@ -46,7 +46,7 @@
             }
 
             $UIDS[] = "\$UID$" . $zip . $vendor . $unitNum;
-
+            error_log($UID);
         }
-            error_log(json_encode($UIDS));
+            // error_log(json_encode($UIDS));
     }
