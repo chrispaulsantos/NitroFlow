@@ -271,7 +271,7 @@
                         </div> <!-- Unit Count Field -->
                     </div>
                     <div class="ui divider"></div>
-                    <div id="submitOrd" class="ui left aligned button" tabindex="0">Submit Order</div>
+                    <div id="reqUnits" class="ui left aligned button" tabindex="0">Request Units</div>
                 </form> <!-- Request Unit Form -->
             </div>
         </div>
