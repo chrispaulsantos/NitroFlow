@@ -25,28 +25,28 @@
 
 
     function createUID($acct){
-    $l = $acct["acctUnitCount"];
+        $l = $acct["acctUnitCount"];
 
-    for($i = 1; $i <= $l; $i++){
+        for($i = 1; $i <= $l; $i++){
 
-        $zip = $acct["acctZip"];
-        if(strlen($zip) == 4){
-            $zip = "0" . $zip;
+            $zip = $acct["acctZip"];
+            if(strlen($zip) == 4){
+                $zip = "0" . $zip;
+            }
+
+            $vendor = $acct["acctVendor"];
+            $vendor = "1";
+            for($j = 0; strlen($vendor) < 4; $j++){
+                $vendor = "0" . $vendor;
+            }
+
+            $unitNum = dechex($i);
+            for($j = 0; strlen($unitNum) < 4; $j++){
+                $unitNum = "0" . $unitNum;
+            }
+
+            $UIDS[] = "\$UID$" . $zip . $vendor . $unitNum;
+
         }
-
-        $vendor = $acct["acctVendor"];
-        $vendor = "1";
-        for($j = 0; strlen($vendor) < 4; $j++){
-            $vendor = "0" . $vendor;
-        }
-
-        $unitNum = $i;
-        for($j = 0; strlen($unitNum) < 4; $j++){
-            $unitNum = "0" . $unitNum;
-        }
-
-        $UIDS[] = "\$UID$" . $zip . $vendor . $unitNum;
-
+            error_log(json_encode($UIDS));
     }
-        error_log(json_encode($UIDS));
-}
