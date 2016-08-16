@@ -188,8 +188,8 @@ $(document).ready(function() {
         });
     })
     $(document).on("click","#reqUnitBt",function(){
-        $(this).addClass("loading");
-        console.log(parseAddAcct());
+        $("#reqUnitDim").dimmer("show");
+        // console.log(parseAddAcct());
         /*$.ajax({
             url: "src/php/addAccount.php",
             data: {
