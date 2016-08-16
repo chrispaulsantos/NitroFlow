@@ -202,7 +202,16 @@ $(document).ready(function() {
     })
     // On submit request units click
     $(document).on("click","#reqUnits",function(){
-
+        $(this).addClass("loading");
+        //console.log(parseAddAcct());
+        /*$.ajax({
+            url: "src/php/addAccount.php",
+            data: {
+                acct: parseAddAcct()
+            }
+        }).done(function(){
+            $("#reqUnits").removeClass("loading").addClass("positive");
+        });*/
     })
 });
 

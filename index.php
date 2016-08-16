@@ -147,13 +147,12 @@
         </div>
 
         <div id="addAccDim" class="ui inverted page dimmer">
-
             <div class="ui container" style="width:500px; height:196px;">
                 <form id="addAccForm" class="ui form">
                     <h4 class="ui left aligned dividing header">
                         Add Account
                         <div class="ui icon right aligned" style="float: right;margin-right: 0px;">
-                            <i class="remove icon"></i>
+                            <i id="closeAddAcc" class="remove icon" style="cursor: pointer;"></i>
                         </div>
                     </h4>
                     <div class="field">
@@ -257,7 +256,7 @@
                     <h4 class="ui left aligned dividing header">
                         Request Units
                         <div class="ui icon right aligned" style="float: right;margin-right: 0px;">
-                            <i class="remove icon"></i>
+                            <i id="closeReqUnit" class="remove icon" style="cursor: pointer"></i>
                         </div>
                     </h4>
                     <div class="field">
