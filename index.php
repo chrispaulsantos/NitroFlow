@@ -147,6 +147,9 @@
         </div>
 
         <div id="addAccDim" class="ui inverted page dimmer">
+            <h2 class="ui icon header">
+                <i class="remove icon"></i>
+            </h2>
             <div class="ui container" style="width:500px; height:196px;">
                 <form id="addAccForm" class="ui form">
                     <h4 class="ui left aligned dividing header">Add Account</h4>
