@@ -46,7 +46,7 @@
             }
 
             $UIDS[] = "\$UID$" . $zip . $vendor . $unitNum;
-            error_log($UID);
+            error_log("\$UID$" . $zip . $vendor . $unitNum);
         }
             // error_log(json_encode($UIDS));
     }
