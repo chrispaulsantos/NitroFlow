@@ -173,7 +173,14 @@ $(document).ready(function() {
     });
     // On add account click
     $(document).on("click","#addAccBt",function(){
-        $("#addAccDim").dimmer("show",{closable: false});
+        $("#addAccDim").dimmer({
+            closable: false,
+            duration: {
+                show:500,
+                hide:500
+            }
+        });
+        $("#addAccDim").dimmer("show");
     })
     // On submit order click
     $(document).on("click","#submitOrd",function(){
