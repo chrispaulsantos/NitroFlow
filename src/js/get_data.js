@@ -184,9 +184,11 @@ $(document).ready(function() {
             data: {
                 acct: parseAddAcct()
             }
-
+        }).done(function(){
+            $(this).removeClass("loading").addClass("positive");
         });
     })
+    // On request units click
     $(document).on("click","#reqUnitBt",function(){
         $("#reqUnitDim").dimmer("show");
         // console.log(parseAddAcct());
@@ -197,6 +199,10 @@ $(document).ready(function() {
             }
 
         });*/
+    })
+    // On submit request units click
+    $(document).on("click","#reqUnits",function(){
+
     })
 });
 
