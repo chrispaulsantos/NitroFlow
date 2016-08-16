@@ -12,16 +12,18 @@
         $acct = $_GET["acct"];
     }
 
-    createUID($acct);
+    $UIDS = createUID($acct);
 
-
-    /*try {
-        $stmt = DBConnection::instance()->prepare("INSERT INTO UnregisteredUID(UID) VALUES(:UID)");
-        $stmt->bindParam(":UID",$UID);
-        $stmt->execute();
-    } catch (Exception $e){
-        error_log("Error: " . $e->getMessage());
-    }*/
+    foreach($UIDS as $UID){
+        try {
+            $stmt = DBConnection::instance()->prepare("INSERT INTO UnregisteredUID(P_Id,UID) VALUES(1,:UID)");
+            $stmt->bindParam(":UID",$UID);
+            $stmt->execute();
+        } catch (Exception $e){
+            error_log("Error: " . $e->getMessage());
+        }
+    }
+    /**/
 
 
     function createUID($acct){
@@ -48,5 +50,6 @@
             $UIDS[] = "\$UID$" . $zip . $vendor . $unitNum;
             error_log("\$UID$" . $zip . $vendor . $unitNum);
         }
+        return $UIDS;
             // error_log(json_encode($UIDS));
     }
