@@ -152,7 +152,7 @@
                 <form id="addAccForm" class="ui form">
                     <h4 class="ui left aligned dividing header">
                         Add Account
-                        <div class="ui icon right aligned">
+                        <div class="ui icon right aligned" style="float: right;margin-right: 0px;">
                             <i class="remove icon"></i>
                         </div>
                     </h4>
