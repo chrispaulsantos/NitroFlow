@@ -185,7 +185,7 @@ $(document).ready(function() {
                 acct: parseAddAcct()
             }
         }).done(function(){
-            $("submitOrd").removeClass("loading").addClass("positive");
+            $("#submitOrd").removeClass("loading").addClass("positive");
         });
     })
     // On request units click
