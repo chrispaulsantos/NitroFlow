@@ -147,12 +147,15 @@
         </div>
 
         <div id="addAccDim" class="ui inverted page dimmer">
-            <h5 class="ui icon right aligned header">
-                <i class="remove icon"></i>
-            </h5>
+
             <div class="ui container" style="width:500px; height:196px;">
                 <form id="addAccForm" class="ui form">
-                    <h4 class="ui left aligned dividing header">Add Account</h4>
+                    <h4 class="ui left aligned dividing header">
+                        Add Account
+                        <div class="ui icon right aligned">
+                            <i class="remove icon"></i>
+                        </div>
+                    </h4>
                     <div class="field">
                         <div class="field">
                                 <input id="acctName" placeholder="Account Name" type="text">
