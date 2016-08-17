@@ -25,7 +25,7 @@
             $acc->createUIDs();
             $acc->insertUnregisteredUIDs();
         } else {
-            print "EXISTS";
+            echo "EXISTS";
         }
 
     }

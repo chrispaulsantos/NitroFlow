@@ -174,8 +174,13 @@ $(document).ready(function() {
             data: {
                 acc: parseAddAcct()
             }
-        }).done(function(){
-            $("#submitOrd").removeClass("loading").addClass("positive");
+        }).done(function(response){
+            if(response != "EXISTS"){
+                $("#submitOrd").removeClass("loading").addClass("positive");
+            } else {
+                $("#submitOrd").removeClass("loading").addClass("negative");
+            }
+
         });
     })
     // On add account close
