@@ -56,7 +56,7 @@
                 $stmt->execute();
 
                 // Get last insert id
-                $this->accId = strtoupper(dechex($dbh->lastInsertId()));
+                $this->accId = strtoupper(dechex($this->dbh->lastInsertId()));
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
             }
