@@ -85,7 +85,7 @@
             }
 
             $row = $stmt->fetch(PDO::FETCH_NUM);
-            if($row[1] == "1"){
+            if($row[0] == "1"){
                 return true;
             } else {
                 return false;
