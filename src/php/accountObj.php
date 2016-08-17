@@ -85,7 +85,7 @@
                 error_log("Error: " . $e->getMessage());
             }
 
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            while($row = $stmt->fetchAll(){
                 error_log("In the while");
                 error_log(json_encode($row));
             }
