@@ -81,10 +81,9 @@
                     $unitNum = "0" . $unitNum;
                 }
 
-                $UIDS[] = "\$UID$" . $zip . $vendorId . $unitNum;
+                $this->UIDS[] = "\$UID$" . $zip . $vendorId . $unitNum;
                 error_log("\$UID$" . $zip . $vendorId . $unitNum);
             }
-            $this->UIDS = $UIDS;
         }
         public function insertUnregisteredUIDs(){
             foreach($this->UIDS as $UID){
