@@ -9,10 +9,24 @@
     require_once "database_connect.php";
 
     if($_GET != null){
-        $acct = $_GET["acct"];
+        $tempAcc = $_GET["acc"];
+
+        // Create new account object
+        $acc = new account();
+        $acc->accName      = $tempAcc["accName"];
+        $acc->accStrAdd    = $tempAcc["accAddress"];
+        $acc->accAptNum    = $tempAcc["accAptNum"];
+        $acc->accState     = $tempAcc["accState"];
+        $acc->accZip       = $tempAcc["accZip"];
+        $acc->accUnitCount = $tempAcc["AccUnitCount"];
     }
 
-    $UIDS = createUID($acct);
+    $accId = $acc->insertAccount();
+    error_log($accId);
+
+
+
+    /*$UIDS = createUID($acct);
 
     foreach($UIDS as $UID){
         try {
@@ -23,7 +37,7 @@
             error_log("Error: " . $e->getMessage());
         }
     }
-    /**/
+    /**/ //INSERT UNREG IDS
 
 
     function createUID($acct){
@@ -52,4 +66,31 @@
         }
         return $UIDS;
             // error_log(json_encode($UIDS));
+    }
+
+    class account {
+        public $accName;
+        public $accStrAdd;
+        public $accAptNum;
+        public $accState;
+        public $accZip;
+        public $accUnitCount;
+
+        public function insertAccount(){
+            $query = "INSERT INTO `Locations`(AccName`, `AccZip`, `AccStrAdd`, `AccAptNum`, `AccState`, `AccUnits`)
+                      VALUES(:accname,:acczip,:accstradd,:accaptnum,:accstate,:accunits";
+            try {
+                $stmt = DBConnection::instance()->prepare($query);
+                $stmt->bindParam(":accname",$accName);
+                $stmt->bindParam(":acczip",$accZip);
+                $stmt->bindParam(":accstradd",$accStrAdd);
+                $stmt->bindParam(":accaptnum",$accAptNum);
+                $stmt->bindParam(":accstate",$accState);
+                $stmt->bindParam(":accunits",$accUnitCount);
+                $stmt->execute();
+                return $stmt->lastInsertId();
+            } catch (Exception $e){
+                error_log("Error: " . $e->getMessage());
+            }
+        }
     }

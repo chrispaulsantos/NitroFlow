@@ -39,7 +39,7 @@
 
     // Get regions
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT AccZip FROM Locations");
+        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT AccZip FROM Locations ORDER BY AccZip");
         $stmt->execute();
     } catch (Exception $e){
         error_log("Error: " .$e->getMessage());
@@ -245,7 +245,7 @@
                         </div>
                     </div>
                     <div class="ui divider"></div>
-                    <div id="submitOrd" class="ui left aligned button" tabindex="0">Add Account Order</div>
+                    <div id="submitOrd" class="ui left aligned button" tabindex="0">Add Account</div>
                 </form> <!-- Add Account Form -->
             </div>
         </div>

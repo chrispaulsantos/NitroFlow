@@ -172,7 +172,7 @@ $(document).ready(function() {
         $.ajax({
             url: "src/php/addAccount.php",
             data: {
-                acct: parseAddAcct()
+                acc: parseAddAcct()
             }
         }).done(function(){
             $("#submitOrd").removeClass("loading").addClass("positive");
@@ -392,11 +392,12 @@ function randomColorGenerate(alpha){
 }
 function parseAddAcct(){
     var acct = {
-        acctName: $("#acctName").val(),
-        acctAddress: $("#address").val() + " " + $("#address-2").val(),
-        acctState: $("#state").val(),
-        acctZip: $("#zip").val(),
-        acctUnitCount: $("#unitCount").val()
+        accName: $("#acctName").val(),
+        accAddress: $("#address").val(),
+        accAptNum: $("#address-2"),
+        accState: $("#state").val(),
+        accZip: $("#zip").val(),
+        accUnitCount: $("#unitCount").val()
     };
     return acct;
 }
