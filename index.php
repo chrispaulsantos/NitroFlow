@@ -68,7 +68,7 @@
         <script src="src/includes/jquery-1.12.4.min.js"></script>
         <script src="src/includes/jquery-ui-1.12.0/jquery-ui.js"></script>
         <script src="src/js/Chart.js" type="text/javascript"></script>
-        <script src="src/js/get_data.js" type="text/javascript"></script>
+        <script src="src/js/NitroFlow.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
     </head>
