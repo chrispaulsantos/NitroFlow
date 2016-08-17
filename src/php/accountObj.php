@@ -84,8 +84,11 @@
                 error_log("Error: " . $e->getMessage());
             }
 
-            while($row = $stmt->fetch(PDO::FETCH_NUM)){
-                error_log(json_encode($row));
+            $row = $stmt->fetch(PDO::FETCH_NUM);
+            if($row[1] == 1){
+                return true;
+            } else {
+                return false;
             }
         }
     }
