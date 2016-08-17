@@ -74,7 +74,8 @@ $(document).ready(function() {
                 var selector = $('#dates');
                 selector.popup({
                     target: selector,
-                    content: "Please select a valid date range!"
+                    content: "Please select a valid date range!",
+                    closable: false
                 });
                 selector.popup('show');
             } else {
@@ -122,7 +123,8 @@ $(document).ready(function() {
                 var selector = $('#dates');
                 selector.popup({
                     target: selector,
-                    content: "Please select a valid date range!"
+                    content: "Please select a valid date range!",
+                    closable: false
                 });
                 selector.popup('show');
             } else {
