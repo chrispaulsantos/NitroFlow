@@ -125,33 +125,26 @@ $(document).ready(function() {
         if (flag != false) {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 dateCheck = false;
-                //$(".ui.message").removeClass("hidden");
-                $('#dates').popup({
-                    target: $("#dates"),
+                var selector = $('#dates');
+                selector.popup({
+                    target: selector,
                     content: "Please select a valid date range!"
                 });
-                // $(".icon.refresh").popup('changeContent',{
-                //     target  : '#dates',
-                //     content : 'Please select a date range!',
-                // });
-                $(".icon.refresh").popup('show');
+                selector.popup('show');
             } else {
-                $(".icon.refresh").popup('destroy');
+                $("#dates").popup('destroy');
                 dateCheck = true;
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 locationCheck = false;
-                $('#location').popup({
-                    target: $("#location"),
+                var loc = $('#location');
+                loc.popup({
+                    target: loc,
                     content: "Please select a location!"
                 });
-                /*$(".icon.refresh").popup('setting',{
-                    target  : '#location-holder',
-                    content : 'Please select a location!',
-                });*/
-                $(".icon.refresh").popup('show');
+                loc.popup('show');
             } else {
-                $(".icon.refresh").popup('destroy');
+                $("#location").popup('destroy');
                 locationCheck = true;
             }
 
