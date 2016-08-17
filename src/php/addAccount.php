@@ -21,53 +21,10 @@
         $acc->accUnitCount = $tempAcc["accUnitCount"];
 
         $acc->insertAccount();
-        createUID($acc);
+        $acc->createUIDs();
+        $acc->insertUnregisteredUIDs();
     }
 
-
-
-
-    /*$UIDS = createUID($acct);
-
-    foreach($UIDS as $UID){
-        try {
-            $stmt = DBConnection::instance()->prepare("INSERT INTO UnregisteredUID(P_Id,UID) VALUES(1,:UID)");
-            $stmt->bindParam(":UID",$UID);
-            $stmt->execute();
-        } catch (Exception $e){
-            error_log("Error: " . $e->getMessage());
-        }
-    }
-    /**/ //INSERT UNREG IDS
-
-
-    function createUID($acc){
-        $l = $acc->accUnitCount;
-
-        for($i = 1; $i <= $l; $i++){
-
-            $zip = $acc->accZip;
-            if(strlen($zip) == 4){
-                $zip = "0" . $zip;
-            }
-
-            $vendorId = strtoupper(dechex($acc->accId));
-            //$vendor = "1";
-            for($j = 0; strlen($vendorId) < 4; $j++){
-                $vendorId = "0" . $vendorId;
-            }
-
-            $unitNum = strtoupper(dechex($i));
-            for($j = 0; strlen($unitNum) < 4; $j++){
-                $unitNum = "0" . $unitNum;
-            }
-
-            $UIDS[] = "\$UID$" . $zip . $vendorId . $unitNum;
-            error_log("\$UID$" . $zip . $vendorId . $unitNum);
-        }
-        return $UIDS;
-            // error_log(json_encode($UIDS));
-    }
 
     class account {
         public $accName;
@@ -77,6 +34,7 @@
         public $accZip;
         public $accUnitCount;
         public $accId;
+        public $UIDS = array();
 
         public function insertAccount(){
             $dbh = DBConnection::instance();
@@ -94,9 +52,46 @@
                 $stmt->execute();
 
                 // Get last insert id
-                $this->accId = $dbh->lastInsertId();
+                $this->accId = strtoupper(dechex($dbh->lastInsertId()));
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
+            }
+        }
+        public function createUIDs(){
+            $l = $this->accUnitCount;
+
+            for($i = 1; $i <= $l; $i++){
+
+                $zip = $this->accZip;
+                if(strlen($zip) == 4){
+                    $zip = "0" . $zip;
+                }
+
+                $vendorId = $this->accId;
+                for($j = 0; strlen($vendorId) < 4; $j++){
+                    $vendorId = "0" . $vendorId;
+                }
+
+                $unitNum = strtoupper(dechex($i));
+                for($j = 0; strlen($unitNum) < 4; $j++){
+                    $unitNum = "0" . $unitNum;
+                }
+
+                $UIDS[] = "\$UID$" . $zip . $vendorId . $unitNum;
+                error_log("\$UID$" . $zip . $vendorId . $unitNum);
+            }
+            $this->UIDS;
+        }
+        public function insertUnregisteredUIDs(){
+            foreach($this->UIDS as $UID){
+                try {
+                    $stmt = DBConnection::instance()->prepare("INSERT INTO UnregisteredUID(P_Id,UID) VALUES(:vendorid,:UID)");
+                    $stmt->bindParam(":UID",$UID);
+                    $stmt->bindParam(":vendorid",$this->accId);
+                    $stmt->execute();
+                } catch (Exception $e){
+                    error_log("Error: " . $e->getMessage());
+                }
             }
         }
     }
