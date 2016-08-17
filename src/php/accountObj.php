@@ -73,14 +73,13 @@
         }
         public function checkIfExists(){
             error_log("Checking");
-            $query = "SELECT * FROM Locations WHERE accStrAdd = :stradd, accZip = :zip, accAptNum = :aptnum";
+            $query = "SELECT EXISTS(SELECT * FROM Locations WHERE AccStrAdd = :stradd, AccZip = :zip, AccAptNum = :aptnum)";
             try {
                 $stmt = $this->dbh->prepare($query);
                 $stmt->bindParam(":stradd", $this->accStrAdd);
                 $stmt->bindParam(":zip", $this->accZip);
                 $stmt->bindParam(":aptnum",$this->accAptNum);
                 $stmt->execute();
-                error_log(json_encode($stmt));
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
             }
