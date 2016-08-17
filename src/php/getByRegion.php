@@ -1,7 +1,6 @@
 <?php
 
     require_once "database_connect.php";
-    require "location_object.php";
 
     $stmt = null;
     $locations = [];
@@ -50,3 +49,10 @@
     }
 
     echo json_encode($locations);
+
+class location {
+    public $id;
+    public $location;
+    public $current_capacity;
+    public $time;
+}

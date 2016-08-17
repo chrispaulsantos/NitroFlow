@@ -1,7 +1,6 @@
 <?php
 
     require_once "database_connect.php";
-    require "location_object.php";
 
     // Variables gotten from the js
     $locations = [];
