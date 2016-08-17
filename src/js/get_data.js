@@ -11,6 +11,18 @@ var lineData = {
 $(document).ready(function() {
     var flag = false;
 
+    // Hide/Show inputs based on position of toggle
+    $(document).on("change","input[name=graph-type]",function(){
+        flag = !flag;
+        $("#location-holder").toggle();
+        $("#region-holder").toggle();
+        $("#dates").toggle();
+        // If first page load, change the select message
+        if(chart == null){
+            $("#location-alert").toggle();
+            $("#region-alert").toggle();
+        }
+    });
     // Listen on region change
     $(document).on("change","#region",function(){
         var color = randomColorGenerate(.7);
@@ -59,25 +71,19 @@ $(document).ready(function() {
         if (flag != false) {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 dateCheck = false;
-                //$(".ui.message").removeClass("hidden");
-                $(".icon.refresh").popup('setting',{
-                    target  : '#dates',
-                    content : 'Please select a date range!',
+                var selector = $('#dates');
+                selector.popup({
+                    target: selector,
+                    content: "Please select a valid date range!"
                 });
-                $(".icon.refresh").popup('show');
+                selector.popup('show');
             } else {
-                $(".icon.refresh").popup('destroy');
+                $("#dates").popup('destroy');
                 dateCheck = true;
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 locationCheck = false;
-                $(".icon.refresh").popup('setting',{
-                    target  : '#location-holder',
-                    content : 'Please select a location!',
-                });
-                $(".icon.refresh").popup('show');
             } else {
-                $(".icon.refresh").popup('destroy');
                 locationCheck = true;
             }
 
@@ -105,18 +111,6 @@ $(document).ready(function() {
             }
         }
     });
-    // Hide/Show inputs based on position of toggle
-    $(document).on("change","input[name=graph-type]",function(){
-        flag = !flag;
-        $("#location-holder").toggle();
-        $("#region-holder").toggle();
-        $("#dates").toggle();
-        // If first page load, change the select message
-        if(chart == null){
-            $("#location-alert").toggle();
-            $("#region-alert").toggle();
-        }
-    });
     // On refresh click
     $(document).on("click",".icon.refresh",function(){
         var dateCheck = false;
@@ -137,14 +131,7 @@ $(document).ready(function() {
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 locationCheck = false;
-                var loc = $('#location');
-                loc.popup({
-                    target: loc,
-                    content: "Please select a location!"
-                });
-                loc.popup('show');
             } else {
-                $("#location").popup('destroy');
                 locationCheck = true;
             }
 
