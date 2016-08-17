@@ -78,7 +78,7 @@
 
         public function insertAccount(){
             $dbh = DBConnection::instance();
-            $query = "INSERT INTO `Locations`(AccName`, `AccZip`, `AccStrAdd`, `AccAptNum`, `AccState`, `AccUnits`)
+            $query = "INSERT INTO `Locations`(`AccName`, `AccZip`, `AccStrAdd`, `AccAptNum`, `AccState`, `AccUnits`)
                       VALUES(:accname,:acczip,:accstradd,:accaptnum,:accstate,:accunits)";
             try {
                 $stmt = $dbh->prepare($query);
