@@ -20,7 +20,7 @@
         $acc->accZip       = $tempAcc["accZip"];
         $acc->accUnitCount = $tempAcc["accUnitCount"];
 
-        error_log($acc->checkIfExists());
+        error_log(json_encode($acc->checkIfExists()));
         $acc->insertAccount();
         $acc->createUIDs();
         $acc->insertUnregisteredUIDs();
