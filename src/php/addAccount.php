@@ -83,12 +83,12 @@
             try {
                 $stmt = $dbh->prepare($query);
                 error_log(json_encode($stmt));
-                $stmt->bindParam(":accname",$accName);
-                $stmt->bindParam(":acczip",$accZip);
-                $stmt->bindParam(":accstradd",$accStrAdd);
-                $stmt->bindParam(":accaptnum",$accAptNum);
-                $stmt->bindParam(":accstate",$accState);
-                $stmt->bindParam(":accunits",$accUnitCount);
+                $stmt->bindParam(":accname", $this->accName);
+                $stmt->bindParam(":acczip",$this->accZip);
+                $stmt->bindParam(":accstradd",$this->accStrAdd);
+                $stmt->bindParam(":accaptnum",$this->accAptNum);
+                $stmt->bindParam(":accstate",$this->accState);
+                $stmt->bindParam(":accunits",$this->accUnitCount);
                 $stmt->execute();
                 $id = $dbh->lastInsertId();
                 return $id;
