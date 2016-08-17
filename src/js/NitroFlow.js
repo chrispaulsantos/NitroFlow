@@ -176,9 +176,9 @@ $(document).ready(function() {
             }
         }).done(function(response){
             if(response != "EXISTS"){
-                $("#submitOrd").removeClass("loading").addClass("positive");
+                $("#submitOrd").removeClass("loading","negative").addClass("positive");
             } else {
-                $("#submitOrd").removeClass("loading").addClass("negative");
+                $("#submitOrd").removeClass("loading","positive").addClass("negative");
             }
 
         });
