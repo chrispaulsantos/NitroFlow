@@ -126,9 +126,9 @@ $(document).ready(function() {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 dateCheck = false;
                 //$(".ui.message").removeClass("hidden");
-                $('.icon.refresh').popup({
+                $('#dates').popup({
                     target: $("#dates"),
-                    popup : $('#datePopup')
+                    content: "Please select a valid date range!"
                 });
                 // $(".icon.refresh").popup('changeContent',{
                 //     target  : '#dates',
@@ -141,9 +141,9 @@ $(document).ready(function() {
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 locationCheck = false;
-                $('.icon.refresh').popup({
+                $('#location').popup({
                     target: $("#location"),
-                    popup : $('#locationPopup')
+                    content: "Please select a location!"
                 });
                 /*$(".icon.refresh").popup('setting',{
                     target  : '#location-holder',

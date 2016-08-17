@@ -116,9 +116,6 @@
                                     <option value="<?php echo $location['id']; ?>"><?php echo $location['location']; ?></option>
                                 <?php endforeach; ?>
                             </select> <!-- Location dropdown -->
-                            <div id="locationPopup" class="ui special popup">
-                                Please select a location!
-                            </div>
                         </div>
 
                     </div>
@@ -129,9 +126,6 @@
                     <div class="ui small fluid left aligned segment input" id="dates">
                         <input type="text" id="fromDate" placeholder="From Date">
                         <input type="text" id="toDate" placeholder="To Date">
-                        <div id="datePopup" class="ui special popup">
-                            Please select a valid date range!
-                        </div>
                     </div>
                     <div id="alert" class="ui scrollable left aligned segment"></div>
 
