@@ -77,8 +77,8 @@
             try {
                 $stmt = $this->dbh->prepare($query);
                 $stmt->bindParam(":stradd", $this->accStrAdd);
-                $stmt->bindParam(":zip", $this->accZip);
-                $stmt->bindParam(":aptnum",$this->accAptNum);
+                //$stmt->bindParam(":zip", $this->accZip);
+                //$stmt->bindParam(":aptnum",$this->accAptNum);
                 $stmt->execute();
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
