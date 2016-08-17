@@ -82,6 +82,7 @@
                 $stmt->execute();
 
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    error_log("In the while");
                     error_log(json_encode($row));
                 }
             } catch (Exception $e){
