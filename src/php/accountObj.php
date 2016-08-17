@@ -21,7 +21,6 @@
                           VALUES(:accname,:acczip,:accstradd,:accaptnum,:accstate,:accunits)";
             try {
                 $stmt = $this->dbh->prepare($query);
-                error_log(json_encode($stmt));
                 $stmt->bindParam(":accname", $this->accName);
                 $stmt->bindParam(":acczip",$this->accZip);
                 $stmt->bindParam(":accstradd",$this->accStrAdd);
