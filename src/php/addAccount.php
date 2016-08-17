@@ -62,8 +62,8 @@
                 $unitNum = "0" . $unitNum;
             }
 
-            $UIDS[] = "\$UID$" . $zip . $vendor . $unitNum;
-            error_log("\$UID$" . $zip . $vendor . $unitNum);
+            $UIDS[] = "\$UID$" . $zip . $vendorId . $unitNum;
+            error_log("\$UID$" . $zip . $vendorId . $unitNum);
         }
         return $UIDS;
             // error_log(json_encode($UIDS));
