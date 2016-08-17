@@ -127,6 +127,7 @@ $(document).ready(function() {
                 dateCheck = false;
                 //$(".ui.message").removeClass("hidden");
                 $('.icon.refresh').popup({
+                    target: $("#dates"),
                     popup : $('#datePopup')
                 });
                 // $(".icon.refresh").popup('changeContent',{
@@ -141,6 +142,7 @@ $(document).ready(function() {
             if($("#location").val() == null || $("#location").val() == ""){
                 locationCheck = false;
                 $('.icon.refresh').popup({
+                    target: $("#location"),
                     popup : $('#locationPopup')
                 });
                 /*$(".icon.refresh").popup('setting',{
