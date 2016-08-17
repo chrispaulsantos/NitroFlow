@@ -48,8 +48,13 @@
 
         // If password_verify returns true, begin session
         if($check){
-            // Set cookie life to 120 minutes and start session
-            session_set_cookie_params(120);
+            // Set cookie life to 120 seconds and start session
+            if($user_id <= 5){
+                session_set_cookie_params(3600);
+            } else {
+                session_set_cookie_params(120);
+            }
+
             session_start();
             $_SESSION["user_token"] = generateToken($username);
             $_SESSION["user_id"] = $user_id;
