@@ -36,7 +36,7 @@
         // Create new location object to be returned to the js for processing
         $location = new location();
         $location->id = $row["P_Id"];
-        $location->location = $row["location"];
+        $location->location = $row["AccStrAdd"];
 
         // Check to ensure the returned value is a number
         if($row["capacity"] != null || $row["capacity"] != ""){
