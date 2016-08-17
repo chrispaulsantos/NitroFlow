@@ -72,4 +72,21 @@
                 }
             }
         }
+        public function checkIfExists(){
+            $query = "SELECT EXISTS(SELECT * FROM Locations 
+                                    WHERE accStrAdd = :stradd, accZip = :zip, accAptNum = :aptnum)";
+            try {
+                $stmt = $this->dbh->prepare($query);
+                $stmt->bindParam(":stradd", $this->accStrAdd);
+                $stmt->bindParam(":zip", $this->accZip);
+                $stmt->bindParam(":aptnum",$this->accAptNum);
+                $stmt->execute();
+
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    error_log(json_encode($row));
+                }
+            } catch (Exception $e){
+                error_log("Error: " . $e->getMessage());
+            }
+        }
     }
