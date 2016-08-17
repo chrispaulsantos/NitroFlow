@@ -72,7 +72,7 @@
             }
         }
         public function checkIfExists(){
-            error_log("Checking")
+            error_log("Checking");
             $query = "SELECT EXISTS(SELECT * FROM Locations 
                                     WHERE accStrAdd = :stradd, accZip = :zip, accAptNum = :aptnum)";
             try {
@@ -85,7 +85,7 @@
                 error_log("Error: " . $e->getMessage());
             }
 
-            while($row = $stmt->fetchAll(){
+            while($row = $stmt->fetchAll()){
                 error_log("In the while");
                 error_log(json_encode($row));
             }
