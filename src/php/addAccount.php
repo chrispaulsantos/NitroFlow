@@ -88,7 +88,8 @@
                 $stmt->bindParam(":accstate",$accState);
                 $stmt->bindParam(":accunits",$accUnitCount);
                 $stmt->execute();
-                return $stmt->lastInsertId();
+                $id = $stmt->lastInsertId();
+                return $id;
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
             }
