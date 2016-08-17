@@ -77,10 +77,11 @@
         public $accUnitCount;
 
         public function insertAccount(){
+            $dbh = DBConnection::instance();
             $query = "INSERT INTO `Locations`(AccName`, `AccZip`, `AccStrAdd`, `AccAptNum`, `AccState`, `AccUnits`)
                       VALUES(:accname,:acczip,:accstradd,:accaptnum,:accstate,:accunits";
             try {
-                $stmt = DBConnection::instance()->prepare($query);
+                $stmt = $dbh->prepare($query);
                 $stmt->bindParam(":accname",$accName);
                 $stmt->bindParam(":acczip",$accZip);
                 $stmt->bindParam(":accstradd",$accStrAdd);
@@ -88,7 +89,7 @@
                 $stmt->bindParam(":accstate",$accState);
                 $stmt->bindParam(":accunits",$accUnitCount);
                 $stmt->execute();
-                $id = $stmt->lastInsertId();
+                $id = $dbh->lastInsertId();
                 return $id;
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
