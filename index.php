@@ -129,7 +129,7 @@
                     <div class="ui small fluid left aligned segment input" id="dates">
                         <input type="text" id="fromDate" placeholder="From Date">
                         <input type="text" id="toDate" placeholder="To Date">
-                        <div id="locationPopup" class="ui special popup">
+                        <div id="datePopup" class="ui special popup">
                             Please select a valid date range!
                         </div>
                     </div>
