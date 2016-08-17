@@ -72,8 +72,8 @@
             }
         }
         public function checkIfExists(){
-            error_log("Checking");
-            $query = "SELECT EXISTS(SELECT * FROM `Locations` WHERE `AccStrAdd` = :stradd AND `AccZip` = :zip AND `AccAptNum` = :aptnum)";
+            $query = "SELECT EXISTS(SELECT * FROM `Locations` 
+                                    WHERE `AccStrAdd` = :stradd AND `AccZip` = :zip AND `AccAptNum` = :aptnum)";
             try {
                 $stmt = $this->dbh->prepare($query);
                 $stmt->bindParam(":stradd", $this->accStrAdd);
@@ -85,6 +85,7 @@
             }
 
             $row = $stmt->fetch(PDO::FETCH_NUM);
+
             if($row[0] == "1"){
                 return true;
             } else {
