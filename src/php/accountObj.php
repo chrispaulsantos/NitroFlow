@@ -80,13 +80,13 @@
                 $stmt->bindParam(":zip", $this->accZip);
                 $stmt->bindParam(":aptnum",$this->accAptNum);
                 $stmt->execute();
-
-                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                    error_log("In the while");
-                    error_log(json_encode($row));
-                }
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
+            }
+
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                error_log("In the while");
+                error_log(json_encode($row));
             }
         }
     }

@@ -23,5 +23,5 @@
         $acc->insertAccount();
         $acc->createUIDs();
         $acc->insertUnregisteredUIDs();
-        $acc->checkIfExists();
+        $acc->checkIfExists();2
     }
