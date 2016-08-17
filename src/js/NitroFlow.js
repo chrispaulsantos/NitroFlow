@@ -176,11 +176,11 @@ $(document).ready(function() {
             }
         }).done(function(response){
             if(response != "EXISTS"){
-                $("#submitOrd").removeClass("loading","negative").addClass("positive");
+                $("#submitOrd").removeClass("loading").addClass("positive");
             } else {
-                $("#submitOrd").removeClass("loading","positive").addClass("negative");
+                $("#submitOrd").removeClass("loading").addClass("negative");
             }
-
+            setTimeout(function(){$("#submitOrd").removeClass("negative","positive")},2000)''
         });
     })
     // On add account close
