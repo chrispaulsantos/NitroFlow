@@ -82,6 +82,7 @@
                       VALUES(:accname,:acczip,:accstradd,:accaptnum,:accstate,:accunits)";
             try {
                 $stmt = $dbh->prepare($query);
+                error_log(json_encode($stmt));
                 $stmt->bindParam(":accname",$accName);
                 $stmt->bindParam(":acczip",$accZip);
                 $stmt->bindParam(":accstradd",$accStrAdd);
