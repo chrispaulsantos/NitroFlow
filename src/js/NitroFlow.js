@@ -394,7 +394,7 @@ function parseAddAcct(){
     var acct = {
         accName: $("#acctName").val(),
         accAddress: $("#address").val(),
-        accAptNum: $("#address-2"),
+        accAptNum: $("#address-2").val(),
         accState: $("#state").val(),
         accZip: $("#zip").val(),
         accUnitCount: $("#unitCount").val()
