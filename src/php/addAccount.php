@@ -18,7 +18,7 @@
         $acc->accAptNum    = $tempAcc["accAptNum"];
         $acc->accState     = $tempAcc["accState"];
         $acc->accZip       = $tempAcc["accZip"];
-        $acc->accUnitCount = $tempAcc["AccUnitCount"];
+        $acc->accUnitCount = $tempAcc["accUnitCount"];
     }
 
     $accId = $acc->insertAccount();
