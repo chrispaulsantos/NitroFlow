@@ -116,6 +116,9 @@
                                     <option value="<?php echo $location['id']; ?>"><?php echo $location['location']; ?></option>
                                 <?php endforeach; ?>
                             </select> <!-- Location dropdown -->
+                            <div id="locationPopup" class="ui special popup">
+                                <div class="ui button">Click Me</div>
+                            </div>
                         </div>
 
                     </div>

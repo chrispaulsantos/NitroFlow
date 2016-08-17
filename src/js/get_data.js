@@ -126,10 +126,13 @@ $(document).ready(function() {
             if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
                 dateCheck = false;
                 //$(".ui.message").removeClass("hidden");
-                $(".icon.refresh").popup('setting',{
-                    target  : '#dates',
-                    content : 'Please select a date range!',
+                $('.icon.refresh').popup({
+                    popup : $('#datePopup')
                 });
+                // $(".icon.refresh").popup('changeContent',{
+                //     target  : '#dates',
+                //     content : 'Please select a date range!',
+                // });
                 $(".icon.refresh").popup('show');
             } else {
                 $(".icon.refresh").popup('destroy');
@@ -137,10 +140,13 @@ $(document).ready(function() {
             }
             if($("#location").val() == null || $("#location").val() == ""){
                 locationCheck = false;
-                $(".icon.refresh").popup('setting',{
+                $('.icon.refresh').popup({
+                    popup : $('#locationPopup')
+                });
+                /*$(".icon.refresh").popup('setting',{
                     target  : '#location-holder',
                     content : 'Please select a location!',
-                });
+                });*/
                 $(".icon.refresh").popup('show');
             } else {
                 $(".icon.refresh").popup('destroy');
