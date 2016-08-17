@@ -80,6 +80,7 @@
                 $stmt->bindParam(":zip", $this->accZip);
                 $stmt->bindParam(":aptnum",$this->accAptNum);
                 $stmt->execute();
+                error_log(json_encode($stmt));
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
             }
