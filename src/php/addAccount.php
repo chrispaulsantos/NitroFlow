@@ -19,10 +19,11 @@
         $acc->accState     = $tempAcc["accState"];
         $acc->accZip       = $tempAcc["accZip"];
         $acc->accUnitCount = $tempAcc["accUnitCount"];
+
+        $acc->insertAccount();
+        createUID($acc);
     }
 
-    $accId = $acc->insertAccount();
-    error_log($accId);
 
 
 
@@ -40,20 +41,20 @@
     /**/ //INSERT UNREG IDS
 
 
-    function createUID($acct){
-        $l = $acct["acctUnitCount"];
+    function createUID($acc){
+        $l = $acc->accUnitCount;
 
         for($i = 1; $i <= $l; $i++){
 
-            $zip = $acct["acctZip"];
+            $zip = $acc->accZip;
             if(strlen($zip) == 4){
                 $zip = "0" . $zip;
             }
 
-            //$vendor = $acct["acctVendor"];
-            $vendor = "1";
-            for($j = 0; strlen($vendor) < 4; $j++){
-                $vendor = "0" . $vendor;
+            $vendorId = strtoupper(dechex($acc->accId));
+            //$vendor = "1";
+            for($j = 0; strlen($vendorId) < 4; $j++){
+                $vendorId = "0" . $vendorId;
             }
 
             $unitNum = strtoupper(dechex($i));
@@ -75,6 +76,7 @@
         public $accState;
         public $accZip;
         public $accUnitCount;
+        public $accId;
 
         public function insertAccount(){
             $dbh = DBConnection::instance();
@@ -90,8 +92,9 @@
                 $stmt->bindParam(":accstate",$this->accState);
                 $stmt->bindParam(":accunits",$this->accUnitCount);
                 $stmt->execute();
-                $id = $dbh->lastInsertId();
-                return $id;
+
+                // Get last insert id
+                $this->accId = $dbh->lastInsertId();
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
             }
