@@ -378,7 +378,7 @@ function timeStamp() {
     return date.join("/") + " " + time.join(":") + " " + suffix;
 }
 function updateTime(){
-    $("#time").empty().append("<i class='icon refresh'></i> Last Updated: " + timeStamp());
+    $("#time").empty().append("<i class='icon refresh'></i> Last Updated: " + moment().format("MMM DD YYYY HH:mm:ss A"));
     $('#alert').empty();
 }
 function randomColorGenerate(alpha){
