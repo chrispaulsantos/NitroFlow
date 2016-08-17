@@ -35,13 +35,17 @@
         public $accUnitCount;
         public $accId;
         public $UIDS = array();
+        public $dbh;
+
+        function __construct(){
+            return $this->dbh = DBConnection::instance();
+        }
 
         public function insertAccount(){
-            $dbh = DBConnection::instance();
             $query = "INSERT INTO `Locations`(`AccName`, `AccZip`, `AccStrAdd`, `AccAptNum`, `AccState`, `AccUnits`)
                       VALUES(:accname,:acczip,:accstradd,:accaptnum,:accstate,:accunits)";
             try {
-                $stmt = $dbh->prepare($query);
+                $stmt = $this->dbh->prepare($query);
                 error_log(json_encode($stmt));
                 $stmt->bindParam(":accname", $this->accName);
                 $stmt->bindParam(":acczip",$this->accZip);
@@ -80,12 +84,12 @@
                 $UIDS[] = "\$UID$" . $zip . $vendorId . $unitNum;
                 error_log("\$UID$" . $zip . $vendorId . $unitNum);
             }
-            $this->UIDS;
+            $this->UIDS = $UIDS;
         }
         public function insertUnregisteredUIDs(){
             foreach($this->UIDS as $UID){
                 try {
-                    $stmt = DBConnection::instance()->prepare("INSERT INTO UnregisteredUID(P_Id,UID) VALUES(:vendorid,:UID)");
+                    $stmt = $this->dbh->prepare("INSERT INTO UnregisteredUID(P_Id,UID) VALUES(:vendorid,:UID)");
                     $stmt->bindParam(":UID",$UID);
                     $stmt->bindParam(":vendorid",$this->accId);
                     $stmt->execute();
