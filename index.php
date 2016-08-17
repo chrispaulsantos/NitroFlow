@@ -29,7 +29,6 @@
         // echo "Please login, redirecting...";
         sleep(1);
         header("Location: http://159.203.186.131/login.php"); /* Redirect browser */
-        //header("Location: http://127.0.0.1:8888/login.php"); /* Redirect browser */
         exit();
     }
 
@@ -40,23 +39,23 @@
 
     // Get regions
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT region FROM Locations");
+        $stmt = DBConnection::instance()->prepare("SELECT DISTINCT AccZip FROM Locations");
         $stmt->execute();
     } catch (Exception $e){
         error_log("Error: " .$e->getMessage());
     }
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $regions[] = $row["region"];
+        $regions[] = $row["AccZip"];
     }
     // Get locations
     try {
-        $stmt = DBConnection::instance()->prepare("SELECT P_Id, location FROM Locations");
+        $stmt = DBConnection::instance()->prepare("SELECT P_Id, AccStrAdd FROM Locations");
         $stmt->execute();
     } catch (Exception $e){
         error_log("Error: " .$e->getMessage());
     }
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $locations[] = ['id' => $row["P_Id"], 'location' => $row["location"]];
+        $locations[] = ['id' => $row["P_Id"], 'location' => $row["AccStrAdd"]];
     }
     // Get account names
 ?>
