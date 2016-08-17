@@ -180,7 +180,7 @@ $(document).ready(function() {
             } else {
                 $("#submitOrd").removeClass("loading").addClass("negative");
             }
-            setTimeout(function(){$("#submitOrd").removeClass("negative","positive")},2000)''
+            setTimeout(function(){$("#submitOrd").removeClass("negative","positive");},2000)''
         });
     })
     // On add account close
