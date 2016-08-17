@@ -72,8 +72,8 @@
             }
         }
         public function checkIfExists(){
-            $query = "SELECT EXISTS(SELECT * FROM Locations 
-                                    WHERE accStrAdd = :stradd, accZip = :zip, accAptNum = :aptnum)";
+            error_log("Checking");
+            $query = "SELECT EXISTS(SELECT * FROM Locations WHERE accStrAdd = :stradd, accZip = :zip, accAptNum = :aptnum)";
             try {
                 $stmt = $this->dbh->prepare($query);
                 $stmt->bindParam(":stradd", $this->accStrAdd);
