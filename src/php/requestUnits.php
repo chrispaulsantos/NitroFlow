@@ -15,6 +15,7 @@
         $acc->accId = dechex(71);
         $next = $acc->getNextUID(71);
         $acc->createUIDs($next);
+        $acc->insertUnregisteredUIDs();
     } catch (Exception $e){
         error_log("Error: " > $e->getMessage());
     }
