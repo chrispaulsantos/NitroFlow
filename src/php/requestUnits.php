@@ -12,9 +12,9 @@
     try {
         $acc = new account();
         $acc->accUnitCount = 15;
-        $acc->accId = dechex(66);
-        $acc->getNextUID(1);
-        $acc->createUIDs(11);
+        $acc->accId = dechex(71);
+        $next = $acc->getNextUID(77);
+        $acc->createUIDs($next);
     } catch (Exception $e){
         error_log("Error: " > $e->getMessage());
     }

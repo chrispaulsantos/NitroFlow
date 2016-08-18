@@ -81,7 +81,6 @@
             }
         }
         public function getNextUID($accId){
-            $accId = 66;
             try {
                 $stmt = $this->dbh->prepare("SELECT AccUnits FROM Locations WHERE P_Id = :id");
                 $stmt->bindParam(":id",$accId);
@@ -91,9 +90,10 @@
             }
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $currentId = $row["AccUnits"] + 1;
+            $nextUID = $row["AccUnits"] + 1;
 
-            echo $currentId;
+            echo $nextUID;
+            return $nextUID;
         }
         public function checkIfExists(){
             $query = "SELECT EXISTS(SELECT * FROM `Locations` 
