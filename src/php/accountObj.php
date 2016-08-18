@@ -121,11 +121,12 @@
             }
         }
         public function updateUnitCount(){
+            $units = $this->accCurrCount + $this->accUnitCount;
             try {
                 $stmt = $this->dbh->prepare("UPDATE `Locations`
                                              SET AccUnits = :units
                                              WHERE P_Id = :id");
-                $stmt->bindParam(":units", $this->accCurrCount + $this->accUnitCount);
+                $stmt->bindParam(":units", $units);
                 $stmt->bindParam(":id",hexdec($this->accId));
                 $stmt->execute();
             } catch (Exception $e) {
