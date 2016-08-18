@@ -65,101 +65,11 @@ $(document).ready(function() {
     });
     // Listen on location change
     $(document).on("change","#location",function(){
-        var dateCheck = false;
-        var locationCheck = false;
-        // variables for drawing the chart; datasets.data and labels initially empty
-        if (flag != false) {
-            if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
-                dateCheck = false;
-                var selector = $('#dates');
-                selector.popup({
-                    target: selector,
-                    content: "Please select a valid date range!",
-                    closable: false
-                });
-                selector.popup('show');
-            } else {
-                $("#dates").popup('destroy');
-                dateCheck = true;
-            }
-            if($("#location").val() == null || $("#location").val() == ""){
-                locationCheck = false;
-            } else {
-                locationCheck = true;
-            }
-
-            if(dateCheck && locationCheck){
-                var options = {
-                    scales: {
-                        yAxes: [{
-                            gridLines: {
-                                display: false
-                            },
-                            ticks: {
-                                max: 100,
-                                min: 0,
-                                stepSize: 10
-                            }
-                        }],
-                        xAxes: [{
-                            gridLines: {
-                                display: false
-                            }
-                        }]
-                    }
-                };
-                getByLocation(options);
-            }
-        }
+        updateLocation();
     });
     // On refresh click
     $(document).on("click",".icon.refresh",function(){
-        var dateCheck = false;
-        var locationCheck = false;
-        // variables for drawing the chart; datasets.data and labels initially empty
-        if (flag != false) {
-            if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
-                dateCheck = false;
-                var selector = $('#dates');
-                selector.popup({
-                    target: selector,
-                    content: "Please select a valid date range!",
-                    closable: false
-                });
-                selector.popup('show');
-            } else {
-                $("#dates").popup('destroy');
-                dateCheck = true;
-            }
-            if($("#location").val() == null || $("#location").val() == ""){
-                locationCheck = false;
-            } else {
-                locationCheck = true;
-            }
-
-            if(dateCheck && locationCheck){
-                var options = {
-                    scales: {
-                        yAxes: [{
-                            gridLines: {
-                                display: false
-                            },
-                            ticks: {
-                                max: 100,
-                                min: 0,
-                                stepSize: 10
-                            }
-                        }],
-                        xAxes: [{
-                            gridLines: {
-                                display: false
-                            }
-                        }]
-                    }
-                };
-                getByLocation(options);
-            }
-        }
+        updateLocation();
     });
     // On add account menu click
     $(document).on("click","#addAccBt",function(){
@@ -265,6 +175,54 @@ function getByRegion(data, options){
             }
         });
     }, 5000);
+}
+function updateLocation(){
+    var dateCheck = false;
+    var locationCheck = false;
+    // variables for drawing the chart; datasets.data and labels initially empty
+    if (flag != false) {
+        if($("#fromDate").val() == null || $("#fromDate").val() == "" || $("#toDate").val() == null || $("#toDate").val() == "") {
+            dateCheck = false;
+            var selector = $('#dates');
+            selector.popup({
+                target: selector,
+                content: "Please select a valid date range!",
+                closable: false
+            });
+            selector.popup('show');
+        } else {
+            $("#dates").popup('destroy');
+            dateCheck = true;
+        }
+        if($("#location").val() == null || $("#location").val() == ""){
+            locationCheck = false;
+        } else {
+            locationCheck = true;
+        }
+
+        if(dateCheck && locationCheck){
+            var options = {
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            display: false
+                        },
+                        ticks: {
+                            max: 100,
+                            min: 0,
+                            stepSize: 10
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            };
+            getByLocation(options);
+        }
+    }
 }
 function getByLocation(options){
     // Have to clear interval if graph is changed to line after region
