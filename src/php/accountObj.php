@@ -73,8 +73,9 @@
         }
         public function getUIDNumber(){
             $UID = "\$UID$000A001A";
-            $id = substr($UID,5,4);
-            echo hexdec($id);
+            $currentId = substr($UID,9,4);
+
+            echo hexdec($currentId);
         }
         public function checkIfExists(){
             $query = "SELECT EXISTS(SELECT * FROM `Locations` 
