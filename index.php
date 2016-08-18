@@ -101,9 +101,9 @@
                         <div id="region-holder">
                             <select id="region" class="ui fluid scrolling search dropdown">
                                 <option value="">Select Region</option>
-                                <option value="ALL" data-title="All Regions">Select All Regions</option>
+                                <option value="ALL">Select All Regions</option>
                                 <?php foreach($regions as $region): ?>
-                                    <option value="<?php echo $region; ?>" data-title="<?php echo $region; ?>"><?php echo $region; ?></option>
+                                    <option value="<?php echo $region; ?>"><?php echo $region; ?></option>
                                 <?php endforeach; ?>
                             </select> <!-- Region dropdown -->
                         </div>

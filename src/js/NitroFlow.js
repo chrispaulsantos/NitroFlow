@@ -36,7 +36,14 @@ $(document).ready(function() {
             labels: [],
             datasets: [
                 {
-                    label: $("#region option").attr("data-title"),
+                    label: function(){
+                        label = $("#region").val();
+                        if(label == "ALL"){
+                            return "All Regions";
+                        } else {
+                            return label;
+                        }
+                    },
                     backgroundColor: color,
                     borderColor: color,
                     borderWidth: 1,
