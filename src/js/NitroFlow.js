@@ -36,7 +36,7 @@ $(document).ready(function() {
             labels: [],
             datasets: [
                 {
-                    label: $("#region>option").attr("data-title"),
+                    label: $("#region option").attr("data-title"),
                     backgroundColor: color,
                     borderColor: color,
                     borderWidth: 1,
