@@ -90,7 +90,7 @@ $(document).ready(function() {
             } else {
                 $("#addAccSubmit").removeClass("loading").addClass("negative");
             }
-            setTimeout(function(){$("#addAccSubmit").removeClass("negative","positive");},2000);
+            setTimeout(function(){$("#addAccSubmit").removeClass("negative positive");},2000);
         });
     })
     // On add account close
@@ -116,7 +116,7 @@ $(document).ready(function() {
             } else {
                 $("#reqUnitsSubmit").removeClass("loading").addClass("negative");
             }
-            setTimeout(function(){$("#reqUnitsSubmit").removeClass("negative","positive");},2000);
+            setTimeout(function(){$("#reqUnitsSubmit").removeClass("negative positive");},2000);
         });
     })
     // On request units close
