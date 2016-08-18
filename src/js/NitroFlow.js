@@ -10,7 +10,7 @@ var lineData = {
 //Flag used for checking which graph type is being used
 var flag = false;
 
-chart.defaults.global.hover: {mode: 'dataset'};
+chart.defaults.global.hover = {mode: 'dataset'};
 
 $(document).ready(function() {
     //Initialize all css style and jquery handlers theat require the DOM to be built
