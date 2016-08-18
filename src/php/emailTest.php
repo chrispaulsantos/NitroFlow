@@ -6,8 +6,7 @@
  * Time: 11:09 AM
  */
 
-require "../includes/class.phpmailer.php";
-require "../includes/class.smtp.php";
+require "../includes/PHPMailer/PHPMailerAutoload.php";
 
 $mail = new PHPMailer();
 
