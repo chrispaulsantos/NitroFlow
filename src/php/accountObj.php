@@ -72,7 +72,7 @@
             foreach($this->UIDS as $UID){
                 try {
                     $stmt = $this->dbh->prepare("INSERT INTO `UnregisteredUID`(`P_Id`,`UID`) VALUES(:vendorid,:UID)");
-                    $stmt->bindParam(":vendorid",$this->hexdec(accId));
+                    $stmt->bindParam(":vendorid",hexdec($this->accId));
                     $stmt->bindParam(":UID",$UID);
                     $stmt->execute();
                 } catch (Exception $e){
