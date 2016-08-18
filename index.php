@@ -140,7 +140,7 @@
                                 <i class="icon angle left"></i>Please select a location.
                             </div>
                         </div>
-                        <div id="time"><i class="icon refresh"></i> Last Updated: </div>
+                        <div id="time"><i class="icon refresh" style="cursor: pointer;"></i> Last Updated: </div>
                     </div>
                 </div>
             </div>
