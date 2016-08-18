@@ -7,11 +7,10 @@ var lineData = {
     labels: [],
     datasets: []
 };
+//Flag used for checking which graph type is being used
+var flag = false;
 
 $(document).ready(function() {
-    //Flag used for checking which graph type is being used
-    var flag = false;
-
     //Initialize all css style and jquery handlers theat require the DOM to be built
     init();
 
