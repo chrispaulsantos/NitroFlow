@@ -26,7 +26,6 @@
         }
      // If user token is not set, redirect to login page
     } else {
-        // echo "Please login, redirecting...";
         sleep(1);
         header("Location: http://159.203.186.131/login.php"); /* Redirect browser */
         exit();
@@ -285,37 +284,5 @@
                 </form> <!-- Request Unit Form -->
             </div>
         </div>
-
-        <script>
-            $('#content').css("margin-top", window.innerHeight/2-(300));
-            $('#addAccForm').css("margin-top", window.innerHeight/2-(150));
-            $('#reqUnitForm').css("margin-top", window.innerHeight/2-(150));
-            $('.ui.dropdown').dropdown({ fullTextSearch: true });
-            $( "#fromDate" ).datepicker();
-            $( "#toDate" ).datepicker();
-            $('.message .close').on('click', function() {
-                    $(this).closest('.message').transition('fade');
-            });
-            $(document).ready(function(){
-                $("#location-holder").hide();
-                $("#dates").hide();
-                $("#location-alert").hide();
-                $("#addAccDim").dimmer({
-                    closable: false,
-                    duration: {
-                        show:500,
-                        hide:500
-                    }
-                });
-                $("#reqUnitDim").dimmer({
-                    closable: false,
-                    duration: {
-                        show:500,
-                        hide:500
-                    }
-                });
-            });
-        </script>
-
     </body>
 </html>

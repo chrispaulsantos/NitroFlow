@@ -9,7 +9,11 @@ var lineData = {
 };
 
 $(document).ready(function() {
-    var flag = false; //Flag used for checking which graph type is being used
+    //Flag used for checking which graph type is being used
+    var flag = false;
+
+    //Initialize all css style and jquery handlers theat require the DOM to be built
+    init();
 
     // Hide/Show inputs based on position of toggle
     $(document).on("change","input[name=graph-type]",function(){
@@ -128,6 +132,34 @@ $(document).ready(function() {
     })
 });
 
+function init(){
+    $('#content').css("margin-top", window.innerHeight/2-(300));
+    $('#addAccForm').css("margin-top", window.innerHeight/2-(150));
+    $('#reqUnitForm').css("margin-top", window.innerHeight/2-(150));
+    $('.ui.dropdown').dropdown({ fullTextSearch: true });
+    $( "#fromDate" ).datepicker();
+    $( "#toDate" ).datepicker();
+    $('.message .close').on('click', function() {
+        $(this).closest('.message').transition('fade');
+    });
+    $("#location-holder").hide();
+    $("#dates").hide();
+    $("#location-alert").hide();
+    $("#addAccDim").dimmer({
+        closable: false,
+        duration: {
+            show:500,
+            hide:500
+        }
+    });
+    $("#reqUnitDim").dimmer({
+        closable: false,
+        duration: {
+            show:500,
+            hide:500
+        }
+    });
+}
 function getByRegion(data, options){
     var region = $("#region").val();
     $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
