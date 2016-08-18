@@ -359,7 +359,7 @@ function buildLineData(obj){
     return lineData;
 }
 function updateTime(){
-    $("#time").empty().append("<i class='icon refresh'></i> Last Updated: " + moment().format("MMM DD YYYY HH:mm:ss A"));
+    $("#time").empty().append("<i class='icon refresh' style='cursor: pointer'></i> Last Updated: " + moment().format("MMM DD YYYY HH:mm:ss A"));
     $('#alert').empty();
 }
 function randomColorGenerate(alpha){
