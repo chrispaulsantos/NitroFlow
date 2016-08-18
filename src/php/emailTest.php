@@ -9,17 +9,26 @@
 require "../includes/PHPMailer/class.phpmailer.php";
 require "../includes/PHPMailer/class.smtp.php";
 
-$mail = new PHPMailer();
+class nitroMail {
+    public $mail;
 
-$mail->SMTPDebug = 3;
 
-$mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = true;
-$mail->Username = 'nitroflow.alerts';
-$mail->Password = 'Crableg12';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
+    public function create(){
+        $this->mail = new PHPMailer();
+
+        $this->mail->SMTPDebug = 3;
+
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'nitroflow.alerts';
+        $mail->Password = 'Crableg12';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+    }
+}
+
+
 
 $mail->setFrom('mail@nitroflow.com','Admin');
 $mail->addAddress('chrissantosproduction@gmail.com','Chris');

@@ -27,7 +27,13 @@
     $questionmarks = str_repeat("?,", count($params)-1) . "?";
     array_push($params, $toDate, $fromDate);
 
-    $query = "SELECT `Location_Data`.capacity,`Location_Data`.P_Id, `Locations`.AccStrAdd FROM Location_Data INNER JOIN Locations ON Locations.P_Id = Location_Data.P_Id WHERE Location_Data.P_Id IN ($questionmarks) AND timeStamp < ? AND timeStamp > ?";
+    $query = "SELECT `Location_Data`.capacity,`Location_Data`.P_Id, `Location_Data`.timeStamp, `Locations`.AccStrAdd 
+              FROM Location_Data 
+              INNER JOIN Locations 
+              ON Locations.P_Id = Location_Data.P_Id 
+              WHERE Location_Data.P_Id 
+              IN ($questionmarks) 
+              AND timeStamp < ? AND timeStamp > ?";
     try {
         $stmt = DBConnection::instance()->prepare($query);
         $stmt->execute($params);
@@ -89,24 +95,6 @@ function getN($points){
     error_log($n);
     return $n;
 }
-function sumEveryN($data,$n){
-    $avgs = [];
-    $i = 0;
-    while($i < count($data)){
-        $sum = 0;
-        for($j = 0; $j < $n; $j++){
-            if(!isset($data[$i])){
-                $sum += 0;
-                $i++;
-            } else {
-                $sum += $data[$i];
-                $i++;
-            }
-        }
-        $avgs[] = $sum / $n;
-    }
-    return $avgs;
-}
 function organizeData($data,$ids){
     $objArr = array();
 
@@ -122,7 +110,7 @@ function organizeData($data,$ids){
             // If P_Id is equal to id, push the capacity to the object capacity array
             if($data[$index]["P_Id"] == $id){
                 $obj->location = $data[$index]["AccStrAdd"];
-                $obj->pushCapacity($data[$index]["capacity"]);
+                $obj->pushCapacity($data[$index]["capacity"],$data[$index]["timeStamp"]);
             }
             $index++;
         }
@@ -136,8 +124,10 @@ class dataObj {
     public $id;
     public $location;
     public $capacity = array();
+    public $timeStamp = array();
 
-    public function pushCapacity($val){
+    public function pushData($val,$t){
         array_push($this->capacity,$val);
+        array_push($this->timeStamp,$t);
     }
 }

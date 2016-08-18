@@ -339,9 +339,10 @@ function buildLineData(obj){
     lineData.datasets = [];
     lineData.labels = [];
 
+    console.log(obj);
     // Set labels
-    for(j = 0; j < obj[0].capacity.length; j++){
-        lineData.labels[j] = " ";
+    for(i = 0; i < obj[0].capacity.length; j++){
+        lineData.labels[i] = " ";
     }
 
     // For each object in return value, set datasets equal to capacity

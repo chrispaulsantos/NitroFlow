@@ -10,6 +10,7 @@
 - Add account inserts new id, and generates unregistered UID's
 - Changed pointer on refresh icon
 - Moved initializers to js file from index.php
+- Added labels to graph
 
 ## [1.0.0] - 2016-8-4
 - Login function with redirect
