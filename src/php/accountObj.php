@@ -68,11 +68,12 @@
             }
         }
         public function insertUnregisteredUIDs(){
+            error_log("Inserting: " .json_encode($this->UIDS));
             foreach($this->UIDS as $UID){
                 try {
-                    $stmt = $this->dbh->prepare("INSERT INTO UnregisteredUID(P_Id,UID) VALUES(:vendorid,:UID)");
-                    $stmt->bindParam(":UID",$UID);
+                    $stmt = $this->dbh->prepare("INSERT INTO `UnregisteredUID`(`P_Id`,`UID`) VALUES(:vendorid,:UID)");
                     $stmt->bindParam(":vendorid",$this->accId);
+                    $stmt->bindParam(":UID",$UID);
                     $stmt->execute();
                 } catch (Exception $e){
                     error_log("Error: " . $e->getMessage());
