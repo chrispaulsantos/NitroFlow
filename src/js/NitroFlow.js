@@ -88,10 +88,10 @@ $(document).ready(function() {
             if(response != "EXISTS"){
                 $("#addAccSubmit").removeClass("loading").addClass("positive");
             } else {
-                $("#addAccSubmit").removeClass("loading").addClass("negative");
+                $("#addAccSubmit").removeClass("loading").addClass("negative").empty().append("Account Exists");
             }
             setTimeout(function(){
-                $("#addAccSubmit").removeClass("negative positive").empty().append("Account Exists");
+                $("#addAccSubmit").removeClass("negative positive");
             },2000);
         });
     })
