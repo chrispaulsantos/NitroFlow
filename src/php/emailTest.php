@@ -14,6 +14,7 @@ $mail->SMTPDebug = 3;
 
 $mail->isSMTP();
 $mail->Host = 'smtp.google.com';
+$mail->SMTPAuth = true;
 $mail->Username = 'chrissantosproduction@gmail.com';
 $mail->Password = 'Jedaii2017';
 $mail->SMTPSecure = 'tls';
