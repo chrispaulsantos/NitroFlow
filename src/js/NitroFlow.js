@@ -117,14 +117,14 @@ $(document).ready(function() {
                 acc: parseReqUnits()
              }
         }).done(function(){
-            if(response != "EXISTS"){
+            /*if(response != "EXISTS"){
                 $("#reqUnitsSubmit").removeClass("loading").addClass("positive");
             } else {
                 $("#reqUnitsSubmit").removeClass("loading").addClass("negative");
             }
             setTimeout(function(){
                 $("#reqUnitsSubmit").removeClass("negative positive").empty();
-            },2000);
+            },2000);*/
         });
     })
     // On request units close
