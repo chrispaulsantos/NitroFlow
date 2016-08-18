@@ -44,6 +44,8 @@
                 $l = $this->accUnitCount + $start;
             }
 
+            echo $start . " : " . $l;
+
             for($i = $start; $i <= $l; $i++){
 
                 $zip = $this->accZip;
