@@ -14,8 +14,8 @@
         $acc->accZip = "02210";
         $acc->accUnitCount = 15;
         $acc->accId = dechex(71);
-        $next = $acc->getNextUID();
-        $acc->createUIDs($next);
+        $next = $acc->getNextUID(71);
+        $acc->createUIDs();
         $acc->insertUnregisteredUIDs();
     } catch (Exception $e){
         error_log("Error: " > $e->getMessage());
