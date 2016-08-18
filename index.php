@@ -152,7 +152,7 @@
                     <h4 class="ui left aligned inverted dividing header">
                         Add Account
                         <div class="ui icon right aligned" style="float: right;margin-right: 0px;">
-                            <i id="closeAddAcc" class="remove inverted icon" style="cursor: pointer;"></i>
+                            <i id="closeAddAcc" class="remove inverted icon" style="cursor: pointer;margin-right: 0px;"></i>
                         </div>
                     </h4>
                     <div class="field">
@@ -256,7 +256,7 @@
                     <h4 class="ui left aligned inverted dividing header">
                         Request Units
                         <div class="ui icon right aligned" style="float: right;margin-right: 0px;">
-                            <i id="closeReqUnit" class="remove inverted icon" style="cursor: pointer"></i>
+                            <i id="closeReqUnit" class="remove inverted icon" style="cursor: pointer;margin-right: 0px;"></i>
                         </div>
                     </h4>
                     <div class="field">
