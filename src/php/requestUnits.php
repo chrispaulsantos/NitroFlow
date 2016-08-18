@@ -12,11 +12,8 @@
     if($_GET != null){
         $VAR = $_GET["acc"];
         $acc = new account();
-        $acc->accUnitCount = $VAR["units"];
-        $acc->getAccInfo($VAR["accId"]);
-        $acc->getNextUID();
-        $acc->createUIDs();
-        $acc->insertUnregisteredUIDs();
+        $acc->requestedUnits = $VAR["units"];
+        $acc->updateAccount($VAR["accId"]);
     }
 
 

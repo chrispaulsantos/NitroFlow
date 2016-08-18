@@ -18,12 +18,11 @@
         $acc->accAptNum    = $tempAcc["accAptNum"];
         $acc->accState     = $tempAcc["accState"];
         $acc->accZip       = $tempAcc["accZip"];
-        $acc->accUnitCount = $tempAcc["accUnitCount"];
+        $acc->currentUnits = $tempAcc["accUnitCount"];
 
+        // Check if the account exists, if not, insert
         if(!$acc->checkIfExists()){
             $acc->insertAccount();
-            $acc->createUIDs();
-            $acc->insertUnregisteredUIDs();
         } else {
             echo "EXISTS";
         }
