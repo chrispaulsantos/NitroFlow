@@ -8,6 +8,7 @@
 - Added add account form
 - Added request unit form
 - Add account inserts new id, and generates unregistered UID's
+- Changed pointer on refresh icon
 
 ## [1.0.0] - 2016-8-4
 - Login function with redirect

@@ -92,7 +92,7 @@
             </div>
         </div>
 
-        <div id='content' class="ui blurring container" style="height: 500px; width: 1100px;">
+        <div id='content' class="ui container" style="height: 500px; width: 1100px;">
             <div class="ui grid">
 
                 <div class="five wide column">
@@ -146,7 +146,7 @@
             </div>
         </div>
 
-        <div id="addAccDim" class="ui inverted page dimmer">
+        <div id="addAccDim" class="ui page dimmer">
             <div class="ui container" style="width:500px; height:196px;">
                 <form id="addAccForm" class="ui form">
                     <h4 class="ui left aligned dividing header">
@@ -250,7 +250,7 @@
                 </form> <!-- Add Account Form -->
             </div>
         </div>
-        <div id="reqUnitDim" class="ui inverted page dimmer">
+        <div id="reqUnitDim" class="ui page dimmer">
             <div class="ui container" style="width:500px; height:196px;">
                 <form id="reqUnitForm" class="ui form">
                     <h4 class="ui left aligned dividing header">
