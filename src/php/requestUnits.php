@@ -13,8 +13,9 @@
         $acc = new account();
         $acc->accZip = "02210";
         $acc->accUnitCount = 15;
-        $acc->accId = dechex(71);
-        $next = $acc->getNextUID(71);
+        $acc->accId = dechex(72);
+
+        $acc->getNextUID();
         $acc->createUIDs();
         $acc->insertUnregisteredUIDs();
     } catch (Exception $e){

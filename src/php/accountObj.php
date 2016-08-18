@@ -87,10 +87,10 @@
                 $this->updateUnitCount();
             }
         }
-        public function getNextUID($accId){
+        public function getNextUID(){
             try {
                 $stmt = $this->dbh->prepare("SELECT AccUnits FROM Locations WHERE P_Id = :id");
-                $stmt->bindParam(":id",$accId);
+                $stmt->bindParam(":id",hexdec($this->accId));
                 $stmt->execute();
             } catch (Exception $e) {
                 error_log("Error: " . $e->getMessage());
