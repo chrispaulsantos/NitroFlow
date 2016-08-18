@@ -71,11 +71,20 @@
                 }
             }
         }
-        public function getUIDNumber(){
-            $UID = "\$UID$000A0F1A";
-            $currentId = substr($UID,9,4);
+        public function getNextUID($accId){
+            $accId = 66;
+            try {
+                $stmt = $this->dbh->prepare("SELECT AccUnits FROM Locations WHERE P_Id = :id");
+                $stmt->bindParam(":id",$accId);
+                $stmt->execute();
+            } catch (Exception $e) {
+                error_log("Error: " . $e->getMessage());
+            }
 
-            echo hexdec($currentId);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $currentId = $row["AccUnits"] + 1;
+
+            echo $currentId;
         }
         public function checkIfExists(){
             $query = "SELECT EXISTS(SELECT * FROM `Locations` 
