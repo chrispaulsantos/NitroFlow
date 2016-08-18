@@ -44,7 +44,7 @@
                 $l = $this->accUnitCount + $start;
             }
 
-            echo "</br" . $start . " : " . $l;
+            echo "</br>" . $start . " : " . $l;
 
             for($i = $start; $i <= $l; $i++){
 
