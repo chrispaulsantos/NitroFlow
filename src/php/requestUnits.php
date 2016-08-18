@@ -12,7 +12,7 @@
     try {
         $acc = new account();
         $acc->accUnitCount = 15;
-        $acc->accId = 66;
+        $acc->accId = dechex(66);
         $acc->getNextUID(1);
         $acc->createUIDs(11);
     } catch (Exception $e){
