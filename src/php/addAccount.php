@@ -22,7 +22,7 @@
 
         if(!$acc->checkIfExists()){
             $acc->insertAccount();
-            $acc->createUIDs();
+            $acc->createUIDs(null);
             $acc->insertUnregisteredUIDs();
         } else {
             echo "EXISTS";

@@ -35,10 +35,14 @@
                 error_log("Error: " . $e->getMessage());
             }
         }
-        public function createUIDs(){
+        public function createUIDs($start){
             $l = $this->accUnitCount;
 
-            for($i = 1; $i <= $l; $i++){
+            if(!$start){
+                $start = 1;
+            }
+
+            for($i = $start; $i <= $l; $i++){
 
                 $zip = $this->accZip;
                 if(strlen($zip) == 4){
@@ -56,7 +60,7 @@
                 }
 
                 $this->UIDS[] = "\$UID$" . $zip . $vendorId . $unitNum;
-                error_log("\$UID$" . $zip . $vendorId . $unitNum);
+                echo "\$UID$" . $zip . $vendorId . $unitNum;
             }
         }
         public function insertUnregisteredUIDs(){

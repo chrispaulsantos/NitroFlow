@@ -12,6 +12,7 @@
     try {
         $acc = new account();
         $acc->getNextUID();
+        $acc->createUIDs(11);
     } catch (Exception $e){
         error_log("Error: " > $e->getMessage());
     }
