@@ -46,6 +46,7 @@
                 $start = 1;
                 $l = $this->accUnitCount;
             } else {
+                $start = $this->accCurrCount + 1;
                 $l = $this->accUnitCount + $this->accCurrCount;
             }
 
