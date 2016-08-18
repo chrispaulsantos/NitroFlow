@@ -341,7 +341,7 @@ function buildLineData(obj){
 
     console.log(obj);
     // Set labels
-    for(i = 0; i < obj[0].capacity.length; j++){
+    for(i = 0; i < obj[0].capacity.length; i++){
         lineData.labels[i] = " ";
     }
 
