@@ -13,7 +13,7 @@ $mail = new PHPMailer();
 
 $mail->isSMTP();
 $mail->Host = 'smtp.google.com';
-$mail->Username = 'chrissantosproduction';
+$mail->Username = 'chrissantosproduction@gmail.com';
 $mail->Password = 'Jedaii2017';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
