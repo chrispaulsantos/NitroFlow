@@ -7,7 +7,11 @@
         public $accAptNum;
         public $accState;
         public $accZip;
+        // Units requested
         public $accUnitCount;
+        // Current units
+        public $accCurrCount;
+        // Account id in hex
         public $accId;
         public $UIDS = array();
         public $dbh;
@@ -35,13 +39,14 @@
                 error_log("Error: " . $e->getMessage());
             }
         }
-        public function createUIDs($start){
+        public function createUIDs(){
+            $start = null;
 
-            if(!$start){
+            if(!$this->accCurrCount){
                 $start = 1;
                 $l = $this->accUnitCount;
             } else {
-                $l = $this->accUnitCount + $start;
+                $l = $this->accUnitCount + $this->accCurrCount;
             }
 
             error_log("Start: " . $start . " End: " . $l);
@@ -78,6 +83,7 @@
                 } catch (Exception $e){
                     error_log("Error: " . $e->getMessage());
                 }
+                $this->updateUnitCount();
             }
         }
         public function getNextUID($accId){
@@ -90,10 +96,7 @@
             }
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $nextUID = $row["AccUnits"] + 1;
-
-            echo $nextUID;
-            return $nextUID;
+            $this->accCurrCount = $row["AccUnits"];
         }
         public function checkIfExists(){
             $query = "SELECT EXISTS(SELECT * FROM `Locations` 
@@ -114,6 +117,18 @@
                 return true;
             } else {
                 return false;
+            }
+        }
+        public function updateUnitCount(){
+            try {
+                $stmt = $this->dbh->prepare("UPDATE `Locations`
+                                             SET AccUnits = :units
+                                             WHERE P_Id = :id");
+                $stmt->bindParam(":units", $this->accCurrCount + $this->accUnitCount);
+                $stmt->bindParam(":id",hexdec($this->accId));
+                $stmt->execute()
+            } catch (Exception $e) {
+                error_log("Error: " . $e->getMessage());
             }
         }
     }
