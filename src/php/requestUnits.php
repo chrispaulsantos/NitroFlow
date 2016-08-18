@@ -11,7 +11,7 @@
 
     try {
         $acc = new account();
-        $acc->getUIDNumber();
+        $acc->getNextUID();
     } catch (Exception $e){
         error_log("Error: " > $e->getMessage());
     }
