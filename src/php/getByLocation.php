@@ -55,14 +55,18 @@ function getEveryN($objs,$n){
     $arr = array();
 
     foreach ($objs as $obj){
-        $tmp = array();
+        $capTemp = array();
+        $tTemp   = array();
+
 
         for($i = 0; $i < count($obj->capacity); $i++){
             if($i%$n == 0){
-                $tmp[] = $obj->capacity[$i];
+                $capTemp[] = $obj->capacity[$i];
+                $tTemp[]   = $obj->timeStamp[$i];
             }
         }
-        $obj->capacity = $tmp;
+        $obj->capacity  = $capTemp;
+        $obj->timeStamp = $tTemp;
         $arr[] = $obj;
     }
     return $arr;
