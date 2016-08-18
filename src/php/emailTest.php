@@ -11,6 +11,8 @@ require "../includes/class.smtp.php";
 
 $mail = new PHPMailer();
 
+$mail->SMTPDebug = 3;
+
 $mail->isSMTP();
 $mail->Host = 'smtp.google.com';
 $mail->Username = 'chrissantosproduction@gmail.com';
