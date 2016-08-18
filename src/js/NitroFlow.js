@@ -142,16 +142,12 @@ function getByRegion(data, options){
 
     // Initial ajax call to avoid no data being printed immediately
     callRegion();
-
-    // Update data every x seconds
+}
+function callRegion(){
     if(int != null){
         clearInterval(int);
     }
 
-    // Call every 5 seconds
-    int = setInterval(callRegion(), 5000);
-}
-function callRegion(){
     $.ajax({
         url: "src/php/getByRegion.php",
         type: "GET",
@@ -188,6 +184,8 @@ function callRegion(){
         } else {
             chart.update();
         }
+        // Call every 5 seconds
+        int = setInterval(callRegion(), 5000);
     });
 }
 function updateLocation(){
