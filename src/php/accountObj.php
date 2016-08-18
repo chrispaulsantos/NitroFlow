@@ -126,7 +126,7 @@
                                              WHERE P_Id = :id");
                 $stmt->bindParam(":units", $this->accCurrCount + $this->accUnitCount);
                 $stmt->bindParam(":id",hexdec($this->accId));
-                $stmt->execute()
+                $stmt->execute();
             } catch (Exception $e) {
                 error_log("Error: " . $e->getMessage());
             }
