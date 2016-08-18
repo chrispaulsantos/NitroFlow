@@ -15,8 +15,8 @@ $mail->SMTPDebug = 3;
 $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username = 'chrissantosproduction@gmail.com';
-$mail->Password = 'Jedaii2017';
+$mail->Username = 'nitroflow.alerts';
+$mail->Password = 'Crableg12';
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
