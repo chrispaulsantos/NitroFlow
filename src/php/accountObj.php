@@ -44,7 +44,7 @@
                 $l = $this->accUnitCount + $start;
             }
 
-            echo "</br>" . $start . " : " . $l;
+            error_log("Start: " . $start . " End: " . $l);
 
             for($i = $start; $i <= $l; $i++){
 
@@ -64,7 +64,7 @@
                 }
 
                 $this->UIDS[] = "\$UID$" . $zip . $vendorId . $unitNum;
-                echo "</br>\$UID$" . $zip . $vendorId . $unitNum;
+                error_log("\$UID$" . $zip . $vendorId . $unitNum);
             }
         }
         public function insertUnregisteredUIDs(){
