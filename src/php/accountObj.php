@@ -73,7 +73,7 @@
         }
         public function getUIDNumber(){
             $UID = "\$UID$000A001A";
-            $id = substr($UID,5,9);
+            $id = substr($UID,5,4);
             echo $id;
         }
         public function checkIfExists(){
