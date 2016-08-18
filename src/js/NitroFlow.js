@@ -36,14 +36,7 @@ $(document).ready(function() {
             labels: [],
             datasets: [
                 {
-                    label: function(){
-                        label = $("#region").val();
-                        if(label == "ALL"){
-                            return "All Regions";
-                        } else {
-                            return label;
-                        }
-                    },
+                    label: getRegionLabel(),
                     backgroundColor: color,
                     borderColor: color,
                     borderWidth: 1,
@@ -166,6 +159,14 @@ function init(){
             hide:500
         }
     });
+}
+function getRegionLabel(){
+    label = $("#region").val();
+    if(label == "ALL"){
+        return "All Regions";
+    } else {
+        return label;
+    }
 }
 function getByRegion(data, options){
     var region = $("#region").val();
