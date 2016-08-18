@@ -342,7 +342,7 @@ function buildLineData(obj){
     console.log(obj);
     // Set labels
     for(i = 0; i < obj[0].capacity.length; i++){
-        lineData.labels[i] = obj[0].timeStamp[i];
+        vlineData.labels[i] = moment(obj[0].timeStamp[i]).format("MMM DD YYYY HH:mm:ss A");
     }
 
     // For each object in return value, set datasets equal to capacity
