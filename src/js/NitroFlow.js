@@ -140,53 +140,49 @@ function getByRegion(data, options){
         options: options
     });
 
-    // Initial ajax call to avoid no data being printed immediately
-    callRegion();
-}
-function callRegion(){
+    // Update data every x seconds
     if(int != null){
         clearInterval(int);
     }
+    int = setInterval(function(){
+        $.ajax({
+            url: "src/php/getByRegion.php",
+            type: "GET",
+            data: {
+                region: region
+            },
+            dataType: "text"
+        }).done(function(response) {
 
-    $.ajax({
-        url: "src/php/getByRegion.php",
-        type: "GET",
-        data: {
-            region: region
-        },
-        dataType: "text"
-    }).done(function(response) {
+            var obj = JSON.parse(response);
+            // Build the data from the php response
+            buildBarData(data, JSON.parse(response));
 
-        var obj = JSON.parse(response);
-        // Build the data from the php response
-        buildBarData(data, JSON.parse(response));
+            // Update the current time, and empty the alerts div
+            updateTime();
 
-        // Update the current time, and empty the alerts div
-        updateTime();
-
-        // Set alerts, if any less than defined amount
-        for(i = 0; i < obj.length; i++){
-            if(obj[i]["current_capacity"] < 30){
-                $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
-                    " Alert: " + obj[i]['location'] +
-                    "</div>");
+            // Set alerts, if any less than defined amount
+            for(i = 0; i < obj.length; i++){
+                if(obj[i]["current_capacity"] < 30){
+                    $("#alert").append("<div id='alert' class='ui segment' style='color: rgba(211,47,47 ,1);'>" +
+                                           " Alert: " + obj[i]['location'] +
+                                       "</div>");
+                }
             }
-        }
 
-        // If chart is null, draw, else, update
-        if(chart == null){
-            var ctx = document.getElementById("chart");
-            chart = new Chart(ctx, {
-                type: 'bar',
-                data: data,
-                options: options
-            });
-        } else {
-            chart.update();
-        }
-        // Call every 5 seconds
-        int = setInterval(callRegion(), 5000);
-    });
+            // If chart is null, draw, else, update
+            if(chart == null){
+                var ctx = document.getElementById("chart");
+                chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: options
+                });
+            } else {
+                chart.update();
+            }
+        });
+    }, 5000);
 }
 function updateLocation(){
     var dateCheck = false;
