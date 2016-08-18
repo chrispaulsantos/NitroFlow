@@ -36,10 +36,12 @@
             }
         }
         public function createUIDs($start){
-            $l = $this->accUnitCount;
 
             if(!$start){
                 $start = 1;
+                $l = $this->accUnitCount;
+            } else {
+                $l = $this->accUnitCount + $start;
             }
 
             for($i = $start; $i <= $l; $i++){
