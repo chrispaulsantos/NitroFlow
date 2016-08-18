@@ -387,8 +387,8 @@ function parseAddAcct(){
 }
 function parseReqUnits(){
     var obj = {
-        accId: $("#reqAccName"),
-        units: $("#reqUnitCount")
+        accId: $("#reqAccName").val(),
+        units: $("#reqUnitCount").val()
     }
     return obj;
 }
