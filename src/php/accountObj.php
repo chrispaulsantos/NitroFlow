@@ -69,6 +69,8 @@
             $this->getAccInfo($id);
             $this->createUIDs();
             $this->insertUnregisteredUIDs();
+            // We need to update the current unit count in the database
+            $this->updateUnitCount();
         }
         private function createUIDs(){
             $start = null;
@@ -125,8 +127,6 @@
                 } catch (Exception $e){
                     error_log("Error: " . $e->getMessage());
                 }
-                // We need to update the current unit count in the database
-                $this->updateUnitCount();
             }
         }
         private function getNextUID(){
