@@ -72,7 +72,7 @@
             }
         }
         public function getUIDNumber(){
-            $UID = "\$UID$000A001A";
+            $UID = "\$UID$000A0F1A";
             $currentId = substr($UID,9,4);
 
             echo hexdec($currentId);
