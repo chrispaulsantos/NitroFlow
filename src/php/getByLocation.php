@@ -110,7 +110,7 @@ function organizeData($data,$ids){
             // If P_Id is equal to id, push the capacity to the object capacity array
             if($data[$index]["P_Id"] == $id){
                 $obj->location = $data[$index]["AccStrAdd"];
-                $obj->pushCapacity($data[$index]["capacity"],$data[$index]["timeStamp"]);
+                $obj->pushData($data[$index]["capacity"],$data[$index]["timeStamp"]);
             }
             $index++;
         }
