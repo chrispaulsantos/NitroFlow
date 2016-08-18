@@ -50,7 +50,7 @@
                 $l = $this->accUnitCount + $this->accCurrCount;
             }
 
-            error_log("Start: " . $start . " End: " . $l);
+            // error_log("Start: " . $start . " End: " . $l);
 
             for($i = $start; $i <= $l; $i++){
 
@@ -132,5 +132,23 @@
             } catch (Exception $e) {
                 error_log("Error: " . $e->getMessage());
             }
+        }
+        public function getAccInfo($id){
+            try {
+                $stmt = $this->dbh->prepare("SELECT * FROM `Locations` WHERE P_Id = :id");
+                $stmt->bindParam(":id", $id);
+                $stmt->execute();
+            } catch (Exception $e){
+                error_log("Error: " . $e->getMessage());
+            }
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $this->accName      = $row["AccName"];
+            $this->accStrAdd    = $row["AccAddress"];
+            $this->accAptNum    = $row["AccAptNum"];
+            $this->accState     = $row["AccState"];
+            $this->accZip       = $row["AccZip"];
+            $this->accCurrCount = $row["AccUnitCount"];
         }
     }

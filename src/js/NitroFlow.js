@@ -114,7 +114,7 @@ $(document).ready(function() {
         $.ajax({
              url: "src/php/addAccount.php",
              data: {
-                units: parseReqUnits()
+                acc: parseReqUnits()
              }
         }).done(function(){
             if(response != "EXISTS"){
@@ -387,7 +387,7 @@ function parseAddAcct(){
 }
 function parseReqUnits(){
     var obj = {
-        acc: $("#reqAccName"),
+        accId: $("#reqAccName"),
         units: $("#reqUnitCount")
     }
     return obj;

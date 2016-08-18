@@ -9,15 +9,14 @@
     require_once "database_connect.php";
     require "accountObj.php";
 
-    try {
+    if($_GET != null){
+        $VAR = $_GET["acc"];
         $acc = new account();
-        $acc->accZip = "02210";
-        $acc->accUnitCount = 15;
-        $acc->accId = dechex(72);
-
+        $acc->accUnitCount = $VAR["units"];
+        $acc->getAccInfo($VAR["accId"]);
         $acc->getNextUID();
         $acc->createUIDs();
         $acc->insertUnregisteredUIDs();
-    } catch (Exception $e){
-        error_log("Error: " > $e->getMessage());
     }
+
+
