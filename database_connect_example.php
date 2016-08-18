@@ -16,7 +16,7 @@
                 DBConnection::$conn = DBConnection::$conn == null
                     ? new PDO(
                         "mysql:host=localhost;dbname=flow_data;charset=utf8",
-                        'WebAccess', 'wyJE5N4h7BFNFane')
+                        'username', 'password')
                     : DBConnection::$conn;
             } catch (Exception $e) {
                 error_log("Cannot connect: " . $e->getMessage());

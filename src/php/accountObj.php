@@ -71,6 +71,11 @@
                 }
             }
         }
+        public function getUIDNumber(){
+            $UID = "\$UID$000A001A";
+            $id = substr($UID,5,9);
+            error_log($id);
+        }
         public function checkIfExists(){
             $query = "SELECT EXISTS(SELECT * FROM `Locations` 
                                     WHERE `AccStrAdd` = :stradd AND `AccZip` = :zip AND `AccAptNum` = :aptnum)";
