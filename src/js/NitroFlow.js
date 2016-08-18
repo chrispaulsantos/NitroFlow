@@ -342,7 +342,7 @@ function buildLineData(obj){
     console.log(obj);
     // Set labels
     for(i = 0; i < obj[0].capacity.length; i++){
-        lineData.labels[i] = " ";
+        lineData.labels[i] = obj[0].timeStamp[i];
     }
 
     // For each object in return value, set datasets equal to capacity
