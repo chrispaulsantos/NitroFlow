@@ -87,7 +87,7 @@
                 $l = $this->requestedUnits + $this->currentUnits;
             }
 
-            // error_log("Start: " . $start . " End: " . $l);
+            error_log("Start: " . $start . " End: " . $l);
 
             for($i = $start; $i <= $l; $i++){
 
