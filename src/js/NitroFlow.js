@@ -72,11 +72,11 @@ $(document).ready(function() {
         updateLocation();
     });
     // On add account menu click
-    $(document).on("click","#addAccBt",function(){
+    $(document).on("click","#addAccMenu",function(){
         $("#addAccDim").dimmer("show");
     })
     // On add account button order click
-    $(document).on("click","#submitOrd",function(){
+    $(document).on("click","#addAccSubmit",function(){
         $(this).addClass("loading");
         console.log(parseAddAcct());
         $.ajax({
@@ -86,11 +86,11 @@ $(document).ready(function() {
             }
         }).done(function(response){
             if(response != "EXISTS"){
-                $("#submitOrd").removeClass("loading").addClass("positive");
+                $("#addAccSubmit").removeClass("loading").addClass("positive");
             } else {
-                $("#submitOrd").removeClass("loading").addClass("negative");
+                $("#addAccSubmit").removeClass("loading").addClass("negative");
             }
-            setTimeout(function(){$("#submitOrd").removeClass("negative","positive");},2000);
+            setTimeout(function(){$("#addAccSubmit").removeClass("negative","positive");},2000);
         });
     })
     // On add account close
@@ -98,21 +98,26 @@ $(document).ready(function() {
         $("#addAccDim").dimmer("hide");
     })
     // On request units menu click
-    $(document).on("click","#reqUnitBt",function(){
+    $(document).on("click","#reqUnitMenu",function(){
         $("#reqUnitDim").dimmer("show").addClass("active");
     })
     // On request units button click
-    $(document).on("click","#reqUnits",function(){
+    $(document).on("click","#reqUnitsSubmit",function(){
         $(this).addClass("loading");
-        //console.log(parseAddAcct());
-        /*$.ajax({
-         url: "src/php/addAccount.php",
-         data: {
-         acct: parseAddAcct()
-         }
-         }).done(function(){
-         $("#reqUnits").removeClass("loading").addClass("positive");
-         });*/
+        console.log(parseReqUnits());
+        $.ajax({
+             url: "src/php/addAccount.php",
+             data: {
+                units: parseReqUnits()
+             }
+        }).done(function(){
+            if(response != "EXISTS"){
+                $("#reqUnitsSubmit").removeClass("loading").addClass("positive");
+            } else {
+                $("#reqUnitsSubmit").removeClass("loading").addClass("negative");
+            }
+            setTimeout(function(){$("#reqUnitsSubmit").removeClass("negative","positive");},2000);
+        });
     })
     // On request units close
     $(document).on("click","#closeReqUnit", function(){
@@ -334,6 +339,13 @@ function parseAddAcct(){
         accUnitCount: $("#unitCount").val()
     };
     return acct;
+}
+function parseReqUnits(){
+    var requnits = {
+        acc: $("#reqAccName"),
+        units: $("#reqUnitCount")
+    }
+    return requnits;
 }
 
 // Dataset structure class

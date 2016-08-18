@@ -82,8 +82,8 @@
                     Account
                     <i class="dropdown icon"></i>
                     <div class="menu">
-                        <div class="item" id="addAccBt">Add Account</div>
-                        <div class="item" id="reqUnitBt">Request Units</div>
+                        <div class="item" id="addAccMenu">Add Account</div>
+                        <div class="item" id="reqUnitMenu">Request Units</div>
                         <div class="item"><?php echo $user ?></div>
                         <div class="divider"></div>
                         <div class="item" id="logout">Logout</div>
@@ -246,7 +246,7 @@
                         </div>
                     </div>
                     <div class="ui divider"></div>
-                    <div id="submitOrd" class="ui left aligned button" tabindex="0">Add Account</div>
+                    <div id="addAccSubmit" class="ui left aligned button" tabindex="0">Add Account</div>
                 </form> <!-- Add Account Form -->
             </div>
         </div>
@@ -281,7 +281,7 @@
                         </div> <!-- Unit Count Field -->
                     </div>
                     <div class="ui divider"></div>
-                    <div id="reqUnits" class="ui left aligned button" tabindex="0">Request Units</div>
+                    <div id="reqUnitsSubmit" class="ui left aligned button" tabindex="0">Request Units</div>
                 </form> <!-- Request Unit Form -->
             </div>
         </div>
