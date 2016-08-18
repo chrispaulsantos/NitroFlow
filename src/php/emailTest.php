@@ -17,8 +17,8 @@ $mail->isSMTP();
 $mail->Host = 'smtp.google.com';
 $mail->Username = 'chrissantosproduction@gmail.com';
 $mail->Password = 'Jedaii2017';
-$mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
 
 $mail->setFrom('mail@nitroflow.com','Mailer');
 $mail->addAddress('chrissantosproduction@gmail.com','Chris');
