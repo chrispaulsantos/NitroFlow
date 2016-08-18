@@ -77,7 +77,7 @@
             /* If current units is null then we are inserting an account,
              * if it is not null we are updating an account
              */
-            if(!$this->currentUnits){
+            if($this->currentUnits){
                 // Start at 1, go the number of requested units
                 $start = 1;
                 $l = $this->requestedUnits;
