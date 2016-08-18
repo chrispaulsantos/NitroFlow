@@ -112,7 +112,7 @@ $(document).ready(function() {
         $(this).addClass("loading");
         console.log(parseReqUnits());
         $.ajax({
-             url: "src/php/addAccount.php",
+             url: "src/php/requestUnits.php",
              data: {
                 acc: parseReqUnits()
              }
