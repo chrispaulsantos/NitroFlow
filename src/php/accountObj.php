@@ -74,7 +74,7 @@
         public function getUIDNumber(){
             $UID = "\$UID$000A001A";
             $id = substr($UID,5,9);
-            error_log($id);
+            echo $id;
         }
         public function checkIfExists(){
             $query = "SELECT EXISTS(SELECT * FROM `Locations` 
