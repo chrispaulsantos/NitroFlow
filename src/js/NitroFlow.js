@@ -91,7 +91,7 @@ $(document).ready(function() {
                 $("#addAccSubmit").removeClass("loading").addClass("negative").empty().append("Account Exists");
             }
             setTimeout(function(){
-                $("#addAccSubmit").removeClass("negative positive");
+                $("#addAccSubmit").removeClass("negative positive").empty().append("Add Account");
             },2000);
         });
     })
