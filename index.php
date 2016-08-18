@@ -231,7 +231,7 @@
                             </div> <!-- State Field -->
                             <div class="five wide field">
                                 <label></label>
-                                <input class="ui input" id="zip" placeholder="Zip Code"></input>
+                                <input class="ui input" id="zip" placeholder="Zip Code">
                             </div> <!-- Zip Code Field -->
                             <div class="five wide field">
                                 <label></label>
