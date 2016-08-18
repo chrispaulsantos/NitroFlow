@@ -20,7 +20,7 @@ $mail->Password = 'Crableg12';
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
-$mail->setFrom('mail@nitroflow.com','Mailer');
+$mail->setFrom('mail@nitroflow.com','Admin');
 $mail->addAddress('chrissantosproduction@gmail.com','Chris');
 
 $mail->Subject = 'Here is the subject';
