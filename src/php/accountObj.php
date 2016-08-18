@@ -8,7 +8,7 @@
         public $accState;
         public $accZip;
         public $requestedUnits;
-        private $currentUnits;
+        private $currentUnits = null;
         private $accId;
         private $UIDS = array();
         private $dbh;
