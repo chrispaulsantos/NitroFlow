@@ -277,60 +277,57 @@ function updateLocation(){
                     }]
                 }
             };
-            getByLocation(options);
-        }
-    }
-}
-function getByLocation(options){
-    // Have to clear interval if graph is changed to line after region
-    if(int != null){
-        clearInterval(int);
-    }
+            // Have to clear interval if graph is changed to line after region
+            if(int != null){
+                clearInterval(int);
+            }
 
-    ids = $("#location").val();
-    $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
+            ids = $("#location").val();
+            $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
-    // Draw graph initially on pageload
-    var ctx = document.getElementById("chart");
-    chart = new Chart(ctx, {
-        type: 'line',
-        data: lineData,
-        options: options
-    });
-
-    // Get date values
-    var fromDate = $("#fromDate").val();
-    var toDate = $("#toDate").val();
-
-    $.ajax({
-        url: "src/php/getByLocation.php",
-        type: "GET",
-        data: {
-            ids: ids,
-            fromDate: fromDate,
-            toDate: toDate
-        },
-        dataType: "text"
-    }).done(function(response) {
-        console.log(JSON.parse(response));
-        // Build the data from the php response
-        buildLineData(JSON.parse(response));
-
-        // Update the current time, and empty the alerts div
-        updateTime();
-
-        // If chart is null, draw, else, update
-        if(chart == null){
+            // Draw graph initially on pageload
             var ctx = document.getElementById("chart");
             chart = new Chart(ctx, {
                 type: 'line',
                 data: lineData,
                 options: options
             });
-        } else {
-            chart.update();
+
+            // Get date values
+            var fromDate = $("#fromDate").val();
+            var toDate = $("#toDate").val();
+
+            $.ajax({
+                url: "src/php/getByLocation.php",
+                type: "GET",
+                data: {
+                    ids: ids,
+                    fromDate: fromDate,
+                    toDate: toDate
+                },
+                dataType: "text"
+            }).done(function(response) {
+                console.log(JSON.parse(response));
+                // Build the data from the php response
+                buildLineData(JSON.parse(response));
+
+                // Update the current time, and empty the alerts div
+                updateTime();
+
+                // If chart is null, draw, else, update
+                if(chart == null){
+                    var ctx = document.getElementById("chart");
+                    chart = new Chart(ctx, {
+                        type: 'line',
+                        data: lineData,
+                        options: options
+                    });
+                } else {
+                    chart.update();
+                }
+            });
         }
-    });
+    }
 }
 function buildBarData(data, obj){
 
