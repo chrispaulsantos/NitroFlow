@@ -170,7 +170,7 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $this->accName      = $row["AccName"];
-            $this->accStrAdd    = $row["AccAddress"];
+            $this->accStrAdd    = $row["AccStrAdd"];
             $this->accAptNum    = $row["AccAptNum"];
             $this->accState     = $row["AccState"];
             $this->accZip       = $row["AccZip"];
