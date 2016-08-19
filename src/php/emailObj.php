@@ -14,7 +14,7 @@ class email {
 
     public function __construct(){
         $this->mail = new PHPMailer();
-        $this->mail->SMTPDebug = 3;
+        $this->mail->SMTPDebug = false;
         $this->mail->isSMTP();
         $this->mail->Host = 'smtp.gmail.com';
         $this->mail->SMTPAuth = true;
@@ -35,10 +35,10 @@ class email {
     }
     public function send(){
         if(!$this->mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $this->mail->ErrorInfo;
+            //echo 'Message could not be sent.';
+            //echo 'Mailer Error: ' . $this->mail->ErrorInfo;
         } else {
-            echo 'Message has been sent';
+            //echo 'Message has been sent';
         }
     }
 }
