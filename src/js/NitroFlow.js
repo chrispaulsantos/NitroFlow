@@ -274,7 +274,7 @@ function updateLocation(){
         }
     }
 }
-function getByLocation(){
+function getByLocation(options){
     // Have to clear interval if graph is changed to line after region
     if(int != null){
         clearInterval(int);
