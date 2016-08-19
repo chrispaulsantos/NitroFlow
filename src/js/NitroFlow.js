@@ -4,6 +4,7 @@ var int = null;
 var chart = null;
 // Line data for line graph
 var lineData = {
+
     labels: [],
     datasets: []
 };
@@ -249,32 +250,32 @@ function updateLocation(){
         }
 
         if(dateCheck && locationCheck){
-            var options = {
-                xAxisId: 'Date',
-                yAxisId: "Capacity [%]",
-                scales: {
-                    yAxes: [{
-                        gridLines: {
-                            display: false
-                        },
-                        ticks: {
-                            max: 100,
-                            min: 0,
-                            stepSize: 10
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            display: false
-                        }
-                    }]
-                }
-            };
             getByLocation(options);
         }
     }
 }
-function getByLocation(options){
+function getByLocation(){
+    //
+    var options = {
+        scales: {
+            yAxes: [{
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    max: 100,
+                    min: 0,
+                    stepSize: 10
+                }
+            }],
+            xAxes: [{
+                gridLines: {
+                    display: false
+                }
+            }]
+        }
+    };
+
     // Have to clear interval if graph is changed to line after region
     if(int != null){
         clearInterval(int);
@@ -398,24 +399,26 @@ function parseReqUnits(){
 function lineStruct(data,label){
     var color = randomColorGenerate(1);
 
-    this.label = label;
-    this.fill = false;
-    this.lineTension = 0.5;
-    this.backgroundColor = color;
-    this.borderColor = color;
-    this.borderCapStyle = 'butt';
-    this.borderDash = [];
-    this.borderDashOffset = 0.0;
-    this.borderJoinStyle = 'miter';
-    this.pointBorderColor = color;
-    this.pointBackgroundColor = "#fff";
-    this.pointBorderWidth = 1;
-    this.pointHoverRadius = 5;
+    this.xAxisID                   = "Date";
+    this.yAxisID                   = "Capacity [%]";
+    this.label                     = label;
+    this.fill                      = false;
+    this.lineTension               = 0.5;
+    this.backgroundColor           = color;
+    this.borderColor               = color;
+    this.borderCapStyle            = 'butt';
+    this.borderDash                = [];
+    this.borderDashOffset          = 0.0;
+    this.borderJoinStyle           = 'miter';
+    this.pointBorderColor          = color;
+    this.pointBackgroundColor      = "#fff";
+    this.pointBorderWidth          = 1;
+    this.pointHoverRadius          = 5;
     this.pointHoverBackgroundColor = color;
-    this.pointHoverBorderColor = "rgba(220,220,220,1)";
-    this.pointHoverBorderWidth = 2;
-    this.pointRadius = 1;
-    this.pointHitRadius = 10;
-    this.data = data;
-    this.spanGaps = true;
+    this.pointHoverBorderColor     = "rgba(220,220,220,1)";
+    this.pointHoverBorderWidth     = 2;
+    this.pointRadius               = 1;
+    this.pointHitRadius            = 10;
+    this.data                      = data;
+    this.spanGaps                  = true;
 }
