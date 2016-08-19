@@ -195,7 +195,7 @@
             $this->currentUnits = $row["AccUnits"];
         }
         private function notify($sub){
-            $add = array("chrissantosproduction@gmail.com");
+            $add = array("sannas.alerts@gmail.com");
             // Add zeroes to the front if length less than 4
             $vendorId = strtoupper(dechex($this->accId));
             for($j = 0; strlen($vendorId) < 4; $j++){
