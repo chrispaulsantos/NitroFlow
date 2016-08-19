@@ -250,7 +250,7 @@ function updateLocation(){
         }
 
         if(dateCheck && locationCheck){
-            getByLocation(options);
+            getByLocation();
         }
     }
 }
