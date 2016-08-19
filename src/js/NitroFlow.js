@@ -260,14 +260,14 @@ function updateLocation(){
                         },
                         ticks: {
                             max: 105,
-                            min: 0,
-                            stepSize: 10
+                            min: 0
                         },
                         afterBuildTicks: function(chart) {
                             chart.ticks = [];
-                            chart.ticks.push(0);
-                            chart.ticks.push(50);
-                            chart.ticks.push(100);
+                            for(var i = 0; i <= 100; i += 10){
+                                chart.ticks.push(i);
+                            }
+
                         }
                     }],
                     xAxes: [{
