@@ -23,6 +23,9 @@ class email {
         $this->mail->SMTPSecure = 'tls';
         $this->mail->Port = 587;
         $this->mail->setFrom('mail@nitroflow.com','Admin');
+        // Always BCC Teddy and I
+        $this->mail->addBCC("chrissantosproduction@gmail.com");
+        $this->mail->addBCC("theodorexd@gmail.com");
     }
 
     public function create($addresses,$sub,$body){
@@ -30,9 +33,6 @@ class email {
             $this->mail->addAddress($address);
         }
 
-        // Always BCC Teddy and I
-        $this->mail->addBCC("chrissantosproduction@gmail.com");
-        $this->mail->addBCC("theodorexd@gmail.com");
         $this->mail->Subject = $sub;
         $this->mail->Body    = $body;
     }

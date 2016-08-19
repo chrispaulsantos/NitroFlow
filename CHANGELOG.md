@@ -1,6 +1,8 @@
 # Change Log
 
 ## [1.0.2] - 2016-8
+- Email sent when new account added or account updated
+- Local links
 
 ## [1.0.1] - 2016-8-19
 - Removed unecessary definition of line graph data
