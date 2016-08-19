@@ -316,7 +316,7 @@ function getByLocation(options){
         if(chart == null){
             var ctx = document.getElementById("chart");
             chart = new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: lineData,
                 options: options
             });
