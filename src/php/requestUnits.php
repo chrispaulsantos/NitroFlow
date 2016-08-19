@@ -13,8 +13,7 @@
         $VAR = $_GET["acc"];
         $acc = new account();
         $acc->requestedUnits = $VAR["units"];
-        $acc->updateAccount($VAR["accId"]);
-        error_log(json_encode($acc));
+        echo $acc->updateAccount($VAR["accId"]);
     }
 
 

@@ -67,11 +67,15 @@
         }
         public function updateAccount($id){
             $this->accId = $id;
+            // Get account info based on id number
             $this->getAccInfo();
+            // Generate the new set of unregistered id's
             $this->createUIDs();
+            // Insert unregistered id's into database
             $this->insertUnregisteredUIDs();
             // We need to update the current unit count in the database
             $this->updateUnitCount();
+            return true;
         }
         private function createUIDs(){
             $start = null;

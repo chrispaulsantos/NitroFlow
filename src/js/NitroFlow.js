@@ -90,7 +90,7 @@ $(document).ready(function() {
             }
         }).done(function(response){
             if(response != "EXISTS"){
-                $("#addAccSubmit").removeClass("loading").addClass("positive");
+                $("#addAccSubmit").removeClass("loading").addClass("positive").empty().append("Account Created");
             } else {
                 $("#addAccSubmit").removeClass("loading").addClass("negative").empty().append("Account Exists");
             }
@@ -110,21 +110,20 @@ $(document).ready(function() {
     // On request units button click
     $(document).on("click","#reqUnitsSubmit",function(){
         $(this).addClass("loading");
-        console.log(parseReqUnits());
         $.ajax({
              url: "src/php/requestUnits.php",
              data: {
                 acc: parseReqUnits()
              }
-        }).done(function(){
-            /*if(response != "EXISTS"){
-                $("#reqUnitsSubmit").removeClass("loading").addClass("positive");
+        }).done(function(response){
+            if(response == true){
+                $("#reqUnitsSubmit").removeClass("loading").addClass("positive").empty().append("Account Updated");
             } else {
-                $("#reqUnitsSubmit").removeClass("loading").addClass("negative");
+                $("#reqUnitsSubmit").removeClass("loading").addClass("negative").empty().append("Error");
             }
             setTimeout(function(){
-                $("#reqUnitsSubmit").removeClass("negative positive").empty();
-            },2000);*/
+                $("#reqUnitsSubmit").removeClass("negative positive").empty().append("Request Units");
+            },2000);
         });
     })
     // On request units close
