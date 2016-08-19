@@ -250,32 +250,31 @@ function updateLocation(){
         }
 
         if(dateCheck && locationCheck){
-            getByLocation();
+            //
+            var options = {
+                scales: {
+                    yAxes: [{
+                        gridLines: {
+                            display: false
+                        },
+                        ticks: {
+                            max: 100,
+                            min: 0,
+                            stepSize: 10
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            };
+            getByLocation(options);
         }
     }
 }
 function getByLocation(){
-    //
-    var options = {
-        scales: {
-            yAxes: [{
-                gridLines: {
-                    display: false
-                },
-                ticks: {
-                    max: 100,
-                    min: 0,
-                    stepSize: 10
-                }
-            }],
-            xAxes: [{
-                gridLines: {
-                    display: false
-                }
-            }]
-        }
-    };
-
     // Have to clear interval if graph is changed to line after region
     if(int != null){
         clearInterval(int);
