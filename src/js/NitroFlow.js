@@ -261,7 +261,7 @@ function updateLocation(){
                         ticks: {
                             max: 105,
                             min: 0,
-                            stepSize: 5
+                            stepSize: 10
                         }
                     }],
                     xAxes: [{
