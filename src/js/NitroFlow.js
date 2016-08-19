@@ -398,8 +398,6 @@ function parseReqUnits(){
 function lineStruct(data,label){
     var color = randomColorGenerate(1);
 
-    this.xAxisID                   = "Date";
-    this.yAxisID                   = "Capacity [%]";
     this.label                     = label;
     this.fill                      = false;
     this.lineTension               = 0.5;
