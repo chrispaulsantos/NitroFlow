@@ -13,7 +13,7 @@ var flag = false;
 Chart.defaults.global.hover = {mode: 'dataset'};
 
 $(document).ready(function() {
-    //Initialize all css style and jquery handlers theat require the DOM to be built
+    //Initialize all css style and jquery handlers that require the DOM to be built
     init();
 
     // Hide/Show inputs based on position of toggle
@@ -250,6 +250,8 @@ function updateLocation(){
 
         if(dateCheck && locationCheck){
             var options = {
+                xAxisId: 'Date',
+                yAxisId: "Capacity [%]",
                 scales: {
                     yAxes: [{
                         gridLines: {
