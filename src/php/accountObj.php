@@ -66,7 +66,8 @@
             $this->insertUnregisteredUIDs();
         }
         public function updateAccount($id){
-            $this->getAccInfo($id);
+            $this->accId = $id;
+            $this->getAccInfo();
             $this->createUIDs();
             $this->insertUnregisteredUIDs();
             // We need to update the current unit count in the database
@@ -79,7 +80,7 @@
             /* If current units is null then we are inserting an account,
              * if it is not null we are updating an account
              */
-            if($this->currentUnits){
+            if($this->currentUnits == null){
                 // Start at 1, go the number of requested units
                 $start = 1;
                 $l = $this->requestedUnits;
@@ -146,6 +147,7 @@
         private function updateUnitCount(){
             // Updates the current unit count in the database
             $units = $this->currentUnits + $this->requestedUnits;
+            error_log("Updated Unit Count: " . $units);
             try {
                 $stmt = $this->dbh->prepare("UPDATE `Locations`
                                              SET AccUnits = :units
@@ -157,11 +159,11 @@
                 error_log("Error: " . $e->getMessage());
             }
         }
-        private function getAccInfo($id){
+        private function getAccInfo(){
             // Gets the current account info
             try {
                 $stmt = $this->dbh->prepare("SELECT * FROM `Locations` WHERE P_Id = :id");
-                $stmt->bindParam(":id", $id);
+                $stmt->bindParam(":id", $this->accId);
                 $stmt->execute();
             } catch (Exception $e){
                 error_log("Error: " . $e->getMessage());
