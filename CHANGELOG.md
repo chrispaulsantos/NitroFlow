@@ -1,5 +1,7 @@
 # Change Log
 
+## [1.0.2] - 2016-8
+
 ## [1.0.1] - 2016-8-19
 - Removed unecessary definition of line graph data
 - Set region name as title on bar graph
