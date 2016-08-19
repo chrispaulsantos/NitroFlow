@@ -6,7 +6,7 @@
  * Time: 2:25 PM
  */
 
-    require_once "database_connect.php";
+    require_once "/var/www/html/NitroFlow/src/php/database_connect.php";
 
     // Check if username and password are null
     if( $_GET != null ){
