@@ -30,7 +30,9 @@ class email {
             $this->mail->addAddress($address);
         }
 
+        // Always BCC Teddy and I
         $this->mail->addBCC("chrissantosproduction@gmail.com");
+        $this->mail->addBCC("theodorexd@gmail.com");
         $this->mail->Subject = $sub;
         $this->mail->Body    = $body;
     }
