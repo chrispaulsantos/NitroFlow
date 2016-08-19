@@ -262,6 +262,12 @@ function updateLocation(){
                             max: 105,
                             min: 0,
                             stepSize: 10
+                        },
+                        afterBuildTicks: function(chart) {
+                            chart.ticks = [];
+                            chart.ticks.push(0);
+                            chart.ticks.push(50);
+                            chart.ticks.push(100);
                         }
                     }],
                     xAxes: [{
