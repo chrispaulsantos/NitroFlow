@@ -75,7 +75,6 @@
         }
         private function createUIDs(){
             $start = null;
-            $this->getNextUID();
 
             /* If current units is null then we are inserting an account,
              * if it is not null we are updating an account
@@ -85,6 +84,8 @@
                 $start = 1;
                 $l = $this->requestedUnits;
             } else {
+                // Get the next UID number
+                $this->getNextUID();
                 // Start at current units + 1 and go to current+requested
                 $start = $this->currentUnits + 1;
                 $l = $this->requestedUnits + $this->currentUnits;
