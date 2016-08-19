@@ -259,9 +259,9 @@ function updateLocation(){
                             display: false
                         },
                         ticks: {
-                            max: 100,
+                            max: 105,
                             min: 0,
-                            stepSize: 10
+                            stepSize: 5
                         }
                     }],
                     xAxes: [{
