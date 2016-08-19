@@ -117,6 +117,7 @@ $(document).ready(function() {
                 acc: parseReqUnits()
              }
         }).done(function(response){
+            console.log(response);
             if(response == true){
                 $("#reqUnitsSubmit").removeClass("loading").addClass("positive").empty().append("Account Updated");
             } else {
