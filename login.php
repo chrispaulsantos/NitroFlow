@@ -1,7 +1,7 @@
+<!DOCTYPE html>
 <HTML>
     <head>
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
-        <link rel='stylesheet' href='src/css/styles.css' type='text/css'/>
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
@@ -28,12 +28,7 @@
             </div>
         </div>
 
-
         <script>
-            $('.ui.dropdown')
-                .dropdown()
-            ;
-            // console.log(window.innerHeight);
             height = window.innerHeight;
             $('.ui.container').css("margin-top", height/2-(230/2));
         </script>

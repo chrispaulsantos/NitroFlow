@@ -60,6 +60,7 @@
     // Get account names
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
@@ -72,6 +73,8 @@
         <script src="src/js/NitroFlow.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
         <script src="src/js/logout.js" type="text/javascript"></script>
+
+        <title> Nitro Flow </title>
     </head>
     <body>
 
