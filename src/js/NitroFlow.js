@@ -415,7 +415,7 @@ function lineStruct(data,label){
     this.pointHoverBackgroundColor = color;
     this.pointHoverBorderColor     = "rgba(220,220,220,1)";
     this.pointHoverBorderWidth     = 2;
-    this.pointRadius               = 1;
+    this.pointRadius               = 3;
     this.pointHitRadius            = 10;
     this.data                      = data;
     this.spanGaps                  = true;
