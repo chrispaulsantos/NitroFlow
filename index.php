@@ -1,5 +1,6 @@
 <?php
-    require_once "src/php/database_connect.php";
+    require_once "/var/www/html/NitroFlow/src/php/database_connect.php";
+
     session_start();
 
     // Check if user token is set

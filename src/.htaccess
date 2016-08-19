@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "src"
-AuthUserFile /var/www/html/
-Require valid-user
