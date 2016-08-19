@@ -1,7 +1,6 @@
 <?php
 
     require_once "database_connect.php";
-    require "location_object.php";
 
     $stmt = null;
     $locations = [];
@@ -37,7 +36,7 @@
         // Create new location object to be returned to the js for processing
         $location = new location();
         $location->id = $row["P_Id"];
-        $location->location = $row["location"];
+        $location->location = $row["AccStrAdd"];
 
         // Check to ensure the returned value is a number
         if($row["capacity"] != null || $row["capacity"] != ""){
@@ -50,3 +49,10 @@
     }
 
     echo json_encode($locations);
+
+class location {
+    public $id;
+    public $location;
+    public $current_capacity;
+    public $time;
+}
