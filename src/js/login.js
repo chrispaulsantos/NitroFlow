@@ -29,7 +29,7 @@ $(document).ready(function() {
 function verifyUser(username, password){
     $.ajax({
         type: "GET",
-        url: "src/php/validate_login.php",
+        url: "src/php/validateLogin.php",
         data: {
             username: username,
             password: password
