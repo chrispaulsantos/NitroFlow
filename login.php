@@ -5,7 +5,6 @@
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
-        <script src="src/js/login.js" type="text/javascript"></script>
 
         <title> Nitro Flow </title>
     </head>
@@ -29,8 +28,51 @@
         </div>
 
         <script>
-            height = window.innerHeight;
-            $('.ui.container').css("margin-top", height/2-(230/2));
+            $(document).ready(function() {
+                height = window.innerHeight;
+                $('.ui.container').css("margin-top", height/2-(230/2));
+                var username = null;
+                var password = null;
+
+                // Get username and password and verify against database
+                // On login button click
+                $(document).on("click","#login_button",function () {
+                    username = $("input[name=username]").val();
+                    password = $("input[name=password]").val();
+
+                    verifyUser(username, password);
+                });
+                // On enter key press
+                $(document).on("keypress", function (e) {
+                    if(e.which == 13){
+                        username = $("input[name=username]").val();
+                        password = $("input[name=password]").val();
+
+                        console.log(username + " : " + password);
+
+                        verifyUser(username, password);
+                    }
+                });
+            })
+
+            function verifyUser(username, password){
+                $.ajax({
+                    type: "GET",
+                    url: "src/php/validateLogin.php",
+                    data: {
+                        username: username,
+                        password: password
+                    },
+                    dataType: "text"
+                }).done(function(response){
+                    if(response == "SUCCESS"){
+                        window.location = "index.php";
+                    } else if(response == "FAILURE"){
+                        // TEDDY ADD JQUERY HERE
+                    }
+                });
+            }
+
         </script>
     </body>
 </HTML>
