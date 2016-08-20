@@ -132,6 +132,20 @@ $(document).ready(function() {
     $(document).on("click","#closeReqUnit", function(){
         $("#reqUnitDim").dimmer("hide");
     })
+    // On logout click
+    $(document).on("click","#logout",function() {
+        $.ajax({
+            type: "GET",
+            url: "src/php/logout.php"
+        }).done(function(response) {
+
+            if(response == "SUCCESS"){
+                window.location = "login.php";
+            } else {
+                console.log("Logout failed");
+            }
+        });
+    });
 });
 
 function init(){
