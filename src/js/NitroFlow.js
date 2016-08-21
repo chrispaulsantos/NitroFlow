@@ -11,8 +11,6 @@ var lineData = {
 //Flag used for checking which graph type is being used
 var flag = false;
 
-Chart.defaults.global.hover = {mode: 'dataset'};
-
 $(document).ready(function() {
     //Initialize all css style and jquery handlers that require the DOM to be built
     init();
@@ -138,7 +136,6 @@ $(document).ready(function() {
             type: "GET",
             url: "src/php/logout.php"
         }).done(function(response) {
-
             if(response == "SUCCESS"){
                 window.location = "login.php";
             } else {

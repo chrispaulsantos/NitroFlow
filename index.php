@@ -73,6 +73,8 @@
         <script src="src/js/NitroFlow.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
 
+        <meta http-equiv="refresh" content="180;url=http://159.203.186.131/login.php" />
+
         <title> Nitro Flow </title>
     </head>
     <body>
