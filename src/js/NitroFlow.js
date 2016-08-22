@@ -146,7 +146,6 @@ $(document).ready(function() {
 });
 
 function init(){
-    $('#content').css("margin-top", window.innerHeight/2-(300));
     $('#addAccForm').css("margin-top", window.innerHeight/2-(150));
     $('#reqUnitForm').css("margin-top", window.innerHeight/2-(150));
     $('.ui.dropdown').dropdown({ fullTextSearch: true });
