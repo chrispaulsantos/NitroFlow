@@ -97,7 +97,7 @@
             </div>
         </div>
 
-        <div id='content' class="ui container" style="height: 500px; width: 1100px;">
+        <div id='content' class="ui container">
             <div class="ui grid">
 
                 <div class="five wide column">
