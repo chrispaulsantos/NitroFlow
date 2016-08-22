@@ -51,7 +51,6 @@
             // Set cookie life to 120 seconds and start session
             if($user_id <= 5){
                 session_set_cookie_params(3600);
-                error_log(json_encode(session_get_cookie_params()));
             } else {
                 session_set_cookie_params(120);
             }
