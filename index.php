@@ -65,6 +65,7 @@
     <head>
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
         <link rel="stylesheet" href="src/includes/jquery-ui-1.12.0/jquery-ui.min.css"/>
+        <link rel="stylesheet" href="src/css/styles.css">
 
         <script src="src/includes/jquery-1.12.4.min.js"></script>
         <script src="src/includes/jquery-ui-1.12.0/jquery-ui.js"></script>
