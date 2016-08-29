@@ -54,7 +54,7 @@
             } else {
                 session_set_cookie_params(120);
             }
-
+            error_log(json_encode(session_get_cookie_params()));
             session_start();
             $_SESSION["user_token"] = generateToken($username);
             $_SESSION["user_id"] = $user_id;
