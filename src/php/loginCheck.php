@@ -7,10 +7,8 @@
  */
 
 session_start();
-// Get cookie info
-$cookieInfo = session_get_cookie_params();
 // Set timeout period in seconds
-$inactive = $cookieInfo["lifetime"];
+$inactive = $_SESSION["lifetime"];
 error_log($inactive);
 // Check to see if $_SESSION['timeout'] is set
 if(isset($_SESSION['timeout']) ) {
