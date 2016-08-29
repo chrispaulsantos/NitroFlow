@@ -172,7 +172,10 @@ function init(){
         }
     });
     var loginInt = setInterval(function(){
-        console.log("Timer set");
+        if(loginInt == null){
+            console.log("Timer started");
+        }
+
         $.ajax({
             url: "src/php/loginCheck.php",
             dataType: "text"
@@ -181,7 +184,7 @@ function init(){
                 window.location = "login.php";
             }
         });
-    },2000);
+    },60000);
 }
 function getRegionLabel(){
     label = $("#region").val();
