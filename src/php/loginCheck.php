@@ -11,10 +11,11 @@ session_start();
 $cookieInfo = session_get_cookie_params();
 // Set timeout period in seconds
 $inactive = $cookieInfo["lifetime"];
-error_log(json_encode($inactive));
+error_log($inactive);
 // Check to see if $_SESSION['timeout'] is set
 if(isset($_SESSION['timeout']) ) {
     $session_life = time() - $_SESSION['timeout'];
+    error_log($session_life);
     if($session_life > $inactive) {
         session_destroy();
         echo "FAIL";

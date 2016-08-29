@@ -5,6 +5,7 @@
 - Local links
 - Fixed graph scaling to avoid cutting off top point
 - Point radius on line graphs increased
+- Added check for login timeout
 
 ## [1.0.1] - 2016-8-19
 - Removed unecessary definition of line graph data

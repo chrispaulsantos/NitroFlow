@@ -60,10 +60,10 @@
             $_SESSION["user_id"] = $user_id;
             $_SESSION['timeout'] = time();
 
-            // Return redirect
+            // Return redirect response
             echo "SUCCESS";
         } else {
-            // Return redirect
+            // Return redirect response
             echo "FAILURE";
         }
     } else {

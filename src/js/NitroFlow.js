@@ -172,9 +172,7 @@ function init(){
         }
     });
     var loginInt = setInterval(function(){
-        if(loginInt == null){
-            console.log("Timer started");
-        }
+        console.log("Session checked.");
 
         $.ajax({
             url: "src/php/loginCheck.php",
