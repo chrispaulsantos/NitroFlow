@@ -58,6 +58,7 @@
             session_start();
             $_SESSION["user_token"] = generateToken($username);
             $_SESSION["user_id"] = $user_id;
+            $_SESSION['timeout'] = time();
 
             // Return redirect
             echo "SUCCESS";

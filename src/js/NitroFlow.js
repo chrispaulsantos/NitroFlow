@@ -171,6 +171,16 @@ function init(){
             hide:500
         }
     });
+    var loginInt = setInterval(function(){
+        $.ajax({
+            url: "src/php/loginCheck.php",
+            dataType: "text"
+        }).done(function(response){
+            if(response == "FAIL"){
+                window.location = "login.php";
+            }
+        });
+    },2000);
 }
 function getRegionLabel(){
     label = $("#region").val();
