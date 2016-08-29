@@ -172,6 +172,7 @@ function init(){
         }
     });
     var loginInt = setInterval(function(){
+        console.log("Timer set");
         $.ajax({
             url: "src/php/loginCheck.php",
             dataType: "text"
