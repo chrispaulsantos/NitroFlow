@@ -74,8 +74,6 @@
         <script src="src/js/NitroFlow.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
 
-        <meta http-equiv="refresh" content="120" />
-
         <title> Nitro Flow </title>
     </head>
     <body>
