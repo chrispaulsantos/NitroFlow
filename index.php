@@ -1,5 +1,6 @@
 <?php
-    require_once "src/php/database_connect.php";
+    require_once "/var/www/html/NitroFlow/src/php/database_connect.php";
+
     session_start();
 
     // Check if user token is set
@@ -59,10 +60,12 @@
     // Get account names
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <link rel='stylesheet' href='src/css/Semantic/semantic.min.css' type='text/css'/>
         <link rel="stylesheet" href="src/includes/jquery-ui-1.12.0/jquery-ui.min.css"/>
+        <link rel="stylesheet" href="src/css/styles.css">
 
         <script src="src/includes/jquery-1.12.4.min.js"></script>
         <script src="src/includes/jquery-ui-1.12.0/jquery-ui.js"></script>
@@ -70,7 +73,8 @@
         <script src="src/includes/moment.min.js" type="text/javascript"></script>
         <script src="src/js/NitroFlow.js" type="text/javascript"></script>
         <script src="src/css/Semantic/semantic.min.js" type="text/javascript"></script>
-        <script src="src/js/logout.js" type="text/javascript"></script>
+
+        <title> Nitro Flow </title>
     </head>
     <body>
 
@@ -91,7 +95,7 @@
             </div>
         </div>
 
-        <div id='content' class="ui container" style="height: 500px; width: 1100px;">
+        <div id='content' class="ui container">
             <div class="ui grid">
 
                 <div class="five wide column">

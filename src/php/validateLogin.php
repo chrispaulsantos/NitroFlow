@@ -6,7 +6,7 @@
  * Time: 2:25 PM
  */
 
-    require_once "database_connect.php";
+    require_once "/var/www/html/NitroFlow/src/php/database_connect.php";
 
     // Check if username and password are null
     if( $_GET != null ){
@@ -48,21 +48,23 @@
 
         // If password_verify returns true, begin session
         if($check){
-            // Set cookie life to 120 seconds and start session
-            if($user_id <= 5){
-                session_set_cookie_params(3600);
-            } else {
-                session_set_cookie_params(120);
-            }
-
+            error_log(json_encode(session_get_cookie_params()));
             session_start();
             $_SESSION["user_token"] = generateToken($username);
             $_SESSION["user_id"] = $user_id;
+            $_SESSION['timeout'] = time();
 
-            // Return redirect
+            // Set cookie life to 120 seconds and start session (Unless admin user)
+            if($user_id <= 5){
+                $_SESSION["lifetime"] = 3600;
+            } else {
+                $_SESSION["lifetime"] = 120;
+            }
+
+            // Return redirect response
             echo "SUCCESS";
         } else {
-            // Return redirect
+            // Return redirect response
             echo "FAILURE";
         }
     } else {

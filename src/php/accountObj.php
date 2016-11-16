@@ -1,5 +1,6 @@
 <?php
     require_once "database_connect.php";
+    require "emailObj.php";
 
     class account {
         public $accName;
@@ -64,6 +65,11 @@
             $this->createUIDs();
             // Insert created UID's
             $this->insertUnregisteredUIDs();
+
+            $sub = "New Account Added";
+
+            // Notify of new account
+            $this->notify($sub);
         }
         public function updateAccount($id){
             $this->accId = $id;
@@ -75,6 +81,11 @@
             $this->insertUnregisteredUIDs();
             // We need to update the current unit count in the database
             $this->updateUnitCount();
+
+            $sub = "Account Updated";
+
+            // Notify of new account
+            $this->notify($sub);
             return true;
         }
         private function createUIDs(){
@@ -182,5 +193,19 @@
             $this->accState     = $row["AccState"];
             $this->accZip       = $row["AccZip"];
             $this->currentUnits = $row["AccUnits"];
+        }
+        private function notify($sub){
+            $add = array("sannas.alerts@gmail.com");
+            // Add zeroes to the front if length less than 4
+            $vendorId = strtoupper(dechex($this->accId));
+            for($j = 0; strlen($vendorId) < 4; $j++){
+                $vendorId = "0" . $vendorId;
+            }
+            $body = "Account: "         . $vendorId . "\r\n"
+                  . "Requested Units: " . $this->requestedUnits;
+
+            $email = new email();
+            $email->create($add,$sub,$body);
+            $email->send();
         }
     }

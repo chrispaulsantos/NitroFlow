@@ -11,8 +11,6 @@ var lineData = {
 //Flag used for checking which graph type is being used
 var flag = false;
 
-Chart.defaults.global.hover = {mode: 'dataset'};
-
 $(document).ready(function() {
     //Initialize all css style and jquery handlers that require the DOM to be built
     init();
@@ -117,6 +115,7 @@ $(document).ready(function() {
                 acc: parseReqUnits()
              }
         }).done(function(response){
+            console.log(response);
             if(response == true){
                 $("#reqUnitsSubmit").removeClass("loading").addClass("positive").empty().append("Account Updated");
             } else {
@@ -131,10 +130,22 @@ $(document).ready(function() {
     $(document).on("click","#closeReqUnit", function(){
         $("#reqUnitDim").dimmer("hide");
     })
+    // On logout click
+    $(document).on("click","#logout",function() {
+        $.ajax({
+            type: "GET",
+            url: "src/php/logout.php"
+        }).done(function(response) {
+            if(response == "SUCCESS"){
+                window.location = "login.php";
+            } else {
+                console.log("Logout failed");
+            }
+        });
+    });
 });
 
 function init(){
-    $('#content').css("margin-top", window.innerHeight/2-(300));
     $('#addAccForm').css("margin-top", window.innerHeight/2-(150));
     $('#reqUnitForm').css("margin-top", window.innerHeight/2-(150));
     $('.ui.dropdown').dropdown({ fullTextSearch: true });
@@ -160,6 +171,18 @@ function init(){
             hide:500
         }
     });
+    var loginInt = setInterval(function(){
+        console.log("Session checked.");
+
+        $.ajax({
+            url: "src/php/loginCheck.php",
+            dataType: "text"
+        }).done(function(response){
+            if(response == "FAIL"){
+                window.location = "login.php";
+            }
+        });
+    },60000);
 }
 function getRegionLabel(){
     label = $("#region").val();
@@ -258,9 +281,15 @@ function updateLocation(){
                             display: false
                         },
                         ticks: {
-                            max: 100,
-                            min: 0,
-                            stepSize: 10
+                            max: 105,
+                            min: 0
+                        },
+                        afterBuildTicks: function(chart) {
+                            chart.ticks = [];
+                            for(var i = 0; i <= 100; i += 10){
+                                chart.ticks.push(i);
+                            }
+
                         }
                     }],
                     xAxes: [{
@@ -270,60 +299,57 @@ function updateLocation(){
                     }]
                 }
             };
-            getByLocation(options);
-        }
-    }
-}
-function getByLocation(options){
-    // Have to clear interval if graph is changed to line after region
-    if(int != null){
-        clearInterval(int);
-    }
+            // Have to clear interval if graph is changed to line after region
+            if(int != null){
+                clearInterval(int);
+            }
 
-    ids = $("#location").val();
-    $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
+            ids = $("#location").val();
+            $("#chartHolder").empty().append("<canvas id='chart' width='400' height='250'></canvas>");
 
-    // Draw graph initially on pageload
-    var ctx = document.getElementById("chart");
-    chart = new Chart(ctx, {
-        type: 'line',
-        data: lineData,
-        options: options
-    });
-
-    // Get date values
-    var fromDate = $("#fromDate").val();
-    var toDate = $("#toDate").val();
-
-    $.ajax({
-        url: "src/php/getByLocation.php",
-        type: "GET",
-        data: {
-            ids: ids,
-            fromDate: fromDate,
-            toDate: toDate
-        },
-        dataType: "text"
-    }).done(function(response) {
-        console.log(JSON.parse(response));
-        // Build the data from the php response
-        buildLineData(JSON.parse(response));
-
-        // Update the current time, and empty the alerts div
-        updateTime();
-
-        // If chart is null, draw, else, update
-        if(chart == null){
+            // Draw graph initially on pageload
             var ctx = document.getElementById("chart");
             chart = new Chart(ctx, {
                 type: 'line',
                 data: lineData,
                 options: options
             });
-        } else {
-            chart.update();
+
+            // Get date values
+            var fromDate = $("#fromDate").val();
+            var toDate = $("#toDate").val();
+
+            $.ajax({
+                url: "src/php/getByLocation.php",
+                type: "GET",
+                data: {
+                    ids: ids,
+                    fromDate: fromDate,
+                    toDate: toDate
+                },
+                dataType: "text"
+            }).done(function(response) {
+                console.log(JSON.parse(response));
+                // Build the data from the php response
+                buildLineData(JSON.parse(response));
+
+                // Update the current time, and empty the alerts div
+                updateTime();
+
+                // If chart is null, draw, else, update
+                if(chart == null){
+                    var ctx = document.getElementById("chart");
+                    chart = new Chart(ctx, {
+                        type: 'line',
+                        data: lineData,
+                        options: options
+                    });
+                } else {
+                    chart.update();
+                }
+            });
         }
-    });
+    }
 }
 function buildBarData(data, obj){
 
@@ -414,7 +440,7 @@ function lineStruct(data,label){
     this.pointHoverBackgroundColor = color;
     this.pointHoverBorderColor     = "rgba(220,220,220,1)";
     this.pointHoverBorderWidth     = 2;
-    this.pointRadius               = 1;
+    this.pointRadius               = 3;
     this.pointHitRadius            = 10;
     this.data                      = data;
     this.spanGaps                  = true;
